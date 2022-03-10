@@ -7,14 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using MySql.Data.MySqlClient;
 
 namespace ScheduleApptApp
 {
-    public partial class Appointment : Form
+    public partial class Appointments : Form
     {
-        public Appointment()
+        public Appointments()
         {
             InitializeComponent();
+
         }
+
+        
+
+        private void AddAppt_Click(object sender, EventArgs e)
+        {
+            AddAppointment form = new AddAppointment();
+            //form.Show();
+
+
+        }
+
     }
 }
