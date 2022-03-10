@@ -64,27 +64,30 @@ namespace ScheduleApptApp
             // 
             // AddCustomerBtn
             // 
-            this.AddCustomerBtn.Location = new System.Drawing.Point(77, 1191);
+            this.AddCustomerBtn.Location = new System.Drawing.Point(29, 499);
+            this.AddCustomerBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.AddCustomerBtn.Name = "AddCustomerBtn";
-            this.AddCustomerBtn.Size = new System.Drawing.Size(261, 80);
+            this.AddCustomerBtn.Size = new System.Drawing.Size(98, 34);
             this.AddCustomerBtn.TabIndex = 5;
             this.AddCustomerBtn.Text = "Add";
             this.AddCustomerBtn.UseVisualStyleBackColor = true;
             // 
             // ModifyCustomerBtn
             // 
-            this.ModifyCustomerBtn.Location = new System.Drawing.Point(468, 1184);
+            this.ModifyCustomerBtn.Location = new System.Drawing.Point(176, 497);
+            this.ModifyCustomerBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ModifyCustomerBtn.Name = "ModifyCustomerBtn";
-            this.ModifyCustomerBtn.Size = new System.Drawing.Size(261, 87);
+            this.ModifyCustomerBtn.Size = new System.Drawing.Size(98, 36);
             this.ModifyCustomerBtn.TabIndex = 6;
             this.ModifyCustomerBtn.Text = "Modify";
             this.ModifyCustomerBtn.UseVisualStyleBackColor = true;
             // 
             // DeleteCustomerBtn
             // 
-            this.DeleteCustomerBtn.Location = new System.Drawing.Point(861, 1181);
+            this.DeleteCustomerBtn.Location = new System.Drawing.Point(323, 495);
+            this.DeleteCustomerBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.DeleteCustomerBtn.Name = "DeleteCustomerBtn";
-            this.DeleteCustomerBtn.Size = new System.Drawing.Size(261, 90);
+            this.DeleteCustomerBtn.Size = new System.Drawing.Size(98, 38);
             this.DeleteCustomerBtn.TabIndex = 7;
             this.DeleteCustomerBtn.Text = "Delete";
             this.DeleteCustomerBtn.UseVisualStyleBackColor = true;
@@ -92,10 +95,11 @@ namespace ScheduleApptApp
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.1F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1050, 24);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.1F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(394, 10);
+            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(468, 55);
+            this.label2.Size = new System.Drawing.Size(168, 24);
             this.label2.TabIndex = 15;
             this.label2.Text = "Schedule Software";
             // 
@@ -105,8 +109,9 @@ namespace ScheduleApptApp
             this.flowLayoutPanel1.Controls.Add(this.Label);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(2927, 244);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(602, 102);
             this.flowLayoutPanel1.TabIndex = 17;
             // 
             // Label
@@ -114,9 +119,10 @@ namespace ScheduleApptApp
             this.Label.AutoSize = true;
             this.Label.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Label.Location = new System.Drawing.Point(3, 0);
+            this.Label.Location = new System.Drawing.Point(1, 0);
+            this.Label.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(327, 65);
+            this.Label.Size = new System.Drawing.Size(130, 25);
             this.Label.TabIndex = 0;
             this.Label.Text = "Appointments";
             // 
@@ -128,9 +134,10 @@ namespace ScheduleApptApp
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.AppointmentGrid);
             this.panel2.Controls.Add(this.AddAppt);
-            this.panel2.Location = new System.Drawing.Point(55, 325);
+            this.panel2.Location = new System.Drawing.Point(21, 136);
+            this.panel2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2564, 739);
+            this.panel2.Size = new System.Drawing.Size(516, 147);
             this.panel2.TabIndex = 18;
             // 
             // AppointmentGrid
@@ -163,7 +170,8 @@ namespace ScheduleApptApp
             this.Column16,
             this.Section});
             this.AppointmentGrid.GridColor = System.Drawing.Color.White;
-            this.AppointmentGrid.Location = new System.Drawing.Point(105, 179);
+            this.AppointmentGrid.Location = new System.Drawing.Point(39, 75);
+            this.AppointmentGrid.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.AppointmentGrid.MultiSelect = false;
             this.AppointmentGrid.Name = "AppointmentGrid";
             this.AppointmentGrid.ReadOnly = true;
@@ -171,7 +179,7 @@ namespace ScheduleApptApp
             this.AppointmentGrid.RowHeadersWidth = 102;
             this.AppointmentGrid.RowTemplate.Height = 40;
             this.AppointmentGrid.ShowEditingIcon = false;
-            this.AppointmentGrid.Size = new System.Drawing.Size(2349, 535);
+            this.AppointmentGrid.Size = new System.Drawing.Size(435, 61);
             this.AppointmentGrid.TabIndex = 0;
             // 
             // Column1
@@ -315,9 +323,10 @@ namespace ScheduleApptApp
             this.AddAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddAppt.ForeColor = System.Drawing.Color.White;
-            this.AddAppt.Location = new System.Drawing.Point(105, 37);
+            this.AddAppt.Location = new System.Drawing.Point(39, 16);
+            this.AddAppt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.AddAppt.Name = "AddAppt";
-            this.AddAppt.Size = new System.Drawing.Size(275, 108);
+            this.AddAppt.Size = new System.Drawing.Size(103, 45);
             this.AddAppt.TabIndex = 0;
             this.AddAppt.Text = "New";
             this.AddAppt.UseVisualStyleBackColor = false;
@@ -325,15 +334,16 @@ namespace ScheduleApptApp
             // 
             // Appointments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2927, 1118);
+            this.ClientSize = new System.Drawing.Size(602, 369);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DeleteCustomerBtn);
             this.Controls.Add(this.ModifyCustomerBtn);
             this.Controls.Add(this.AddCustomerBtn);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "Appointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
