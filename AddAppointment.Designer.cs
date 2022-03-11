@@ -235,6 +235,7 @@ namespace ScheduleApptApp
             this.label5.Size = new System.Drawing.Size(95, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Appointment ID:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Customer
             // 
