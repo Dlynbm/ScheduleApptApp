@@ -1,12 +1,6 @@
-﻿using System;
-
-namespace ScheduleApptApp
+﻿namespace ScheduleApptApp
 {
     internal class AddAppointment
     {
-        internal void ShowDialog()
-        {
-         
-        }
     }
 }
