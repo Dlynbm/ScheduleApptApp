@@ -17,27 +17,32 @@ namespace ScheduleApptApp
         public Appointments()
         {
             InitializeComponent();
-            MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            con.Open();
-            String sqlString = "SELECT * FROM user";
-            MySqlCommand cmd = new MySqlCommand(sqlString, con);
-            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            AppointmentGrid.DataSource = dt;
-            AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+            //con.Open();
+            //String sqlString = "SELECT * FROM user";
+            //MySqlCommand cmd = new MySqlCommand(sqlString, con);
+            //MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //adp.Fill(dt);
+            //AppointmentGrid.DataSource = dt;
+            //AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
+
+
 
         
 
-        private void AddAppt_Click(object sender, EventArgs e)
+        private void AddCustBtn_Click(object sender, EventArgs e)
         {
-            //AddAppointment form = new AddAppointment();
-            //form.Show();
-
-
+            AddCustomer form = new AddCustomer();
+            form.Show();
         }
 
+        private void ViewCustomersBtn_Click(object sender, EventArgs e)
+        {
+            Customers custForm = new Customers();
+            custForm.Show();
+        }
     }
 }

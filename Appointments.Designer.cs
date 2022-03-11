@@ -29,14 +29,14 @@ namespace ScheduleApptApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ViewCustomersBtn = new System.Windows.Forms.Button();
+            this.AddCustBtn = new System.Windows.Forms.Button();
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
-            this.AddAppt = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +54,8 @@ namespace ScheduleApptApp
             this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.AddAppt = new System.Windows.Forms.Button();
+            this.Label = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
@@ -72,26 +74,14 @@ namespace ScheduleApptApp
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.flowLayoutPanel1.Controls.Add(this.Label);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(965, 54);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(965, 89);
             this.flowLayoutPanel1.TabIndex = 17;
-            // 
-            // Label
-            // 
-            this.Label.AutoSize = true;
-            this.Label.Font = new System.Drawing.Font("Segoe UI", 14.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Label.Location = new System.Drawing.Point(1, 0);
-            this.Label.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(130, 25);
-            this.Label.TabIndex = 0;
-            this.Label.Text = "Appointments";
             // 
             // panel2
             // 
@@ -99,13 +89,47 @@ namespace ScheduleApptApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.ViewCustomersBtn);
+            this.panel2.Controls.Add(this.AddCustBtn);
             this.panel2.Controls.Add(this.AppointmentGrid);
             this.panel2.Controls.Add(this.AddAppt);
             this.panel2.Location = new System.Drawing.Point(21, 91);
-            this.panel2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(922, 421);
             this.panel2.TabIndex = 18;
+            // 
+            // ViewCustomersBtn
+            // 
+            this.ViewCustomersBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ViewCustomersBtn.BackColor = System.Drawing.Color.CadetBlue;
+            this.ViewCustomersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ViewCustomersBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewCustomersBtn.ForeColor = System.Drawing.Color.White;
+            this.ViewCustomersBtn.Location = new System.Drawing.Point(569, 16);
+            this.ViewCustomersBtn.Margin = new System.Windows.Forms.Padding(1);
+            this.ViewCustomersBtn.Name = "ViewCustomersBtn";
+            this.ViewCustomersBtn.Size = new System.Drawing.Size(150, 45);
+            this.ViewCustomersBtn.TabIndex = 2;
+            this.ViewCustomersBtn.Text = "View Customers";
+            this.ViewCustomersBtn.UseVisualStyleBackColor = false;
+            this.ViewCustomersBtn.Click += new System.EventHandler(this.ViewCustomersBtn_Click);
+            // 
+            // AddCustBtn
+            // 
+            this.AddCustBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddCustBtn.BackColor = System.Drawing.Color.CadetBlue;
+            this.AddCustBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddCustBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddCustBtn.ForeColor = System.Drawing.Color.White;
+            this.AddCustBtn.Location = new System.Drawing.Point(730, 16);
+            this.AddCustBtn.Margin = new System.Windows.Forms.Padding(1);
+            this.AddCustBtn.Name = "AddCustBtn";
+            this.AddCustBtn.Size = new System.Drawing.Size(150, 45);
+            this.AddCustBtn.TabIndex = 1;
+            this.AddCustBtn.Text = "Add Customer";
+            this.AddCustBtn.UseVisualStyleBackColor = false;
+            this.AddCustBtn.Click += new System.EventHandler(this.AddCustBtn_Click);
             // 
             // AppointmentGrid
             // 
@@ -140,7 +164,7 @@ namespace ScheduleApptApp
             this.Column15});
             this.AppointmentGrid.GridColor = System.Drawing.Color.White;
             this.AppointmentGrid.Location = new System.Drawing.Point(39, 75);
-            this.AppointmentGrid.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.AppointmentGrid.Margin = new System.Windows.Forms.Padding(1);
             this.AppointmentGrid.MultiSelect = false;
             this.AppointmentGrid.Name = "AppointmentGrid";
             this.AppointmentGrid.ReadOnly = true;
@@ -151,21 +175,6 @@ namespace ScheduleApptApp
             this.AppointmentGrid.ShowEditingIcon = false;
             this.AppointmentGrid.Size = new System.Drawing.Size(841, 335);
             this.AppointmentGrid.TabIndex = 0;
-            // 
-            // AddAppt
-            // 
-            this.AddAppt.BackColor = System.Drawing.Color.RoyalBlue;
-            this.AddAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddAppt.ForeColor = System.Drawing.Color.White;
-            this.AddAppt.Location = new System.Drawing.Point(39, 16);
-            this.AddAppt.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
-            this.AddAppt.Name = "AddAppt";
-            this.AddAppt.Size = new System.Drawing.Size(103, 45);
-            this.AddAppt.TabIndex = 0;
-            this.AddAppt.Text = "New";
-            this.AddAppt.UseVisualStyleBackColor = false;
-            this.AddAppt.Click += new System.EventHandler(this.AddAppt_Click);
             // 
             // Column1
             // 
@@ -274,13 +283,13 @@ namespace ScheduleApptApp
             // 
             // Column16
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.Column16.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column16.HeaderText = "";
             this.Column16.MinimumWidth = 12;
@@ -291,13 +300,13 @@ namespace ScheduleApptApp
             // 
             // Column15
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe MDL2 Assets", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column15.HeaderText = "";
             this.Column15.MinimumWidth = 12;
@@ -305,6 +314,36 @@ namespace ScheduleApptApp
             this.Column15.ReadOnly = true;
             this.Column15.Text = "Delete";
             this.Column15.UseColumnTextForButtonValue = true;
+            // 
+            // AddAppt
+            // 
+            this.AddAppt.BackColor = System.Drawing.Color.Coral;
+            this.AddAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddAppt.ForeColor = System.Drawing.Color.White;
+            this.AddAppt.Location = new System.Drawing.Point(39, 16);
+            this.AddAppt.Margin = new System.Windows.Forms.Padding(1);
+            this.AddAppt.Name = "AddAppt";
+            this.AddAppt.Size = new System.Drawing.Size(150, 45);
+            this.AddAppt.TabIndex = 0;
+            this.AddAppt.Text = "Add Appointment";
+            this.AddAppt.UseVisualStyleBackColor = false;
+            // 
+            // Label
+            // 
+            this.Label.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label.AutoSize = true;
+            this.Label.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label.ForeColor = System.Drawing.Color.Black;
+            this.Label.Location = new System.Drawing.Point(1, 0);
+            this.Label.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.Label.Name = "Label";
+            this.Label.Size = new System.Drawing.Size(441, 30);
+            this.Label.TabIndex = 0;
+            this.Label.Text = "View All of Your Customers and Appointments";
+            this.Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Appointments
             // 
@@ -314,7 +353,7 @@ namespace ScheduleApptApp
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "Appointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Appointments";
@@ -331,7 +370,6 @@ namespace ScheduleApptApp
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label Label;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button AddAppt;
         private System.Windows.Forms.DataGridView AppointmentGrid;
@@ -352,6 +390,9 @@ namespace ScheduleApptApp
         private System.Windows.Forms.DataGridViewTextBoxColumn Section;
         private System.Windows.Forms.DataGridViewButtonColumn Column16;
         private System.Windows.Forms.DataGridViewButtonColumn Column15;
+        private System.Windows.Forms.Button AddCustBtn;
+        private System.Windows.Forms.Button ViewCustomersBtn;
+        private System.Windows.Forms.Label Label;
     }
 }
 

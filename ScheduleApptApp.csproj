@@ -53,13 +53,13 @@
     <Compile Include="AddAppointment.Designer.cs">
       <DependentUpon>AddAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddAppointment1.cs" />
     <Compile Include="AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddCustomer.Designer.cs">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Appointment.cs" />
     <Compile Include="Appointments.cs">
       <SubType>Form</SubType>
     </Compile>
