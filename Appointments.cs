@@ -32,8 +32,8 @@ namespace ScheduleApptApp
 
         private void AddAppt_Click(object sender, EventArgs e)
         {
-            //AddAppointment form = new AddAppointment();
-            //form.ShowDialog();
+            AddAppointment form = new AddAppointment();
+            form.Show();
 
 
         }

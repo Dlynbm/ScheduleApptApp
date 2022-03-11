@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace ScheduleApptApp
 {
-    public partial class Customers : Form
+    public partial class AddCustomer : Form
     {
-        public Customers()
+        public AddCustomer()
         {
             InitializeComponent();
         }
 
-        private void AddCustomerBtn_Click(object sender, EventArgs e)
+        private void SaveApptBtn_Click(object sender, EventArgs e)
         {
-            AddCustomer form = new AddCustomer();
-            form.Show();
+            
         }
     }
 }

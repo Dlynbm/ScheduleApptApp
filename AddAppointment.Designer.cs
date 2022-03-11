@@ -87,9 +87,9 @@ namespace ScheduleApptApp
             this.AddApptLabel.Location = new System.Drawing.Point(10, 19);
             this.AddApptLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.AddApptLabel.Name = "AddApptLabel";
-            this.AddApptLabel.Size = new System.Drawing.Size(261, 25);
+            this.AddApptLabel.Size = new System.Drawing.Size(221, 25);
             this.AddApptLabel.TabIndex = 0;
-            this.AddApptLabel.Text = "Add/Edit/Delete Appointment";
+            this.AddApptLabel.Text = "Add or Edit Appointment";
             // 
             // panel4
             // 
@@ -300,18 +300,6 @@ namespace ScheduleApptApp
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button AddApptBtnSave;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button SaveApptBtn;
         private System.Windows.Forms.Label AddApptLabel;
