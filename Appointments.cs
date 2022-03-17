@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿//using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 
 namespace ScheduleApptApp
 {
@@ -17,15 +17,18 @@ namespace ScheduleApptApp
         public Appointments()
         {
             InitializeComponent();
-            //MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            //con.Open();
-            //String sqlString = "SELECT * FROM user";
-            //MySqlCommand cmd = new MySqlCommand(sqlString, con);
-            //MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-            //DataTable dt = new DataTable();
-            //adp.Fill(dt);
-            //AppointmentGrid.DataSource = dt;
-            //AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+            con.Open();
+            String sqlString = "SELECT * FROM appointment";
+            MySqlCommand cmd = new MySqlCommand(sqlString, con);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            AppointmentGrid.AutoGenerateColumns = false;
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            AppointmentGrid.DataSource = dt;
+            AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
 
         }
 
@@ -44,5 +47,11 @@ namespace ScheduleApptApp
             Customers custForm = new Customers();
             custForm.Show();
         }
+
+        //private void AddAppt_Click(object sender, EventArgs e)
+        //{
+        //    AddAppointment apptForm = new Appointment();
+        //    apptForm.Show();
+        //}
     }
 }

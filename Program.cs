@@ -16,6 +16,8 @@ namespace ScheduleApptApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //change next line to login form instead of appointment
             Application.Run(new Appointments());
         }
     }
