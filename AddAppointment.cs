@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ScheduleApptApp
 {
-    public partial class Customer : Form
+    public partial class AddAppointment : Form
     {
-        public void AddAppointment()
+        public AddAppointment()
         {
             InitializeComponent();
         }

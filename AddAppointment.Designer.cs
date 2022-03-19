@@ -1,7 +1,7 @@
 ﻿
 namespace ScheduleApptApp
 {
-    partial class Customer
+    partial class AddAppointment
     {
         /// <summary>
         /// Required designer variable.
