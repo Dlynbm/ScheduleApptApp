@@ -1,7 +1,7 @@
 ﻿
 namespace ScheduleApptApp
 {
-    partial class Customers
+    partial class FormAllCustomers
     {
         /// <summary>
         /// Required designer variable.

@@ -1,7 +1,7 @@
 ﻿
 namespace ScheduleApptApp
 {
-    partial class Appointments
+    partial class FormAllAppointments
     {
         /// <summary>
         /// Required designer variable.
@@ -29,33 +29,27 @@ namespace ScheduleApptApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ViewCustomersBtn = new System.Windows.Forms.Button();
             this.ReportsBtn = new System.Windows.Forms.Button();
-            this.AddApptBtn = new System.Windows.Forms.Button();
-            this.Column15 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
+            this.AddApptBtn = new System.Windows.Forms.Button();
+            this.SearchTxtBox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
@@ -109,10 +103,10 @@ namespace ScheduleApptApp
             this.panel2.Controls.Add(this.ReportsBtn);
             this.panel2.Controls.Add(this.AppointmentGrid);
             this.panel2.Controls.Add(this.AddApptBtn);
-            this.panel2.Location = new System.Drawing.Point(21, 91);
+            this.panel2.Location = new System.Drawing.Point(6, 159);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(922, 421);
+            this.panel2.Size = new System.Drawing.Size(922, 366);
             this.panel2.TabIndex = 18;
             // 
             // ViewCustomersBtn
@@ -147,6 +141,43 @@ namespace ScheduleApptApp
             this.ReportsBtn.UseVisualStyleBackColor = false;
             this.ReportsBtn.Click += new System.EventHandler(this.AddCustBtn_Click);
             // 
+            // AppointmentGrid
+            // 
+            this.AppointmentGrid.AllowUserToAddRows = false;
+            this.AppointmentGrid.AllowUserToDeleteRows = false;
+            this.AppointmentGrid.AllowUserToResizeColumns = false;
+            this.AppointmentGrid.AllowUserToResizeRows = false;
+            this.AppointmentGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AppointmentGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.AppointmentGrid.BackgroundColor = System.Drawing.Color.White;
+            this.AppointmentGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AppointmentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AppointmentGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Section,
+            this.Column16,
+            this.Column15});
+            this.AppointmentGrid.GridColor = System.Drawing.Color.White;
+            this.AppointmentGrid.Location = new System.Drawing.Point(39, 75);
+            this.AppointmentGrid.Margin = new System.Windows.Forms.Padding(1);
+            this.AppointmentGrid.MultiSelect = false;
+            this.AppointmentGrid.Name = "AppointmentGrid";
+            this.AppointmentGrid.ReadOnly = true;
+            this.AppointmentGrid.RowHeadersVisible = false;
+            this.AppointmentGrid.RowHeadersWidth = 102;
+            this.AppointmentGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.AppointmentGrid.RowTemplate.Height = 40;
+            this.AppointmentGrid.ShowEditingIcon = false;
+            this.AppointmentGrid.Size = new System.Drawing.Size(841, 280);
+            this.AppointmentGrid.TabIndex = 0;
+            // 
             // AddApptBtn
             // 
             this.AddApptBtn.BackColor = System.Drawing.Color.Coral;
@@ -162,22 +193,75 @@ namespace ScheduleApptApp
             this.AddApptBtn.UseVisualStyleBackColor = false;
             this.AddApptBtn.Click += new System.EventHandler(this.AddApptBtn_Click);
             // 
-            // Column15
+            // SearchTxtBox
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Column15.HeaderText = "";
-            this.Column15.MinimumWidth = 12;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Text = "Delete";
-            this.Column15.UseColumnTextForButtonValue = true;
+            this.SearchTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchTxtBox.Location = new System.Drawing.Point(703, 121);
+            this.SearchTxtBox.Name = "SearchTxtBox";
+            this.SearchTxtBox.Size = new System.Drawing.Size(144, 20);
+            this.SearchTxtBox.TabIndex = 1;
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(853, 107);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(75, 34);
+            this.searchBtn.TabIndex = 19;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Appointment ID";
+            this.Column1.MinimumWidth = 12;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Customer ID";
+            this.Column2.MinimumWidth = 12;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "User ID";
+            this.Column3.MinimumWidth = 12;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Type";
+            this.Column8.MinimumWidth = 12;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Start Date";
+            this.Column9.MinimumWidth = 12;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "End Date";
+            this.Column10.MinimumWidth = 12;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Section
+            // 
+            this.Section.HeaderText = "Section";
+            this.Section.MinimumWidth = 12;
+            this.Section.Name = "Section";
+            this.Section.ReadOnly = true;
             // 
             // Column16
             // 
@@ -196,168 +280,37 @@ namespace ScheduleApptApp
             this.Column16.Text = "Edit";
             this.Column16.UseColumnTextForButtonValue = true;
             // 
-            // Section
+            // Column15
             // 
-            this.Section.HeaderText = "Section";
-            this.Section.MinimumWidth = 12;
-            this.Section.Name = "Section";
-            this.Section.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Column15.HeaderText = "";
+            this.Column15.MinimumWidth = 12;
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Text = "Delete";
+            this.Column15.UseColumnTextForButtonValue = true;
             // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Last Update By";
-            this.Column14.MinimumWidth = 12;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Last Update";
-            this.Column13.MinimumWidth = 12;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Created By";
-            this.Column12.MinimumWidth = 12;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Create Date";
-            this.Column11.MinimumWidth = 12;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "End Date";
-            this.Column10.MinimumWidth = 12;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Start Date";
-            this.Column9.MinimumWidth = 12;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Type";
-            this.Column8.MinimumWidth = 12;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Contact";
-            this.Column7.MinimumWidth = 12;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Location";
-            this.Column6.MinimumWidth = 12;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Description";
-            this.Column5.MinimumWidth = 12;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Title";
-            this.Column4.MinimumWidth = 12;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "User ID";
-            this.Column3.MinimumWidth = 12;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Customer ID";
-            this.Column2.MinimumWidth = 12;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Appointment ID";
-            this.Column1.MinimumWidth = 12;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // AppointmentGrid
-            // 
-            this.AppointmentGrid.AllowUserToAddRows = false;
-            this.AppointmentGrid.AllowUserToDeleteRows = false;
-            this.AppointmentGrid.AllowUserToResizeColumns = false;
-            this.AppointmentGrid.AllowUserToResizeRows = false;
-            this.AppointmentGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AppointmentGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.AppointmentGrid.BackgroundColor = System.Drawing.Color.White;
-            this.AppointmentGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AppointmentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AppointmentGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12,
-            this.Column13,
-            this.Column14,
-            this.Section,
-            this.Column16,
-            this.Column15});
-            this.AppointmentGrid.GridColor = System.Drawing.Color.White;
-            this.AppointmentGrid.Location = new System.Drawing.Point(39, 75);
-            this.AppointmentGrid.Margin = new System.Windows.Forms.Padding(1);
-            this.AppointmentGrid.MultiSelect = false;
-            this.AppointmentGrid.Name = "AppointmentGrid";
-            this.AppointmentGrid.ReadOnly = true;
-            this.AppointmentGrid.RowHeadersVisible = false;
-            this.AppointmentGrid.RowHeadersWidth = 102;
-            this.AppointmentGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.AppointmentGrid.RowTemplate.Height = 40;
-            this.AppointmentGrid.ShowEditingIcon = false;
-            this.AppointmentGrid.Size = new System.Drawing.Size(841, 335);
-            this.AppointmentGrid.TabIndex = 0;
-            // 
-            // Appointments
+            // FormAllAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 547);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.SearchTxtBox);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label2);
             this.Margin = new System.Windows.Forms.Padding(1);
-            this.Name = "Appointments";
+            this.Name = "FormAllAppointments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Appointments";
+            this.Text = "All Appointments";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -377,20 +330,14 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Button ViewCustomersBtn;
         private System.Windows.Forms.Label Label;
         private System.Windows.Forms.DataGridView AppointmentGrid;
+        private System.Windows.Forms.TextBox SearchTxtBox;
+        private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Section;
         private System.Windows.Forms.DataGridViewButtonColumn Column16;
         private System.Windows.Forms.DataGridViewButtonColumn Column15;

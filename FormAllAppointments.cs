@@ -12,42 +12,34 @@ using MySql.Data.MySqlClient;
 
 namespace ScheduleApptApp
 {
-    public partial class Appointments : Form
+    public partial class FormAllAppointments : Form
     {
-        public Appointments()
+        public FormAllAppointments()
         {
             InitializeComponent();
             
         }
 
-        private void Appoointments_Load(object sender, EventArgs e)
-        {
-            MySqlDataAdapter da = new MySqlDataAdapter("SELECT * FROM Appointment", "server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            DataSet ds = new DataSet();
-            da.Fill(ds, "Appointment");
-            AppointmentGrid.DataSource = ds.Tables["Appointment"].DefaultView;
-        }
-
-
-
-
-
-        private void AddCustBtn_Click(object sender, EventArgs e)
+         private void AddCustBtn_Click(object sender, EventArgs e)
         {
             
         }
 
         private void ViewCustomersBtn_Click(object sender, EventArgs e)
         {
-            Customers custForm = new Customers();
+            FormAllCustomers custForm = new FormAllCustomers();
             custForm.Show();
         }
 
         private void AddApptBtn_Click(object sender, EventArgs e)
         {
-            AddAppointment apptForm = new AddAppointment();
+            FormAddAppointment apptForm = new AddAppointment();
             apptForm.Show();
         }
+
+     
+
+
 
 
 
