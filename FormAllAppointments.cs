@@ -17,13 +17,12 @@ namespace ScheduleApptApp
         public FormAllAppointments()
         {
             InitializeComponent();
-            
+
         }
 
-         private void AddCustBtn_Click(object sender, EventArgs e)
-        {
-            
-        }
+      
+
+
 
         private void ViewCustomersBtn_Click(object sender, EventArgs e)
         {
@@ -33,9 +32,12 @@ namespace ScheduleApptApp
 
         private void AddApptBtn_Click(object sender, EventArgs e)
         {
-            FormAddAppointment apptForm = new AddAppointment();
-            apptForm.Show();
+            FormAddAppointment addAppt = new FormAddAppointment(this);
+            addAppt.Show();
         }
+
+        
+    }
 
      
 
@@ -43,10 +45,6 @@ namespace ScheduleApptApp
 
 
 
-        //private void AddAppt_Click(object sender, EventArgs e)
-        //{
-        //    AddAppointment apptForm = new Appointment();
-        //    apptForm.Show();
-        //}
-    }
+        
+    
 }

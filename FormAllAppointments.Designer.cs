@@ -29,8 +29,8 @@ namespace ScheduleApptApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label = new System.Windows.Forms.Label();
@@ -38,18 +38,17 @@ namespace ScheduleApptApp
             this.ViewCustomersBtn = new System.Windows.Forms.Button();
             this.ReportsBtn = new System.Windows.Forms.Button();
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
-            this.AddApptBtn = new System.Windows.Forms.Button();
-            this.SearchTxtBox = new System.Windows.Forms.TextBox();
-            this.searchBtn = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.AddApptBtn = new System.Windows.Forms.Button();
+            this.SearchTxtBox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
@@ -139,7 +138,6 @@ namespace ScheduleApptApp
             this.ReportsBtn.TabIndex = 1;
             this.ReportsBtn.Text = "Reports";
             this.ReportsBtn.UseVisualStyleBackColor = false;
-            this.ReportsBtn.Click += new System.EventHandler(this.AddCustBtn_Click);
             // 
             // AppointmentGrid
             // 
@@ -160,7 +158,6 @@ namespace ScheduleApptApp
             this.Column3,
             this.Column8,
             this.Column9,
-            this.Column10,
             this.Section,
             this.Column16,
             this.Column15});
@@ -177,42 +174,6 @@ namespace ScheduleApptApp
             this.AppointmentGrid.ShowEditingIcon = false;
             this.AppointmentGrid.Size = new System.Drawing.Size(841, 280);
             this.AppointmentGrid.TabIndex = 0;
-            // 
-            // AddApptBtn
-            // 
-            this.AddApptBtn.BackColor = System.Drawing.Color.Coral;
-            this.AddApptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddApptBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddApptBtn.ForeColor = System.Drawing.Color.White;
-            this.AddApptBtn.Location = new System.Drawing.Point(39, 16);
-            this.AddApptBtn.Margin = new System.Windows.Forms.Padding(1);
-            this.AddApptBtn.Name = "AddApptBtn";
-            this.AddApptBtn.Size = new System.Drawing.Size(297, 45);
-            this.AddApptBtn.TabIndex = 0;
-            this.AddApptBtn.Text = "Add Appointment";
-            this.AddApptBtn.UseVisualStyleBackColor = false;
-            this.AddApptBtn.Click += new System.EventHandler(this.AddApptBtn_Click);
-            // 
-            // SearchTxtBox
-            // 
-            this.SearchTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchTxtBox.Location = new System.Drawing.Point(703, 121);
-            this.SearchTxtBox.Name = "SearchTxtBox";
-            this.SearchTxtBox.Size = new System.Drawing.Size(144, 20);
-            this.SearchTxtBox.TabIndex = 1;
-            // 
-            // searchBtn
-            // 
-            this.searchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn.ForeColor = System.Drawing.Color.White;
-            this.searchBtn.Location = new System.Drawing.Point(853, 107);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(75, 34);
-            this.searchBtn.TabIndex = 19;
-            this.searchBtn.Text = "Search";
-            this.searchBtn.UseVisualStyleBackColor = false;
             // 
             // Column1
             // 
@@ -249,13 +210,6 @@ namespace ScheduleApptApp
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "End Date";
-            this.Column10.MinimumWidth = 12;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
             // Section
             // 
             this.Section.HeaderText = "Section";
@@ -265,13 +219,13 @@ namespace ScheduleApptApp
             // 
             // Column16
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Coral;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Coral;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.Column16.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Coral;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Coral;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column16.HeaderText = "";
             this.Column16.MinimumWidth = 12;
@@ -282,13 +236,13 @@ namespace ScheduleApptApp
             // 
             // Column15
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe MDL2 Assets", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column15.HeaderText = "";
             this.Column15.MinimumWidth = 12;
@@ -296,6 +250,42 @@ namespace ScheduleApptApp
             this.Column15.ReadOnly = true;
             this.Column15.Text = "Delete";
             this.Column15.UseColumnTextForButtonValue = true;
+            // 
+            // AddApptBtn
+            // 
+            this.AddApptBtn.BackColor = System.Drawing.Color.Coral;
+            this.AddApptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddApptBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddApptBtn.ForeColor = System.Drawing.Color.White;
+            this.AddApptBtn.Location = new System.Drawing.Point(39, 16);
+            this.AddApptBtn.Margin = new System.Windows.Forms.Padding(1);
+            this.AddApptBtn.Name = "AddApptBtn";
+            this.AddApptBtn.Size = new System.Drawing.Size(297, 45);
+            this.AddApptBtn.TabIndex = 0;
+            this.AddApptBtn.Text = "Add Appointment";
+            this.AddApptBtn.UseVisualStyleBackColor = false;
+            this.AddApptBtn.Click += new System.EventHandler(this.AddApptBtn_Click);
+            // 
+            // SearchTxtBox
+            // 
+            this.SearchTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchTxtBox.Location = new System.Drawing.Point(703, 121);
+            this.SearchTxtBox.Name = "SearchTxtBox";
+            this.SearchTxtBox.Size = new System.Drawing.Size(144, 20);
+            this.SearchTxtBox.TabIndex = 1;
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.searchBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(853, 107);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(75, 34);
+            this.searchBtn.TabIndex = 19;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = false;
             // 
             // FormAllAppointments
             // 
@@ -337,7 +327,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Section;
         private System.Windows.Forms.DataGridViewButtonColumn Column16;
         private System.Windows.Forms.DataGridViewButtonColumn Column15;

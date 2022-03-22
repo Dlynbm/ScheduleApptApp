@@ -33,16 +33,16 @@ namespace ScheduleApptApp
             this.AddApptLabel = new System.Windows.Forms.Label();
             this.SaveApptBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.StartDateTxtBox = new System.Windows.Forms.TextBox();
+            this.txtDate = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.customerIdTxtBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.UserIdTxtBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ApptIdTxtBox = new System.Windows.Forms.TextBox();
+            this.txtApptId = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.TypeTxtBox = new System.Windows.Forms.TextBox();
+            this.txtType = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtCustId = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtUserId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -82,33 +82,32 @@ namespace ScheduleApptApp
             this.SaveApptBtn.TabIndex = 0;
             this.SaveApptBtn.Text = "Save";
             this.SaveApptBtn.UseVisualStyleBackColor = false;
-            this.SaveApptBtn.Click += new System.EventHandler(this.SaveApptBtn_Click);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.StartDateTxtBox);
+            this.panel4.Controls.Add(this.txtDate);
             this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.ApptIdTxtBox);
+            this.panel4.Controls.Add(this.txtApptId);
             this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.TypeTxtBox);
+            this.panel4.Controls.Add(this.txtType);
             this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.customerIdTxtBox);
+            this.panel4.Controls.Add(this.txtCustId);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.UserIdTxtBox);
+            this.panel4.Controls.Add(this.txtUserId);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(29, 104);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(452, 389);
             this.panel4.TabIndex = 0;
             // 
-            // StartDateTxtBox
+            // txtDate
             // 
-            this.StartDateTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartDateTxtBox.Location = new System.Drawing.Point(26, 309);
-            this.StartDateTxtBox.Name = "StartDateTxtBox";
-            this.StartDateTxtBox.Size = new System.Drawing.Size(403, 23);
-            this.StartDateTxtBox.TabIndex = 15;
+            this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDate.Location = new System.Drawing.Point(26, 309);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(403, 23);
+            this.txtDate.TabIndex = 1;
             // 
             // label13
             // 
@@ -120,49 +119,13 @@ namespace ScheduleApptApp
             this.label13.TabIndex = 14;
             this.label13.Text = "Schedule Time:";
             // 
-            // customerIdTxtBox
+            // txtApptId
             // 
-            this.customerIdTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerIdTxtBox.Location = new System.Drawing.Point(26, 181);
-            this.customerIdTxtBox.Name = "customerIdTxtBox";
-            this.customerIdTxtBox.Size = new System.Drawing.Size(403, 23);
-            this.customerIdTxtBox.TabIndex = 5;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(23, 153);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 15);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Customer ID:";
-            // 
-            // UserIdTxtBox
-            // 
-            this.UserIdTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserIdTxtBox.Location = new System.Drawing.Point(26, 53);
-            this.UserIdTxtBox.Name = "UserIdTxtBox";
-            this.UserIdTxtBox.Size = new System.Drawing.Size(403, 23);
-            this.UserIdTxtBox.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 15);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "User Id:";
-            // 
-            // ApptIdTxtBox
-            // 
-            this.ApptIdTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApptIdTxtBox.Location = new System.Drawing.Point(26, 117);
-            this.ApptIdTxtBox.Name = "ApptIdTxtBox";
-            this.ApptIdTxtBox.Size = new System.Drawing.Size(403, 23);
-            this.ApptIdTxtBox.TabIndex = 11;
+            this.txtApptId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApptId.Location = new System.Drawing.Point(26, 117);
+            this.txtApptId.Name = "txtApptId";
+            this.txtApptId.Size = new System.Drawing.Size(403, 23);
+            this.txtApptId.TabIndex = 1;
             // 
             // label11
             // 
@@ -174,13 +137,13 @@ namespace ScheduleApptApp
             this.label11.TabIndex = 10;
             this.label11.Text = "Appointment ID:";
             // 
-            // TypeTxtBox
+            // txtType
             // 
-            this.TypeTxtBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TypeTxtBox.Location = new System.Drawing.Point(26, 245);
-            this.TypeTxtBox.Name = "TypeTxtBox";
-            this.TypeTxtBox.Size = new System.Drawing.Size(403, 23);
-            this.TypeTxtBox.TabIndex = 7;
+            this.txtType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtType.Location = new System.Drawing.Point(26, 245);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(403, 23);
+            this.txtType.TabIndex = 1;
             // 
             // label9
             // 
@@ -191,6 +154,42 @@ namespace ScheduleApptApp
             this.label9.Size = new System.Drawing.Size(34, 15);
             this.label9.TabIndex = 6;
             this.label9.Text = "Type:";
+            // 
+            // txtCustId
+            // 
+            this.txtCustId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustId.Location = new System.Drawing.Point(26, 181);
+            this.txtCustId.Name = "txtCustId";
+            this.txtCustId.Size = new System.Drawing.Size(403, 23);
+            this.txtCustId.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(23, 153);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 15);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Customer ID:";
+            // 
+            // txtUserId
+            // 
+            this.txtUserId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserId.Location = new System.Drawing.Point(26, 53);
+            this.txtUserId.Name = "txtUserId";
+            this.txtUserId.Size = new System.Drawing.Size(403, 23);
+            this.txtUserId.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(23, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 15);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "User Id:";
             // 
             // FormAddAppointment
             // 
@@ -216,15 +215,15 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Button SaveApptBtn;
         private System.Windows.Forms.Label AddApptLabel;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox StartDateTxtBox;
+        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox customerIdTxtBox;
+        private System.Windows.Forms.TextBox txtCustId;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox UserIdTxtBox;
+        private System.Windows.Forms.TextBox txtUserId;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox ApptIdTxtBox;
+        private System.Windows.Forms.TextBox txtApptId;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox TypeTxtBox;
+        private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Label label9;
     }
 }

@@ -84,7 +84,6 @@ namespace ScheduleApptApp
             this.SaveApptBtn.TabIndex = 3;
             this.SaveApptBtn.Text = "Save";
             this.SaveApptBtn.UseVisualStyleBackColor = false;
-            this.SaveApptBtn.Click += new System.EventHandler(this.SaveApptBtn_Click);
             // 
             // panel1
             // 
@@ -148,7 +147,6 @@ namespace ScheduleApptApp
             this.label2.Size = new System.Drawing.Size(52, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Address:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox3
             // 
@@ -201,7 +199,6 @@ namespace ScheduleApptApp
             this.label6.Size = new System.Drawing.Size(42, 15);
             this.label6.TabIndex = 14;
             this.label6.Text = "Name:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // textBox6
             // 

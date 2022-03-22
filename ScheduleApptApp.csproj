@@ -115,7 +115,6 @@
     <Compile Include="FormAllCustomers.Designer.cs">
       <DependentUpon>FormAllCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBAppointment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAddAppointment.resx">

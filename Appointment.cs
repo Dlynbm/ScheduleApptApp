@@ -8,33 +8,28 @@ namespace ScheduleApptApp
 {
     class Appointment
     {
-        public int AppointmentId { get; set; }
-        public int CustomerId { get; set; }
-        public int UserId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-
-        public string Contact { get; set; }
-
-        public DateTime Start { get; set; }
-
-        public DateTime End { get; set; }
+        public int appointmentId { get; set; }
+        public int customerId { get; set; }
+        public int userId { get; set; }
+        public string type { get; set; }
+        public DateTime start { get; set; }
 
 
 
 
 
-        public Appointment(int apptId, int custId, int useId, string t, string desc, string loc, string cont,string typ,
-            DateTime strt, DateTime en, DateTime crtdBy, string lstUdBy)
+
+        public Appointment(int apptId, int custId, int useId, string tp, DateTime strt)
         {
-            AppointmentId = apptId;
-            CustomerId = custId;
-            UserId = useId;
-            Title = t;
-            Description = desc;
-            Contact = cont;
-            Start = strt;
-            End = en;
+            appointmentId = apptId;
+            customerId = custId;
+            userId = useId;
+            type = tp;
+            start = strt;
+        }
+
+        public Appointment(string v1, string v2, string v3, string v4, string v5)
+        {
         }
     }
 }
