@@ -17,21 +17,37 @@ namespace ScheduleApptApp
         public FormAllCustomers()
         {
             InitializeComponent();
-            //MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            //con.Open();
-            //String sqlString = "SELECT * FROM customer";
-            //MySqlCommand cmd = new MySqlCommand(sqlString, con);
-            //MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            //DataTable custTable = new DataTable();
-            //da.Fill(custTable);
-            //CustomersGrid.DataSource = custTable;
-            //CustomersGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+            con.Open();
+            String sqlString = "SELECT customerId, customerName, addressId, active FROM customer";
+            MySqlCommand cmd = new MySqlCommand(sqlString, con);
+            MySqlDataAdapter cust = new MySqlDataAdapter(cmd);
+            DataTable dataTble = new DataTable();
+            cust.Fill(dataTble);
+            CustomerGrid.DataSource = dataTble;
+            CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+
+            CustomerGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            CustomerGrid.RowHeadersVisible = false;
+            CustomerGrid.ReadOnly = true;
+            CustomerGrid.AllowUserToAddRows = true;
+
+
+
         }
 
-        private void AddCustomerBtn_Click(object sender, EventArgs e)
+
+
+        
+
+        private void AddCustomerBtn_Click_1(object sender, EventArgs e)
         {
             AddCustomer form = new AddCustomer();
             form.Show();
         }
     }
 }
+
+

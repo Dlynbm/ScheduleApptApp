@@ -33,7 +33,9 @@ namespace ScheduleApptApp
             this.AddApptLabel = new System.Windows.Forms.Label();
             this.SaveApptBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txtDate = new System.Windows.Forms.TextBox();
+            this.addTimeEnd = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.addTimeStart = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.txtApptId = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -86,7 +88,9 @@ namespace ScheduleApptApp
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.txtDate);
+            this.panel4.Controls.Add(this.addTimeEnd);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.addTimeStart);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.txtApptId);
             this.panel4.Controls.Add(this.label11);
@@ -101,23 +105,39 @@ namespace ScheduleApptApp
             this.panel4.Size = new System.Drawing.Size(452, 389);
             this.panel4.TabIndex = 0;
             // 
-            // txtDate
+            // addTimeEnd
             // 
-            this.txtDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDate.Location = new System.Drawing.Point(26, 309);
-            this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(403, 23);
-            this.txtDate.TabIndex = 1;
+            this.addTimeEnd.Location = new System.Drawing.Point(244, 299);
+            this.addTimeEnd.Name = "addTimeEnd";
+            this.addTimeEnd.Size = new System.Drawing.Size(200, 20);
+            this.addTimeEnd.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(241, 281);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 15);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "End Time:";
+            // 
+            // addTimeStart
+            // 
+            this.addTimeStart.Location = new System.Drawing.Point(9, 299);
+            this.addTimeStart.Name = "addTimeStart";
+            this.addTimeStart.Size = new System.Drawing.Size(200, 20);
+            this.addTimeStart.TabIndex = 15;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(23, 281);
+            this.label13.Location = new System.Drawing.Point(6, 281);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 15);
+            this.label13.Size = new System.Drawing.Size(63, 15);
             this.label13.TabIndex = 14;
-            this.label13.Text = "Schedule Time:";
+            this.label13.Text = "Start Time:";
             // 
             // txtApptId
             // 
@@ -201,6 +221,7 @@ namespace ScheduleApptApp
             this.Name = "FormAddAppointment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Appointment";
+            this.Load += new System.EventHandler(this.FormAddAppointment_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -215,7 +236,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Button SaveApptBtn;
         private System.Windows.Forms.Label AddApptLabel;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCustId;
         private System.Windows.Forms.Label label8;
@@ -225,5 +245,8 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker addTimeStart;
+        private System.Windows.Forms.DateTimePicker addTimeEnd;
+        private System.Windows.Forms.Label label1;
     }
 }
