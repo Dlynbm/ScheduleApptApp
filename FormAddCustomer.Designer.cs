@@ -42,8 +42,8 @@ namespace ScheduleApptApp
             this.txtBoxCustPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxCustAdd = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxCustAddress = new System.Windows.Forms.TextBox();
+            this.txtBoxCustId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -84,10 +84,10 @@ namespace ScheduleApptApp
             this.SaveApptBtn.TabIndex = 3;
             this.SaveApptBtn.Text = "Save";
             this.SaveApptBtn.UseVisualStyleBackColor = false;
-            //this.SaveApptBtn.Click += new System.EventHandler(this.SaveApptBtn_Click);
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtBoxCustName);
             this.panel1.Controls.Add(this.label5);
@@ -97,8 +97,8 @@ namespace ScheduleApptApp
             this.panel1.Controls.Add(this.txtBoxCustPhone);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtBoxCustAdd);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtBoxCustAddress);
+            this.panel1.Controls.Add(this.txtBoxCustId);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(24, 104);
             this.panel1.Name = "panel1";
@@ -183,20 +183,20 @@ namespace ScheduleApptApp
             this.label2.TabIndex = 6;
             this.label2.Text = "Address:";
             // 
-            // txtBoxCustAdd
+            // txtBoxCustAddress
             // 
-            this.txtBoxCustAdd.Location = new System.Drawing.Point(23, 167);
-            this.txtBoxCustAdd.Name = "txtBoxCustAdd";
-            this.txtBoxCustAdd.Size = new System.Drawing.Size(355, 20);
-            this.txtBoxCustAdd.TabIndex = 5;
+            this.txtBoxCustAddress.Location = new System.Drawing.Point(23, 167);
+            this.txtBoxCustAddress.Name = "txtBoxCustAddress";
+            this.txtBoxCustAddress.Size = new System.Drawing.Size(355, 20);
+            this.txtBoxCustAddress.TabIndex = 5;
             // 
-            // textBox1
+            // txtBoxCustId
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(23, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(355, 23);
-            this.textBox1.TabIndex = 1;
+            this.txtBoxCustId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxCustId.Location = new System.Drawing.Point(23, 42);
+            this.txtBoxCustId.Name = "txtBoxCustId";
+            this.txtBoxCustId.Size = new System.Drawing.Size(355, 23);
+            this.txtBoxCustId.TabIndex = 1;
             // 
             // label1
             // 
@@ -239,8 +239,8 @@ namespace ScheduleApptApp
         private System.Windows.Forms.TextBox txtBoxCustPhone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBoxCustAdd;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxCustAddress;
+        private System.Windows.Forms.TextBox txtBoxCustId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBoxCustName;

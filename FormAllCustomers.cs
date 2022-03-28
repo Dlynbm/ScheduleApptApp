@@ -33,12 +33,7 @@ namespace ScheduleApptApp
             CustomerGrid.RowHeadersVisible = false;
             CustomerGrid.ReadOnly = true;
             CustomerGrid.AllowUserToAddRows = true;
-
-
-
         }
-
-
 
         
 

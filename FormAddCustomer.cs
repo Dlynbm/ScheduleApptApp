@@ -19,7 +19,7 @@ namespace ScheduleApptApp
 
         //private void SaveApptBtn_Click(object sender, EventArgs e)
         //{
-        //    int customerName = cus
+        //    DBase.addCustomer(txtBoxCustId.Text, txtBoxCustName.Text, txtBoxCustAddress.Text);
         //}
     }
 }
