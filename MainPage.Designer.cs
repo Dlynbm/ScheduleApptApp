@@ -36,11 +36,10 @@ namespace ScheduleApptApp
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
             this.ViewCustomersBtn = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
-            this.btnAddAppt = new System.Windows.Forms.Button();
             this.SearchTxtBox = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnEditAppt = new System.Windows.Forms.Button();
             this.btnDeleteAppt = new System.Windows.Forms.Button();
+            this.btnAddAppt = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
@@ -146,21 +145,6 @@ namespace ScheduleApptApp
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
             // 
-            // btnAddAppt
-            // 
-            this.btnAddAppt.BackColor = System.Drawing.Color.Coral;
-            this.btnAddAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAppt.ForeColor = System.Drawing.Color.White;
-            this.btnAddAppt.Location = new System.Drawing.Point(39, 16);
-            this.btnAddAppt.Margin = new System.Windows.Forms.Padding(1);
-            this.btnAddAppt.Name = "btnAddAppt";
-            this.btnAddAppt.Size = new System.Drawing.Size(154, 45);
-            this.btnAddAppt.TabIndex = 0;
-            this.btnAddAppt.Text = "Add Appointment";
-            this.btnAddAppt.UseVisualStyleBackColor = false;
-            this.btnAddAppt.Click += new System.EventHandler(this.AddApptBtn_Click);
-            // 
             // SearchTxtBox
             // 
             this.SearchTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -168,19 +152,6 @@ namespace ScheduleApptApp
             this.SearchTxtBox.Name = "SearchTxtBox";
             this.SearchTxtBox.Size = new System.Drawing.Size(144, 20);
             this.SearchTxtBox.TabIndex = 1;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(853, 107);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 34);
-            this.btnSearch.TabIndex = 19;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // btnEditAppt
             // 
@@ -210,12 +181,26 @@ namespace ScheduleApptApp
             this.btnDeleteAppt.Text = "Delete Appointment";
             this.btnDeleteAppt.UseVisualStyleBackColor = false;
             // 
+            // btnAddAppt
+            // 
+            this.btnAddAppt.BackColor = System.Drawing.Color.Coral;
+            this.btnAddAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAppt.ForeColor = System.Drawing.Color.White;
+            this.btnAddAppt.Location = new System.Drawing.Point(39, 16);
+            this.btnAddAppt.Margin = new System.Windows.Forms.Padding(1);
+            this.btnAddAppt.Name = "btnAddAppt";
+            this.btnAddAppt.Size = new System.Drawing.Size(154, 45);
+            this.btnAddAppt.TabIndex = 0;
+            this.btnAddAppt.Text = "Add Appointment";
+            this.btnAddAppt.UseVisualStyleBackColor = false;
+            this.btnAddAppt.Click += new System.EventHandler(this.AddApptBtn_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 547);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.SearchTxtBox);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -225,6 +210,7 @@ namespace ScheduleApptApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "All Appointments";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -238,16 +224,15 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnAddAppt;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button ViewCustomersBtn;
         private System.Windows.Forms.Label Label;
         private System.Windows.Forms.TextBox SearchTxtBox;
-        private System.Windows.Forms.Button btnSearch;
         
         private System.Windows.Forms.DataGridView AppointmentGrid;
         private System.Windows.Forms.Button btnDeleteAppt;
         private System.Windows.Forms.Button btnEditAppt;
+        private System.Windows.Forms.Button btnAddAppt;
     }
 }
 

@@ -36,11 +36,23 @@ namespace ScheduleApptApp
         }
 
         
-
+        
         private void AddCustomerBtn_Click_1(object sender, EventArgs e)
         {
             AddCustomer form = new AddCustomer();
             form.Show();
+        }
+
+        private void btnEditCust_Click(object sender, EventArgs e)
+        {
+            this.btnEditCust.Enabled = false;
+     
+        }
+
+        private void FormAllCustomers_Load(object sender, EventArgs e)
+        {
+            this.btnEditCust.Enabled = false;
+            this.btnDeleteCust.Enabled = false;
         }
     }
 }

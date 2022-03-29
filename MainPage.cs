@@ -99,6 +99,15 @@ namespace ScheduleApptApp
             addAppt.Show();
         }
 
+        private void toolStripLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainPage_Load(object sender, EventArgs e)
+        {
+          
+        }
     }
 
 

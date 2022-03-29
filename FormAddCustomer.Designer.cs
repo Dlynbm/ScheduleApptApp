@@ -31,7 +31,7 @@ namespace ScheduleApptApp
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.AddApptLabel = new System.Windows.Forms.Label();
-            this.SaveApptBtn = new System.Windows.Forms.Button();
+            this.SaveCustBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtBoxCustName = new System.Windows.Forms.TextBox();
@@ -45,6 +45,7 @@ namespace ScheduleApptApp
             this.txtBoxCustAddress = new System.Windows.Forms.TextBox();
             this.txtBoxCustId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBoxNewCust = new System.Windows.Forms.GroupBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,19 +72,20 @@ namespace ScheduleApptApp
             this.AddApptLabel.TabIndex = 0;
             this.AddApptLabel.Text = "Add  Customer";
             // 
-            // SaveApptBtn
+            // SaveCustBtn
             // 
-            this.SaveApptBtn.BackColor = System.Drawing.Color.Coral;
-            this.SaveApptBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveApptBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveApptBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveApptBtn.Location = new System.Drawing.Point(392, 560);
-            this.SaveApptBtn.Margin = new System.Windows.Forms.Padding(1);
-            this.SaveApptBtn.Name = "SaveApptBtn";
-            this.SaveApptBtn.Size = new System.Drawing.Size(103, 45);
-            this.SaveApptBtn.TabIndex = 3;
-            this.SaveApptBtn.Text = "Save";
-            this.SaveApptBtn.UseVisualStyleBackColor = false;
+            this.SaveCustBtn.BackColor = System.Drawing.Color.Coral;
+            this.SaveCustBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveCustBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveCustBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveCustBtn.Location = new System.Drawing.Point(392, 560);
+            this.SaveCustBtn.Margin = new System.Windows.Forms.Padding(1);
+            this.SaveCustBtn.Name = "SaveCustBtn";
+            this.SaveCustBtn.Size = new System.Drawing.Size(103, 45);
+            this.SaveCustBtn.TabIndex = 3;
+            this.SaveCustBtn.Text = "Save";
+            this.SaveCustBtn.UseVisualStyleBackColor = false;
+            this.SaveCustBtn.Click += new System.EventHandler(this.SaveCustBtn_Click_1);
             // 
             // panel1
             // 
@@ -100,9 +102,10 @@ namespace ScheduleApptApp
             this.panel1.Controls.Add(this.txtBoxCustAddress);
             this.panel1.Controls.Add(this.txtBoxCustId);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.groupBoxNewCust);
             this.panel1.Location = new System.Drawing.Point(24, 104);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(451, 384);
+            this.panel1.Size = new System.Drawing.Size(451, 424);
             this.panel1.TabIndex = 4;
             // 
             // label6
@@ -208,18 +211,29 @@ namespace ScheduleApptApp
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer ID:";
             // 
+            // groupBoxNewCust
+            // 
+            this.groupBoxNewCust.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxNewCust.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBoxNewCust.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxNewCust.Name = "groupBoxNewCust";
+            this.groupBoxNewCust.Size = new System.Drawing.Size(445, 418);
+            this.groupBoxNewCust.TabIndex = 15;
+            this.groupBoxNewCust.TabStop = false;
+            // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 619);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.SaveApptBtn);
+            this.Controls.Add(this.SaveCustBtn);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Customer";
+            this.Load += new System.EventHandler(this.AddCustomer_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -232,7 +246,7 @@ namespace ScheduleApptApp
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label AddApptLabel;
-        private System.Windows.Forms.Button SaveApptBtn;
+        private System.Windows.Forms.Button SaveCustBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtBoxCustCity;
         private System.Windows.Forms.Label label4;
@@ -246,5 +260,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.TextBox txtBoxCustName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBoxCountry;
+        private System.Windows.Forms.GroupBox groupBoxNewCust;
     }
 }

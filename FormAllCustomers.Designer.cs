@@ -117,6 +117,7 @@ namespace ScheduleApptApp
             this.btnEditCust.TabIndex = 3;
             this.btnEditCust.Text = "Edit Customer";
             this.btnEditCust.UseVisualStyleBackColor = false;
+            this.btnEditCust.Click += new System.EventHandler(this.btnEditCust_Click);
             // 
             // btnDeleteCust
             // 
@@ -144,6 +145,7 @@ namespace ScheduleApptApp
             this.Name = "FormAllCustomers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customers";
+            this.Load += new System.EventHandler(this.FormAllCustomers_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
