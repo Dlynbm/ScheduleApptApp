@@ -54,6 +54,11 @@ namespace ScheduleApptApp
             this.btnEditCust.Enabled = false;
             this.btnDeleteCust.Enabled = false;
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
