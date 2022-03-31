@@ -32,11 +32,11 @@ namespace ScheduleApptApp
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtBoxUserName = new System.Windows.Forms.TextBox();
             this.txtBoxPass = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBoxLogin.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +61,7 @@ namespace ScheduleApptApp
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(176, 21);
+            this.label1.Location = new System.Drawing.Point(147, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 45);
             this.label1.TabIndex = 0;
@@ -74,11 +74,29 @@ namespace ScheduleApptApp
             this.groupBoxLogin.Controls.Add(this.btnLogin);
             this.groupBoxLogin.Controls.Add(this.txtBoxUserName);
             this.groupBoxLogin.Controls.Add(this.txtBoxPass);
-            this.groupBoxLogin.Location = new System.Drawing.Point(37, 84);
+            this.groupBoxLogin.Location = new System.Drawing.Point(26, 98);
             this.groupBoxLogin.Name = "groupBoxLogin";
             this.groupBoxLogin.Size = new System.Drawing.Size(418, 344);
             this.groupBoxLogin.TabIndex = 21;
             this.groupBoxLogin.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 21);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Password:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 21);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "User Name:";
             // 
             // btnLogin
             // 
@@ -101,7 +119,6 @@ namespace ScheduleApptApp
             this.txtBoxUserName.Name = "txtBoxUserName";
             this.txtBoxUserName.Size = new System.Drawing.Size(276, 29);
             this.txtBoxUserName.TabIndex = 5;
-            this.txtBoxUserName.TextChanged += new System.EventHandler(this.txtBoxUserName_TextChanged);
             // 
             // txtBoxPass
             // 
@@ -109,25 +126,6 @@ namespace ScheduleApptApp
             this.txtBoxPass.Name = "txtBoxPass";
             this.txtBoxPass.Size = new System.Drawing.Size(276, 29);
             this.txtBoxPass.TabIndex = 7;
-            this.txtBoxPass.TextChanged += new System.EventHandler(this.txtBoxPass_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 21);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "User Name:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 21);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Password:";
             // 
             // LoginForm
             // 
@@ -145,7 +143,6 @@ namespace ScheduleApptApp
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Form";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBoxLogin.ResumeLayout(false);
