@@ -19,21 +19,7 @@ namespace ScheduleApptApp
         public FormAllCustomers()
         {
             InitializeComponent();
-            MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            con.Open();
-            String sqlString = "SELECT customerId, customerName, addressId, active FROM customer";
-            MySqlCommand cmd = new MySqlCommand(sqlString, con);
-            MySqlDataAdapter cust = new MySqlDataAdapter(cmd);
-            DataTable dataTble = new DataTable();
-            cust.Fill(dataTble);
-            CustomerGrid.DataSource = dataTble;
-            CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-
-            CustomerGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            CustomerGrid.RowHeadersVisible = false;
-            CustomerGrid.ReadOnly = true;
-            CustomerGrid.AllowUserToAddRows = true;
+            
         }
 
 
@@ -81,7 +67,6 @@ namespace ScheduleApptApp
             this.btnSaveCustomer.Enabled = false;
             this.btnCancel.Enabled = false;
             this.custGroupBox.Enabled = false;
-            this.CustomerGrid.Enabled = true;
         }
 
         private void btnEditCust_Click(object sender, EventArgs e)
@@ -145,6 +130,8 @@ namespace ScheduleApptApp
            //Data.Data.addCustomer(txtBoxCustName.Text, cityId, txtBoxCustPhone.Text, txtBoxCustAddress.Text, txtBoxCountry.Text);
             this.Close();
         }
+
+      
     }
     }
 

@@ -9,60 +9,62 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using 
+
 
 namespace ScheduleApptApp
 {
     public partial class LoginForm : Form
     {
-        MySqlConnection con;
-        Exception ex;
+        //MySqlConnection con;
+        //Exception ex;
         public LoginForm()
-        {      
+        {
 
             InitializeComponent();
             //btnLogin.Enabled = false;
         }
+    }
+}
 
-        string currentUserId = iD;
+        //string currentUserId = iD;
 
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        { con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-         con.Open();
+        //private void LoginForm_Load(object sender, EventArgs e)
+        //{ con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+        // con.Open();
         // String sqlString = "SELECT userName, password FROM user";
         //MySqlCommand cmd = new MySqlCommand(sqlString, con);
         //MySqlDataAdapter cust = new MySqlDataAdapter(cmd);
-    }
+    
 
     //private bool allowLogin()
     //{
-    //    if (string.IsNullOrWhiteSpace(txtBoxUserName.Text)) return false;
+    ////    if (string.IsNullOrWhiteSpace(txtBoxUserName.Text)) return false;
 
-    //    if (string.IsNullOrWhiteSpace(txtBoxPass.Text)) return false;
-    //    return true;
-    //}
+    ////    if (string.IsNullOrWhiteSpace(txtBoxPass.Text)) return false;
+    ////    return true;
+    ////}
 
 
-    private void btnLogin_Click(object sender, EventArgs e)
-        {
-            string user = txtBoxUserName.Text;
-            string password = txtBoxPass.Text;
+    //private void btnLogin_Click(object sender, EventArgs e)
+    //    {
+    //        string user = txtBoxUserName.Text;
+    //        string password = txtBoxPass.Text;
 
             
-            MySqlCommand com new MySqlCommand($"SELECT * FROM user WHERE userName ='{ txtBoxUserName.Text}'AND password='{txtBoxPass.Text}'", con;
-            con.Open();
-            MySqlDataReader rd = com.ExecuteReader();
-            if (rd.HasRows)
-            { 
-                while(rd.Read())
-            }
-            currentUserId == 
-            {
-                MessageBox.Show("Invalid login");
-            }
-            con.Close();
-        }
+    //        MySqlCommand com new MySqlCommand($"SELECT * FROM user WHERE userName ='{ txtBoxUserName.Text}'AND password='{txtBoxPass.Text}'", con;
+    //        con.Open();
+    //        MySqlDataReader rd = com.ExecuteReader();
+    //        if (rd.HasRows)
+    //        { 
+    //            while(rd.Read())
+    //        }
+    //        currentUserId == 
+    //        {
+    //            MessageBox.Show("Invalid login");
+    //        }
+    //        con.Close();
+    //    }
 
         //save user data to txt file
         //    //string fn ="C:\\Users\\LabUser";
@@ -103,5 +105,4 @@ namespace ScheduleApptApp
         //}
 
        
-    }
-}
+    

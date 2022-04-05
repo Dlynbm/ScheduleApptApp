@@ -29,7 +29,6 @@ namespace ScheduleApptApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAllCustomers));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label = new System.Windows.Forms.Label();
@@ -44,9 +43,9 @@ namespace ScheduleApptApp
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.CustomerGrid = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.custGroupBox = new System.Windows.Forms.GroupBox();
+            this.cityComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBoxCountry = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,16 +57,10 @@ namespace ScheduleApptApp
             this.txtBoxCustAddress = new System.Windows.Forms.TextBox();
             this.txtBoxCustId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cityComboBox = new System.Windows.Forms.ComboBox();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerGrid)).BeginInit();
             this.panel1.SuspendLayout();
             this.custGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -188,14 +181,6 @@ namespace ScheduleApptApp
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 60);
             // 
-            // CustomerGrid
-            // 
-            this.CustomerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomerGrid.Location = new System.Drawing.Point(18, 202);
-            this.CustomerGrid.Name = "CustomerGrid";
-            this.CustomerGrid.Size = new System.Drawing.Size(785, 136);
-            this.CustomerGrid.TabIndex = 2;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -203,7 +188,6 @@ namespace ScheduleApptApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.custGroupBox);
-            this.panel1.Controls.Add(this.CustomerGrid);
             this.panel1.Location = new System.Drawing.Point(52, 137);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(827, 357);
@@ -225,10 +209,32 @@ namespace ScheduleApptApp
             this.custGroupBox.Controls.Add(this.label1);
             this.custGroupBox.Location = new System.Drawing.Point(18, 3);
             this.custGroupBox.Name = "custGroupBox";
-            this.custGroupBox.Size = new System.Drawing.Size(785, 193);
+            this.custGroupBox.Size = new System.Drawing.Size(785, 162);
             this.custGroupBox.TabIndex = 3;
             this.custGroupBox.TabStop = false;
             this.custGroupBox.Text = "Customer Info";
+            // 
+            // cityComboBox
+            // 
+            this.cityComboBox.FormattingEnabled = true;
+            this.cityComboBox.Items.AddRange(new object[] {
+            "New York",
+            "Los Angeles",
+            "Houston",
+            "Salt Lake City",
+            "Lancaster",
+            "London",
+            "Glasgow",
+            "Toronto",
+            "Vancouver",
+            "Ottawa",
+            "Oslo",
+            "Bergen",
+            "Trondheim"});
+            this.cityComboBox.Location = new System.Drawing.Point(447, 69);
+            this.cityComboBox.Name = "cityComboBox";
+            this.cityComboBox.Size = new System.Drawing.Size(254, 23);
+            this.cityComboBox.TabIndex = 27;
             // 
             // label5
             // 
@@ -326,28 +332,6 @@ namespace ScheduleApptApp
             this.label1.TabIndex = 15;
             this.label1.Text = "Customer ID:";
             // 
-            // cityComboBox
-            // 
-            this.cityComboBox.FormattingEnabled = true;
-            this.cityComboBox.Items.AddRange(new object[] {
-            "New York",
-            "Los Angeles",
-            "Houston",
-            "Salt Lake City",
-            "Lancaster",
-            "London",
-            "Glasgow",
-            "Toronto",
-            "Vancouver",
-            "Ottawa",
-            "Oslo",
-            "Bergen",
-            "Trondheim"});
-            this.cityComboBox.Location = new System.Drawing.Point(447, 69);
-            this.cityComboBox.Name = "cityComboBox";
-            this.cityComboBox.Size = new System.Drawing.Size(254, 23);
-            this.cityComboBox.TabIndex = 27;
-            // 
             // FormAllCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -365,12 +349,9 @@ namespace ScheduleApptApp
             this.flowLayoutPanel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerGrid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.custGroupBox.ResumeLayout(false);
             this.custGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,7 +370,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnCancel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.DataGridView CustomerGrid;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox custGroupBox;
         private System.Windows.Forms.Label label6;
@@ -404,7 +384,5 @@ namespace ScheduleApptApp
         private System.Windows.Forms.TextBox txtBoxCustPhone;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cityComboBox;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.BindingSource bindingSource2;
     }
 }
