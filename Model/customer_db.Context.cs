@@ -26,5 +26,10 @@ namespace ScheduleApptApp.Model
         }
     
         public virtual DbSet<customer> customers { get; set; }
+        public virtual DbSet<address> addresses { get; set; }
+        public virtual DbSet<appointment> appointments { get; set; }
+        public virtual DbSet<city> cities { get; set; }
+        public virtual DbSet<country> countries { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }

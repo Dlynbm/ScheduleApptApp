@@ -12,25 +12,24 @@ namespace ScheduleApptApp.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class customer
+    public partial class city
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public customer()
+        public city()
         {
-            this.appointments = new HashSet<appointment>();
+            this.addresses = new HashSet<address>();
         }
     
-        public int customerId { get; set; }
-        public string customerName { get; set; }
-        public int addressId { get; set; }
-        public bool active { get; set; }
+        public int cityId { get; set; }
+        public string city1 { get; set; }
+        public int countryId { get; set; }
         public System.DateTime createDate { get; set; }
         public string createdBy { get; set; }
         public System.DateTime lastUpdate { get; set; }
         public string lastUpdateBy { get; set; }
     
-        public virtual address address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<appointment> appointments { get; set; }
+        public virtual ICollection<address> addresses { get; set; }
+        public virtual country country { get; set; }
     }
 }

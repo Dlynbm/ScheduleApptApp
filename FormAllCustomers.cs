@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,10 +23,21 @@ namespace ScheduleApptApp
             
         }
 
+        ScheduleApptApp.Model.client_scheduleEntities1 dc = new Model.client_scheduleEntities1();
+
+        private void FormAllCustomers_Load(object sender, EventArgs e)
+        {
+            this.btnSaveCustomer.Enabled = false;
+            this.btnCancel.Enabled = false;
+            this.custGroupBox.Enabled = false;
+
+            dc.customers.Load();
+            this.customerBindingSource.DataSource = dc.customers.Local.ToBindingList();  
 
 
+        }
 
-            private void btnAddCustomer_Click(object sender, EventArgs e)
+        private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             new_edit_del_butt_enable();
 
@@ -48,6 +60,7 @@ namespace ScheduleApptApp
         private void btnCancel_Click(object sender, EventArgs e)
         {
             save_cancel_btn_enable();
+            txtBoxCustId.Text = txtBoxCustName.Text = txtBoxCustPhone.Text = txtBoxCustAddress.Text = txtBoxCountry.Text = "";
         }
 
         void save_cancel_btn_enable()
@@ -62,12 +75,7 @@ namespace ScheduleApptApp
             this.custGroupBox.Enabled = false;
         }
 
-        private void FormAllCustomers_Load(object sender, EventArgs e)
-        {
-            this.btnSaveCustomer.Enabled = false;
-            this.btnCancel.Enabled = false;
-            this.custGroupBox.Enabled = false;
-        }
+       
 
         private void btnEditCust_Click(object sender, EventArgs e)
         {
@@ -83,6 +91,17 @@ namespace ScheduleApptApp
 
         private void btnSaveCustomer_Click(object sender, EventArgs e)
         {
+            //Model.customer = txtBoxCustId.Text.Trim();
+            //Model.customer = txtBoxCustName.Text.Trim();
+            //Model.customer = txtBoxCountry.Text.Trim();
+            //Model.customer = txtBoxCustAddress.Text.Trim();
+            //Model.customer = txtBoxCustPhone.Text.Trim();
+
+            //using (client_scheduleEntities1 db = new client_scheduleEntities1())
+            //{
+
+            //}
+
             //int cityId = 0;
             //switch (cityComboBox.FindString(cityComboBox.SelectedItem.ToString()))
             //{
@@ -129,9 +148,10 @@ namespace ScheduleApptApp
 
            //Data.Data.addCustomer(txtBoxCustName.Text, cityId, txtBoxCustPhone.Text, txtBoxCustAddress.Text, txtBoxCountry.Text);
             this.Close();
+            dc.Dispose();
         }
 
-      
+        
     }
     }
 
