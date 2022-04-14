@@ -45,28 +45,15 @@ namespace ScheduleApptApp
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.appointmentDataGridView = new System.Windows.Forms.DataGridView();
+            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.custGroupBox = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBoxCountry = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxPostal = new System.Windows.Forms.TextBox();
-            this.txtBoxCustPhone = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtBoxCustName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtBoxCustAddress = new System.Windows.Forms.TextBox();
-            this.txtBoxCustId = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custDataGrid = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
-            this.custGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -91,6 +78,7 @@ namespace ScheduleApptApp
             this.Label.Size = new System.Drawing.Size(101, 25);
             this.Label.TabIndex = 0;
             this.Label.Text = "Customers";
+            this.Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // toolStrip1
             // 
@@ -193,142 +181,35 @@ namespace ScheduleApptApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.custDataGrid);
+            this.panel1.Controls.Add(this.appointmentDataGridView);
             this.panel1.Controls.Add(this.custGroupBox);
             this.panel1.Location = new System.Drawing.Point(52, 137);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(827, 357);
+            this.panel1.Size = new System.Drawing.Size(827, 460);
             this.panel1.TabIndex = 0;
             // 
-            // customerBindingSource
+            // appointmentDataGridView
             // 
-            //this.customerBindingSource.DataSource = typeof(ScheduleApptApp.customer);
+            this.appointmentDataGridView.AutoGenerateColumns = false;
+            this.appointmentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.appointmentDataGridView.DataSource = this.appointmentBindingSource;
+            this.appointmentDataGridView.Location = new System.Drawing.Point(69, 220);
+            this.appointmentDataGridView.Name = "appointmentDataGridView";
+            this.appointmentDataGridView.Size = new System.Drawing.Size(609, 174);
+            this.appointmentDataGridView.TabIndex = 3;
+            // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataMember = "appointment";
             // 
             // custGroupBox
             // 
-            this.custGroupBox.Controls.Add(this.label4);
-            this.custGroupBox.Controls.Add(this.txtBoxCountry);
-            this.custGroupBox.Controls.Add(this.label5);
-            this.custGroupBox.Controls.Add(this.txtBoxPostal);
-            this.custGroupBox.Controls.Add(this.txtBoxCustPhone);
-            this.custGroupBox.Controls.Add(this.label3);
-            this.custGroupBox.Controls.Add(this.label6);
-            this.custGroupBox.Controls.Add(this.txtBoxCustName);
-            this.custGroupBox.Controls.Add(this.label2);
-            this.custGroupBox.Controls.Add(this.txtBoxCustAddress);
-            this.custGroupBox.Controls.Add(this.txtBoxCustId);
-            this.custGroupBox.Controls.Add(this.label1);
-            this.custGroupBox.Location = new System.Drawing.Point(18, 3);
+            this.custGroupBox.Location = new System.Drawing.Point(3, 3);
             this.custGroupBox.Name = "custGroupBox";
-            this.custGroupBox.Size = new System.Drawing.Size(785, 162);
+            this.custGroupBox.Size = new System.Drawing.Size(821, 162);
             this.custGroupBox.TabIndex = 3;
             this.custGroupBox.TabStop = false;
             this.custGroupBox.Text = "Customer Info";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(355, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 15);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Country:";
-            // 
-            // txtBoxCountry
-            // 
-            this.txtBoxCountry.Location = new System.Drawing.Point(447, 106);
-            this.txtBoxCountry.Name = "txtBoxCountry";
-            this.txtBoxCountry.Size = new System.Drawing.Size(254, 23);
-            this.txtBoxCountry.TabIndex = 27;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(355, 72);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 15);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Postal Code:";
-            // 
-            // txtBoxPostal
-            // 
-            this.txtBoxPostal.Location = new System.Drawing.Point(447, 69);
-            this.txtBoxPostal.Name = "txtBoxPostal";
-            this.txtBoxPostal.Size = new System.Drawing.Size(254, 23);
-            this.txtBoxPostal.TabIndex = 5;
-            // 
-            // txtBoxCustPhone
-            // 
-            this.txtBoxCustPhone.Location = new System.Drawing.Point(447, 33);
-            this.txtBoxCustPhone.Name = "txtBoxCustPhone";
-            this.txtBoxCustPhone.ShortcutsEnabled = false;
-            this.txtBoxCustPhone.Size = new System.Drawing.Size(254, 23);
-            this.txtBoxCustPhone.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(397, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 15);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Phone:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 69);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 15);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Name:";
-            // 
-            // txtBoxCustName
-            // 
-            this.txtBoxCustName.Location = new System.Drawing.Point(105, 69);
-            this.txtBoxCustName.Name = "txtBoxCustName";
-            this.txtBoxCustName.Size = new System.Drawing.Size(241, 23);
-            this.txtBoxCustName.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 101);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Address:";
-            // 
-            // txtBoxCustAddress
-            // 
-            this.txtBoxCustAddress.Location = new System.Drawing.Point(105, 101);
-            this.txtBoxCustAddress.Name = "txtBoxCustAddress";
-            this.txtBoxCustAddress.Size = new System.Drawing.Size(241, 23);
-            this.txtBoxCustAddress.TabIndex = 2;
-            // 
-            // txtBoxCustId
-            // 
-            this.txtBoxCustId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCustId.Location = new System.Drawing.Point(105, 33);
-            this.txtBoxCustId.Name = "txtBoxCustId";
-            this.txtBoxCustId.ReadOnly = true;
-            this.txtBoxCustId.Size = new System.Drawing.Size(241, 23);
-            this.txtBoxCustId.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 15);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Customer ID:";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -336,19 +217,11 @@ namespace ScheduleApptApp
             this.dataGridViewTextBoxColumn1.HeaderText = "Address";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
-            // custDataGrid
-            // 
-            this.custDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.custDataGrid.Location = new System.Drawing.Point(152, 189);
-            this.custDataGrid.Name = "custDataGrid";
-            this.custDataGrid.Size = new System.Drawing.Size(524, 150);
-            this.custDataGrid.TabIndex = 4;
-            // 
             // FormAllCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 519);
+            this.ClientSize = new System.Drawing.Size(933, 622);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -361,17 +234,14 @@ namespace ScheduleApptApp
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
-            this.custGroupBox.ResumeLayout(false);
-            this.custGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label Label;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnAddCustomer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
@@ -385,20 +255,24 @@ namespace ScheduleApptApp
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox custGroupBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtBoxCustName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtBoxCustAddress;
-        private System.Windows.Forms.TextBox txtBoxCustId;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBoxPostal;
-        private System.Windows.Forms.TextBox txtBoxCustPhone;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.BindingSource customerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtBoxCountry;
-        private System.Windows.Forms.DataGridView custDataGrid;
+        private System.Windows.Forms.Label Label;
+        private System.Windows.Forms.DataGridView appointmentDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.BindingSource appointmentBindingSource;
     }
 }

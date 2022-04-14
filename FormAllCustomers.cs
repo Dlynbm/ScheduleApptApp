@@ -23,39 +23,15 @@ namespace ScheduleApptApp
         public FormAllCustomers()
         {
             InitializeComponent();
-            MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            con.Open();
-            String sqlString = "SELECT customer.customerId, customer.customerName, customer.addressId, customer.active, address.phone, city.city, country.country" +
-                " FROM customer" +
-                "INNER JOIN customer ON address.addressId=customer.customerId";
-
-            MySqlCommand cmd = new MySqlCommand(sqlString, con);
-            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            custDataGrid.DataSource = dt;
-            custDataGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            
 
         }
 
         
-
-        //private void PopulateFields(customer customer)
-        //{
-        //    txtBoxCustId.Text = customer.customerId.ToString();
-        //    txtBoxCustName.Text = customer.customerName;
-        //    txtBoxCustAddress.Text = customer.addressId.ToString();
-        //    //txtBoxCustPhone.Text = address.phone.ToString();
-        //    //txtBoxPostal.Text = address.postalCode.ToString();
-        //}
-
-
         private void FormAllCustomers_Load(object sender, EventArgs e)
-        {   
-            custDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            custDataGrid.ReadOnly = true;
-            custDataGrid.MultiSelect = false;
-            custDataGrid.RowHeadersVisible = false;
+        {
+            
+
 
             this.btnSaveCustomer.Enabled = false;
             this.btnCancel.Enabled = false;
@@ -71,30 +47,11 @@ namespace ScheduleApptApp
 
         private void btnSaveCustomer_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //if (isEditMode == true)
-            //{
-            //    var custId = int.Parse(txtBoxCustId.Text);
-            //    var customer = dc.customers.FirstOrDefault(q => q.customerId == custId);
-            //    customer.customerName = txtBoxCustName.Text;
-            //    customer.addressId = int.Parse(txtBoxCustAddress.Text);
-            //    //dc.addresses.phone = (txtBoxCustPhone.Text;
-            //    //address.postalCode = txtBoxPostal.Text;
-            //    dc.SaveChanges();
-            //}
-            //else
-            //{
-            //    var newCustomer = new customer
-            //    {
-            //        customerName = txtBoxCustName.Text,
-            //        addressId = int.Parse(txtBoxCustAddress.Text),
-            //        //address = txtBoxCustPhone.Text,
-            //        //postalCode = txtBoxPostal.Text;
-
-            //    };
-            //    dc.customers.Add(newCustomer);
-            //    dc.SaveChanges();
-            //}
+            //this.Validate();
+            //this.customerBindingSource.EndEdit();
+            //this.customerTableAdapter.UpdateAll(this.client_schedule_ds);
+            //this.Close();
+            
         }
 
         
