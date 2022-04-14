@@ -33,5 +33,16 @@ namespace ScheduleApptApp.Properties {
                 return ((string)(this["client_scheduleConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=sqlUser;password=Passw0rd!;persistsecurityinfo=True;data" +
+            "base=client_schedule")]
+        public string client_scheduleConnection {
+            get {
+                return ((string)(this["client_scheduleConnection"]));
+            }
+        }
     }
 }

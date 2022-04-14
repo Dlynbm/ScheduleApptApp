@@ -165,7 +165,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Appointment.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="Data_Set\client_schedule_ds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>client_schedule_ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FormAddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,39 +201,6 @@
     <Compile Include="FormAllCustomers.Designer.cs">
       <DependentUpon>FormAllCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\address.cs">
-      <DependentUpon>customer_db.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\appointment.cs">
-      <DependentUpon>customer_db.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\city.cs">
-      <DependentUpon>customer_db.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\country.cs">
-      <DependentUpon>customer_db.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\customer.cs">
-      <DependentUpon>customer_db.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\customer_db.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customer_db.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\customer_db.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customer_db.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\customer_db.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customer_db.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\user.cs">
-      <DependentUpon>customer_db.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAddAppointment.resx">
@@ -255,12 +227,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model\customer_db.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>customer_db.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model\customer_db.edmx.diagram">
-      <DependentUpon>customer_db.edmx</DependentUpon>
+    <None Include="Data_Set\client_schedule_ds.xsc">
+      <DependentUpon>client_schedule_ds.xsd</DependentUpon>
+    </None>
+    <None Include="Data_Set\client_schedule_ds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>client_schedule_ds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data_Set\client_schedule_ds.xss">
+      <DependentUpon>client_schedule_ds.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -277,20 +253,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\customer_db.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>customer_db.edmx</DependentUpon>
-      <LastGenOutput>customer_db.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\customer_db.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>customer_db.edmx</DependentUpon>
-      <LastGenOutput>customer_db.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

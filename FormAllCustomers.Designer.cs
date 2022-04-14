@@ -45,11 +45,12 @@ namespace ScheduleApptApp
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.custGroupBox = new System.Windows.Forms.GroupBox();
-            this.cityComboBox = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxCountry = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtBoxCountry = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtBoxPostal = new System.Windows.Forms.TextBox();
             this.txtBoxCustPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -58,22 +59,14 @@ namespace ScheduleApptApp
             this.txtBoxCustAddress = new System.Windows.Forms.TextBox();
             this.txtBoxCustId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.custDataGrid = new System.Windows.Forms.DataGridView();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.createDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createdByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastUpdateByDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.custGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.custDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -207,12 +200,16 @@ namespace ScheduleApptApp
             this.panel1.Size = new System.Drawing.Size(827, 357);
             this.panel1.TabIndex = 0;
             // 
+            // customerBindingSource
+            // 
+            //this.customerBindingSource.DataSource = typeof(ScheduleApptApp.customer);
+            // 
             // custGroupBox
             // 
-            this.custGroupBox.Controls.Add(this.cityComboBox);
-            this.custGroupBox.Controls.Add(this.label5);
-            this.custGroupBox.Controls.Add(this.txtBoxCountry);
             this.custGroupBox.Controls.Add(this.label4);
+            this.custGroupBox.Controls.Add(this.txtBoxCountry);
+            this.custGroupBox.Controls.Add(this.label5);
+            this.custGroupBox.Controls.Add(this.txtBoxPostal);
             this.custGroupBox.Controls.Add(this.txtBoxCustPhone);
             this.custGroupBox.Controls.Add(this.label3);
             this.custGroupBox.Controls.Add(this.label6);
@@ -228,61 +225,47 @@ namespace ScheduleApptApp
             this.custGroupBox.TabStop = false;
             this.custGroupBox.Text = "Customer Info";
             // 
-            // cityComboBox
+            // label4
             // 
-            this.cityComboBox.FormattingEnabled = true;
-            this.cityComboBox.Items.AddRange(new object[] {
-            "New York",
-            "Los Angeles",
-            "Houston",
-            "Salt Lake City",
-            "Lancaster",
-            "London",
-            "Glasgow",
-            "Toronto",
-            "Vancouver",
-            "Ottawa",
-            "Oslo",
-            "Bergen",
-            "Trondheim"});
-            this.cityComboBox.Location = new System.Drawing.Point(447, 69);
-            this.cityComboBox.Name = "cityComboBox";
-            this.cityComboBox.Size = new System.Drawing.Size(254, 23);
-            this.cityComboBox.TabIndex = 27;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(355, 109);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 15);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Country:";
+            // 
+            // txtBoxCountry
+            // 
+            this.txtBoxCountry.Location = new System.Drawing.Point(447, 106);
+            this.txtBoxCountry.Name = "txtBoxCountry";
+            this.txtBoxCountry.Size = new System.Drawing.Size(254, 23);
+            this.txtBoxCountry.TabIndex = 27;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(355, 107);
+            this.label5.Location = new System.Drawing.Point(355, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 15);
             this.label5.TabIndex = 26;
             this.label5.Text = "Postal Code:";
             // 
-            // txtBoxCountry
+            // txtBoxPostal
             // 
-            this.txtBoxCountry.Location = new System.Drawing.Point(447, 104);
-            this.txtBoxCountry.Name = "txtBoxCountry";
-            this.txtBoxCountry.Size = new System.Drawing.Size(254, 23);
-            this.txtBoxCountry.TabIndex = 25;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(397, 72);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 15);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "City:";
+            this.txtBoxPostal.Location = new System.Drawing.Point(447, 69);
+            this.txtBoxPostal.Name = "txtBoxPostal";
+            this.txtBoxPostal.Size = new System.Drawing.Size(254, 23);
+            this.txtBoxPostal.TabIndex = 5;
             // 
             // txtBoxCustPhone
             // 
             this.txtBoxCustPhone.Location = new System.Drawing.Point(447, 33);
             this.txtBoxCustPhone.Name = "txtBoxCustPhone";
+            this.txtBoxCustPhone.ShortcutsEnabled = false;
             this.txtBoxCustPhone.Size = new System.Drawing.Size(254, 23);
-            this.txtBoxCustPhone.TabIndex = 22;
+            this.txtBoxCustPhone.TabIndex = 3;
             // 
             // label3
             // 
@@ -309,7 +292,7 @@ namespace ScheduleApptApp
             this.txtBoxCustName.Location = new System.Drawing.Point(105, 69);
             this.txtBoxCustName.Name = "txtBoxCustName";
             this.txtBoxCustName.Size = new System.Drawing.Size(241, 23);
-            this.txtBoxCustName.TabIndex = 19;
+            this.txtBoxCustName.TabIndex = 1;
             // 
             // label2
             // 
@@ -326,13 +309,14 @@ namespace ScheduleApptApp
             this.txtBoxCustAddress.Location = new System.Drawing.Point(105, 101);
             this.txtBoxCustAddress.Name = "txtBoxCustAddress";
             this.txtBoxCustAddress.Size = new System.Drawing.Size(241, 23);
-            this.txtBoxCustAddress.TabIndex = 17;
+            this.txtBoxCustAddress.TabIndex = 2;
             // 
             // txtBoxCustId
             // 
             this.txtBoxCustId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxCustId.Location = new System.Drawing.Point(105, 33);
             this.txtBoxCustId.Name = "txtBoxCustId";
+            this.txtBoxCustId.ReadOnly = true;
             this.txtBoxCustId.Size = new System.Drawing.Size(241, 23);
             this.txtBoxCustId.TabIndex = 16;
             // 
@@ -346,77 +330,19 @@ namespace ScheduleApptApp
             this.label1.TabIndex = 15;
             this.label1.Text = "Customer ID:";
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "address";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
             // custDataGrid
             // 
-            this.custDataGrid.AutoGenerateColumns = false;
-            this.custDataGrid.BackgroundColor = System.Drawing.Color.Gray;
             this.custDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.custDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerIdDataGridViewTextBoxColumn,
-            this.customerNameDataGridViewTextBoxColumn,
-            this.addressIdDataGridViewTextBoxColumn,
-            this.activeDataGridViewCheckBoxColumn,
-            this.createDateDataGridViewTextBoxColumn,
-            this.createdByDataGridViewTextBoxColumn,
-            this.lastUpdateDataGridViewTextBoxColumn,
-            this.lastUpdateByDataGridViewTextBoxColumn});
-            this.custDataGrid.DataSource = this.customerBindingSource;
-            this.custDataGrid.Location = new System.Drawing.Point(18, 187);
+            this.custDataGrid.Location = new System.Drawing.Point(152, 189);
             this.custDataGrid.Name = "custDataGrid";
-            this.custDataGrid.Size = new System.Drawing.Size(785, 152);
+            this.custDataGrid.Size = new System.Drawing.Size(524, 150);
             this.custDataGrid.TabIndex = 4;
-            // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataSource = typeof(ScheduleApptApp.Model.customer);
-            // 
-            // customerIdDataGridViewTextBoxColumn
-            // 
-            this.customerIdDataGridViewTextBoxColumn.DataPropertyName = "customerId";
-            this.customerIdDataGridViewTextBoxColumn.HeaderText = "customerId";
-            this.customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
-            // 
-            // customerNameDataGridViewTextBoxColumn
-            // 
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "customerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "customerName";
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-            // 
-            // addressIdDataGridViewTextBoxColumn
-            // 
-            this.addressIdDataGridViewTextBoxColumn.DataPropertyName = "addressId";
-            this.addressIdDataGridViewTextBoxColumn.HeaderText = "addressId";
-            this.addressIdDataGridViewTextBoxColumn.Name = "addressIdDataGridViewTextBoxColumn";
-            // 
-            // activeDataGridViewCheckBoxColumn
-            // 
-            this.activeDataGridViewCheckBoxColumn.DataPropertyName = "active";
-            this.activeDataGridViewCheckBoxColumn.HeaderText = "active";
-            this.activeDataGridViewCheckBoxColumn.Name = "activeDataGridViewCheckBoxColumn";
-            // 
-            // createDateDataGridViewTextBoxColumn
-            // 
-            this.createDateDataGridViewTextBoxColumn.DataPropertyName = "createDate";
-            this.createDateDataGridViewTextBoxColumn.HeaderText = "createDate";
-            this.createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
-            // 
-            // createdByDataGridViewTextBoxColumn
-            // 
-            this.createdByDataGridViewTextBoxColumn.DataPropertyName = "createdBy";
-            this.createdByDataGridViewTextBoxColumn.HeaderText = "createdBy";
-            this.createdByDataGridViewTextBoxColumn.Name = "createdByDataGridViewTextBoxColumn";
-            // 
-            // lastUpdateDataGridViewTextBoxColumn
-            // 
-            this.lastUpdateDataGridViewTextBoxColumn.DataPropertyName = "lastUpdate";
-            this.lastUpdateDataGridViewTextBoxColumn.HeaderText = "lastUpdate";
-            this.lastUpdateDataGridViewTextBoxColumn.Name = "lastUpdateDataGridViewTextBoxColumn";
-            // 
-            // lastUpdateByDataGridViewTextBoxColumn
-            // 
-            this.lastUpdateByDataGridViewTextBoxColumn.DataPropertyName = "lastUpdateBy";
-            this.lastUpdateByDataGridViewTextBoxColumn.HeaderText = "lastUpdateBy";
-            this.lastUpdateByDataGridViewTextBoxColumn.Name = "lastUpdateByDataGridViewTextBoxColumn";
             // 
             // FormAllCustomers
             // 
@@ -429,17 +355,16 @@ namespace ScheduleApptApp
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormAllCustomers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Customers";
             this.Load += new System.EventHandler(this.FormAllCustomers_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.custGroupBox.ResumeLayout(false);
             this.custGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.custDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,20 +392,13 @@ namespace ScheduleApptApp
         private System.Windows.Forms.TextBox txtBoxCustId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBoxCountry;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtBoxPostal;
         private System.Windows.Forms.TextBox txtBoxCustPhone;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cityComboBox;
-        private System.Windows.Forms.DataGridView custDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdByDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastUpdateByDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource customerBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtBoxCountry;
+        private System.Windows.Forms.DataGridView custDataGrid;
     }
 }
