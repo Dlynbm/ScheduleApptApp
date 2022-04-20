@@ -29,11 +29,13 @@ namespace ScheduleApptApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAllCustomers));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label = new System.Windows.Forms.Label();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.CustomerGrid = new System.Windows.Forms.DataGridView();
+            this.custGroupBox = new System.Windows.Forms.GroupBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddCustomer = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnEditCust = new System.Windows.Forms.ToolStripButton();
@@ -44,16 +46,11 @@ namespace ScheduleApptApp
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.appointmentDataGridView = new System.Windows.Forms.DataGridView();
-            this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.custGroupBox = new System.Windows.Forms.GroupBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.flowLayoutPanel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerGrid)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -80,25 +77,41 @@ namespace ScheduleApptApp
             this.Label.Text = "Customers";
             this.Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // toolStrip1
+            // panel1
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddCustomer,
-            this.toolStripSeparator5,
-            this.btnEditCust,
-            this.toolStripSeparator3,
-            this.btnDeleteCust,
-            this.toolStripSeparator4,
-            this.btnSaveCustomer,
-            this.toolStripSeparator1,
-            this.btnCancel,
-            this.toolStripSeparator2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 62);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(933, 60);
-            this.toolStrip1.TabIndex = 20;
-            this.toolStrip1.Text = "toolStrip1";
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.CustomerGrid);
+            this.panel1.Controls.Add(this.custGroupBox);
+            this.panel1.Location = new System.Drawing.Point(52, 137);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(827, 460);
+            this.panel1.TabIndex = 0;
+            // 
+            // CustomerGrid
+            // 
+            this.CustomerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CustomerGrid.Location = new System.Drawing.Point(69, 220);
+            this.CustomerGrid.Name = "CustomerGrid";
+            this.CustomerGrid.Size = new System.Drawing.Size(609, 174);
+            this.CustomerGrid.TabIndex = 3;
+            // 
+            // custGroupBox
+            // 
+            this.custGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.custGroupBox.Name = "custGroupBox";
+            this.custGroupBox.Size = new System.Drawing.Size(821, 162);
+            this.custGroupBox.TabIndex = 3;
+            this.custGroupBox.TabStop = false;
+            this.custGroupBox.Text = "Customer Info";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "address";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // btnAddCustomer
             // 
@@ -175,47 +188,25 @@ namespace ScheduleApptApp
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 60);
             // 
-            // panel1
+            // toolStrip1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.appointmentDataGridView);
-            this.panel1.Controls.Add(this.custGroupBox);
-            this.panel1.Location = new System.Drawing.Point(52, 137);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(827, 460);
-            this.panel1.TabIndex = 0;
-            // 
-            // appointmentDataGridView
-            // 
-            this.appointmentDataGridView.AutoGenerateColumns = false;
-            this.appointmentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentDataGridView.DataSource = this.appointmentBindingSource;
-            this.appointmentDataGridView.Location = new System.Drawing.Point(69, 220);
-            this.appointmentDataGridView.Name = "appointmentDataGridView";
-            this.appointmentDataGridView.Size = new System.Drawing.Size(609, 174);
-            this.appointmentDataGridView.TabIndex = 3;
-            // 
-            // appointmentBindingSource
-            // 
-            this.appointmentBindingSource.DataMember = "appointment";
-            // 
-            // custGroupBox
-            // 
-            this.custGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.custGroupBox.Name = "custGroupBox";
-            this.custGroupBox.Size = new System.Drawing.Size(821, 162);
-            this.custGroupBox.TabIndex = 3;
-            this.custGroupBox.TabStop = false;
-            this.custGroupBox.Text = "Customer Info";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "address";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.toolStrip1.AutoSize = false;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddCustomer,
+            this.toolStripSeparator5,
+            this.btnEditCust,
+            this.toolStripSeparator3,
+            this.btnDeleteCust,
+            this.toolStripSeparator4,
+            this.btnSaveCustomer,
+            this.toolStripSeparator1,
+            this.btnCancel,
+            this.toolStripSeparator2});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 62);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(933, 60);
+            this.toolStrip1.TabIndex = 20;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // FormAllCustomers
             // 
@@ -231,33 +222,21 @@ namespace ScheduleApptApp
             this.Load += new System.EventHandler(this.FormAllCustomers_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerGrid)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnAddCustomer;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton btnEditCust;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton btnDeleteCust;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton btnSaveCustomer;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton btnCancel;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox custGroupBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.Label Label;
-        private System.Windows.Forms.DataGridView appointmentDataGridView;
+        private System.Windows.Forms.DataGridView CustomerGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -273,6 +252,23 @@ namespace ScheduleApptApp
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.BindingSource appointmentBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cityIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn postalCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton btnAddCustomer;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripButton btnEditCust;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton btnDeleteCust;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton btnSaveCustomer;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton btnCancel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
