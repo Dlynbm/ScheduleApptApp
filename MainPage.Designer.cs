@@ -33,13 +33,13 @@ namespace ScheduleApptApp
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDeleteAppt = new System.Windows.Forms.Button();
+            this.btnEditAppt = new System.Windows.Forms.Button();
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
             this.ViewCustomersBtn = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
-            this.SearchTxtBox = new System.Windows.Forms.TextBox();
-            this.btnEditAppt = new System.Windows.Forms.Button();
-            this.btnDeleteAppt = new System.Windows.Forms.Button();
             this.btnAddAppt = new System.Windows.Forms.Button();
+            this.SearchTxtBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
@@ -64,7 +64,7 @@ namespace ScheduleApptApp
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(965, 89);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(757, 89);
             this.flowLayoutPanel1.TabIndex = 17;
             // 
             // Label
@@ -98,8 +98,38 @@ namespace ScheduleApptApp
             this.panel2.Location = new System.Drawing.Point(10, 171);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(922, 366);
+            this.panel2.Size = new System.Drawing.Size(737, 353);
             this.panel2.TabIndex = 18;
+            // 
+            // btnDeleteAppt
+            // 
+            this.btnDeleteAppt.BackColor = System.Drawing.Color.Coral;
+            this.btnDeleteAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteAppt.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteAppt.Location = new System.Drawing.Point(374, 16);
+            this.btnDeleteAppt.Margin = new System.Windows.Forms.Padding(1);
+            this.btnDeleteAppt.Name = "btnDeleteAppt";
+            this.btnDeleteAppt.Size = new System.Drawing.Size(162, 45);
+            this.btnDeleteAppt.TabIndex = 4;
+            this.btnDeleteAppt.Text = "Delete Appointment";
+            this.btnDeleteAppt.UseVisualStyleBackColor = false;
+            this.btnDeleteAppt.Click += new System.EventHandler(this.btnDeleteAppt_Click);
+            // 
+            // btnEditAppt
+            // 
+            this.btnEditAppt.BackColor = System.Drawing.Color.Coral;
+            this.btnEditAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditAppt.ForeColor = System.Drawing.Color.White;
+            this.btnEditAppt.Location = new System.Drawing.Point(207, 16);
+            this.btnEditAppt.Margin = new System.Windows.Forms.Padding(1);
+            this.btnEditAppt.Name = "btnEditAppt";
+            this.btnEditAppt.Size = new System.Drawing.Size(154, 45);
+            this.btnEditAppt.TabIndex = 3;
+            this.btnEditAppt.Text = "Edit Appointment";
+            this.btnEditAppt.UseVisualStyleBackColor = false;
+            this.btnEditAppt.Click += new System.EventHandler(this.btnEditAppt_Click);
             // 
             // AppointmentGrid
             // 
@@ -111,7 +141,7 @@ namespace ScheduleApptApp
             this.AppointmentGrid.Location = new System.Drawing.Point(39, 114);
             this.AppointmentGrid.MultiSelect = false;
             this.AppointmentGrid.Name = "AppointmentGrid";
-            this.AppointmentGrid.Size = new System.Drawing.Size(841, 142);
+            this.AppointmentGrid.Size = new System.Drawing.Size(650, 119);
             this.AppointmentGrid.TabIndex = 0;
             // 
             // ViewCustomersBtn
@@ -121,7 +151,7 @@ namespace ScheduleApptApp
             this.ViewCustomersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ViewCustomersBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ViewCustomersBtn.ForeColor = System.Drawing.Color.White;
-            this.ViewCustomersBtn.Location = new System.Drawing.Point(569, 304);
+            this.ViewCustomersBtn.Location = new System.Drawing.Point(370, 292);
             this.ViewCustomersBtn.Margin = new System.Windows.Forms.Padding(1);
             this.ViewCustomersBtn.Name = "ViewCustomersBtn";
             this.ViewCustomersBtn.Size = new System.Drawing.Size(150, 45);
@@ -137,49 +167,13 @@ namespace ScheduleApptApp
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.White;
-            this.btnReports.Location = new System.Drawing.Point(730, 304);
+            this.btnReports.Location = new System.Drawing.Point(537, 292);
             this.btnReports.Margin = new System.Windows.Forms.Padding(1);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(150, 45);
             this.btnReports.TabIndex = 1;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
-            // 
-            // SearchTxtBox
-            // 
-            this.SearchTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchTxtBox.Location = new System.Drawing.Point(703, 121);
-            this.SearchTxtBox.Name = "SearchTxtBox";
-            this.SearchTxtBox.Size = new System.Drawing.Size(144, 20);
-            this.SearchTxtBox.TabIndex = 1;
-            // 
-            // btnEditAppt
-            // 
-            this.btnEditAppt.BackColor = System.Drawing.Color.Coral;
-            this.btnEditAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditAppt.ForeColor = System.Drawing.Color.White;
-            this.btnEditAppt.Location = new System.Drawing.Point(207, 16);
-            this.btnEditAppt.Margin = new System.Windows.Forms.Padding(1);
-            this.btnEditAppt.Name = "btnEditAppt";
-            this.btnEditAppt.Size = new System.Drawing.Size(154, 45);
-            this.btnEditAppt.TabIndex = 3;
-            this.btnEditAppt.Text = "Edit Appointment";
-            this.btnEditAppt.UseVisualStyleBackColor = false;
-            // 
-            // btnDeleteAppt
-            // 
-            this.btnDeleteAppt.BackColor = System.Drawing.Color.Coral;
-            this.btnDeleteAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteAppt.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteAppt.Location = new System.Drawing.Point(374, 16);
-            this.btnDeleteAppt.Margin = new System.Windows.Forms.Padding(1);
-            this.btnDeleteAppt.Name = "btnDeleteAppt";
-            this.btnDeleteAppt.Size = new System.Drawing.Size(162, 45);
-            this.btnDeleteAppt.TabIndex = 4;
-            this.btnDeleteAppt.Text = "Delete Appointment";
-            this.btnDeleteAppt.UseVisualStyleBackColor = false;
             // 
             // btnAddAppt
             // 
@@ -196,11 +190,19 @@ namespace ScheduleApptApp
             this.btnAddAppt.UseVisualStyleBackColor = false;
             this.btnAddAppt.Click += new System.EventHandler(this.AddApptBtn_Click);
             // 
+            // SearchTxtBox
+            // 
+            this.SearchTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchTxtBox.Location = new System.Drawing.Point(495, 121);
+            this.SearchTxtBox.Name = "SearchTxtBox";
+            this.SearchTxtBox.Size = new System.Drawing.Size(144, 20);
+            this.SearchTxtBox.TabIndex = 1;
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 547);
+            this.ClientSize = new System.Drawing.Size(757, 547);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.SearchTxtBox);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -210,7 +212,6 @@ namespace ScheduleApptApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "All Appointments";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MainPage_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);

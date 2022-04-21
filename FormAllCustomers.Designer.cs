@@ -33,7 +33,9 @@ namespace ScheduleApptApp
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.CustomerGrid = new System.Windows.Forms.DataGridView();
+            this.txtBxSearch = new System.Windows.Forms.TextBox();
             this.custGroupBox = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@ namespace ScheduleApptApp
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.txtBxSearch = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerGrid)).BeginInit();
@@ -107,15 +107,31 @@ namespace ScheduleApptApp
             this.panel1.Size = new System.Drawing.Size(827, 460);
             this.panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(569, 180);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // CustomerGrid
             // 
             this.CustomerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomerGrid.Location = new System.Drawing.Point(106, 225);
+            this.CustomerGrid.Location = new System.Drawing.Point(28, 225);
             this.CustomerGrid.Name = "CustomerGrid";
-            this.CustomerGrid.Size = new System.Drawing.Size(609, 174);
+            this.CustomerGrid.Size = new System.Drawing.Size(772, 174);
             this.CustomerGrid.TabIndex = 3;
             this.CustomerGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
             this.CustomerGrid.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.CustomerGrid_DataBindingComplete);
+            // 
+            // txtBxSearch
+            // 
+            this.txtBxSearch.Location = new System.Drawing.Point(665, 181);
+            this.txtBxSearch.Name = "txtBxSearch";
+            this.txtBxSearch.Size = new System.Drawing.Size(135, 23);
+            this.txtBxSearch.TabIndex = 21;
             // 
             // custGroupBox
             // 
@@ -161,9 +177,9 @@ namespace ScheduleApptApp
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(287, 44);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 15);
+            this.label6.Size = new System.Drawing.Size(44, 15);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Address:";
+            this.label6.Text = "Phone:";
             // 
             // txtBxCustCountry
             // 
@@ -191,9 +207,9 @@ namespace ScheduleApptApp
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(22, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 15);
+            this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Customer Phone:";
+            this.label3.Text = "Address:";
             // 
             // label2
             // 
@@ -336,22 +352,6 @@ namespace ScheduleApptApp
             this.toolStrip1.Size = new System.Drawing.Size(933, 60);
             this.toolStrip1.TabIndex = 20;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // txtBxSearch
-            // 
-            this.txtBxSearch.Location = new System.Drawing.Point(665, 181);
-            this.txtBxSearch.Name = "txtBxSearch";
-            this.txtBxSearch.Size = new System.Drawing.Size(135, 23);
-            this.txtBxSearch.TabIndex = 21;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(569, 180);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormAllCustomers
             // 

@@ -14,72 +14,28 @@ namespace ScheduleApptApp
 {
     public partial class MainPage : Form
     {
+        //private static string user;
+        //private static int userId;
 
-        public MainPage()
+    public MainPage()
         {
             InitializeComponent();
+            MySqlConnection con = Data.getConnection();
+            String sqlQuery = "SELECT * from appointment";
+
+            MySqlDataAdapter cd = new MySqlDataAdapter(sqlQuery, Data.getConnection());
+            DataSet apptDataSet = new DataSet();
+            Data.getConnection().Open();
+            cd.Fill(apptDataSet);
+            AppointmentGrid.DataSource = apptDataSet.Tables[0];
+            Data.getConnection().Close();
+
+            AppointmentGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            AppointmentGrid.RowHeadersVisible = false;
+            AppointmentGrid.ReadOnly = true;
+            AppointmentGrid.AllowUserToAddRows = true;
+            AppointmentGrid.ClearSelection();
         }
-
-        private void MainPage_Load(object sender, EventArgs e)
-        {
-            dbQueries();
-
-        }
-
-        private void dbQueries()
-        {
-            //retrieveCustomerDb();
-        }
-
-
-
-        //MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-        //con.Open();
-        //String sqlString = "SELECT appointmentId, customerId, userId, type, start FROM appointment";
-        //MySqlCommand cmd = new MySqlCommand(sqlString, con);
-        //MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-        //DataTable dt = new DataTable();
-        //adp.Fill(dt);
-        //AppointmentGrid.DataSource = dt;
-        //AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-
-        //AppointmentGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        //AppointmentGrid.RowHeadersVisible = false;
-        //AppointmentGrid.ReadOnly = true;
-        //AppointmentGrid.AllowUserToAddRows=true;
-        //AppointmentGrid.DataSource = Appointment.AppointmentStockPile;
-
-
-
-        //private void AppointmentGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    if (e.RowIndex >= 0)
-        //    {
-        //        //idxSelectedAppointment = AppointmentGrid.CurrentCell.RowIndex;
-        //        //Appointment.Cu
-        //    }
-
-
-        //AllCustomersGrid.DataSource = custDS.Tables[0];
-
-
-        //}
-
-        //private void retrieveAppDB()
-        //{
-        //    string apptQr = $"appointment.appointmentId, customer.customerName, customer.CustomerId, appointment.title, appointment.description, appointment.location" +
-        //        $"appointment.contact, appointment.start, appointment.end, appointment.type,appointment.url FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId" +
-        //        $"INNER JOIN 'user' ON appointment.userId = 'user'.userId WHERE customer.customerId = '{AppointmentGrid.CurrentRow.Cells[0].Value}' ";
-        //    MySqlDataAdapter adpt = new MySqlDataAdapter(apptQr, DbConn.getConnection());
-        //    DataSet appDS = new DataSet();
-        //    DbConn.getConnection().Open();
-        //    adpt.Fill(appDS);
-
-        //    AppointmentGrid.DataSource = appDS.Tables[0];
-        //    DbConn.getConnection().Close();
-        //}
-
 
         private void ViewCustomersBtn_Click(object sender, EventArgs e)
         {
@@ -89,14 +45,21 @@ namespace ScheduleApptApp
 
         private void AddApptBtn_Click(object sender, EventArgs e)
         {
-            FormAddAppointment addAppt = new FormAddAppointment(this);
+            FormAllAppointments addAppt = new FormAllAppointments();
             addAppt.Show();
         }
 
+        private void btnEditAppt_Click(object sender, EventArgs e)
+        {
+            FormAllAppointments addAppt = new FormAllAppointments();
+            addAppt.Show();
+        }
 
-
-
-
+        private void btnDeleteAppt_Click(object sender, EventArgs e)
+        {
+            FormAllAppointments addAppt = new FormAllAppointments();
+            addAppt.Show();
+        }
     }
 }
 

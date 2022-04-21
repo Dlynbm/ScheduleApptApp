@@ -16,9 +16,39 @@ namespace ScheduleApptApp
 
         }
 
+        //static public int newCustomer(string table)
+        //{
+        //    MySqlConnection con = getConnection();
+        //    con.Open();
+        //    MySqlCommand cmd = new MySqlCommand($"SELECT {table + "Id"} FROM {table}", con);
+        //    MySqlDataReader rd = cmd.ExecuteReader();
+        //    List <int> 1 = new List<int>();
+
+        //    while(rd.Read())
+        //    {
+        //        1.Add(Convert.ToInt32(rd[0]));
+        //    }
+        //    rd.Close();
+        //    con.Close();
+        //    return newId(1);
+        //}
+
+        //static public int newId(List<int> 1)
+        //{
+        //    int ID = 0;
+        //    foreach(int id in 1)
+        //    {
+        //        if(id > ID)
+        //        {
+        //            ID = id;
+        //        }
+        //    }
+        //    return ID + 1;
+        //}
+
         static public void addCustomer(string name, int cityId, string phone, string address, string postal)
         {
-            //bool status = true;
+            bool status = true;
             DateTime todayDate = DateTime.Now;
             MySqlConnection con = getConnection();
             string formattedDate = todayDate.ToString("yyyy-MM-dd HH:mm:ss.fff");

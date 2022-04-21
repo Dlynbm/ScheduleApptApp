@@ -20,10 +20,9 @@ namespace ScheduleApptApp
         public FormAllCustomers()
         {
             InitializeComponent();
-          
-            MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            con.Open();
-            String sqlString = "SELECT customer.customerId, customer.customerName, customer.active, customer.addressId, address.address, address.address2, address.postalCode, address.phone, address.cityId, city.city, city.countryId, country.country FROM customer INNER JOIN address ON customer.addressID = address.addressId INNER JOIN city ON address.cityId = city.cityId INNER JOIN country ON city.countryId = country.countryId";
+            MySqlConnection con = Data.getConnection();          
+            String sqlString = "SELECT customer.customerId, customer.customerName, address.address, address.phone, city.city, country.country FROM customer INNER JOIN address ON customer.addressID = address.addressId INNER JOIN city ON address.cityId = city.cityId INNER JOIN country ON city.countryId = country.countryId";
+
             MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, Data.getConnection());
             DataSet custDataSet = new DataSet();
             Data.getConnection().Open();
@@ -117,27 +116,40 @@ namespace ScheduleApptApp
         private void btnDeleteCust_Click(object sender, EventArgs e)
         {
             new_edit_del_butt_enable();
-            if(CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
-            {
-                MessageBox.Show("Noting is selected.  Please make a selection");
-                return;
-            }
+            //if (CustomerGrid.CurrentRow.Selected)
+            //{
+            //    using (MySqlConnection con = Data.getConnection())
+            //    {
+            //        string deleteCus = $"DELETE FROM customer WHERE customerId = '{0}'", 
+            //        MySqlCommand cmd = new MySqlCommand(deleteCus, con);
+            //        cmd.ExecuteNonQuery();
+            //    }
+            //    loadData();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("No record seletece");
+            //}
 
-            //Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
+            //customer c = CustomerGrid.CurrentRow.DataBoundItem as customer;
             //var chosenCustomer = CustomerGrid.CurrentCell.Value;
 
             //DialogResult result = MessageBox.Show("Are you sure you want to delete " + chosenCustomer, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            //if(result == DialogResult.Yes)
+            //if (result == DialogResult.Yes)
             //{
-
+            //    MySqlConnection con = Data.getConnection();
+            //    MySqlCommand cmd = new MySqlCommand(deleteCus, con);
+            //    con.Open();
+            //    cmd.ExecuteNonQuery();
+            //    con.Close();
             //}
-
         }
+        
 
         private void btnSaveCustomer_Click(object sender, EventArgs e)
         {
-            
+            //Data.updateCustomer(Convert.ToInt32())
         }
 
         private void CustomerGrid_CellClick(object sender, DataGridViewCellEventArgs e)
