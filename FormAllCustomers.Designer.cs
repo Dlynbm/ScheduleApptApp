@@ -192,6 +192,7 @@ namespace ScheduleApptApp
             this.txtBxSearch.Name = "txtBxSearch";
             this.txtBxSearch.Size = new System.Drawing.Size(135, 23);
             this.txtBxSearch.TabIndex = 21;
+            this.txtBxSearch.TextChanged += new System.EventHandler(this.txtBxSearch_TextChanged);
             // 
             // custGroupBox
             // 

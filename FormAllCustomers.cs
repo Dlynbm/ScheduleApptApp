@@ -32,19 +32,47 @@ namespace ScheduleApptApp
 
         private void FormAllCustomers_Load(object sender, EventArgs e)
         {
-            con.Open();
+            this.btnSaveCustomer.Enabled = false;
+            this.btnCancel.Enabled = false;
+            this.custGroupBox.Enabled = false;
+            CustomerGrid.ClearSelection();
+            loadCustomers();
+
+        }
+
+        private void loadCustomers()
+        {
             string sqlString = "SELECT customer.customerId, customer.customerName, address.address, address.postalCode, address.phone,  city.city,  country.country FROM customer INNER JOIN address ON customer.addressID = address.addressId INNER JOIN city ON address.cityId = city.cityId INNER JOIN country ON city.countryId = country.countryId";
             MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, con);
             DataTable dt = new DataTable();
             cd.Fill(dt);
             CustomerGrid.DataSource = dt;
             CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
 
-            this.btnSaveCustomer.Enabled = false;
-            this.btnCancel.Enabled = false;
-            this.custGroupBox.Enabled = false;
-            CustomerGrid.ClearSelection();
+        private void txtBxSearch_TextChanged(object sender, EventArgs e)
+        {
+            string sqlString = "SELECT * FROM customer where customerName like '" + txtBxSearch.Text + "%'";
+            MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, con);
+            DataTable dt = new DataTable();
+            cd.Fill(dt);
+            CustomerGrid.DataSource = dt;
+            CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        
 
+
+
+
+            //DataSet searchData = new DataSet();
+            //Data.getConnection().Open();
+            //cd.Fill(searchData);
+            //CustomerGrid.DataSource = searchData.Tables[0];
+
+            //Data.getConnection().Close();
+
+            //cd.Fill(dt);
+            //CustomerGrid.DataSource = dt;
+            //con.Close();
         }
 
 
@@ -228,31 +256,12 @@ namespace ScheduleApptApp
             }
         }
 
-        private void txtBxSearch_TextChanged(object sender, EventArgs e)
-        {
-            con = new MySqlConnection();
-            con.Open();
-            string sqlString = "SELECT * FROM customer where customerName like '" + txtBxSearch.Text + "%'";
-            MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, con);
-            DataTable dt = new DataTable();
-            cd.Fill(dt);
-            CustomerGrid.DataSource = dt;
-            con.Close();
-        }
+        
     }
 }
 
 
 
-//MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-////con = new MySqlConnection();
-//con.Open();
-//string sqlString = "SELECT customer.customerId, customer.customerName, address.address, address.postalCode, address.phone,  city.city,  country.country FROM customer INNER JOIN address ON customer.addressID = address.addressId INNER JOIN city ON address.cityId = city.cityId INNER JOIN country ON city.countryId = country.countryId";
-//MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, con);
-//DataTable dt = new DataTable();
-//cd.Fill(dt);
-//CustomerGrid.DataSource = dt;
-//CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
 
 
