@@ -29,7 +29,6 @@ namespace ScheduleApptApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label createDateLabel;
             System.Windows.Forms.Label customerIdLabel1;
             System.Windows.Forms.Label customerNameLabel;
@@ -44,8 +43,8 @@ namespace ScheduleApptApp
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtBxSearch = new System.Windows.Forms.TextBox();
             this.custGroupBox = new System.Windows.Forms.GroupBox();
+            this.CustomerGrid = new System.Windows.Forms.DataGridView();
             this.txtBoxCustCountry = new System.Windows.Forms.TextBox();
-            this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtBoxCustCity = new System.Windows.Forms.TextBox();
             this.txtBoxCustAdd = new System.Windows.Forms.TextBox();
             this.txtBoxCustPhone = new System.Windows.Forms.TextBox();
@@ -63,7 +62,6 @@ namespace ScheduleApptApp
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             createDateLabel = new System.Windows.Forms.Label();
             customerIdLabel1 = new System.Windows.Forms.Label();
             customerNameLabel = new System.Windows.Forms.Label();
@@ -74,9 +72,8 @@ namespace ScheduleApptApp
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.custGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerGrid)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // createDateLabel
@@ -198,7 +195,7 @@ namespace ScheduleApptApp
             // 
             // custGroupBox
             // 
-            this.custGroupBox.Controls.Add(this.dataGridView1);
+            this.custGroupBox.Controls.Add(this.CustomerGrid);
             this.custGroupBox.Controls.Add(this.txtBoxCustCountry);
             this.custGroupBox.Controls.Add(this.txtBoxCustCity);
             this.custGroupBox.Controls.Add(this.txtBoxCustAdd);
@@ -219,21 +216,25 @@ namespace ScheduleApptApp
             this.custGroupBox.TabStop = false;
             this.custGroupBox.Text = "Customer Info";
             // 
+            // CustomerGrid
+            // 
+            this.CustomerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CustomerGrid.Location = new System.Drawing.Point(103, 252);
+            this.CustomerGrid.Name = "CustomerGrid";
+            this.CustomerGrid.Size = new System.Drawing.Size(694, 150);
+            this.CustomerGrid.TabIndex = 92;
+            this.CustomerGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
+            this.CustomerGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
+            // 
             // txtBoxCustCountry
             // 
-            this.txtBoxCustCountry.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "country", true));
             this.txtBoxCustCountry.Location = new System.Drawing.Point(355, 102);
             this.txtBoxCustCountry.Name = "txtBoxCustCountry";
             this.txtBoxCustCountry.Size = new System.Drawing.Size(100, 23);
             this.txtBoxCustCountry.TabIndex = 91;
             // 
-            // customerBindingSource
-            // 
-            this.customerBindingSource.DataMember = "customer";
-            // 
             // txtBoxCustCity
             // 
-            this.txtBoxCustCity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "city", true));
             this.txtBoxCustCity.Location = new System.Drawing.Point(355, 59);
             this.txtBoxCustCity.Name = "txtBoxCustCity";
             this.txtBoxCustCity.Size = new System.Drawing.Size(100, 23);
@@ -241,7 +242,6 @@ namespace ScheduleApptApp
             // 
             // txtBoxCustAdd
             // 
-            this.txtBoxCustAdd.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "address", true));
             this.txtBoxCustAdd.Location = new System.Drawing.Point(355, 30);
             this.txtBoxCustAdd.Name = "txtBoxCustAdd";
             this.txtBoxCustAdd.Size = new System.Drawing.Size(100, 23);
@@ -249,7 +249,6 @@ namespace ScheduleApptApp
             // 
             // txtBoxCustPhone
             // 
-            this.txtBoxCustPhone.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "phone", true));
             this.txtBoxCustPhone.Location = new System.Drawing.Point(127, 94);
             this.txtBoxCustPhone.Name = "txtBoxCustPhone";
             this.txtBoxCustPhone.Size = new System.Drawing.Size(100, 23);
@@ -257,7 +256,6 @@ namespace ScheduleApptApp
             // 
             // txtBoxCustName
             // 
-            this.txtBoxCustName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "customerName", true));
             this.txtBoxCustName.Location = new System.Drawing.Point(127, 61);
             this.txtBoxCustName.Name = "txtBoxCustName";
             this.txtBoxCustName.Size = new System.Drawing.Size(100, 23);
@@ -265,7 +263,6 @@ namespace ScheduleApptApp
             // 
             // txtBoxCustId
             // 
-            this.txtBoxCustId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerBindingSource, "customerId", true));
             this.txtBoxCustId.Location = new System.Drawing.Point(127, 29);
             this.txtBoxCustId.Name = "txtBoxCustId";
             this.txtBoxCustId.ReadOnly = true;
@@ -301,7 +298,6 @@ namespace ScheduleApptApp
             this.btnEditCust.Name = "btnEditCust";
             this.btnEditCust.Size = new System.Drawing.Size(55, 57);
             this.btnEditCust.Text = "Edit";
-            this.btnEditCust.Click += new System.EventHandler(this.btnEditCust_Click);
             // 
             // toolStripSeparator3
             // 
@@ -316,7 +312,6 @@ namespace ScheduleApptApp
             this.btnDeleteCust.Name = "btnDeleteCust";
             this.btnDeleteCust.Size = new System.Drawing.Size(68, 57);
             this.btnDeleteCust.Text = "Delete";
-            //this.btnDeleteCust.Click += new System.EventHandler(this.btnDeleteCust_Click);
             // 
             // toolStripSeparator4
             // 
@@ -331,7 +326,6 @@ namespace ScheduleApptApp
             this.btnSaveCustomer.Name = "btnSaveCustomer";
             this.btnSaveCustomer.Size = new System.Drawing.Size(59, 57);
             this.btnSaveCustomer.Text = "Save";
-            this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveCustomer_Click);
             // 
             // toolStripSeparator1
             // 
@@ -373,14 +367,6 @@ namespace ScheduleApptApp
             this.toolStrip1.TabIndex = 20;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(192, 252);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(522, 150);
-            this.dataGridView1.TabIndex = 92;
-            // 
             // FormAllCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -399,10 +385,9 @@ namespace ScheduleApptApp
             this.panel1.PerformLayout();
             this.custGroupBox.ResumeLayout(false);
             this.custGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CustomerGrid)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -454,7 +439,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.BindingSource customerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
@@ -467,6 +451,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.TextBox txtBoxCustAdd;
         private System.Windows.Forms.TextBox txtBoxCustPhone;
         private System.Windows.Forms.TextBox txtBoxCustName;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView CustomerGrid;
     }
 }
