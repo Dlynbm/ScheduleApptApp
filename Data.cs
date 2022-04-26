@@ -9,42 +9,25 @@ namespace ScheduleApptApp
 {
     class Data
     {
+        static int currentUserId = 0;
+        public object CustomerGrid { get; private set; }
+
         static public MySqlConnection getConnection()
         {
             MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
             return con;
 
+        }   
+        
+        static public void setCurrentUser(int id)
+        {
+            currentUserId = id;
         }
 
-        //static public int newCustomer(string table)
-        //{
-        //    MySqlConnection con = getConnection();
-        //    con.Open();
-        //    MySqlCommand cmd = new MySqlCommand($"SELECT {table + "Id"} FROM {table}", con);
-        //    MySqlDataReader rd = cmd.ExecuteReader();
-        //    List <int> 1 = new List<int>();
-
-        //    while(rd.Read())
-        //    {
-        //        1.Add(Convert.ToInt32(rd[0]));
-        //    }
-        //    rd.Close();
-        //    con.Close();
-        //    return newId(1);
-        //}
-
-        //static public int newId(List<int> 1)
-        //{
-        //    int ID = 0;
-        //    foreach(int id in 1)
-        //    {
-        //        if(id > ID)
-        //        {
-        //            ID = id;
-        //        }
-        //    }
-        //    return ID + 1;
-        //}
+        static public int getCurrentUser()
+        {
+            return currentUserId;
+        }
 
         static public void addCustomer(string name, int cityId, string phone, string address, string postal)
         {
@@ -79,3 +62,30 @@ namespace ScheduleApptApp
         
     }
 }
+
+
+//private void btnLogin_Click(object sender, EventArgs e)
+//{
+//    string userName = txtBoxUserName.Text;
+//    string password = txtBoxPass.Text;
+//    MySqlCommand cmd = new MySqlCommand($"SELECT * FROM user WHERE userName = '{txtBoxUserName.Text}' AND password = '{txtBoxPass.Text}'", con);
+//    con.Open();
+//    MySqlDataReader rd = cmd.ExecuteReader();
+
+//    if (rd.HasRows)
+//    {
+//        while (rd.Read())
+//        {
+//            Data.setCurrentUser(Convert.ToInt32(rd.GetString(0)));
+//        }
+
+//        MainPage mp = new MainPage();
+//        mp.ShowDialog();
+//        this.Close();
+//    }
+//    else if (!rd.HasRows)
+//    {
+//        MessageBox.Show(ex.Message);
+//    }
+//    con.Close();
+//}

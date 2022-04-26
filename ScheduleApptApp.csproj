@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -38,12 +37,6 @@
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
@@ -161,36 +154,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="address.cs">
-      <DependentUpon>client_scheduleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="appointment.cs">
-      <DependentUpon>client_scheduleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="city.cs">
-      <DependentUpon>client_scheduleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\Customer.cs" />
-    <Compile Include="client_scheduleModel.Context.cs">
+    <Compile Include="client_scheduleDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>client_scheduleModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="client_scheduleModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>client_scheduleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="client_scheduleModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>client_scheduleModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="country.cs">
-      <DependentUpon>client_scheduleModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="customer.cs">
-      <DependentUpon>client_scheduleModel.tt</DependentUpon>
+      <DependentUpon>client_scheduleDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="FormAllAppointments.cs">
       <SubType>Form</SubType>
@@ -199,12 +166,6 @@
       <DependentUpon>FormAllAppointments.cs</DependentUpon>
     </Compile>
     <Compile Include="Data.cs" />
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,14 +180,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="user.cs">
-      <DependentUpon>client_scheduleModel.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FormAllAppointments.resx">
       <DependentUpon>FormAllAppointments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
@@ -243,12 +198,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="client_scheduleModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>client_scheduleModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="client_scheduleModel.edmx.diagram">
-      <DependentUpon>client_scheduleModel.edmx</DependentUpon>
+    <None Include="client_scheduleDataSet.xsc">
+      <DependentUpon>client_scheduleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="client_scheduleDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>client_scheduleDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="client_scheduleDataSet.xss">
+      <DependentUpon>client_scheduleDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -267,25 +226,5 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="client_scheduleModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>client_scheduleModel.edmx</DependentUpon>
-      <LastGenOutput>client_scheduleModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="client_scheduleModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>client_scheduleModel.edmx</DependentUpon>
-      <LastGenOutput>client_scheduleModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
-  </Target>
-  <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
 </Project>

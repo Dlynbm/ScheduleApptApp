@@ -20,36 +20,38 @@ namespace ScheduleApptApp
         public FormAllCustomers()
         {
             InitializeComponent();
-            MySqlConnection con = Data.getConnection();          
-            String sqlString = "SELECT customer.customerId, customer.customerName, address.address, address.phone, city.city, country.country FROM customer INNER JOIN address ON customer.addressID = address.addressId INNER JOIN city ON address.cityId = city.cityId INNER JOIN country ON city.countryId = country.countryId";
 
+            MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+            con.Open();
+            String sqlString = "SELECT * from customer"; 
+                //" customer.customerId, customer.customerName, customer.active, customer.addressId, address.address, address.address2, address.postalCode, address.phone, address.cityId, city.city, city.countryId, country.country FROM customer INNER JOIN address ON customer.addressID = address.addressId INNER JOIN city ON address.cityId = city.cityId INNER JOIN country ON city.countryId = country.countryId";
             MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, Data.getConnection());
             DataSet custDataSet = new DataSet();
             Data.getConnection().Open();
             cd.Fill(custDataSet);
-            CustomerGrid.DataSource = custDataSet.Tables[0];
+            dataGridView1.DataSource = custDataSet.Tables[0];
             Data.getConnection().Close();
 
-            CustomerGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            CustomerGrid.RowHeadersVisible = false;
-            CustomerGrid.ReadOnly = true;
-            CustomerGrid.AllowUserToAddRows = true;
-            CustomerGrid.ClearSelection();
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = true;
+            dataGridView1.ClearSelection();
         }
 
-        
+
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             new_edit_del_butt_enable();
-            clearTextBoxes(custGroupBox);   
+            clearTextBoxes(custGroupBox);
         }
 
         private void clearTextBoxes(GroupBox custGroupBox)
         {
-            foreach(Control ctrl in custGroupBox.Controls)
+            foreach (Control ctrl in custGroupBox.Controls)
             {
-                if(ctrl is TextBox)
+                if (ctrl is TextBox)
                 {
                     TextBox textBox = (TextBox)ctrl;
                     textBox.Text = null;
@@ -67,7 +69,7 @@ namespace ScheduleApptApp
             this.btnCancel.Enabled = true;
 
             this.custGroupBox.Enabled = true;
-            this.CustomerGrid.Enabled = true;
+            this.dataGridView1.Enabled = true;
 
         }
 
@@ -75,7 +77,7 @@ namespace ScheduleApptApp
         {
             save_cancel_btn_enable();
             clearTextBoxes(custGroupBox);
-            CustomerGrid.ClearSelection();
+            dataGridView1.ClearSelection();
         }
 
         void save_cancel_btn_enable()
@@ -88,7 +90,7 @@ namespace ScheduleApptApp
             this.btnDeleteCust.Enabled = true;
 
             this.custGroupBox.Enabled = false;
-            this.CustomerGrid.Enabled = true;
+            this.dataGridView1.Enabled = true;
         }
 
         private void FormAllCustomers_Load(object sender, EventArgs e)
@@ -96,13 +98,13 @@ namespace ScheduleApptApp
             this.btnSaveCustomer.Enabled = false;
             this.btnCancel.Enabled = false;
             this.custGroupBox.Enabled = false;
-            this.CustomerGrid.Enabled = true;
+            this.dataGridView1.Enabled = true;
         }
 
         private void btnEditCust_Click(object sender, EventArgs e)
         {
             new_edit_del_butt_enable();
-            if(CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
+            if (dataGridView1.CurrentRow == null || !dataGridView1.CurrentRow.Selected)
             {
                 MessageBox.Show("Nothing selected, please make a selection");
             }
@@ -110,91 +112,78 @@ namespace ScheduleApptApp
             {
                 return;
             }
-            
+
         }
 
-        private void btnDeleteCust_Click(object sender, EventArgs e)
-        {
-            new_edit_del_butt_enable();
-            //if (CustomerGrid.CurrentRow.Selected)
-            //{
-            //    using (MySqlConnection con = Data.getConnection())
-            //    {
-            //        string deleteCus = $"DELETE FROM customer WHERE customerId = '{0}'", 
-            //        MySqlCommand cmd = new MySqlCommand(deleteCus, con);
-            //        cmd.ExecuteNonQuery();
-            //    }
-            //    loadData();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No record seletece");
-            //}
+        //private void btnDeleteCust_Click(object sender, EventArgs e)
+        //{
+        //    new_edit_del_butt_enable();
+        //    if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
+        //    {
+        //        MessageBox.Show("Noting is selected.  Please make a selection");
+        //        return;
+        //    }
 
-            //customer c = CustomerGrid.CurrentRow.DataBoundItem as customer;
-            //var chosenCustomer = CustomerGrid.CurrentCell.Value;
+        //    //Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
+        //    //var chosenCustomer = CustomerGrid.CurrentCell.Value;
 
-            //DialogResult result = MessageBox.Show("Are you sure you want to delete " + chosenCustomer, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        //    //DialogResult result = MessageBox.Show("Are you sure you want to delete " + chosenCustomer, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            //if (result == DialogResult.Yes)
-            //{
-            //    MySqlConnection con = Data.getConnection();
-            //    MySqlCommand cmd = new MySqlCommand(deleteCus, con);
-            //    con.Open();
-            //    cmd.ExecuteNonQuery();
-            //    con.Close();
-            //}
-        }
-        
+        //    //if(result == DialogResult.Yes)
+        //    //{
+
+        //    //}
+
+        //}
 
         private void btnSaveCustomer_Click(object sender, EventArgs e)
         {
-            //Data.updateCustomer(Convert.ToInt32())
+
         }
 
-        private void CustomerGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(CustomerGrid.SelectedRows.Count > 0)
-            {
-                selectedCustomer = CustomerGrid.CurrentCell.RowIndex;
-                string custId = CustomerGrid.SelectedRows[0].Cells[0].Value + string.Empty;
-                string custName = CustomerGrid.SelectedRows[0].Cells[1].Value + string.Empty;
-                string custPhone = CustomerGrid.SelectedRows[0].Cells[2].Value + string.Empty;
-                string custAddress = CustomerGrid.SelectedRows[0].Cells[3].Value + string.Empty;
-                string custCity = CustomerGrid.SelectedRows[0].Cells[4].Value + string.Empty;
-                string custCountry = CustomerGrid.SelectedRows[0].Cells[5].Value + string.Empty;
+        //private void CustomerGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (CustomerGrid.SelectedRows.Count > 0)
+        //    {
+        //        selectedCustomer = CustomerGrid.CurrentCell.RowIndex;
+        //        string custId = CustomerGrid.SelectedRows[0].Cells[0].Value + string.Empty;
+        //        string custName = CustomerGrid.SelectedRows[0].Cells[1].Value + string.Empty;
+        //        string custPhone = CustomerGrid.SelectedRows[0].Cells[2].Value + string.Empty;
+        //        string custAddress = CustomerGrid.SelectedRows[0].Cells[3].Value + string.Empty;
+        //        string custCity = CustomerGrid.SelectedRows[0].Cells[4].Value + string.Empty;
+        //        string custCountry = CustomerGrid.SelectedRows[0].Cells[5].Value + string.Empty;
 
-                txtBxCustId.Text = custId;
-                txtBxCustName.Text = custName;
-                txtBoxCustPhone.Text = custPhone;
-                txtBxCustAdd.Text = custAddress;
-                txtBxCustCity.Text = custCity;
-                txtBxCustCountry.Text = custCountry;
-                
-            }
-        }
+        //        //txtBxCustId.Text = custId;
+        //        //txtBxCustName.Text = custName;
+        //        //txtBoxCustPhone.Text = custPhone;
+        //        //txtBxCustAdd.Text = custAddress;
+        //        //txtBxCustCity.Text = custCity;
+        //        //txtBxCustCountry.Text = custCountry;
+
+        //    }
+        //}
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void CustomerGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            CustomerGrid.ClearSelection();
-        }
+        //private void CustomerGrid_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        //{
+        //    CustomerGrid.ClearSelection();
+        //}
 
         private bool allowSave()
         {
             int number;
-            if (string.IsNullOrWhiteSpace(txtBxCustName.Text)) return false;
+            //if (string.IsNullOrWhiteSpace(txtBxCustName.Text)) return false;
 
-            if (string.IsNullOrWhiteSpace(txtBoxCustPhone.Text)) return false;
-            if (!Int32.TryParse(txtBoxCustPhone.Text, out number)) return false;
+            //if (string.IsNullOrWhiteSpace(txtBoxCustPhone.Text)) return false;
+            //if (!Int32.TryParse(txtBoxCustPhone.Text, out number)) return false;
 
-            if (string.IsNullOrWhiteSpace(txtBxCustAdd.Text)) return false;
-            if (string.IsNullOrWhiteSpace(txtBxCustCity.Text)) return false;
-            if (string.IsNullOrWhiteSpace(txtBxCustCountry.Text)) return false;
+            //if (string.IsNullOrWhiteSpace(txtBxCustAdd.Text)) return false;
+            //if (string.IsNullOrWhiteSpace(txtBxCustCity.Text)) return false;
+            //if (string.IsNullOrWhiteSpace(txtBxCustCountry.Text)) return false;
 
             return true;
 
@@ -202,9 +191,3 @@ namespace ScheduleApptApp
         }
     }
 }
-
-
-
-
-
-

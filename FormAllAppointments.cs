@@ -16,19 +16,14 @@ namespace ScheduleApptApp
         public FormAllAppointments()
         {
             InitializeComponent();
-
-
-            MySqlConnection con = Data.getConnection();
-            String sqlQuery = "";
-            DataTable dt = new DataTable();
-
-
-            MySqlDataAdapter cd = new MySqlDataAdapter(sqlQuery, con);
+            MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
             con.Open();
-            //cd.Fill(dt);
-            con.Close();
-
+            string sqlString = $"SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.title, appointment.description, appointment.location, appointment.contact, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId"; MySqlCommand cmd = new MySqlCommand(sqlString, con);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
             AppointmentGrid.DataSource = dt;
+            AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             AppointmentGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AppointmentGrid.RowHeadersVisible = false;
@@ -68,6 +63,12 @@ namespace ScheduleApptApp
             new_edit_del_butt_enable();
             clearTextBoxes(apptGroupBox);
 
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            MainPage main = new MainPage();
+            main.Show();
         }
     }
 }

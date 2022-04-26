@@ -58,6 +58,7 @@ namespace ScheduleApptApp
             this.label1 = new System.Windows.Forms.Label();
             this.txtBxCustName = new System.Windows.Forms.TextBox();
             this.txtBxCustId = new System.Windows.Forms.TextBox();
+            this.btnHome = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -319,12 +320,24 @@ namespace ScheduleApptApp
             this.txtBxCustId.Size = new System.Drawing.Size(135, 20);
             this.txtBxCustId.TabIndex = 0;
             // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Coral;
+            this.btnHome.Location = new System.Drawing.Point(846, 66);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(75, 34);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "Go Back";
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // FormAllAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 622);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FormAllAppointments";
@@ -371,5 +384,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBxCustName;
         private System.Windows.Forms.TextBox txtBxCustId;
+        private System.Windows.Forms.Button btnHome;
     }
 }
