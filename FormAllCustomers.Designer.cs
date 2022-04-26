@@ -90,27 +90,27 @@ namespace ScheduleApptApp
             customerIdLabel1.AutoSize = true;
             customerIdLabel1.Location = new System.Drawing.Point(48, 40);
             customerIdLabel1.Name = "customerIdLabel1";
-            customerIdLabel1.Size = new System.Drawing.Size(73, 15);
+            customerIdLabel1.Size = new System.Drawing.Size(75, 15);
             customerIdLabel1.TabIndex = 78;
-            customerIdLabel1.Text = "customer Id:";
+            customerIdLabel1.Text = "Customer Id:";
             // 
             // customerNameLabel
             // 
             customerNameLabel.AutoSize = true;
             customerNameLabel.Location = new System.Drawing.Point(26, 67);
             customerNameLabel.Name = "customerNameLabel";
-            customerNameLabel.Size = new System.Drawing.Size(95, 15);
+            customerNameLabel.Size = new System.Drawing.Size(97, 15);
             customerNameLabel.TabIndex = 79;
-            customerNameLabel.Text = "customer Name:";
+            customerNameLabel.Text = "Customer Name:";
             // 
             // addressLabel
             // 
             addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(299, 37);
+            addressLabel.Location = new System.Drawing.Point(378, 36);
             addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(50, 15);
+            addressLabel.Size = new System.Drawing.Size(52, 15);
             addressLabel.TabIndex = 80;
-            addressLabel.Text = "address:";
+            addressLabel.Text = "Address:";
             // 
             // phoneLabel
             // 
@@ -119,25 +119,25 @@ namespace ScheduleApptApp
             phoneLabel.Name = "phoneLabel";
             phoneLabel.Size = new System.Drawing.Size(44, 15);
             phoneLabel.TabIndex = 81;
-            phoneLabel.Text = "phone:";
+            phoneLabel.Text = "Phone:";
             // 
             // cityLabel
             // 
             cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(320, 72);
+            cityLabel.Location = new System.Drawing.Point(399, 71);
             cityLabel.Name = "cityLabel";
-            cityLabel.Size = new System.Drawing.Size(29, 15);
+            cityLabel.Size = new System.Drawing.Size(31, 15);
             cityLabel.TabIndex = 82;
-            cityLabel.Text = "city:";
+            cityLabel.Text = "City:";
             // 
             // countryLabel
             // 
             countryLabel.AutoSize = true;
-            countryLabel.Location = new System.Drawing.Point(298, 102);
+            countryLabel.Location = new System.Drawing.Point(377, 101);
             countryLabel.Name = "countryLabel";
-            countryLabel.Size = new System.Drawing.Size(51, 15);
+            countryLabel.Size = new System.Drawing.Size(53, 15);
             countryLabel.TabIndex = 83;
-            countryLabel.Text = "country:";
+            countryLabel.Text = "Country:";
             // 
             // flowLayoutPanel1
             // 
@@ -224,41 +224,40 @@ namespace ScheduleApptApp
             this.CustomerGrid.Size = new System.Drawing.Size(694, 150);
             this.CustomerGrid.TabIndex = 92;
             this.CustomerGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
-            this.CustomerGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
             // 
             // txtBoxCustCountry
             // 
-            this.txtBoxCustCountry.Location = new System.Drawing.Point(355, 102);
+            this.txtBoxCustCountry.Location = new System.Drawing.Point(434, 101);
             this.txtBoxCustCountry.Name = "txtBoxCustCountry";
-            this.txtBoxCustCountry.Size = new System.Drawing.Size(100, 23);
+            this.txtBoxCustCountry.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustCountry.TabIndex = 91;
             // 
             // txtBoxCustCity
             // 
-            this.txtBoxCustCity.Location = new System.Drawing.Point(355, 59);
+            this.txtBoxCustCity.Location = new System.Drawing.Point(434, 64);
             this.txtBoxCustCity.Name = "txtBoxCustCity";
-            this.txtBoxCustCity.Size = new System.Drawing.Size(100, 23);
+            this.txtBoxCustCity.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustCity.TabIndex = 90;
             // 
             // txtBoxCustAdd
             // 
-            this.txtBoxCustAdd.Location = new System.Drawing.Point(355, 30);
+            this.txtBoxCustAdd.Location = new System.Drawing.Point(434, 29);
             this.txtBoxCustAdd.Name = "txtBoxCustAdd";
-            this.txtBoxCustAdd.Size = new System.Drawing.Size(100, 23);
+            this.txtBoxCustAdd.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustAdd.TabIndex = 89;
             // 
             // txtBoxCustPhone
             // 
             this.txtBoxCustPhone.Location = new System.Drawing.Point(127, 94);
             this.txtBoxCustPhone.Name = "txtBoxCustPhone";
-            this.txtBoxCustPhone.Size = new System.Drawing.Size(100, 23);
+            this.txtBoxCustPhone.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustPhone.TabIndex = 88;
             // 
             // txtBoxCustName
             // 
             this.txtBoxCustName.Location = new System.Drawing.Point(127, 61);
             this.txtBoxCustName.Name = "txtBoxCustName";
-            this.txtBoxCustName.Size = new System.Drawing.Size(100, 23);
+            this.txtBoxCustName.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustName.TabIndex = 87;
             // 
             // txtBoxCustId
@@ -266,7 +265,7 @@ namespace ScheduleApptApp
             this.txtBoxCustId.Location = new System.Drawing.Point(127, 29);
             this.txtBoxCustId.Name = "txtBoxCustId";
             this.txtBoxCustId.ReadOnly = true;
-            this.txtBoxCustId.Size = new System.Drawing.Size(100, 23);
+            this.txtBoxCustId.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustId.TabIndex = 86;
             // 
             // dataGridViewTextBoxColumn1
@@ -298,6 +297,7 @@ namespace ScheduleApptApp
             this.btnEditCust.Name = "btnEditCust";
             this.btnEditCust.Size = new System.Drawing.Size(55, 57);
             this.btnEditCust.Text = "Edit";
+            this.btnEditCust.Click += new System.EventHandler(this.btnEditCust_Click);
             // 
             // toolStripSeparator3
             // 
@@ -312,6 +312,7 @@ namespace ScheduleApptApp
             this.btnDeleteCust.Name = "btnDeleteCust";
             this.btnDeleteCust.Size = new System.Drawing.Size(68, 57);
             this.btnDeleteCust.Text = "Delete";
+            this.btnDeleteCust.Click += new System.EventHandler(this.btnDeleteCust_Click_1);
             // 
             // toolStripSeparator4
             // 
