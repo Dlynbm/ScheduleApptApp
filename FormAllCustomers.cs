@@ -16,8 +16,6 @@ namespace ScheduleApptApp
     {
         private int selectedCustomer = -1;
         MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-        MySqlDataAdapter adapt;
-        DataTable dt;
 
         public FormAllCustomers()
         {
