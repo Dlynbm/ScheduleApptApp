@@ -46,6 +46,7 @@ namespace ScheduleApptApp
             cd.Fill(dt);
             CustomerGrid.DataSource = dt;
             CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CustomerGrid.ClearSelection();
         }
 
         private void txtBxSearch_TextChanged(object sender, EventArgs e)
@@ -55,24 +56,8 @@ namespace ScheduleApptApp
             DataTable dt = new DataTable();
             cd.Fill(dt);
             CustomerGrid.DataSource = dt;
-            CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        
-
-
-
-
-            //DataSet searchData = new DataSet();
-            //Data.getConnection().Open();
-            //cd.Fill(searchData);
-            //CustomerGrid.DataSource = searchData.Tables[0];
-
-            //Data.getConnection().Close();
-
-            //cd.Fill(dt);
-            //CustomerGrid.DataSource = dt;
-            //con.Close();
-        }
-
+            CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;   
+           }
 
         private void clearTextBoxes(GroupBox custGroupBox)
         {
@@ -148,15 +133,19 @@ namespace ScheduleApptApp
             CustomerGrid.ClearSelection();
         }
 
-        //private void btnSaveCustomer_Click(string name, int cityID, string pNumber, string address, string pCode )
+        //private void btnSaveCustomer_Click(string name, int cityID, string pNumber, string address, string pCode)
         //{
+        //    //TODO insert custId
+        //    //work backwards for tables 
 
         //    try
         //    {
         //        bool status = true;
         //        DateTime insertDate = DateTime.Now;
         //        string formattedDate = insertDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
-        //        string add = $"INSERT INTO customer (customerId, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ('{createNewID("customer")}', '{name}', '{addAddress(address, pNumber, pCode, cityID)}', '{status}', '{formattedDate}', 'test', '{formattedDate}', 'test')";
+        //        string addCountry = $"INSERT INTO country (countryId, 
+        //        string add = $"INSERT INTO customer (customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES " +
+        //            $"@custName, ;
         //        MySqlCommand cmd = new MySqlCommand(add, con);
         //        con.Open();
         //        cmd.Parameters.AddWithValue("customerId", CustomerGrid.SelectedColumns);
@@ -165,7 +154,7 @@ namespace ScheduleApptApp
         //        cmd.Parameters.AddWithValue("countryId", CustomerGrid.SelectedColumns);
         //        cmd.ExecuteScalar();
         //    }
-        //    catch(Exception ex)
+        //    catch (Exception ex)
         //    {
         //        MessageBox.Show(ex.ToString());
         //    }
@@ -177,40 +166,9 @@ namespace ScheduleApptApp
 
         //}
 
-        //private object createNewCustID(string table)
-        //{
-        //    MySqlConnection con = Data.getConnection();
-        //    con.Open();
-        //    MySqlCommand com = new MySqlCommand($"SELECT {table + "Id"} FROM {table}", con);
-        //    MySqlDataReader read = com.ExecuteReader();
-        //    List<int> 1 = new List<int>();
-
-        //    while read.Read())
-        //    {
-        //        1.Add(Convert.ToInt32(read[0]));
-        //    }
-        //    read.Close();
-        //    con.Close();
-        //    return newID(1);
-        //}
-
-        //static public int newID(List<int> 1)
-        //{
-        //    int ID = 0;
-        //    foreach(int id in 1)
-        //    {
-        //        if(id > ID)
-        //        {
-        //            ID = id;
-        //        }
-        //    }
-        //    return ID + 1;
-        //}
-
-        
-
-        private void btnDeleteCust_Click_1(object sender, EventArgs e)
+           private void btnDeleteCust_Click_1(object sender, EventArgs e)
         {
+           
             if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
             {
                 MessageBox.Show("Nothing is selected.  Please make a selection");
@@ -229,6 +187,7 @@ namespace ScheduleApptApp
                 con.Open();
                 com.ExecuteNonQuery();
                 con.Close();
+                loadCustomers();
             }
             }
 
@@ -254,7 +213,7 @@ namespace ScheduleApptApp
             }
         }
 
-        
+       
     }
 }
 

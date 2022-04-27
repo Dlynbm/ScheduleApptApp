@@ -161,6 +161,7 @@ namespace ScheduleApptApp
             this.btnSaveAppt.Name = "btnSaveAppt";
             this.btnSaveAppt.Size = new System.Drawing.Size(59, 57);
             this.btnSaveAppt.Text = "Save";
+            this.btnSaveAppt.Click += new System.EventHandler(this.btnSaveAppt_Click);
             // 
             // toolStripSeparator1
             // 

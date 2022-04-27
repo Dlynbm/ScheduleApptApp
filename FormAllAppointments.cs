@@ -70,5 +70,30 @@ namespace ScheduleApptApp
             MainPage main = new MainPage();
             main.Show();
         }
+
+        private void btnSaveAppt_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    using (MySqlConnection con = Data.getConnection())
+            //    {
+            //        if (con.State == ConnectionState.Closed)
+            //            con.Open();
+            //        using (DataTable dt = new DataTable("Dates"))
+            //        {
+            //            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO appointment ( userId, customerName, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy)
+            //           VALUES ('@custId', '@userId', '@title', '@desc', '@location', '@contact', '@type', '@url', '@stDate', '@endDate', '@creatD', '@creatBy', '@lastUp', '@lastUpBy')", con);
+            //            {
+            //                //adding values
+            //                cmd.Parameters.AddWithValue("@custId", .Value);
+            //                cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+            //                //fill data to datatable
+            //                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            //                da.Fill(dt);
+            //                //adding datasource
+            //                AppointmentGrid.DataSource = dt;
+
+        }
     }
 }
+

@@ -32,44 +32,30 @@ namespace ScheduleApptApp
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label startLabel;
             System.Windows.Forms.Label label2;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.AppointmentGrid = new System.Windows.Forms.DataGridView();
+            this.ViewCustomersBtn = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.btnAddAppt = new System.Windows.Forms.Button();
             this.btnDateSearch = new System.Windows.Forms.Button();
             this.p_EndDate = new System.Windows.Forms.DateTimePicker();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.client_scheduleDataSet = new ScheduleApptApp.client_scheduleDataSet();
             this.p_StartDate = new System.Windows.Forms.DateTimePicker();
-            this.AppointmentGrid = new System.Windows.Forms.DataGridView();
-            this.ViewCustomersBtn = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
-            this.btnAddAppt = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.appointmentTableAdapter = new ScheduleApptApp.client_scheduleDataSetTableAdapters.appointmentTableAdapter();
             this.tableAdapterManager = new ScheduleApptApp.client_scheduleDataSetTableAdapters.TableAdapterManager();
-            this.appointmentBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.appointmentBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.btnWeekSrch = new System.Windows.Forms.Button();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             startLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.client_scheduleDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingNavigator)).BeginInit();
-            this.appointmentBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // startLabel
@@ -115,53 +101,6 @@ namespace ScheduleApptApp
             this.lblTotal.Size = new System.Drawing.Size(0, 13);
             this.lblTotal.TabIndex = 9;
             // 
-            // btnDateSearch
-            // 
-            this.btnDateSearch.BackColor = System.Drawing.Color.Coral;
-            this.btnDateSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDateSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDateSearch.ForeColor = System.Drawing.Color.White;
-            this.btnDateSearch.Location = new System.Drawing.Point(624, 91);
-            this.btnDateSearch.Margin = new System.Windows.Forms.Padding(1);
-            this.btnDateSearch.Name = "btnDateSearch";
-            this.btnDateSearch.Size = new System.Drawing.Size(112, 26);
-            this.btnDateSearch.TabIndex = 8;
-            this.btnDateSearch.Text = "Search By Month";
-            this.btnDateSearch.UseVisualStyleBackColor = false;
-            this.btnDateSearch.Click += new System.EventHandler(this.btnDateSearch_Click);
-            // 
-            // p_EndDate
-            // 
-            this.p_EndDate.CustomFormat = "YYYY-MM-DD HH:MM:SS";
-            this.p_EndDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.appointmentBindingSource, "start", true));
-            this.p_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.p_EndDate.Location = new System.Drawing.Point(498, 97);
-            this.p_EndDate.Name = "p_EndDate";
-            this.p_EndDate.Size = new System.Drawing.Size(113, 20);
-            this.p_EndDate.TabIndex = 7;
-            this.p_EndDate.Value = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            // 
-            // appointmentBindingSource
-            // 
-            this.appointmentBindingSource.DataMember = "appointment";
-            this.appointmentBindingSource.DataSource = this.client_scheduleDataSet;
-            // 
-            // client_scheduleDataSet
-            // 
-            this.client_scheduleDataSet.DataSetName = "client_scheduleDataSet";
-            this.client_scheduleDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // p_StartDate
-            // 
-            this.p_StartDate.CustomFormat = "YYYY-MM-DD HH:MM:SS";
-            this.p_StartDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.appointmentBindingSource, "start", true));
-            this.p_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.p_StartDate.Location = new System.Drawing.Point(350, 96);
-            this.p_StartDate.Name = "p_StartDate";
-            this.p_StartDate.Size = new System.Drawing.Size(113, 20);
-            this.p_StartDate.TabIndex = 5;
-            this.p_StartDate.Value = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
-            // 
             // AppointmentGrid
             // 
             this.AppointmentGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -169,7 +108,7 @@ namespace ScheduleApptApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AppointmentGrid.BackgroundColor = System.Drawing.Color.White;
             this.AppointmentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AppointmentGrid.Location = new System.Drawing.Point(39, 114);
+            this.AppointmentGrid.Location = new System.Drawing.Point(42, 163);
             this.AppointmentGrid.MultiSelect = false;
             this.AppointmentGrid.Name = "AppointmentGrid";
             this.AppointmentGrid.Size = new System.Drawing.Size(650, 123);
@@ -221,6 +160,53 @@ namespace ScheduleApptApp
             this.btnAddAppt.UseVisualStyleBackColor = false;
             this.btnAddAppt.Click += new System.EventHandler(this.btnAddAppt_Click);
             // 
+            // btnDateSearch
+            // 
+            this.btnDateSearch.BackColor = System.Drawing.Color.Coral;
+            this.btnDateSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDateSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDateSearch.ForeColor = System.Drawing.Color.White;
+            this.btnDateSearch.Location = new System.Drawing.Point(624, 91);
+            this.btnDateSearch.Margin = new System.Windows.Forms.Padding(1);
+            this.btnDateSearch.Name = "btnDateSearch";
+            this.btnDateSearch.Size = new System.Drawing.Size(112, 26);
+            this.btnDateSearch.TabIndex = 8;
+            this.btnDateSearch.Text = "Search By Month";
+            this.btnDateSearch.UseVisualStyleBackColor = false;
+            this.btnDateSearch.Click += new System.EventHandler(this.btnDateSearch_Click);
+            // 
+            // p_EndDate
+            // 
+            this.p_EndDate.CustomFormat = "YYYY-MM-DD HH:MM:SS";
+            this.p_EndDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.appointmentBindingSource, "start", true));
+            this.p_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.p_EndDate.Location = new System.Drawing.Point(498, 97);
+            this.p_EndDate.Name = "p_EndDate";
+            this.p_EndDate.Size = new System.Drawing.Size(113, 20);
+            this.p_EndDate.TabIndex = 7;
+            this.p_EndDate.Value = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
+            // 
+            // appointmentBindingSource
+            // 
+            this.appointmentBindingSource.DataMember = "appointment";
+            this.appointmentBindingSource.DataSource = this.client_scheduleDataSet;
+            // 
+            // client_scheduleDataSet
+            // 
+            this.client_scheduleDataSet.DataSetName = "client_scheduleDataSet";
+            this.client_scheduleDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // p_StartDate
+            // 
+            this.p_StartDate.CustomFormat = "YYYY-MM-DD HH:MM:SS";
+            this.p_StartDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.appointmentBindingSource, "start", true));
+            this.p_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.p_StartDate.Location = new System.Drawing.Point(350, 96);
+            this.p_StartDate.Name = "p_StartDate";
+            this.p_StartDate.Size = new System.Drawing.Size(113, 20);
+            this.p_StartDate.TabIndex = 5;
+            this.p_StartDate.Value = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -236,11 +222,12 @@ namespace ScheduleApptApp
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(113, 36);
+            this.label1.Location = new System.Drawing.Point(126, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(532, 37);
+            this.label1.Size = new System.Drawing.Size(472, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "View All Your Customers and Appointments";
+            this.label1.Text = "View All Customers and Appointments";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // appointmentTableAdapter
             // 
@@ -257,137 +244,34 @@ namespace ScheduleApptApp
             this.tableAdapterManager.UpdateOrder = ScheduleApptApp.client_scheduleDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.userTableAdapter = null;
             // 
-            // appointmentBindingNavigator
+            // btnWeekSrch
             // 
-            this.appointmentBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.appointmentBindingNavigator.BindingSource = this.appointmentBindingSource;
-            this.appointmentBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.appointmentBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.appointmentBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.appointmentBindingNavigatorSaveItem});
-            this.appointmentBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.appointmentBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.appointmentBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.appointmentBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.appointmentBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.appointmentBindingNavigator.Name = "appointmentBindingNavigator";
-            this.appointmentBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.appointmentBindingNavigator.Size = new System.Drawing.Size(757, 25);
-            this.appointmentBindingNavigator.TabIndex = 20;
-            this.appointmentBindingNavigator.Text = "bindingNavigator1";
+            this.btnWeekSrch.BackColor = System.Drawing.Color.Coral;
+            this.btnWeekSrch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWeekSrch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWeekSrch.ForeColor = System.Drawing.Color.White;
+            this.btnWeekSrch.Location = new System.Drawing.Point(624, 133);
+            this.btnWeekSrch.Margin = new System.Windows.Forms.Padding(1);
+            this.btnWeekSrch.Name = "btnWeekSrch";
+            this.btnWeekSrch.Size = new System.Drawing.Size(112, 26);
+            this.btnWeekSrch.TabIndex = 21;
+            this.btnWeekSrch.Text = "This Week";
+            this.btnWeekSrch.UseVisualStyleBackColor = false;
+            this.btnWeekSrch.Click += new System.EventHandler(this.btnWeekSrch_Click);
             // 
-            // bindingNavigatorAddNewItem
+            // monthCalendar1
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // appointmentBindingNavigatorSaveItem
-            // 
-            this.appointmentBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.appointmentBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("appointmentBindingNavigatorSaveItem.Image")));
-            this.appointmentBindingNavigatorSaveItem.Name = "appointmentBindingNavigatorSaveItem";
-            this.appointmentBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.appointmentBindingNavigatorSaveItem.Text = "Save Data";
-            this.appointmentBindingNavigatorSaveItem.Click += new System.EventHandler(this.appointmentBindingNavigatorSaveItem_Click);
+            this.monthCalendar1.Location = new System.Drawing.Point(380, 160);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 22;
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 551);
-            this.Controls.Add(this.appointmentBindingNavigator);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.btnWeekSrch);
             this.Controls.Add(this.btnDateSearch);
             this.Controls.Add(this.panel1);
             this.Controls.Add(label2);
@@ -403,14 +287,11 @@ namespace ScheduleApptApp
             this.Load += new System.EventHandler(this.MainPage_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.client_scheduleDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingNavigator)).EndInit();
-            this.appointmentBindingNavigator.ResumeLayout(false);
-            this.appointmentBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,23 +310,12 @@ namespace ScheduleApptApp
         private System.Windows.Forms.BindingSource appointmentBindingSource;
         private client_scheduleDataSetTableAdapters.appointmentTableAdapter appointmentTableAdapter;
         private client_scheduleDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator appointmentBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton appointmentBindingNavigatorSaveItem;
         private System.Windows.Forms.Button btnDateSearch;
         private System.Windows.Forms.DateTimePicker p_EndDate;
         private System.Windows.Forms.DateTimePicker p_StartDate;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnWeekSrch;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
 
