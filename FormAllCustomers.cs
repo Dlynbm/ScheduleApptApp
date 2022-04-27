@@ -19,7 +19,7 @@ namespace ScheduleApptApp
 
         public FormAllCustomers()
         {
-            InitializeComponent();    
+            InitializeComponent();
             CustomerGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CustomerGrid.RowHeadersVisible = false;
             CustomerGrid.ReadOnly = true;
@@ -56,8 +56,8 @@ namespace ScheduleApptApp
             DataTable dt = new DataTable();
             cd.Fill(dt);
             CustomerGrid.DataSource = dt;
-            CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;   
-           }
+            CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
 
         private void clearTextBoxes(GroupBox custGroupBox)
         {
@@ -87,7 +87,7 @@ namespace ScheduleApptApp
 
             this.custGroupBox.Enabled = false;
             this.CustomerGrid.Enabled = true;
-        }        
+        }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
@@ -124,7 +124,7 @@ namespace ScheduleApptApp
         }
 
 
-    
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -166,30 +166,97 @@ namespace ScheduleApptApp
 
         //}
 
-           private void btnDeleteCust_Click_1(object sender, EventArgs e)
+        private void btnDeleteCust_Click_1(object sender, EventArgs e)
         {
-           
-            if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
+                if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
             {
                 MessageBox.Show("Nothing is selected.  Please make a selection");
                 new_edit_del_butt_enable();
-
                 return;
             }
-            Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
-            var chosenCustomer = CustomerGrid.CurrentCell.Value;
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-             if(result == DialogResult.Yes)
-            { 
-                string delCus = $"DELETE FROM customer WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
-                MySqlConnection con = Data.getConnection();
-                MySqlCommand com = new MySqlCommand(delCus, con);
-                con.Open();
-                com.ExecuteNonQuery();
-                con.Close();
-                loadCustomers();
+            try
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    string delCus = $"DELETE FROM customer WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
+                    con.Open();
+                    MySqlCommand com = new MySqlCommand(delCus, con);
+                    com.ExecuteNonQuery();
+                    con.Close();
+                }
+                {
+                    string delapt = $"DELETE FROM appointment WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand(delapt, con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                {
+                    string deladd = $"DELETE FROM address WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
+                    con.Open();
+                    MySqlCommand command = new MySqlCommand(deladd);
+                    command.ExecuteNonQuery();
+                    con.Close();
+                }
+                {
+                    string delcity = $"DELETE FROM city WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
+                    con.Open();
+                    MySqlCommand command1 = new MySqlCommand(delcity);
+                    command1.ExecuteNonQuery();
+                    con.Close();
+                }
+                {
+                    string delcountry = $"DELETE FROM country WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
+                    con.Open();
+                    MySqlCommand command2 = new MySqlCommand(delcountry);
+                    command2.ExecuteNonQuery();
+                    con.Close();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+
+        //if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
+        //{
+        //    MessageBox.Show("Nothing is selected.  Please make a selection");
+        //    new_edit_del_butt_enable();
+
+        //    return;
+        //}
+        //Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
+        //var chosenCustomer = CustomerGrid.CurrentCell.Value;
+        //DialogResult result = MessageBox.Show("Are you sure you want to delete this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        // if(result == DialogResult.Yes)
+        //{ 
+        //    string delCus = $"DELETE FROM customer WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
+
+
+        //    MySqlConnection con = Data.getConnection();
+        //    MySqlCommand com = new MySqlCommand(delCus,  con);
+
+
+        //    MySqlDataAdapter adap = new MySqlDataAdapter(com);
+        //    MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
+        //    MySqlDataAdapter a = new MySqlDataAdapter(command);
+        //    MySqlDataAdapter adapte = new MySqlDataAdapter(command1);
+        //    MySqlDataAdapter adapt = new MySqlDataAdapter(command2);
+
+
+        //    con.Open();
+        //    cmd.ExecuteNonQuery();
+        //    command.ExecuteNonQuery();
+        //    command1.ExecuteNonQuery();
+        //    command2.ExecuteNonQuery();
+        //    con.Close();
+        //    loadCustomers();
+        //}
+        //}
 
         private void CustomerGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -212,10 +279,9 @@ namespace ScheduleApptApp
 
             }
         }
-
-       
     }
 }
+
 
 
 

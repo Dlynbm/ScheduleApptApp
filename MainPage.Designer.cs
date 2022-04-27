@@ -30,51 +30,26 @@ namespace ScheduleApptApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label startLabel;
-            System.Windows.Forms.Label label2;
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
             this.ViewCustomersBtn = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnAddAppt = new System.Windows.Forms.Button();
-            this.btnDateSearch = new System.Windows.Forms.Button();
-            this.p_EndDate = new System.Windows.Forms.DateTimePicker();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.client_scheduleDataSet = new ScheduleApptApp.client_scheduleDataSet();
-            this.p_StartDate = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.appointmentTableAdapter = new ScheduleApptApp.client_scheduleDataSetTableAdapters.appointmentTableAdapter();
             this.tableAdapterManager = new ScheduleApptApp.client_scheduleDataSetTableAdapters.TableAdapterManager();
             this.btnWeekSrch = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            startLabel = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
+            this.btnSearchMonth = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.client_scheduleDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // startLabel
-            // 
-            startLabel.AutoSize = true;
-            startLabel.Location = new System.Drawing.Point(285, 102);
-            startLabel.Name = "startLabel";
-            startLabel.Size = new System.Drawing.Size(59, 13);
-            startLabel.TabIndex = 4;
-            startLabel.Text = "From Date:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(469, 103);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(23, 13);
-            label2.TabIndex = 6;
-            label2.Text = "To:";
             // 
             // panel2
             // 
@@ -144,6 +119,7 @@ namespace ScheduleApptApp
             this.btnReports.TabIndex = 1;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnAddAppt
             // 
@@ -160,32 +136,6 @@ namespace ScheduleApptApp
             this.btnAddAppt.UseVisualStyleBackColor = false;
             this.btnAddAppt.Click += new System.EventHandler(this.btnAddAppt_Click);
             // 
-            // btnDateSearch
-            // 
-            this.btnDateSearch.BackColor = System.Drawing.Color.Coral;
-            this.btnDateSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDateSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDateSearch.ForeColor = System.Drawing.Color.White;
-            this.btnDateSearch.Location = new System.Drawing.Point(624, 91);
-            this.btnDateSearch.Margin = new System.Windows.Forms.Padding(1);
-            this.btnDateSearch.Name = "btnDateSearch";
-            this.btnDateSearch.Size = new System.Drawing.Size(112, 26);
-            this.btnDateSearch.TabIndex = 8;
-            this.btnDateSearch.Text = "Search By Month";
-            this.btnDateSearch.UseVisualStyleBackColor = false;
-            this.btnDateSearch.Click += new System.EventHandler(this.btnDateSearch_Click);
-            // 
-            // p_EndDate
-            // 
-            this.p_EndDate.CustomFormat = "YYYY-MM-DD HH:MM:SS";
-            this.p_EndDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.appointmentBindingSource, "start", true));
-            this.p_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.p_EndDate.Location = new System.Drawing.Point(498, 97);
-            this.p_EndDate.Name = "p_EndDate";
-            this.p_EndDate.Size = new System.Drawing.Size(113, 20);
-            this.p_EndDate.TabIndex = 7;
-            this.p_EndDate.Value = new System.DateTime(2022, 12, 31, 0, 0, 0, 0);
-            // 
             // appointmentBindingSource
             // 
             this.appointmentBindingSource.DataMember = "appointment";
@@ -195,17 +145,6 @@ namespace ScheduleApptApp
             // 
             this.client_scheduleDataSet.DataSetName = "client_scheduleDataSet";
             this.client_scheduleDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // p_StartDate
-            // 
-            this.p_StartDate.CustomFormat = "YYYY-MM-DD HH:MM:SS";
-            this.p_StartDate.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.appointmentBindingSource, "start", true));
-            this.p_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.p_StartDate.Location = new System.Drawing.Point(350, 96);
-            this.p_StartDate.Name = "p_StartDate";
-            this.p_StartDate.Size = new System.Drawing.Size(113, 20);
-            this.p_StartDate.TabIndex = 5;
-            this.p_StartDate.Value = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             // 
             // panel1
             // 
@@ -227,7 +166,6 @@ namespace ScheduleApptApp
             this.label1.Size = new System.Drawing.Size(472, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "View All Customers and Appointments";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // appointmentTableAdapter
             // 
@@ -259,26 +197,30 @@ namespace ScheduleApptApp
             this.btnWeekSrch.UseVisualStyleBackColor = false;
             this.btnWeekSrch.Click += new System.EventHandler(this.btnWeekSrch_Click);
             // 
-            // monthCalendar1
+            // btnSearchMonth
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(380, 160);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 22;
+            this.btnSearchMonth.BackColor = System.Drawing.Color.Coral;
+            this.btnSearchMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchMonth.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchMonth.ForeColor = System.Drawing.Color.White;
+            this.btnSearchMonth.Location = new System.Drawing.Point(624, 86);
+            this.btnSearchMonth.Margin = new System.Windows.Forms.Padding(1);
+            this.btnSearchMonth.Name = "btnSearchMonth";
+            this.btnSearchMonth.Size = new System.Drawing.Size(112, 26);
+            this.btnSearchMonth.TabIndex = 22;
+            this.btnSearchMonth.Text = "This Month";
+            this.btnSearchMonth.UseVisualStyleBackColor = false;
+            this.btnSearchMonth.Click += new System.EventHandler(this.btnSearchMonth_Click);
             // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 551);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.btnSearchMonth);
             this.Controls.Add(this.btnWeekSrch);
-            this.Controls.Add(this.btnDateSearch);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(label2);
-            this.Controls.Add(this.p_EndDate);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(startLabel);
-            this.Controls.Add(this.p_StartDate);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -293,7 +235,6 @@ namespace ScheduleApptApp
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -310,12 +251,9 @@ namespace ScheduleApptApp
         private System.Windows.Forms.BindingSource appointmentBindingSource;
         private client_scheduleDataSetTableAdapters.appointmentTableAdapter appointmentTableAdapter;
         private client_scheduleDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.Button btnDateSearch;
-        private System.Windows.Forms.DateTimePicker p_EndDate;
-        private System.Windows.Forms.DateTimePicker p_StartDate;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnWeekSrch;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Button btnSearchMonth;
     }
 }
 

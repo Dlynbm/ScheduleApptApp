@@ -77,8 +77,8 @@ namespace ScheduleApptApp
                         using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2", con))
                         {
                             //adding values
-                            cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
-                            cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+                            //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+                            //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
                             //fill data to datatable
                             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                             da.Fill(dt);
@@ -106,18 +106,17 @@ namespace ScheduleApptApp
                         con.Open();
                     using (DataTable dt = new DataTable("Dates"))
                     {
-                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy  " +
-                            "FROM appointment WHERE start WEEK(DATETIME.NOW))", con))
+                        using (MySqlCommand cmd = new MySqlCommand("select * from appointment where WEEK(start) = WEEK(now()) and YEAR(start) = YEAR(now());", con))
                         {
                             //adding values
-                            cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
-                            cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+                            //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+                            //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
                             //fill data to datatable
                             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                             da.Fill(dt);
                             //adding datasource
                             AppointmentGrid.DataSource = dt;
-                            lblTotal.Text = $"Total records: {AppointmentGrid.RowCount - 1}";
+                            lblTotal.Text = $"Total records this week: {AppointmentGrid.RowCount - 1}";
 
                         }
                     }
@@ -129,13 +128,49 @@ namespace ScheduleApptApp
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnSearchMonth_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (MySqlConnection con = Data.getConnection())
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    using (DataTable dt = new DataTable("Dates"))
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand("select * from appointment where MONTH(start) = MONTH(now())and YEAR(start) = YEAR(now()); ", con))
+                        {
+                            //adding values
+                            //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+                            //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+                            //fill data to datatable
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            da.Fill(dt);
+                            //adding datasource
+                            AppointmentGrid.DataSource = dt;
+                            lblTotal.Text = $"Total records this Month: {AppointmentGrid.RowCount - 1}";
 
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-    }
-}
 
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            Reports reports = new Reports();
+            reports.Show();
+        }
+
+       
+    }
+        
+}
+  
  
 
       
