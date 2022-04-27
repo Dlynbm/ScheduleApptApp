@@ -65,22 +65,42 @@ namespace ScheduleApptApp
 
         }
 
-        
+
 
         private void btnDateSearch_Click(object sender, EventArgs e)
         {
-            string sqlString = "SELECT * FROM appointment WHERE start BETWEEN '" + p_StartDate.Value.ToString("yyyyMMdd") + "' AND '" +  p_EndDate.Value.ToString("yyyyMMdd") + "'";           
-            MySqlDataAdapter da = new MySqlDataAdapter(sqlString, con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            AppointmentGrid.DataSource = dt;
-            AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            loadAppointments();
+            try
+            {
+                using (MySqlConnection con = Data.getConnection())
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    using (DataTable dt = new DataTable("Dates"))
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2", con))
+                        {
+                            //adding values
+                            cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+                            cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+                            //fill data to datatable
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            da.Fill(dt);
+                            //adding datasource
+                            AppointmentGrid.DataSource = dt;
+                            lblTotal.Text = $"Total records: {AppointmentGrid.RowCount -1}";
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
-
-
+      
 //insert into appointment ( customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy)
 //values('2', '1', 'null', 'null', ' null', 'null', 'Scrum', 'null', '2021-04-01', '2021-04-01', '2018-01-01', 'test', '2020-02-04', 'test');
 
