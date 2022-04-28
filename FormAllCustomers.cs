@@ -133,130 +133,88 @@ namespace ScheduleApptApp
             CustomerGrid.ClearSelection();
         }
 
-        //private void btnSaveCustomer_Click(string name, int cityID, string pNumber, string address, string pCode)
-        //{
-        //    //TODO insert custId
-        //    //work backwards for tables 
-
-        //    try
-        //    {
-        //        bool status = true;
-        //        DateTime insertDate = DateTime.Now;
-        //        string formattedDate = insertDate.ToString("yyyy-MM-dd HH:mm:ss.fff");
-        //        string addCountry = $"INSERT INTO country (countryId, 
-        //        string add = $"INSERT INTO customer (customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES " +
-        //            $"@custName, ;
-        //        MySqlCommand cmd = new MySqlCommand(add, con);
-        //        con.Open();
-        //        cmd.Parameters.AddWithValue("customerId", CustomerGrid.SelectedColumns);
-        //        cmd.Parameters.AddWithValue("appointmentId", CustomerGrid.SelectedColumns);
-        //        cmd.Parameters.AddWithValue("cityId", CustomerGrid.SelectedColumns);
-        //        cmd.Parameters.AddWithValue("countryId", CustomerGrid.SelectedColumns);
-        //        cmd.ExecuteScalar();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-        //    }
-        //    finally
-        //    {
-        //        con.Close();
-
-        //    }
-
-        //}
+        private void btnSaveCustomer_Click(string name, int cityID, string pNumber, string address, string pCode)
+        {
+            //TODO insert custId
+            //work backwards for tables 
+            //try
+            //{
+            //    DialogResult result = MessageBox.Show("Save this Record?", "Save !!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if (result == DialogResult.Yes)
+            //    {
+            //        MySqlCommand cmd = new MySqlCommand("INSERT INTO country ( country, createdBy, lastUpdate, lastUpdateBy)" +
+            //            "VALUES'{0}', UTC_TIMESTAMP(), '{1}'), customer.Country, MainPage.user);
+            //        con.Open();
+            //        cmd.ExecuteNonQuery();
+            //        con.Close();
+            //    }
+            //    {
+            //        MySqlCommand cmd = new MySqlCommand("INSERT INTO city (cityId, city, countryId, createDate, createdBy, lastUpdate, lastUpdateBy) values ('" + txtBoxCustCity.Text, con);
+            //        con.Open();
+            //        cmd.ExecuteNonQuery();
+            //        con.Close();
+            //    }
+               
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString(), "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        }
 
         private void btnDeleteCust_Click_1(object sender, EventArgs e)
         {
-                if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
-            {
-                MessageBox.Show("Nothing is selected.  Please make a selection");
-                new_edit_del_butt_enable();
-                return;
-            }
-            try
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    string delCus = $"DELETE FROM customer WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
-                    con.Open();
-                    MySqlCommand com = new MySqlCommand(delCus, con);
-                    com.ExecuteNonQuery();
-                    con.Close();
-                }
-                {
-                    string delapt = $"DELETE FROM appointment WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
-                    con.Open();
-                    MySqlCommand cmd = new MySqlCommand(delapt, con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
-                {
-                    string deladd = $"DELETE FROM address WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
-                    con.Open();
-                    MySqlCommand command = new MySqlCommand(deladd);
-                    command.ExecuteNonQuery();
-                    con.Close();
-                }
-                {
-                    string delcity = $"DELETE FROM city WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
-                    con.Open();
-                    MySqlCommand command1 = new MySqlCommand(delcity);
-                    command1.ExecuteNonQuery();
-                    con.Close();
-                }
-                {
-                    string delcountry = $"DELETE FROM country WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
-                    con.Open();
-                    MySqlCommand command2 = new MySqlCommand(delcountry);
-                    command2.ExecuteNonQuery();
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //    if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
+            //{
+            //    MessageBox.Show("Nothing is selected.  Please make a selection");
+            //    new_edit_del_butt_enable();
+            //    return;
+            //}
+            //try
+            //{
+            //    DialogResult result = MessageBox.Show("Are you sure you want to delete this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            //    if (result == DialogResult.Yes)
+            //    {
+            //        MySqlCommand com  = new MySqlCommand("DELETE FROM country WHERE countryId = '"+txtBoxCustCountry.Text+"'", con);
+            //        con.Open();
+            //        com.ExecuteNonQuery();
+            //        con.Close();
+            //    }
+            //    {
+            //        MySqlCommand com = new MySqlCommand("DELETE FROM city WHERE cityId = '" + txtBoxCustCity.Text + "'", con);
+            //        con.Open();
+            //        com.ExecuteNonQuery();
+            //        con.Close();
+            //    }
+            //    {
+            //        MySqlCommand com = new MySqlCommand("DELETE FROM address WHERE adressId = '" + txtBoxCustAdd.Text + "'", con);
+            //        con.Open();
+            //        com.ExecuteNonQuery();
+            //        con.Close();
+            //    }
+            //    {
+            //        MySqlCommand com = new MySqlCommand("DELETE FROM appointment WHERE customerId = '" + txtBoxCustId.Text + "'", con);
+            //        con.Open();
+            //        com.ExecuteNonQuery();
+            //        con.Close();
+
+            //    }
+            //    {
+            //        MySqlCommand com = new MySqlCommand("DELETE FROM customer WHERE customerId = '" + txtBoxCustId.Text + "'", con);
+            //        con.Open();
+            //        com.ExecuteNonQuery();
+            //        con.Close();
+            //        loadCustomers();
+            //        MessageBox.Show("Deleted Successfully");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
+        
 
-
-
-        //if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
-        //{
-        //    MessageBox.Show("Nothing is selected.  Please make a selection");
-        //    new_edit_del_butt_enable();
-
-        //    return;
-        //}
-        //Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
-        //var chosenCustomer = CustomerGrid.CurrentCell.Value;
-        //DialogResult result = MessageBox.Show("Are you sure you want to delete this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-        // if(result == DialogResult.Yes)
-        //{ 
-        //    string delCus = $"DELETE FROM customer WHERE customerId = '{Convert.ToInt32(CustomerGrid.CurrentRow.Cells[0].Value.ToString())}'";
-
-
-        //    MySqlConnection con = Data.getConnection();
-        //    MySqlCommand com = new MySqlCommand(delCus,  con);
-
-
-        //    MySqlDataAdapter adap = new MySqlDataAdapter(com);
-        //    MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
-        //    MySqlDataAdapter a = new MySqlDataAdapter(command);
-        //    MySqlDataAdapter adapte = new MySqlDataAdapter(command1);
-        //    MySqlDataAdapter adapt = new MySqlDataAdapter(command2);
-
-
-        //    con.Open();
-        //    cmd.ExecuteNonQuery();
-        //    command.ExecuteNonQuery();
-        //    command1.ExecuteNonQuery();
-        //    command2.ExecuteNonQuery();
-        //    con.Close();
-        //    loadCustomers();
-        //}
-        //}
 
         private void CustomerGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
