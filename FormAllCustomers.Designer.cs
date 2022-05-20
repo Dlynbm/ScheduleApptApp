@@ -1,5 +1,4 @@
-﻿
-namespace ScheduleApptApp
+﻿namespace ScheduleApptApp
 {
     partial class FormAllCustomers
     {
@@ -29,14 +28,13 @@ namespace ScheduleApptApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label createDateLabel;
-            System.Windows.Forms.Label customerIdLabel1;
-            System.Windows.Forms.Label customerNameLabel;
-            System.Windows.Forms.Label addressLabel;
-            System.Windows.Forms.Label phoneLabel;
-            System.Windows.Forms.Label cityLabel;
-            System.Windows.Forms.Label countryLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAllCustomers));
+            this.createDateLabel = new System.Windows.Forms.Label();
+            this.customerIdLabel1 = new System.Windows.Forms.Label();
+            this.customerNameLabel = new System.Windows.Forms.Label();
+            this.addressLabel = new System.Windows.Forms.Label();
+            this.phoneLabel = new System.Windows.Forms.Label();
+            this.cityLabel = new System.Windows.Forms.Label();
+            this.countryLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -62,13 +60,7 @@ namespace ScheduleApptApp
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            createDateLabel = new System.Windows.Forms.Label();
-            customerIdLabel1 = new System.Windows.Forms.Label();
-            customerNameLabel = new System.Windows.Forms.Label();
-            addressLabel = new System.Windows.Forms.Label();
-            phoneLabel = new System.Windows.Forms.Label();
-            cityLabel = new System.Windows.Forms.Label();
-            countryLabel = new System.Windows.Forms.Label();
+            this.UpdateButton1 = new System.Windows.Forms.ToolStripButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.custGroupBox.SuspendLayout();
@@ -78,66 +70,66 @@ namespace ScheduleApptApp
             // 
             // createDateLabel
             // 
-            createDateLabel.AutoSize = true;
-            createDateLabel.Location = new System.Drawing.Point(679, 177);
-            createDateLabel.Name = "createDateLabel";
-            createDateLabel.Size = new System.Drawing.Size(69, 15);
-            createDateLabel.TabIndex = 38;
-            createDateLabel.Text = "create Date:";
+            this.createDateLabel.AutoSize = true;
+            this.createDateLabel.Location = new System.Drawing.Point(679, 177);
+            this.createDateLabel.Name = "createDateLabel";
+            this.createDateLabel.Size = new System.Drawing.Size(69, 15);
+            this.createDateLabel.TabIndex = 38;
+            this.createDateLabel.Text = "create Date:";
             // 
             // customerIdLabel1
             // 
-            customerIdLabel1.AutoSize = true;
-            customerIdLabel1.Location = new System.Drawing.Point(48, 40);
-            customerIdLabel1.Name = "customerIdLabel1";
-            customerIdLabel1.Size = new System.Drawing.Size(75, 15);
-            customerIdLabel1.TabIndex = 78;
-            customerIdLabel1.Text = "Customer Id:";
+            this.customerIdLabel1.AutoSize = true;
+            this.customerIdLabel1.Location = new System.Drawing.Point(48, 40);
+            this.customerIdLabel1.Name = "customerIdLabel1";
+            this.customerIdLabel1.Size = new System.Drawing.Size(75, 15);
+            this.customerIdLabel1.TabIndex = 78;
+            this.customerIdLabel1.Text = "Customer Id:";
             // 
             // customerNameLabel
             // 
-            customerNameLabel.AutoSize = true;
-            customerNameLabel.Location = new System.Drawing.Point(26, 67);
-            customerNameLabel.Name = "customerNameLabel";
-            customerNameLabel.Size = new System.Drawing.Size(97, 15);
-            customerNameLabel.TabIndex = 79;
-            customerNameLabel.Text = "Customer Name:";
+            this.customerNameLabel.AutoSize = true;
+            this.customerNameLabel.Location = new System.Drawing.Point(26, 67);
+            this.customerNameLabel.Name = "customerNameLabel";
+            this.customerNameLabel.Size = new System.Drawing.Size(97, 15);
+            this.customerNameLabel.TabIndex = 79;
+            this.customerNameLabel.Text = "Customer Name:";
             // 
             // addressLabel
             // 
-            addressLabel.AutoSize = true;
-            addressLabel.Location = new System.Drawing.Point(378, 36);
-            addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(52, 15);
-            addressLabel.TabIndex = 80;
-            addressLabel.Text = "Address:";
+            this.addressLabel.AutoSize = true;
+            this.addressLabel.Location = new System.Drawing.Point(378, 36);
+            this.addressLabel.Name = "addressLabel";
+            this.addressLabel.Size = new System.Drawing.Size(52, 15);
+            this.addressLabel.TabIndex = 80;
+            this.addressLabel.Text = "Address:";
             // 
             // phoneLabel
             // 
-            phoneLabel.AutoSize = true;
-            phoneLabel.Location = new System.Drawing.Point(77, 97);
-            phoneLabel.Name = "phoneLabel";
-            phoneLabel.Size = new System.Drawing.Size(44, 15);
-            phoneLabel.TabIndex = 81;
-            phoneLabel.Text = "Phone:";
+            this.phoneLabel.AutoSize = true;
+            this.phoneLabel.Location = new System.Drawing.Point(77, 97);
+            this.phoneLabel.Name = "phoneLabel";
+            this.phoneLabel.Size = new System.Drawing.Size(44, 15);
+            this.phoneLabel.TabIndex = 81;
+            this.phoneLabel.Text = "Phone:";
             // 
             // cityLabel
             // 
-            cityLabel.AutoSize = true;
-            cityLabel.Location = new System.Drawing.Point(399, 71);
-            cityLabel.Name = "cityLabel";
-            cityLabel.Size = new System.Drawing.Size(31, 15);
-            cityLabel.TabIndex = 82;
-            cityLabel.Text = "City:";
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Location = new System.Drawing.Point(399, 71);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(31, 15);
+            this.cityLabel.TabIndex = 82;
+            this.cityLabel.Text = "City:";
             // 
             // countryLabel
             // 
-            countryLabel.AutoSize = true;
-            countryLabel.Location = new System.Drawing.Point(377, 101);
-            countryLabel.Name = "countryLabel";
-            countryLabel.Size = new System.Drawing.Size(53, 15);
-            countryLabel.TabIndex = 83;
-            countryLabel.Text = "Country:";
+            this.countryLabel.AutoSize = true;
+            this.countryLabel.Location = new System.Drawing.Point(377, 101);
+            this.countryLabel.Name = "countryLabel";
+            this.countryLabel.Size = new System.Drawing.Size(53, 15);
+            this.countryLabel.TabIndex = 83;
+            this.countryLabel.Text = "Country:";
             // 
             // flowLayoutPanel1
             // 
@@ -203,13 +195,13 @@ namespace ScheduleApptApp
             this.custGroupBox.Controls.Add(this.txtBoxCustPhone);
             this.custGroupBox.Controls.Add(this.txtBoxCustName);
             this.custGroupBox.Controls.Add(this.txtBoxCustId);
-            this.custGroupBox.Controls.Add(countryLabel);
-            this.custGroupBox.Controls.Add(cityLabel);
-            this.custGroupBox.Controls.Add(phoneLabel);
-            this.custGroupBox.Controls.Add(addressLabel);
-            this.custGroupBox.Controls.Add(customerNameLabel);
-            this.custGroupBox.Controls.Add(customerIdLabel1);
-            this.custGroupBox.Controls.Add(createDateLabel);
+            this.custGroupBox.Controls.Add(this.countryLabel);
+            this.custGroupBox.Controls.Add(this.cityLabel);
+            this.custGroupBox.Controls.Add(this.phoneLabel);
+            this.custGroupBox.Controls.Add(this.addressLabel);
+            this.custGroupBox.Controls.Add(this.customerNameLabel);
+            this.custGroupBox.Controls.Add(this.customerIdLabel1);
+            this.custGroupBox.Controls.Add(this.createDateLabel);
             this.custGroupBox.Location = new System.Drawing.Point(3, 3);
             this.custGroupBox.Name = "custGroupBox";
             this.custGroupBox.Size = new System.Drawing.Size(1000, 572);
@@ -225,6 +217,7 @@ namespace ScheduleApptApp
             this.CustomerGrid.Size = new System.Drawing.Size(694, 150);
             this.CustomerGrid.TabIndex = 92;
             this.CustomerGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
+            //this.CustomerGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
             // 
             // txtBoxCustCountry
             // 
@@ -277,11 +270,10 @@ namespace ScheduleApptApp
             // 
             // btnAddCustomer
             // 
-            this.btnAddCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCustomer.Image")));
             this.btnAddCustomer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAddCustomer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(84, 57);
+            this.btnAddCustomer.Size = new System.Drawing.Size(60, 57);
             this.btnAddCustomer.Text = "Add New";
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
@@ -292,11 +284,10 @@ namespace ScheduleApptApp
             // 
             // btnEditCust
             // 
-            this.btnEditCust.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCust.Image")));
             this.btnEditCust.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEditCust.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditCust.Name = "btnEditCust";
-            this.btnEditCust.Size = new System.Drawing.Size(55, 57);
+            this.btnEditCust.Size = new System.Drawing.Size(31, 57);
             this.btnEditCust.Text = "Edit";
             this.btnEditCust.Click += new System.EventHandler(this.btnEditCust_Click);
             // 
@@ -307,11 +298,10 @@ namespace ScheduleApptApp
             // 
             // btnDeleteCust
             // 
-            this.btnDeleteCust.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCust.Image")));
             this.btnDeleteCust.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnDeleteCust.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteCust.Name = "btnDeleteCust";
-            this.btnDeleteCust.Size = new System.Drawing.Size(68, 57);
+            this.btnDeleteCust.Size = new System.Drawing.Size(44, 57);
             this.btnDeleteCust.Text = "Delete";
             this.btnDeleteCust.Click += new System.EventHandler(this.btnDeleteCust_Click_1);
             // 
@@ -322,12 +312,12 @@ namespace ScheduleApptApp
             // 
             // btnSaveCustomer
             // 
-            this.btnSaveCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveCustomer.Image")));
             this.btnSaveCustomer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSaveCustomer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSaveCustomer.Name = "btnSaveCustomer";
-            this.btnSaveCustomer.Size = new System.Drawing.Size(59, 57);
+            this.btnSaveCustomer.Size = new System.Drawing.Size(35, 57);
             this.btnSaveCustomer.Text = "Save";
+            this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveCustomer_Click);
             // 
             // toolStripSeparator1
             // 
@@ -336,11 +326,10 @@ namespace ScheduleApptApp
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(71, 57);
+            this.btnCancel.Size = new System.Drawing.Size(47, 57);
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -362,18 +351,28 @@ namespace ScheduleApptApp
             this.btnSaveCustomer,
             this.toolStripSeparator1,
             this.btnCancel,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.UpdateButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 62);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1109, 60);
             this.toolStrip1.TabIndex = 20;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // UpdateButton1
+            // 
+            this.UpdateButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.UpdateButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UpdateButton1.Name = "UpdateButton1";
+            this.UpdateButton1.Size = new System.Drawing.Size(49, 57);
+            this.UpdateButton1.Text = "Update";
+            this.UpdateButton1.Click += new System.EventHandler(this.UpdateButton1_Click);
+            // 
             // FormAllCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 737);
+            this.ClientSize = new System.Drawing.Size(1109, 701);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -454,5 +453,13 @@ namespace ScheduleApptApp
         private System.Windows.Forms.TextBox txtBoxCustPhone;
         private System.Windows.Forms.TextBox txtBoxCustName;
         private System.Windows.Forms.DataGridView CustomerGrid;
+        private System.Windows.Forms.Label createDateLabel;
+        private System.Windows.Forms.Label customerIdLabel1;
+        private System.Windows.Forms.Label customerNameLabel;
+        private System.Windows.Forms.Label addressLabel;
+        private System.Windows.Forms.Label phoneLabel;
+        private System.Windows.Forms.Label cityLabel;
+        private System.Windows.Forms.Label countryLabel;
+        private System.Windows.Forms.ToolStripButton UpdateButton1;
     }
 }

@@ -37,17 +37,13 @@ namespace ScheduleApptApp
             this.btnReports = new System.Windows.Forms.Button();
             this.btnAddAppt = new System.Windows.Forms.Button();
             this.appointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.client_scheduleDataSet = new ScheduleApptApp.client_scheduleDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.appointmentTableAdapter = new ScheduleApptApp.client_scheduleDataSetTableAdapters.appointmentTableAdapter();
-            this.tableAdapterManager = new ScheduleApptApp.client_scheduleDataSetTableAdapters.TableAdapterManager();
             this.btnWeekSrch = new System.Windows.Forms.Button();
             this.btnSearchMonth = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.client_scheduleDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,12 +135,7 @@ namespace ScheduleApptApp
             // appointmentBindingSource
             // 
             this.appointmentBindingSource.DataMember = "appointment";
-            this.appointmentBindingSource.DataSource = this.client_scheduleDataSet;
-            // 
-            // client_scheduleDataSet
-            // 
-            this.client_scheduleDataSet.DataSetName = "client_scheduleDataSet";
-            this.client_scheduleDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+         
             // 
             // panel1
             // 
@@ -169,18 +160,7 @@ namespace ScheduleApptApp
             // 
             // appointmentTableAdapter
             // 
-            this.appointmentTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.addressTableAdapter = null;
-            this.tableAdapterManager.appointmentTableAdapter = this.appointmentTableAdapter;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.cityTableAdapter = null;
-            this.tableAdapterManager.countryTableAdapter = null;
-            this.tableAdapterManager.customerTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ScheduleApptApp.client_scheduleDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.userTableAdapter = null;
+         
             // 
             // btnWeekSrch
             // 
@@ -231,7 +211,6 @@ namespace ScheduleApptApp
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.client_scheduleDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -247,10 +226,8 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Button btnAddAppt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private client_scheduleDataSet client_scheduleDataSet;
         private System.Windows.Forms.BindingSource appointmentBindingSource;
-        private client_scheduleDataSetTableAdapters.appointmentTableAdapter appointmentTableAdapter;
-        private client_scheduleDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+     
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnWeekSrch;
         private System.Windows.Forms.Button btnSearchMonth;

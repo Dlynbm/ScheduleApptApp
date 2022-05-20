@@ -38,10 +38,7 @@ namespace ScheduleApptApp
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.client_scheduleDataSet = new ScheduleApptApp.client_scheduleDataSet();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.userTableAdapter = new ScheduleApptApp.client_scheduleDataSetTableAdapters.userTableAdapter();
-            this.tableAdapterManager = new ScheduleApptApp.client_scheduleDataSetTableAdapters.TableAdapterManager();
             this.userIdLabel1 = new System.Windows.Forms.Label();
             this.userNameLabel1 = new System.Windows.Forms.Label();
             this.passLabel = new System.Windows.Forms.Label();
@@ -50,7 +47,6 @@ namespace ScheduleApptApp
             userNameLabel = new System.Windows.Forms.Label();
             passwordLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.client_scheduleDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // userIdLabel
@@ -119,12 +115,7 @@ namespace ScheduleApptApp
             // userBindingSource
             // 
             this.userBindingSource.DataMember = "user";
-            this.userBindingSource.DataSource = this.client_scheduleDataSet;
-            // 
-            // client_scheduleDataSet
-            // 
-            this.client_scheduleDataSet.DataSetName = "client_scheduleDataSet";
-            this.client_scheduleDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+         
             // 
             // btnCancel
             // 
@@ -138,18 +129,7 @@ namespace ScheduleApptApp
             // 
             // userTableAdapter
             // 
-            this.userTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.addressTableAdapter = null;
-            this.tableAdapterManager.appointmentTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.cityTableAdapter = null;
-            this.tableAdapterManager.countryTableAdapter = null;
-            this.tableAdapterManager.customerTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ScheduleApptApp.client_scheduleDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.userTableAdapter = this.userTableAdapter;
+        
             // 
             // userIdLabel1
             // 
@@ -207,7 +187,6 @@ namespace ScheduleApptApp
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.client_scheduleDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,10 +198,7 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
-        private client_scheduleDataSet client_scheduleDataSet;
         private System.Windows.Forms.BindingSource userBindingSource;
-        private client_scheduleDataSetTableAdapters.userTableAdapter userTableAdapter;
-        private client_scheduleDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Label userIdLabel1;
         private System.Windows.Forms.Label userNameLabel1;
         private System.Windows.Forms.Label passLabel;

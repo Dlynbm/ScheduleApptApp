@@ -18,7 +18,7 @@ namespace ScheduleApptApp
             Application.SetCompatibleTextRenderingDefault(false);
 
             //change next line to login form instead of appointment
-            Application.Run(new Login());
+            Application.Run(new FormAllCustomers());
         }
     }
 }

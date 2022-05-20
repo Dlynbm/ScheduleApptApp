@@ -14,7 +14,7 @@ namespace ScheduleApptApp
 {
     public partial class Login : Form
     {
-        MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+        //MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
 
        
 
@@ -34,8 +34,8 @@ namespace ScheduleApptApp
         {
             
 
-            string selectUser = "SELECT userId FROM user WHERE userName = '{0}' AND password = '{1}' AND active = 1", 
-            MySqlDataAdapter da = new MySqlDataAdapter(selectUser, con);    
+            //string selectUser = "SELECT userId FROM user WHERE userName = '{0}' AND password = '{1}' AND active = 1", 
+            //MySqlDataAdapter da = new MySqlDataAdapter(selectUser, con);    
 
         }
 

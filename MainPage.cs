@@ -61,7 +61,6 @@ namespace ScheduleApptApp
         {
             this.Validate();
             this.appointmentBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.client_scheduleDataSet);
 
         }
         private void btnDateSearch_Click(object sender, EventArgs e)
