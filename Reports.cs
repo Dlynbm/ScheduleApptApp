@@ -58,6 +58,38 @@ namespace ScheduleApptApp
                 }
             }
 
+        private void btnConsult_Click(object sender, EventArgs e)
+        {
+            string user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            try
+                {
+                    using (MySqlConnection con = Data.getConnection())
+                    {
+                        if (con.State == ConnectionState.Closed)
+                            con.Open();
+                        using (DataTable dt = new DataTable("Dates"))
+                        {
+                            using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type,  FROM appointment WHERE user = ", con))
+                            {
+                                //adding values
+                                //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+                                //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+                                //fill data to datatable
+                                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                                da.Fill(dt);
+                                //adding datasource
+                                reportsGrid.DataSource = dt;
+                                lblTotal.Text = $"Total records: {reportsGrid.RowCount - 1}";
+
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
+    }
     }
 

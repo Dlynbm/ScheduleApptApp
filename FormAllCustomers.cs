@@ -108,26 +108,8 @@ namespace ScheduleApptApp
                 }
                 Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
                 var chosenCustomer = CustomerGrid.CurrentCell.Value;
-                DialogResult result = MessageBox.Show("Are you sure you want to update this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == DialogResult.Yes)
-                {
-                    //string updateCus = $"UPDATE customer AS c INNER JOIN address  AS a ON c.addressId = c.addressId SET c.customerName = '{name}', c.lastUpdate = '{sqlFormattedDate}', a.address = '{address}', a.phone = '{pNumber}', a.postalCode = '{pCode}', a.cityId = '{cityID}' WHERE c.customerId = '{cusid}' AND a.addressId = '{addressID}'"; MySqlConnection con = Data.getConnection();
-                    //MySqlCommand com = new MySqlCommand(updateCus, con);
-                    //con.Open();
-                    //com.Parameters.AddWithValue("customerName", txtBoxCustName.Text);
-                    //com.Parameters.AddWithValue("customerPhone", txtBoxCustPhone.Text);
-                    //com.Parameters.AddWithValue("customerAddress", txtBoxCustAdd.Text);
-                    //com.Parameters.AddWithValue("customerCity", txtBoxCustCity.Text);
-                    //com.Parameters.AddWithValue("customerCountry", txtBoxCustCountry.Text);
-
-                    //con.Close();
-                }
+               
             }
-
-        
-
-
-
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -230,33 +212,22 @@ namespace ScheduleApptApp
 
 
         private void UpdateButton1_Click(object sender, EventArgs e)
-        {
-           
-            try
-            {               
-                    MySqlCommand com = new MySqlCommand("UPDATE customer SET customerName = @cName, " +
-                    "phone = @phone WHERE addressId = @addressId," +
-                    "address = @address WHERE addressId = @addressId," +
-                    "city = @city WHERE cityId = @cityId," +
-                    "country = @country WHERE countryId = @countryUd", con);
-                com.Parameters.AddWithValue("@cName", txtBoxCustName.Text);
-                com.Parameters.AddWithValue("@phone", txtBoxCustPhone.Text);
-                com.Parameters.AddWithValue("address", txtBoxCustAdd.Text);
-                com.Parameters.AddWithValue("city", txtBoxCustCity.Text);
-                com.Parameters.AddWithValue("country", txtBoxCustCountry.Text);
-                    con.Open();
-                    com.ExecuteNonQuery();
-                    con.Close();
-                    loadCustomers();
-                    MessageBox.Show("Updated Successfully");
+        {           
+            //try
+            //{
+            //    MySqlCommand com = new MySqlCommand("UPDATE customer SET customerName = '" + txtBoxCustName.Text + '"WHERE custId = txtBoxCustId.Text  "'", con);
+            //    con.Open();
+            //    com.ExecuteNonQuery();
+            //    con.Close();
+            //    loadCustomers();
+            //    MessageBox.Show("Updated Successfully");
 
-                
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
 

@@ -30,59 +30,26 @@ namespace ScheduleApptApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label userIdLabel;
-            System.Windows.Forms.Label userNameLabel;
-            System.Windows.Forms.Label passwordLabel;
             this.txtBoxUserPass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
-            this.userIdLabel1 = new System.Windows.Forms.Label();
-            this.userNameLabel1 = new System.Windows.Forms.Label();
-            this.passLabel = new System.Windows.Forms.Label();
-            this.txtBoxUName = new System.Windows.Forms.TextBox();
-            userIdLabel = new System.Windows.Forms.Label();
-            userNameLabel = new System.Windows.Forms.Label();
-            passwordLabel = new System.Windows.Forms.Label();
+            this.txtBoxUser = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.userNameLbl = new System.Windows.Forms.Label();
+            this.passLbl = new System.Windows.Forms.Label();
+            this.loginLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // userIdLabel
-            // 
-            userIdLabel.AutoSize = true;
-            userIdLabel.Location = new System.Drawing.Point(322, 39);
-            userIdLabel.Name = "userIdLabel";
-            userIdLabel.Size = new System.Drawing.Size(42, 13);
-            userIdLabel.TabIndex = 6;
-            userIdLabel.Text = "user Id:";
-            // 
-            // userNameLabel
-            // 
-            userNameLabel.AutoSize = true;
-            userNameLabel.Location = new System.Drawing.Point(322, 62);
-            userNameLabel.Name = "userNameLabel";
-            userNameLabel.Size = new System.Drawing.Size(61, 13);
-            userNameLabel.TabIndex = 8;
-            userNameLabel.Text = "user Name:";
-            // 
-            // passwordLabel
-            // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.Location = new System.Drawing.Point(322, 88);
-            passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(55, 13);
-            passwordLabel.TabIndex = 10;
-            passwordLabel.Text = "password:";
             // 
             // txtBoxUserPass
             // 
             this.txtBoxUserPass.Location = new System.Drawing.Point(163, 88);
             this.txtBoxUserPass.Name = "txtBoxUserPass";
             this.txtBoxUserPass.Size = new System.Drawing.Size(121, 20);
-            this.txtBoxUserPass.TabIndex = 1;
-            this.txtBoxUserPass.TextChanged += new System.EventHandler(this.txtBoxUserPass_TextChanged);
+            this.txtBoxUserPass.TabIndex = 2;
             // 
             // label1
             // 
@@ -107,7 +74,7 @@ namespace ScheduleApptApp
             this.btnLogin.Location = new System.Drawing.Point(181, 147);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -115,69 +82,64 @@ namespace ScheduleApptApp
             // userBindingSource
             // 
             this.userBindingSource.DataMember = "user";
-         
             // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(181, 176);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // userTableAdapter
+            // txtBoxUser
             // 
-        
+            this.txtBoxUser.Location = new System.Drawing.Point(163, 62);
+            this.txtBoxUser.Name = "txtBoxUser";
+            this.txtBoxUser.Size = new System.Drawing.Size(121, 20);
+            this.txtBoxUser.TabIndex = 1;
             // 
-            // userIdLabel1
+            // contextMenuStrip1
             // 
-            this.userIdLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "userId", true));
-            this.userIdLabel1.Location = new System.Drawing.Point(370, 39);
-            this.userIdLabel1.Name = "userIdLabel1";
-            this.userIdLabel1.Size = new System.Drawing.Size(100, 23);
-            this.userIdLabel1.TabIndex = 7;
-            this.userIdLabel1.Text = "label3";
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // userNameLabel1
+            // userNameLbl
             // 
-            this.userNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "userName", true));
-            this.userNameLabel1.Location = new System.Drawing.Point(389, 62);
-            this.userNameLabel1.Name = "userNameLabel1";
-            this.userNameLabel1.Size = new System.Drawing.Size(100, 23);
-            this.userNameLabel1.TabIndex = 9;
-            this.userNameLabel1.Text = "label3";
+            this.userNameLbl.AutoSize = true;
+            this.userNameLbl.Location = new System.Drawing.Point(301, 65);
+            this.userNameLbl.Name = "userNameLbl";
+            this.userNameLbl.Size = new System.Drawing.Size(69, 13);
+            this.userNameLbl.TabIndex = 8;
+            this.userNameLbl.Text = "userNameLbl";
             // 
-            // passLabel
+            // passLbl
             // 
-            this.passLabel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userBindingSource, "password", true));
-            this.passLabel.Location = new System.Drawing.Point(383, 88);
-            this.passLabel.Name = "passLabel";
-            this.passLabel.Size = new System.Drawing.Size(100, 23);
-            this.passLabel.TabIndex = 11;
-            this.passLabel.Text = "label3";
+            this.passLbl.AutoSize = true;
+            this.passLbl.Location = new System.Drawing.Point(301, 95);
+            this.passLbl.Name = "passLbl";
+            this.passLbl.Size = new System.Drawing.Size(35, 13);
+            this.passLbl.TabIndex = 9;
+            this.passLbl.Text = "label3";
             // 
-            // txtBoxUName
+            // loginLbl
             // 
-            this.txtBoxUName.Location = new System.Drawing.Point(163, 62);
-            this.txtBoxUName.Name = "txtBoxUName";
-            this.txtBoxUName.Size = new System.Drawing.Size(121, 20);
-            this.txtBoxUName.TabIndex = 12;
-            this.txtBoxUName.TextChanged += new System.EventHandler(this.txtBoxUName_TextChanged);
+            this.loginLbl.AutoSize = true;
+            this.loginLbl.Location = new System.Drawing.Point(301, 124);
+            this.loginLbl.Name = "loginLbl";
+            this.loginLbl.Size = new System.Drawing.Size(43, 13);
+            this.loginLbl.TabIndex = 10;
+            this.loginLbl.Text = "loginLbl";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 361);
-            this.Controls.Add(this.txtBoxUName);
-            this.Controls.Add(passwordLabel);
-            this.Controls.Add(this.passLabel);
-            this.Controls.Add(userNameLabel);
-            this.Controls.Add(this.userNameLabel1);
-            this.Controls.Add(userIdLabel);
-            this.Controls.Add(this.userIdLabel1);
+            this.Controls.Add(this.loginLbl);
+            this.Controls.Add(this.passLbl);
+            this.Controls.Add(this.userNameLbl);
+            this.Controls.Add(this.txtBoxUser);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
@@ -199,9 +161,10 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.BindingSource userBindingSource;
-        private System.Windows.Forms.Label userIdLabel1;
-        private System.Windows.Forms.Label userNameLabel1;
-        private System.Windows.Forms.Label passLabel;
-        private System.Windows.Forms.TextBox txtBoxUName;
+        private System.Windows.Forms.TextBox txtBoxUser;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label userNameLbl;
+        private System.Windows.Forms.Label passLbl;
+        private System.Windows.Forms.Label loginLbl;
     }
 }

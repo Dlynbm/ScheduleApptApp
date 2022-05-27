@@ -35,7 +35,7 @@ namespace ScheduleApptApp
 
         private void loadAppointments()
         {
-            string sqlString = $"SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.title, appointment.description, appointment.location, appointment.contact, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId"; MySqlCommand cmd = new MySqlCommand(sqlString, con);
+            string sqlString = $"SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId"; MySqlCommand cmd = new MySqlCommand(sqlString, con);
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -73,7 +73,7 @@ namespace ScheduleApptApp
                         con.Open();
                     using (DataTable dt = new DataTable("Dates"))
                     {
-                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2", con))
+                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2", con))
                         {
                             //adding values
                             //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
@@ -105,7 +105,7 @@ namespace ScheduleApptApp
                         con.Open();
                     using (DataTable dt = new DataTable("Dates"))
                     {
-                        using (MySqlCommand cmd = new MySqlCommand("select * from appointment where WEEK(start) = WEEK(now()) and YEAR(start) = YEAR(now());", con))
+                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy from appointment where WEEK(start) = WEEK(now()) and YEAR(start) = YEAR(now());", con))
                         {
                             //adding values
                             //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
@@ -137,7 +137,7 @@ namespace ScheduleApptApp
                         con.Open();
                     using (DataTable dt = new DataTable("Dates"))
                     {
-                        using (MySqlCommand cmd = new MySqlCommand("select * from appointment where MONTH(start) = MONTH(now())and YEAR(start) = YEAR(now()); ", con))
+                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy from appointment where MONTH(start) = MONTH(now())and YEAR(start) = YEAR(now()); ", con))
                         {
                             //adding values
                             //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);

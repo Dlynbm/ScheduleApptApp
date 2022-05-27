@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,60 +15,94 @@ namespace ScheduleApptApp
 {
     public partial class Login : Form
     {
-        //MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-
-       
+        private Exception ex;
 
         public Login()
         {
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'client_scheduleDataSet.user' table. You can move, or remove it, as needed.
-          
 
-        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-
-            //string selectUser = "SELECT userId FROM user WHERE userName = '{0}' AND password = '{1}' AND active = 1", 
-            //MySqlDataAdapter da = new MySqlDataAdapter(selectUser, con);    
-
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-       
-
-        private void txtBoxUName_TextChanged(object sender, EventArgs e)
-        {
-            if (txtBoxUName.Text.Length > 0 && txtBoxUserPass.Text.Length > 0)
+            MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from user where userName = '" + txtBoxUser.Text + "' AND password = '" + txtBoxUserPass.Text + "'", con);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
             {
-                btnLogin.Enabled = true;
+
+                //MessageBox.Show("Successfully Sign In!", "Message By Me", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MainPage mp = new MainPage();
+                mp.Show();
+                //this.Close();
             }
             else
             {
-                btnLogin.Enabled = false;
+                MessageBox.Show("Username And Password Not Match!", "Message By Me", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            txtBoxUser.Text = string.Empty;
+            txtBoxUserPass.Text = string.Empty;
+            reader.Close();
+            cmd.Dispose();
+            con.Close(); // always close connection }
+            //CreateOrAppendTxt();
+
+
         }
 
-        private void txtBoxUserPass_TextChanged(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
-            if (txtBoxUName.Text.Length > 0 && txtBoxUserPass.Text.Length > 0)
+            MySqlConnection con = new MySqlConnection("server=127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+            con.Open();
+            string language = CultureInfo.CurrentCulture.EnglishName;
+
+            if (language == "Russian (Russia)")
             {
-                btnLogin.Enabled = true;
+                //username/pass incorrect
+                ex = new Exception("Неверное имя пользователя или пароль!");
+                //login
+                btnLogin.Text = "Авторизоваться";
+                //please enter login/password
+                loginLbl.Text = "Пожалуйста, введите ваш логин и пароль, чтобы войти.";
+                //username
+                userNameLbl.Text = "имя пользователя";
+                //password
+                passLbl.Text = "пароль";
+              
             }
             else
             {
-                btnLogin.Enabled = false;
+                ex = new Exception("The username or password is incorrect!");
             }
         }
+
+        //private void CreateOrAppendTxt()
+        //{
+
+        //    //TextWriter txt = new StreamWriter("C: \\Users\\LabUser\\userlogin.txt");
+        //    //txt.Write(txtBoxUser.Text);
+        //    //txt.Close();
+
+        //    string path = "C: \\Users\\LabUser\\userlogin.txt";
+
+        //    if (!File.Exists(path))
+        //    {
+        //        File.Create(path).Close();
+        //        using (StreamWriter sw = File.AppendText(path))
+        //        {
+        //            sw.WriteLine("User " + txtBoxUser.Text + " signed in at " + DateTime.UtcNow);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        using (StreamWriter sw = File.AppendText(path))
+        //        {
+        //            sw.WriteLine("User " + txtBoxUser.Text + " signed in at " + DateTime.UtcNow);
+        //        }
+        //    }
+
+        //}
     }
 }

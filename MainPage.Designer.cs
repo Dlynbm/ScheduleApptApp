@@ -58,10 +58,10 @@ namespace ScheduleApptApp
             this.panel2.Controls.Add(this.ViewCustomersBtn);
             this.panel2.Controls.Add(this.btnReports);
             this.panel2.Controls.Add(this.btnAddAppt);
-            this.panel2.Location = new System.Drawing.Point(10, 171);
+            this.panel2.Location = new System.Drawing.Point(10, 170);
             this.panel2.Margin = new System.Windows.Forms.Padding(1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(737, 357);
+            this.panel2.Size = new System.Drawing.Size(649, 357);
             this.panel2.TabIndex = 18;
             // 
             // lblTotal
@@ -79,10 +79,10 @@ namespace ScheduleApptApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AppointmentGrid.BackgroundColor = System.Drawing.Color.White;
             this.AppointmentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AppointmentGrid.Location = new System.Drawing.Point(42, 163);
+            this.AppointmentGrid.Location = new System.Drawing.Point(4, 94);
             this.AppointmentGrid.MultiSelect = false;
             this.AppointmentGrid.Name = "AppointmentGrid";
-            this.AppointmentGrid.Size = new System.Drawing.Size(650, 123);
+            this.AppointmentGrid.Size = new System.Drawing.Size(643, 123);
             this.AppointmentGrid.TabIndex = 0;
             // 
             // ViewCustomersBtn
@@ -90,12 +90,12 @@ namespace ScheduleApptApp
             this.ViewCustomersBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ViewCustomersBtn.BackColor = System.Drawing.Color.CadetBlue;
             this.ViewCustomersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ViewCustomersBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ViewCustomersBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ViewCustomersBtn.ForeColor = System.Drawing.Color.White;
-            this.ViewCustomersBtn.Location = new System.Drawing.Point(370, 296);
+            this.ViewCustomersBtn.Location = new System.Drawing.Point(314, 294);
             this.ViewCustomersBtn.Margin = new System.Windows.Forms.Padding(1);
             this.ViewCustomersBtn.Name = "ViewCustomersBtn";
-            this.ViewCustomersBtn.Size = new System.Drawing.Size(150, 45);
+            this.ViewCustomersBtn.Size = new System.Drawing.Size(131, 45);
             this.ViewCustomersBtn.TabIndex = 2;
             this.ViewCustomersBtn.Text = "View Customers";
             this.ViewCustomersBtn.UseVisualStyleBackColor = false;
@@ -106,12 +106,12 @@ namespace ScheduleApptApp
             this.btnReports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReports.BackColor = System.Drawing.Color.CadetBlue;
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.White;
-            this.btnReports.Location = new System.Drawing.Point(537, 296);
+            this.btnReports.Location = new System.Drawing.Point(481, 294);
             this.btnReports.Margin = new System.Windows.Forms.Padding(1);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(150, 45);
+            this.btnReports.Size = new System.Drawing.Size(131, 45);
             this.btnReports.TabIndex = 1;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
@@ -123,7 +123,7 @@ namespace ScheduleApptApp
             this.btnAddAppt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddAppt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAppt.ForeColor = System.Drawing.Color.White;
-            this.btnAddAppt.Location = new System.Drawing.Point(39, 16);
+            this.btnAddAppt.Location = new System.Drawing.Point(15, 12);
             this.btnAddAppt.Margin = new System.Windows.Forms.Padding(1);
             this.btnAddAppt.Name = "btnAddAppt";
             this.btnAddAppt.Size = new System.Drawing.Size(240, 45);
@@ -135,7 +135,6 @@ namespace ScheduleApptApp
             // appointmentBindingSource
             // 
             this.appointmentBindingSource.DataMember = "appointment";
-         
             // 
             // panel1
             // 
@@ -158,17 +157,13 @@ namespace ScheduleApptApp
             this.label1.TabIndex = 0;
             this.label1.Text = "View All Customers and Appointments";
             // 
-            // appointmentTableAdapter
-            // 
-         
-            // 
             // btnWeekSrch
             // 
             this.btnWeekSrch.BackColor = System.Drawing.Color.Coral;
             this.btnWeekSrch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWeekSrch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWeekSrch.ForeColor = System.Drawing.Color.White;
-            this.btnWeekSrch.Location = new System.Drawing.Point(624, 133);
+            this.btnWeekSrch.Location = new System.Drawing.Point(545, 133);
             this.btnWeekSrch.Margin = new System.Windows.Forms.Padding(1);
             this.btnWeekSrch.Name = "btnWeekSrch";
             this.btnWeekSrch.Size = new System.Drawing.Size(112, 26);
@@ -183,7 +178,7 @@ namespace ScheduleApptApp
             this.btnSearchMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearchMonth.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchMonth.ForeColor = System.Drawing.Color.White;
-            this.btnSearchMonth.Location = new System.Drawing.Point(624, 86);
+            this.btnSearchMonth.Location = new System.Drawing.Point(545, 86);
             this.btnSearchMonth.Margin = new System.Windows.Forms.Padding(1);
             this.btnSearchMonth.Name = "btnSearchMonth";
             this.btnSearchMonth.Size = new System.Drawing.Size(112, 26);
@@ -196,7 +191,7 @@ namespace ScheduleApptApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 551);
+            this.ClientSize = new System.Drawing.Size(669, 551);
             this.Controls.Add(this.btnSearchMonth);
             this.Controls.Add(this.btnWeekSrch);
             this.Controls.Add(this.panel1);
@@ -205,7 +200,6 @@ namespace ScheduleApptApp
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "All Appointments";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainPage_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
