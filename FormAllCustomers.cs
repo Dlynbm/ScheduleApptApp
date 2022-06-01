@@ -178,15 +178,15 @@ namespace ScheduleApptApp
 
                     MySqlCommand cmd = new MySqlCommand("INSERT INTO city VALUES(NULL, @city, @countryId, NOW(), 'XX', NOW(), 'XX'", con);
                     con.Open();
-                    cmd.Parameters.AddWithValue("city", txtBoxCustCity.Text);
+                    cmd.Parameters.AddWithValue("@city", txtBoxCustCity.Text);
                     cmd.ExecuteNonQuery();
                     int cityId = (int)cmd.LastInsertedId;
                     con.Close();
 
                     MySqlCommand add = new MySqlCommand("INSERT INTO address VALUES(NULL, @address, @address2, @cityId, 'xx', @phoneNumber, NOW(), 'xx', NOW(), 'xx'", con);
                     con.Open();
-                    add.Parameters.AddWithValue("address", txtBoxCustAdd.Text);
-                    add.Parameters.AddWithValue("phoneNumber", txtBoxCustPhone.Text);
+                    add.Parameters.AddWithValue("@address", txtBoxCustAdd.Text);
+                    add.Parameters.AddWithValue("@phoneNumber", txtBoxCustPhone.Text);
                     com.ExecuteNonQuery();
                     int addressId = (int)add.LastInsertedId;
                     con.Close();
@@ -195,7 +195,7 @@ namespace ScheduleApptApp
 
                     MySqlCommand cust = new MySqlCommand("INSERT INTO customer VALUES(NULL, @customerName, @addressId, 'xx', NOW(), 'xx', NOW(), 'xx'", con);
                     con.Open();
-                    cust.Parameters.AddWithValue("customer", txtBoxCustName.Text);
+                    cust.Parameters.AddWithValue("@customer", txtBoxCustName.Text);
                     com.ExecuteNonQuery();
                     int customerId = (int)cust.LastInsertedId;
                     con.Close();

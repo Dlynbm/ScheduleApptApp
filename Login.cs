@@ -16,10 +16,17 @@ namespace ScheduleApptApp
     public partial class Login : Form
     {
         private Exception ex;
+        private StreamReader fileReader;
+        string fileName = "dlyn.txt";
+        public static int counter = 1;
+
 
         public Login()
         {
             InitializeComponent();
+            FileStream inp = new FileStream(fileName, FileMode.Open, FileAccess.Write);
+            //fileReader = new StreamReader(inp);
+
         }
 
 
@@ -70,7 +77,7 @@ namespace ScheduleApptApp
                 userNameLbl.Text = "имя пользователя";
                 //password
                 passLbl.Text = "пароль";
-              
+
             }
             else
             {
@@ -78,31 +85,28 @@ namespace ScheduleApptApp
             }
         }
 
-        //private void CreateOrAppendTxt()
-        //{
+        private void CreateOrAppendTxt()
+        {
+            //try
+            //{
+            //    string s = fileReader.WriteLine();
+            //    if (s != null)
+            //    {
+            //        userNameLbl.Text = "Record: " + counter++ + "      " + s;
+            //    }
+            //    else
+            //    {
+            //        userNameLbl.Text = "No more records to read";
+            //    }
+            //}
+            //catch (IOException ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
 
-        //    //TextWriter txt = new StreamWriter("C: \\Users\\LabUser\\userlogin.txt");
-        //    //txt.Write(txtBoxUser.Text);
-        //    //txt.Close();
 
-        //    string path = "C: \\Users\\LabUser\\userlogin.txt";
 
-        //    if (!File.Exists(path))
-        //    {
-        //        File.Create(path).Close();
-        //        using (StreamWriter sw = File.AppendText(path))
-        //        {
-        //            sw.WriteLine("User " + txtBoxUser.Text + " signed in at " + DateTime.UtcNow);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        using (StreamWriter sw = File.AppendText(path))
-        //        {
-        //            sw.WriteLine("User " + txtBoxUser.Text + " signed in at " + DateTime.UtcNow);
-        //        }
-        //    }
 
-        //}
+        }
     }
 }

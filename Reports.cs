@@ -69,7 +69,7 @@ namespace ScheduleApptApp
                             con.Open();
                         using (DataTable dt = new DataTable("Dates"))
                         {
-                            using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type,  FROM appointment WHERE user = ", con))
+                            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM user WHERE userId IN (SELECT userId FROM appointment) ", con))
                             {
                                 //adding values
                                 //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
