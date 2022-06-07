@@ -177,6 +177,7 @@
             this.btnSearch.TabIndex = 22;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtBxSearch
             // 
@@ -184,7 +185,6 @@
             this.txtBxSearch.Name = "txtBxSearch";
             this.txtBxSearch.Size = new System.Drawing.Size(135, 23);
             this.txtBxSearch.TabIndex = 21;
-            this.txtBxSearch.TextChanged += new System.EventHandler(this.txtBxSearch_TextChanged);
             // 
             // custGroupBox
             // 
@@ -217,7 +217,6 @@
             this.CustomerGrid.Size = new System.Drawing.Size(694, 150);
             this.CustomerGrid.TabIndex = 92;
             this.CustomerGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
-            //this.CustomerGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
             // 
             // txtBoxCustCountry
             // 
@@ -303,7 +302,7 @@
             this.btnDeleteCust.Name = "btnDeleteCust";
             this.btnDeleteCust.Size = new System.Drawing.Size(44, 57);
             this.btnDeleteCust.Text = "Delete";
-            this.btnDeleteCust.Click += new System.EventHandler(this.btnDeleteCust_Click_1);
+            this.btnDeleteCust.Click += new System.EventHandler(this.btnDeleteCust_Click);
             // 
             // toolStripSeparator4
             // 
@@ -317,7 +316,7 @@
             this.btnSaveCustomer.Name = "btnSaveCustomer";
             this.btnSaveCustomer.Size = new System.Drawing.Size(35, 57);
             this.btnSaveCustomer.Text = "Save";
-            this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveCustomer_Click);
+            this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveCustomer_Click_1);
             // 
             // toolStripSeparator1
             // 
@@ -366,7 +365,6 @@
             this.UpdateButton1.Name = "UpdateButton1";
             this.UpdateButton1.Size = new System.Drawing.Size(49, 57);
             this.UpdateButton1.Text = "Update";
-            this.UpdateButton1.Click += new System.EventHandler(this.UpdateButton1_Click);
             // 
             // FormAllCustomers
             // 
@@ -398,28 +396,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.Label Label;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postalCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expr1DataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton btnAddCustomer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton btnEditCust;

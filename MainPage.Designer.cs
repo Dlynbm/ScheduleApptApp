@@ -170,7 +170,7 @@ namespace ScheduleApptApp
             this.btnWeekSrch.TabIndex = 21;
             this.btnWeekSrch.Text = "This Week";
             this.btnWeekSrch.UseVisualStyleBackColor = false;
-            this.btnWeekSrch.Click += new System.EventHandler(this.btnWeekSrch_Click);
+            //this.btnWeekSrch.Click += new System.EventHandler(this.btnWeekSrch_Click);
             // 
             // btnSearchMonth
             // 
@@ -185,7 +185,7 @@ namespace ScheduleApptApp
             this.btnSearchMonth.TabIndex = 22;
             this.btnSearchMonth.Text = "This Month";
             this.btnSearchMonth.UseVisualStyleBackColor = false;
-            this.btnSearchMonth.Click += new System.EventHandler(this.btnSearchMonth_Click);
+            //this.btnSearchMonth.Click += new System.EventHandler(this.btnSearchMonth_Click);
             // 
             // MainPage
             // 

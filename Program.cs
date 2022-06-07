@@ -17,8 +17,9 @@ namespace ScheduleApptApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //change next line to login form instead of appointment
+            DBConnection.startConnection();
             Application.Run(new Login());
+            DBConnection.closeConnection();
         }
     }
 }

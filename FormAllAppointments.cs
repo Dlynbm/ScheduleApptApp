@@ -97,3 +97,33 @@ namespace ScheduleApptApp
     }
 }
 
+//private void btnDeleteCust_Click(object sender, EventArgs e)
+//{
+//    {
+//        if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
+//        {
+//            MessageBox.Show("Nothing is selected.  Please make a selection");
+//            new_edit_del_butt_enable();
+//            return;
+//        }
+//        try
+//        {
+//            DialogResult result = MessageBox.Show("Are you sure you want to delete this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+//            if (result == DialogResult.Yes)
+//            {
+//                MySqlCommand com = new MySqlCommand("DELETE FROM appointment WHERE customerId = '" + txtBoxCustId.Text + "'", DBConnection.conn);
+//                com.ExecuteNonQuery();
+
+//            }
+//            {
+//                MySqlCommand com = new MySqlCommand("DELETE FROM customer WHERE customerId = '" + txtBoxCustId.Text + "'", DBConnection.conn);
+//                com.ExecuteNonQuery();
+//                loadCustomers();
+//                MessageBox.Show("Deleted Successfully");
+//            }
+//        }
+//        catch (Exception ex)
+//        {
+//            MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//        }
+//    }

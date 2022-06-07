@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -13,9 +14,7 @@ namespace ScheduleApptApp
 {
     public partial class Reports : Form
     {
-        MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-
-        public Reports()
+           public Reports()
         {
             InitializeComponent();
            
@@ -25,71 +24,61 @@ namespace ScheduleApptApp
             reportsGrid.AllowUserToAddRows = true;
             //reportsGrid.ClearSelection();
         }
+            
+        
 
-        private void btnDateSearch_Click(object sender, EventArgs e)
+        private void btnDateSearch_Click_1(object sender, EventArgs e)
         {
-            try
-                {
-                    using (MySqlConnection con = Data.getConnection())
-                    {
-                        if (con.State == ConnectionState.Closed)
-                            con.Open();
-                        using (DataTable dt = new DataTable("Dates"))
-                        {
-                            using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2", con))
-                            {
-                                //adding values
-                                cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
-                                cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
-                                //fill data to datatable
-                                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                                da.Fill(dt);
-                                //adding datasource
-                                reportsGrid.DataSource = dt;
-                                lblTotal.Text = $"Total records: {reportsGrid.RowCount - 1}";
+            string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2";
+            string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connString);
+            DataTable myDataTable = new DataTable();
+            MySqlCommand mySqlCommand = new MySqlCommand(mySqlString);
+            mySqlCommand.Connection = connection;
 
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            mySqlCommand.Parameters.AddWithValue("@d1", p_StartDate.Value);
+            mySqlCommand.Parameters.AddWithValue("@d2", p_EndDate.Value);
 
-        private void btnConsult_Click(object sender, EventArgs e)
-        {
-            string user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            try
-                {
-                    using (MySqlConnection con = Data.getConnection())
-                    {
-                        if (con.State == ConnectionState.Closed)
-                            con.Open();
-                        using (DataTable dt = new DataTable("Dates"))
-                        {
-                            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM user WHERE userId IN (SELECT userId FROM appointment) ", con))
-                            {
-                                //adding values
-                                //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
-                                //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
-                                //fill data to datatable
-                                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                                da.Fill(dt);
-                                //adding datasource
-                                reportsGrid.DataSource = dt;
-                                lblTotal.Text = $"Total records: {reportsGrid.RowCount - 1}";
-
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            //fill data to datatable
+            MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
+            da.Fill(myDataTable);
+            //adding datasource
+            reportsGrid.DataSource = myDataTable;
+            lblTotal.Text = $"There are a total of {reportsGrid.RowCount -1} appointments for the chosen date range:";
         }
+
+        //    private void btnConsult_Click(object sender, EventArgs e)
+        //    {
+        //        string user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        //        try
+        //            {
+        //                using (MySqlConnection con = DBConnection.conn)
+        //                {
+        //                    if (con.State == ConnectionState.Closed)
+        //                        con.Open();
+        //                    using (DataTable dt = new DataTable("Dates"))
+        //                    {
+        //                        using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM user WHERE userId IN (SELECT userId FROM appointment) ", con))
+        //                        {
+        //                            //adding values
+        //                            //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+        //                            //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+        //                            //fill data to datatable
+        //                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+        //                            da.Fill(dt);
+        //                            //adding datasource
+        //                            reportsGrid.DataSource = dt;
+        //                            lblTotal.Text = $"Total records: {reportsGrid.RowCount - 1}";
+
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //    }
     }
-    }
+}
 

@@ -38,9 +38,6 @@ namespace ScheduleApptApp
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtBoxUser = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.userNameLbl = new System.Windows.Forms.Label();
-            this.passLbl = new System.Windows.Forms.Label();
-            this.loginLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,41 +101,11 @@ namespace ScheduleApptApp
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // userNameLbl
-            // 
-            this.userNameLbl.AutoSize = true;
-            this.userNameLbl.Location = new System.Drawing.Point(301, 65);
-            this.userNameLbl.Name = "userNameLbl";
-            this.userNameLbl.Size = new System.Drawing.Size(69, 13);
-            this.userNameLbl.TabIndex = 8;
-            this.userNameLbl.Text = "userNameLbl";
-            // 
-            // passLbl
-            // 
-            this.passLbl.AutoSize = true;
-            this.passLbl.Location = new System.Drawing.Point(301, 95);
-            this.passLbl.Name = "passLbl";
-            this.passLbl.Size = new System.Drawing.Size(35, 13);
-            this.passLbl.TabIndex = 9;
-            this.passLbl.Text = "label3";
-            // 
-            // loginLbl
-            // 
-            this.loginLbl.AutoSize = true;
-            this.loginLbl.Location = new System.Drawing.Point(301, 124);
-            this.loginLbl.Name = "loginLbl";
-            this.loginLbl.Size = new System.Drawing.Size(43, 13);
-            this.loginLbl.TabIndex = 10;
-            this.loginLbl.Text = "loginLbl";
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 361);
-            this.Controls.Add(this.loginLbl);
-            this.Controls.Add(this.passLbl);
-            this.Controls.Add(this.userNameLbl);
+            this.ClientSize = new System.Drawing.Size(427, 316);
             this.Controls.Add(this.txtBoxUser);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
@@ -147,7 +114,6 @@ namespace ScheduleApptApp
             this.Controls.Add(this.txtBoxUserPass);
             this.Name = "Login";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -163,8 +129,5 @@ namespace ScheduleApptApp
         private System.Windows.Forms.BindingSource userBindingSource;
         private System.Windows.Forms.TextBox txtBoxUser;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label userNameLbl;
-        private System.Windows.Forms.Label passLbl;
-        private System.Windows.Forms.Label loginLbl;
     }
 }

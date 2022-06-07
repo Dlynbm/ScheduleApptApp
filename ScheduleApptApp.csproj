@@ -164,7 +164,7 @@
     <Compile Include="FormAllAppointments.Designer.cs">
       <DependentUpon>FormAllAppointments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,16 +215,6 @@
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="client_scheduleDataSet.xsc">
-      <DependentUpon>client_scheduleDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="client_scheduleDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="client_scheduleDataSet.xss">
-      <DependentUpon>client_scheduleDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

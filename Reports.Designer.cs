@@ -40,6 +40,9 @@ namespace ScheduleApptApp
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.radioPresent = new System.Windows.Forms.RadioButton();
+            this.radioGoogle = new System.Windows.Forms.RadioButton();
+            this.radioPP = new System.Windows.Forms.RadioButton();
             label2 = new System.Windows.Forms.Label();
             startLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).BeginInit();
@@ -85,7 +88,7 @@ namespace ScheduleApptApp
             this.btnDateSearch.TabIndex = 13;
             this.btnDateSearch.Text = "Search by Range";
             this.btnDateSearch.UseVisualStyleBackColor = false;
-            this.btnDateSearch.Click += new System.EventHandler(this.btnDateSearch_Click);
+            this.btnDateSearch.Click += new System.EventHandler(this.btnDateSearch_Click_1);
             // 
             // p_EndDate
             // 
@@ -120,7 +123,6 @@ namespace ScheduleApptApp
             this.btnConsult.TabIndex = 14;
             this.btnConsult.Text = "Consult Schedule";
             this.btnConsult.UseVisualStyleBackColor = false;
-            this.btnConsult.Click += new System.EventHandler(this.btnConsult_Click);
             // 
             // btnAptType
             // 
@@ -165,11 +167,47 @@ namespace ScheduleApptApp
             this.lblTotal.Size = new System.Drawing.Size(0, 13);
             this.lblTotal.TabIndex = 21;
             // 
+            // radioPresent
+            // 
+            this.radioPresent.AutoSize = true;
+            this.radioPresent.Location = new System.Drawing.Point(201, 79);
+            this.radioPresent.Name = "radioPresent";
+            this.radioPresent.Size = new System.Drawing.Size(84, 17);
+            this.radioPresent.TabIndex = 23;
+            this.radioPresent.TabStop = true;
+            this.radioPresent.Text = "Presentation";
+            this.radioPresent.UseVisualStyleBackColor = true;
+            // 
+            // radioGoogle
+            // 
+            this.radioGoogle.AutoSize = true;
+            this.radioGoogle.Location = new System.Drawing.Point(303, 79);
+            this.radioGoogle.Name = "radioGoogle";
+            this.radioGoogle.Size = new System.Drawing.Size(86, 17);
+            this.radioGoogle.TabIndex = 24;
+            this.radioGoogle.TabStop = true;
+            this.radioGoogle.Text = "Google Meet";
+            this.radioGoogle.UseVisualStyleBackColor = true;
+            // 
+            // radioPP
+            // 
+            this.radioPP.AutoSize = true;
+            this.radioPP.Location = new System.Drawing.Point(411, 79);
+            this.radioPP.Name = "radioPP";
+            this.radioPP.Size = new System.Drawing.Size(82, 17);
+            this.radioPP.TabIndex = 25;
+            this.radioPP.TabStop = true;
+            this.radioPP.Text = "Power Point";
+            this.radioPP.UseVisualStyleBackColor = true;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.radioPP);
+            this.Controls.Add(this.radioGoogle);
+            this.Controls.Add(this.radioPresent);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAptType);
@@ -201,5 +239,8 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.RadioButton radioPresent;
+        private System.Windows.Forms.RadioButton radioGoogle;
+        private System.Windows.Forms.RadioButton radioPP;
     }
 }

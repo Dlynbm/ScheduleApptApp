@@ -63,101 +63,101 @@ namespace ScheduleApptApp
             this.appointmentBindingSource.EndEdit();
 
         }
-        private void btnDateSearch_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (MySqlConnection con = Data.getConnection())
-                {
-                    if (con.State == ConnectionState.Closed)
-                        con.Open();
-                    using (DataTable dt = new DataTable("Dates"))
-                    {
-                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2", con))
-                        {
-                            //adding values
-                            //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
-                            //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
-                            //fill data to datatable
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            da.Fill(dt);
-                            //adding datasource
-                            AppointmentGrid.DataSource = dt;
-                            lblTotal.Text = $"Total records: {AppointmentGrid.RowCount - 1}";
+        //private void btnDateSearch_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        using (MySqlConnection con = DBConnection.conn)
+        //        {
+        //            if (con.State == ConnectionState.Closed)
+        //                con.Open();
+        //            using (DataTable dt = new DataTable("Dates"))
+        //            {
+        //                using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2", con))
+        //                {
+        //                    //adding values
+        //                    //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+        //                    //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+        //                    //fill data to datatable
+        //                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+        //                    da.Fill(dt);
+        //                    //adding datasource
+        //                    AppointmentGrid.DataSource = dt;
+        //                    lblTotal.Text = $"Total records: {AppointmentGrid.RowCount - 1}";
 
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
-        private void btnWeekSrch_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (MySqlConnection con = Data.getConnection())
-                {
-                    if (con.State == ConnectionState.Closed)
-                        con.Open();
-                    using (DataTable dt = new DataTable("Dates"))
-                    {
-                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy from appointment where WEEK(start) = WEEK(now()) and YEAR(start) = YEAR(now());", con))
-                        {
-                            //adding values
-                            //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
-                            //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
-                            //fill data to datatable
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            da.Fill(dt);
-                            //adding datasource
-                            AppointmentGrid.DataSource = dt;
-                            lblTotal.Text = $"Total records this week: {AppointmentGrid.RowCount - 1}";
+        //private void btnWeekSrch_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        using (MySqlConnection con = DBConnection.conn)
+        //        {
+        //            if (con.State == ConnectionState.Closed)
+        //                con.Open();
+        //            using (DataTable dt = new DataTable("Dates"))
+        //            {
+        //                using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy from appointment where WEEK(start) = WEEK(now()) and YEAR(start) = YEAR(now());", con))
+        //                {
+        //                    //adding values
+        //                    //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+        //                    //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+        //                    //fill data to datatable
+        //                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+        //                    da.Fill(dt);
+        //                    //adding datasource
+        //                    AppointmentGrid.DataSource = dt;
+        //                    lblTotal.Text = $"Total records this week: {AppointmentGrid.RowCount - 1}";
 
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
-        private void btnSearchMonth_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (MySqlConnection con = Data.getConnection())
-                {
-                    if (con.State == ConnectionState.Closed)
-                        con.Open();
-                    using (DataTable dt = new DataTable("Dates"))
-                    {
-                        using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy from appointment where MONTH(start) = MONTH(now())and YEAR(start) = YEAR(now()); ", con))
-                        {
-                            //adding values
-                            //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
-                            //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
-                            //fill data to datatable
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            da.Fill(dt);
-                            //adding datasource
-                            AppointmentGrid.DataSource = dt;
-                            lblTotal.Text = $"Total records this Month: {AppointmentGrid.RowCount - 1}";
+        //private void btnSearchMonth_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        using (MySqlConnection con = DBConnection.conn)
+        //        {
+        //            if (con.State == ConnectionState.Closed)
+        //                con.Open();
+        //            using (DataTable dt = new DataTable("Dates"))
+        //            {
+        //                using (MySqlCommand cmd = new MySqlCommand("SELECT appointmentId, customerId, userId, type, start, end, createDate, createdBy, lastUpdate, lastUpdateBy from appointment where MONTH(start) = MONTH(now())and YEAR(start) = YEAR(now()); ", con))
+        //                {
+        //                    //adding values
+        //                    //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
+        //                    //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
+        //                    //fill data to datatable
+        //                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+        //                    da.Fill(dt);
+        //                    //adding datasource
+        //                    AppointmentGrid.DataSource = dt;
+        //                    lblTotal.Text = $"Total records this Month: {AppointmentGrid.RowCount - 1}";
 
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void btnReports_Click(object sender, EventArgs e)
         {
