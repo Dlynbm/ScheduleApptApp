@@ -122,8 +122,8 @@ namespace ScheduleApptApp
 //                MessageBox.Show("Deleted Successfully");
 //            }
 //        }
-//        catch (Exception ex)
-//        {
-//            MessageBox.Show(ex.Message, "Message by me", MessageBoxButtons.OK, MessageBoxIcon.Error);
-//        }
+////        catch (MySqlException ex)
+//            {
+//                MessageBox.Show(ex.Message);
+//            }
 //    }

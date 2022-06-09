@@ -61,6 +61,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.UpdateButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnHome = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.custGroupBox.SuspendLayout();
@@ -139,7 +140,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1109, 62);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(925, 62);
             this.flowLayoutPanel1.TabIndex = 19;
             // 
             // Label
@@ -161,17 +162,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.txtBxSearch);
             this.panel1.Controls.Add(this.custGroupBox);
             this.panel1.Location = new System.Drawing.Point(52, 137);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1003, 575);
+            this.panel1.Size = new System.Drawing.Size(819, 497);
             this.panel1.TabIndex = 0;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(569, 180);
+            this.btnSearch.Location = new System.Drawing.Point(529, 176);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 22;
@@ -181,14 +180,16 @@
             // 
             // txtBxSearch
             // 
-            this.txtBxSearch.Location = new System.Drawing.Point(665, 181);
+            this.txtBxSearch.Location = new System.Drawing.Point(625, 177);
             this.txtBxSearch.Name = "txtBxSearch";
             this.txtBxSearch.Size = new System.Drawing.Size(135, 23);
             this.txtBxSearch.TabIndex = 21;
             // 
             // custGroupBox
             // 
+            this.custGroupBox.Controls.Add(this.btnSearch);
             this.custGroupBox.Controls.Add(this.CustomerGrid);
+            this.custGroupBox.Controls.Add(this.txtBxSearch);
             this.custGroupBox.Controls.Add(this.txtBoxCustCountry);
             this.custGroupBox.Controls.Add(this.txtBoxCustCity);
             this.custGroupBox.Controls.Add(this.txtBoxCustAdd);
@@ -204,7 +205,7 @@
             this.custGroupBox.Controls.Add(this.createDateLabel);
             this.custGroupBox.Location = new System.Drawing.Point(3, 3);
             this.custGroupBox.Name = "custGroupBox";
-            this.custGroupBox.Size = new System.Drawing.Size(1000, 572);
+            this.custGroupBox.Size = new System.Drawing.Size(837, 572);
             this.custGroupBox.TabIndex = 0;
             this.custGroupBox.TabStop = false;
             this.custGroupBox.Text = "Customer Info";
@@ -212,7 +213,7 @@
             // CustomerGrid
             // 
             this.CustomerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomerGrid.Location = new System.Drawing.Point(103, 252);
+            this.CustomerGrid.Location = new System.Drawing.Point(66, 252);
             this.CustomerGrid.Name = "CustomerGrid";
             this.CustomerGrid.Size = new System.Drawing.Size(694, 150);
             this.CustomerGrid.TabIndex = 92;
@@ -257,7 +258,6 @@
             // 
             this.txtBoxCustId.Location = new System.Drawing.Point(127, 29);
             this.txtBoxCustId.Name = "txtBoxCustId";
-            this.txtBoxCustId.ReadOnly = true;
             this.txtBoxCustId.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustId.TabIndex = 86;
             // 
@@ -354,7 +354,7 @@
             this.UpdateButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 62);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1109, 60);
+            this.toolStrip1.Size = new System.Drawing.Size(925, 60);
             this.toolStrip1.TabIndex = 20;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -365,12 +365,24 @@
             this.UpdateButton1.Name = "UpdateButton1";
             this.UpdateButton1.Size = new System.Drawing.Size(49, 57);
             this.UpdateButton1.Text = "Update";
+            this.UpdateButton1.Click += new System.EventHandler(this.UpdateButton1_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Coral;
+            this.btnHome.Location = new System.Drawing.Point(838, 66);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(75, 34);
+            this.btnHome.TabIndex = 21;
+            this.btnHome.Text = "Go Back";
+            this.btnHome.UseVisualStyleBackColor = false;
             // 
             // FormAllCustomers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 701);
+            this.ClientSize = new System.Drawing.Size(925, 623);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -381,7 +393,6 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.custGroupBox.ResumeLayout(false);
             this.custGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerGrid)).EndInit();
@@ -437,5 +448,6 @@
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.Label countryLabel;
         private System.Windows.Forms.ToolStripButton UpdateButton1;
+        private System.Windows.Forms.Button btnHome;
     }
 }
