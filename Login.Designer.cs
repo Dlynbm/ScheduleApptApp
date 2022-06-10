@@ -31,8 +31,8 @@ namespace ScheduleApptApp
         {
             this.components = new System.ComponentModel.Container();
             this.txtBoxUserPass = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblPass = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCancel = new System.Windows.Forms.Button();
@@ -48,23 +48,23 @@ namespace ScheduleApptApp
             this.txtBoxUserPass.Size = new System.Drawing.Size(121, 20);
             this.txtBoxUserPass.TabIndex = 2;
             // 
-            // label1
+            // lblName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(82, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Name:";
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(82, 73);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(38, 13);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Name:";
             // 
-            // label2
+            // lblPass
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(82, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Password:";
+            this.lblPass.AutoSize = true;
+            this.lblPass.Location = new System.Drawing.Point(82, 95);
+            this.lblPass.Name = "lblPass";
+            this.lblPass.Size = new System.Drawing.Size(56, 13);
+            this.lblPass.TabIndex = 3;
+            this.lblPass.Text = "Password:";
             // 
             // btnLogin
             // 
@@ -109,11 +109,12 @@ namespace ScheduleApptApp
             this.Controls.Add(this.txtBoxUser);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPass);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtBoxUserPass);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -122,8 +123,8 @@ namespace ScheduleApptApp
 
         #endregion
         private System.Windows.Forms.TextBox txtBoxUserPass;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.BindingSource userBindingSource;

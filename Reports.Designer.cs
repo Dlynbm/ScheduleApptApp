@@ -123,6 +123,7 @@ namespace ScheduleApptApp
             this.btnConsult.TabIndex = 14;
             this.btnConsult.Text = "Consult Schedule";
             this.btnConsult.UseVisualStyleBackColor = false;
+            this.btnConsult.Click += new System.EventHandler(this.btnConsult_Click_1);
             // 
             // btnAptType
             // 

@@ -45,40 +45,38 @@ namespace ScheduleApptApp
             //adding datasource
             reportsGrid.DataSource = myDataTable;
             lblTotal.Text = $"There are a total of {reportsGrid.RowCount -1} appointments for the chosen date range:";
+        }       
+
+        private void btnConsult_Click_1(object sender, EventArgs e)
+        {
+            string user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            try
+            {
+                using (MySqlConnection con = DBConnection.conn)
+                {
+                    if (con.State == ConnectionState.Closed)
+                        con.Open();
+                    using (DataTable dt = new DataTable("Dates"))
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand("SELECT `user`.userName, appointment.start FROM `user` INNER JOIN appointment ON `user`.userId = appointment.userId ORDER BY `user`.userName, appointment.start", con))
+                        {
+                            
+                            //fill data to datatable
+                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                            da.Fill(dt);
+                            //adding datasource
+                            reportsGrid.DataSource = dt;
+                            lblTotal.Text = $"Total appointments: {reportsGrid.RowCount - 1} for the chosen consultant:";
+
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
-        //    private void btnConsult_Click(object sender, EventArgs e)
-        //    {
-        //        string user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-        //        try
-        //            {
-        //                using (MySqlConnection con = DBConnection.conn)
-        //                {
-        //                    if (con.State == ConnectionState.Closed)
-        //                        con.Open();
-        //                    using (DataTable dt = new DataTable("Dates"))
-        //                    {
-        //                        using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM user WHERE userId IN (SELECT userId FROM appointment) ", con))
-        //                        {
-        //                            //adding values
-        //                            //cmd.Parameters.AddWithValue("@d1", p_StartDate.Value);
-        //                            //cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
-        //                            //fill data to datatable
-        //                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-        //                            da.Fill(dt);
-        //                            //adding datasource
-        //                            reportsGrid.DataSource = dt;
-        //                            lblTotal.Text = $"Total records: {reportsGrid.RowCount - 1}";
-
-        //                        }
-        //                    }
-        //                }
-        //            }
-        ////           catch (MySqlException ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-    //    }
-}
+    }
 }
 
