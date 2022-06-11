@@ -69,6 +69,7 @@ namespace ScheduleApptApp
         {
             MainPage main = new MainPage();
             main.Show();
+            this.Close();
         }
 
         private void btnSaveAppt_Click(object sender, EventArgs e)

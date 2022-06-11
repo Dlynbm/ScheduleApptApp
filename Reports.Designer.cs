@@ -43,6 +43,7 @@ namespace ScheduleApptApp
             this.radioPresent = new System.Windows.Forms.RadioButton();
             this.radioGoogle = new System.Windows.Forms.RadioButton();
             this.radioPP = new System.Windows.Forms.RadioButton();
+            this.btnHome = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             startLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).BeginInit();
@@ -152,6 +153,7 @@ namespace ScheduleApptApp
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel1.Controls.Add(this.btnHome);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(3, -1);
@@ -201,6 +203,17 @@ namespace ScheduleApptApp
             this.radioPP.Text = "Power Point";
             this.radioPP.UseVisualStyleBackColor = true;
             // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Coral;
+            this.btnHome.Location = new System.Drawing.Point(710, 10);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(75, 34);
+            this.btnHome.TabIndex = 22;
+            this.btnHome.Text = "Go Back";
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,5 +256,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.RadioButton radioPresent;
         private System.Windows.Forms.RadioButton radioGoogle;
         private System.Windows.Forms.RadioButton radioPP;
+        private System.Windows.Forms.Button btnHome;
     }
 }

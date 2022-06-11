@@ -49,33 +49,27 @@ namespace ScheduleApptApp
 
         private void btnConsult_Click_1(object sender, EventArgs e)
         {
-            string user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            try
-            {
-                using (MySqlConnection con = DBConnection.conn)
-                {
-                    if (con.State == ConnectionState.Closed)
-                        con.Open();
-                    using (DataTable dt = new DataTable("Dates"))
-                    {
-                        using (MySqlCommand cmd = new MySqlCommand("SELECT `user`.userName, appointment.start FROM `user` INNER JOIN appointment ON `user`.userId = appointment.userId ORDER BY `user`.userName, appointment.start", con))
-                        {
-                            
-                            //fill data to datatable
-                            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                            da.Fill(dt);
-                            //adding datasource
-                            reportsGrid.DataSource = dt;
-                            lblTotal.Text = $"Total appointments: {reportsGrid.RowCount - 1} for the chosen consultant:";
+            string mySqlString = "SELECT user.userName, appointment.start FROM user INNER JOIN appointment ON user.userId = appointment.userId ORDER BY user.userName, appointment.start";
+            string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connString);
+            DataTable myDataTable = new DataTable();
+            MySqlCommand mySqlCommand = new MySqlCommand(mySqlString);
+            mySqlCommand.Connection = connection;
 
-                        }
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+           
+            //fill data to datatable
+            MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
+            da.Fill(myDataTable);
+            //adding datasource
+            reportsGrid.DataSource = myDataTable;
+            lblTotal.Text = $"There are a total of {reportsGrid.RowCount - 1} appointments for this consultant range:";
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            MainPage main = new MainPage();
+            main.Show();
+            this.Close();
         }
     }
 }

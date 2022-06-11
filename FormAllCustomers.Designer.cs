@@ -38,10 +38,10 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtBxSearch = new System.Windows.Forms.TextBox();
             this.custGroupBox = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.CustomerGrid = new System.Windows.Forms.DataGridView();
+            this.txtBxSearch = new System.Windows.Forms.TextBox();
             this.txtBoxCustCountry = new System.Windows.Forms.TextBox();
             this.txtBoxCustCity = new System.Windows.Forms.TextBox();
             this.txtBoxCustAdd = new System.Windows.Forms.TextBox();
@@ -168,23 +168,6 @@
             this.panel1.Size = new System.Drawing.Size(819, 497);
             this.panel1.TabIndex = 0;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(529, 176);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 22;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtBxSearch
-            // 
-            this.txtBxSearch.Location = new System.Drawing.Point(625, 177);
-            this.txtBxSearch.Name = "txtBxSearch";
-            this.txtBxSearch.Size = new System.Drawing.Size(135, 23);
-            this.txtBxSearch.TabIndex = 21;
-            // 
             // custGroupBox
             // 
             this.custGroupBox.Controls.Add(this.btnSearch);
@@ -210,6 +193,16 @@
             this.custGroupBox.TabStop = false;
             this.custGroupBox.Text = "Customer Info";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(529, 176);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 22;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // CustomerGrid
             // 
             this.CustomerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -218,6 +211,13 @@
             this.CustomerGrid.Size = new System.Drawing.Size(694, 150);
             this.CustomerGrid.TabIndex = 92;
             this.CustomerGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGrid_CellClick);
+            // 
+            // txtBxSearch
+            // 
+            this.txtBxSearch.Location = new System.Drawing.Point(625, 177);
+            this.txtBxSearch.Name = "txtBxSearch";
+            this.txtBxSearch.Size = new System.Drawing.Size(135, 23);
+            this.txtBxSearch.TabIndex = 21;
             // 
             // txtBoxCustCountry
             // 
@@ -256,10 +256,14 @@
             // 
             // txtBoxCustId
             // 
+            this.txtBoxCustId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.txtBoxCustId.HideSelection = false;
             this.txtBoxCustId.Location = new System.Drawing.Point(127, 29);
             this.txtBoxCustId.Name = "txtBoxCustId";
+            this.txtBoxCustId.ReadOnly = true;
             this.txtBoxCustId.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustId.TabIndex = 86;
+            this.txtBoxCustId.TextChanged += new System.EventHandler(this.txtBoxCustId_TextChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -376,6 +380,7 @@
             this.btnHome.TabIndex = 21;
             this.btnHome.Text = "Go Back";
             this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // FormAllCustomers
             // 

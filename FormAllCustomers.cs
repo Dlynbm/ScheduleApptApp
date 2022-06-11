@@ -36,12 +36,11 @@ namespace ScheduleApptApp
             this.custGroupBox.Enabled = false;
             CustomerGrid.ClearSelection();
             loadCustomers();
-
         }
 
         private void loadCustomers()
         {
-            string sqlString = "SELECT customer.customerId, customer.customerName, address.address, address.postalCode, address.phone,  city.city,  country.country FROM customer INNER JOIN address ON customer.addressID = address.addressId INNER JOIN city ON address.cityId = city.cityId INNER JOIN country ON city.countryId = country.countryId";
+            string sqlString = "SELECT customer.customerId, customer.customerName, address.address, address.phone,  city.city,  country.country FROM customer INNER JOIN address ON customer.addressID = address.addressId INNER JOIN city ON address.cityId = city.cityId INNER JOIN country ON city.countryId = country.countryId";
             MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, DBConnection.conn);
             DataTable dt = new DataTable();
             cd.Fill(dt);
@@ -66,9 +65,7 @@ namespace ScheduleApptApp
 
         void new_edit_del_butt_enable()
         {
-
             this.btnCancel.Enabled = true;
-
             this.custGroupBox.Enabled = true;
             this.CustomerGrid.Enabled = true;
         }
@@ -77,21 +74,43 @@ namespace ScheduleApptApp
         private void save_cancel_btn_enable()
         {
             this.btnDeleteCust.Enabled = true;
-
             this.custGroupBox.Enabled = false;
             this.CustomerGrid.Enabled = true;
+
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            new_edit_del_butt_enable();
-            clearTextBoxes(custGroupBox);
-        }
+            int count;
+            //get connection string
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            //make connection
+            MySqlConnection con = null;
+            con = new MySqlConnection(constr);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT Max(customerId)+1 from customer", con);
+            count = Convert.ToInt16(cmd.ExecuteScalar()) + 1;
+            txtBoxCustId.Text = "0" + count;
+            con.Close();
 
+            new_edit_del_butt_enable();
+            
+            //clearTextBoxes(custGroupBox);
+            this.btnEditCust.Enabled = false;
+            this.btnDeleteCust.Enabled = false;
+            this.UpdateButton1.Visible = false;
+        }
+        
 
         private void btnEditCust_Click(object sender, EventArgs e)
         {
             new_edit_del_butt_enable();
+            this.btnAddCustomer.Enabled = false;
+            this.btnEditCust.Enabled = false;
+            this.btnDeleteCust.Enabled = false;
+            this.btnSaveCustomer.Enabled = false;
+            this.btnCancel.Enabled = false;
+            this.UpdateButton1.Visible = true;
             if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
             {
                 MessageBox.Show("Nothing is selected.  Please make a selection");
@@ -109,6 +128,11 @@ namespace ScheduleApptApp
             save_cancel_btn_enable();
             clearTextBoxes(custGroupBox);
             CustomerGrid.ClearSelection();
+            this.btnSaveCustomer.Enabled = true;
+            this.btnEditCust.Enabled = true;
+            this.btnDeleteCust.Enabled = true;
+            this.btnAddCustomer.Enabled = true;
+
         }
 
         private void btnDeleteCust_Click(object sender, EventArgs e)
@@ -144,6 +168,7 @@ namespace ScheduleApptApp
                         con.Close();
                         loadCustomers();
                         MessageBox.Show("Deleted Successfully");
+                        clearTextBoxes(custGroupBox);
                     }
                 }
                 catch (MySqlException ex)
@@ -248,8 +273,10 @@ namespace ScheduleApptApp
             cmd.ExecuteNonQuery();
             addressId = (int)cmd.LastInsertedId;
             con.Close();
-            return addressId;            
+            return addressId; 
         }
+
+        
 
         private bool TryGetAddressId(string constr, string address, string address2, int cityId, string phone, out int addressId)
         {
@@ -343,14 +370,14 @@ namespace ScheduleApptApp
                 string custName = CustomerGrid.SelectedRows[0].Cells[1].Value + string.Empty;
                 string custAddress = CustomerGrid.SelectedRows[0].Cells[2].Value + string.Empty;
                 //string custPostalCode = CustomerGrid.SelectedRows[0].Cells[3].Value + string.Empty;
-                string custPhone = CustomerGrid.SelectedRows[0].Cells[4].Value + string.Empty;
-                string custCity = CustomerGrid.SelectedRows[0].Cells[5].Value + string.Empty;
-                string custCountry = CustomerGrid.SelectedRows[0].Cells[6].Value + string.Empty;
+                string custPhone = CustomerGrid.SelectedRows[0].Cells[3].Value + string.Empty;
+                string custCity = CustomerGrid.SelectedRows[0].Cells[4].Value + string.Empty;
+                string custCountry = CustomerGrid.SelectedRows[0].Cells[5].Value + string.Empty;
 
                 txtBoxCustId.Text = custId;
                 txtBoxCustName.Text = custName;
                 txtBoxCustAdd.Text = custAddress;
-                txtBoxCustPhone.Text = custPhone;                
+                txtBoxCustPhone.Text = custPhone;
                 txtBoxCustCity.Text = custCity;
                 txtBoxCustCountry.Text = custCountry;
             }
@@ -373,6 +400,7 @@ namespace ScheduleApptApp
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             //make connection
             MySqlConnection con = null;
+            
             {
                 if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
                 {
@@ -411,6 +439,8 @@ namespace ScheduleApptApp
                         con.Close();
                         loadCustomers();
                         MessageBox.Show("Updated Successfully");
+                        clearTextBoxes(custGroupBox);
+
                     }
                 }
                 catch (MySqlException ex)
@@ -419,6 +449,18 @@ namespace ScheduleApptApp
                 }
             }
 
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            MainPage main = new MainPage();
+            main.Show();
+            this.Close();
+        }
+
+        private void txtBoxCustId_TextChanged(object sender, EventArgs e)
+        {
+           
         }
     }
     }

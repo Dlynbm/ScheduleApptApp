@@ -103,6 +103,11 @@ namespace ScheduleApptApp
             Reports reports = new Reports();
             reports.Show();
         }
+
+        private void AppointmentGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
         

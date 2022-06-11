@@ -13,6 +13,7 @@ namespace ScheduleApptApp
     public class DBConnection
     {
         public static MySqlConnection conn { get; set; }
+        public ConnectionState State { get; internal set; }
 
         public static void startConnection()
         {
@@ -23,7 +24,7 @@ namespace ScheduleApptApp
 
                 //open the connection
                 conn.Open();
-                MessageBox.Show("Connection is open");
+                //MessageBox.Show("Connection is open");
             }
             catch (MySqlException ex)
             {
