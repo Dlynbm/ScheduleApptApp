@@ -39,11 +39,10 @@ namespace ScheduleApptApp
             this.btnAptType = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.radioPresent = new System.Windows.Forms.RadioButton();
-            this.radioGoogle = new System.Windows.Forms.RadioButton();
-            this.radioPP = new System.Windows.Forms.RadioButton();
             this.btnHome = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.listBoxConsult = new System.Windows.Forms.ListBox();
+            this.listBoxMonth = new System.Windows.Forms.ListBox();
             label2 = new System.Windows.Forms.Label();
             startLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).BeginInit();
@@ -53,7 +52,7 @@ namespace ScheduleApptApp
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(351, 162);
+            label2.Location = new System.Drawing.Point(304, 186);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(23, 13);
             label2.TabIndex = 11;
@@ -62,7 +61,7 @@ namespace ScheduleApptApp
             // startLabel
             // 
             startLabel.AutoSize = true;
-            startLabel.Location = new System.Drawing.Point(167, 161);
+            startLabel.Location = new System.Drawing.Point(132, 184);
             startLabel.Name = "startLabel";
             startLabel.Size = new System.Drawing.Size(59, 13);
             startLabel.TabIndex = 9;
@@ -82,12 +81,12 @@ namespace ScheduleApptApp
             this.btnDateSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDateSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDateSearch.ForeColor = System.Drawing.Color.White;
-            this.btnDateSearch.Location = new System.Drawing.Point(506, 156);
+            this.btnDateSearch.Location = new System.Drawing.Point(466, 179);
             this.btnDateSearch.Margin = new System.Windows.Forms.Padding(1);
             this.btnDateSearch.Name = "btnDateSearch";
-            this.btnDateSearch.Size = new System.Drawing.Size(111, 26);
+            this.btnDateSearch.Size = new System.Drawing.Size(189, 26);
             this.btnDateSearch.TabIndex = 13;
-            this.btnDateSearch.Text = "Search by Range";
+            this.btnDateSearch.Text = "Search Appointment By Dates";
             this.btnDateSearch.UseVisualStyleBackColor = false;
             this.btnDateSearch.Click += new System.EventHandler(this.btnDateSearch_Click_1);
             // 
@@ -95,7 +94,7 @@ namespace ScheduleApptApp
             // 
             this.p_EndDate.CustomFormat = "YYYY-MM-DD HH:MM:SS";
             this.p_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.p_EndDate.Location = new System.Drawing.Point(380, 156);
+            this.p_EndDate.Location = new System.Drawing.Point(333, 180);
             this.p_EndDate.Name = "p_EndDate";
             this.p_EndDate.Size = new System.Drawing.Size(113, 20);
             this.p_EndDate.TabIndex = 12;
@@ -105,7 +104,7 @@ namespace ScheduleApptApp
             // 
             this.p_StartDate.CustomFormat = "YYYY-MM-DD HH:MM:SS";
             this.p_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.p_StartDate.Location = new System.Drawing.Point(232, 155);
+            this.p_StartDate.Location = new System.Drawing.Point(188, 180);
             this.p_StartDate.Name = "p_StartDate";
             this.p_StartDate.Size = new System.Drawing.Size(113, 20);
             this.p_StartDate.TabIndex = 10;
@@ -117,12 +116,12 @@ namespace ScheduleApptApp
             this.btnConsult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsult.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsult.ForeColor = System.Drawing.Color.White;
-            this.btnConsult.Location = new System.Drawing.Point(506, 117);
+            this.btnConsult.Location = new System.Drawing.Point(466, 127);
             this.btnConsult.Margin = new System.Windows.Forms.Padding(1);
             this.btnConsult.Name = "btnConsult";
-            this.btnConsult.Size = new System.Drawing.Size(111, 26);
+            this.btnConsult.Size = new System.Drawing.Size(189, 26);
             this.btnConsult.TabIndex = 14;
-            this.btnConsult.Text = "Consult Schedule";
+            this.btnConsult.Text = "View Each Consultant Schedule";
             this.btnConsult.UseVisualStyleBackColor = false;
             this.btnConsult.Click += new System.EventHandler(this.btnConsult_Click_1);
             // 
@@ -132,12 +131,12 @@ namespace ScheduleApptApp
             this.btnAptType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAptType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAptType.ForeColor = System.Drawing.Color.White;
-            this.btnAptType.Location = new System.Drawing.Point(506, 79);
+            this.btnAptType.Location = new System.Drawing.Point(466, 79);
             this.btnAptType.Margin = new System.Windows.Forms.Padding(1);
             this.btnAptType.Name = "btnAptType";
-            this.btnAptType.Size = new System.Drawing.Size(111, 26);
+            this.btnAptType.Size = new System.Drawing.Size(189, 26);
             this.btnAptType.TabIndex = 15;
-            this.btnAptType.Text = "Apt Types Month";
+            this.btnAptType.Text = "View Apt Types By Month";
             this.btnAptType.UseVisualStyleBackColor = false;
             // 
             // label1
@@ -162,47 +161,6 @@ namespace ScheduleApptApp
             this.panel1.Size = new System.Drawing.Size(798, 64);
             this.panel1.TabIndex = 20;
             // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(132, 391);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(0, 13);
-            this.lblTotal.TabIndex = 21;
-            // 
-            // radioPresent
-            // 
-            this.radioPresent.AutoSize = true;
-            this.radioPresent.Location = new System.Drawing.Point(201, 79);
-            this.radioPresent.Name = "radioPresent";
-            this.radioPresent.Size = new System.Drawing.Size(84, 17);
-            this.radioPresent.TabIndex = 23;
-            this.radioPresent.TabStop = true;
-            this.radioPresent.Text = "Presentation";
-            this.radioPresent.UseVisualStyleBackColor = true;
-            // 
-            // radioGoogle
-            // 
-            this.radioGoogle.AutoSize = true;
-            this.radioGoogle.Location = new System.Drawing.Point(303, 79);
-            this.radioGoogle.Name = "radioGoogle";
-            this.radioGoogle.Size = new System.Drawing.Size(86, 17);
-            this.radioGoogle.TabIndex = 24;
-            this.radioGoogle.TabStop = true;
-            this.radioGoogle.Text = "Google Meet";
-            this.radioGoogle.UseVisualStyleBackColor = true;
-            // 
-            // radioPP
-            // 
-            this.radioPP.AutoSize = true;
-            this.radioPP.Location = new System.Drawing.Point(411, 79);
-            this.radioPP.Name = "radioPP";
-            this.radioPP.Size = new System.Drawing.Size(82, 17);
-            this.radioPP.TabIndex = 25;
-            this.radioPP.TabStop = true;
-            this.radioPP.Text = "Power Point";
-            this.radioPP.UseVisualStyleBackColor = true;
-            // 
             // btnHome
             // 
             this.btnHome.BackColor = System.Drawing.Color.Coral;
@@ -214,14 +172,38 @@ namespace ScheduleApptApp
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(132, 391);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 13);
+            this.lblTotal.TabIndex = 21;
+            // 
+            // listBoxConsult
+            // 
+            this.listBoxConsult.FormattingEnabled = true;
+            this.listBoxConsult.Location = new System.Drawing.Point(354, 127);
+            this.listBoxConsult.Name = "listBoxConsult";
+            this.listBoxConsult.Size = new System.Drawing.Size(82, 17);
+            this.listBoxConsult.TabIndex = 26;
+            this.listBoxConsult.SelectedIndexChanged += new System.EventHandler(this.listBoxConsult_SelectedIndexChanged);
+            // 
+            // listBoxMonth
+            // 
+            this.listBoxMonth.FormattingEnabled = true;
+            this.listBoxMonth.Location = new System.Drawing.Point(354, 79);
+            this.listBoxMonth.Name = "listBoxMonth";
+            this.listBoxMonth.Size = new System.Drawing.Size(82, 17);
+            this.listBoxMonth.TabIndex = 27;
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.radioPP);
-            this.Controls.Add(this.radioGoogle);
-            this.Controls.Add(this.radioPresent);
+            this.Controls.Add(this.listBoxMonth);
+            this.Controls.Add(this.listBoxConsult);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAptType);
@@ -253,9 +235,8 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.RadioButton radioPresent;
-        private System.Windows.Forms.RadioButton radioGoogle;
-        private System.Windows.Forms.RadioButton radioPP;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.ListBox listBoxConsult;
+        private System.Windows.Forms.ListBox listBoxMonth;
     }
 }

@@ -117,6 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnAddCustomer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEFSURBVEhL3dRZCsJAEATQoOihRM+guF7J7RaKHsndQ6j/
+        WgUZaJyaJflMwQPJ9EygJ3bR+HRhAQc4w6fE33w2B9bUygQe8E24wxiy04YtqMNiNtCCZOoc7qwgGrZF
+        baxiBDK8LPZTbariCfLi+bWoDVYP+n/PlBl4OYIqtlzUmrUHL1dQxZaLWrP4P/HyAlXMtoQSahfP8hJ6
+        AQ8JZQBqj3zBBVSx5aLWrBN44WxRxZaLWrN24IWDSxVbbFeoLdYUvHTgBmpDFRyQwQnLqag2VTGEaDgV
+        1cYcS0iGI3cN6oAYTtKsce3CqZhzJ6xJtiUUXjwHF2cLv+13ib/5jF8LaxqbovgB+kYdESTUc24AAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="btnEditCust.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGJSURBVDhPxZFLSwJhFIZn3d/oNwStTFu0iLBFLotqEbRo
+        W78hArMbhW4yi6BNi2htQZSWmnmbVBzHy3gpb+PoOELh6ftmPi+I6SyCDjyb4Xsf3jmH+pcxWAKbC5Yg
+        pz/2nc+Z3WPkM0UleWmcq0i3XLnJDOPwnuMNliBg5k/8oDF6QkRBUeiBnas0YRjmh4wcxqAmMGV6hckd
+        9xdRYIlUGhRs0y/QIcHEtgu0Ru8NUciSSjvwnhPBm651MNnTHQFGt6cIVmx0i8SV6ZXECw1ZhEE7GChY
+        tdHwFOO/SVyZXkkkL0IgU4f9u8ENFk9DEEVvHAzf3QeeXkn0QxwqYIuS3Hao5MyZGyhYsobAjxrGPhuj
+        JVvXTEcwTa6AG3hTNfBxNQijXxkpWbuIwOyRD7S7imDZSgOdFeVdYdiiiiYbVxGYOXhDeGH9MgyuhACe
+        ZJdQtv6rpNyWqAGf3xnvkzCFhieBtq6GMLqeI86jhtU8iSsTTFb1zywvPMYqLTW8sELJlxI0JP4XQ1E/
+        aeCnOc7vnpcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnDeleteCust.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVEhL5c8xDgFRFIXhSWgtwSIo2YMolaKmpFaiZA9s
+        hIXQ0pOQ8E8nk+O+M1OOP/m6d0/ysr9piXfBCqUrjlT1M/W4ipq3g/q2Y4tkC6hjxxzJRlDHjvw2WR/q
+        2NFDsjbUsSO/TdbAE2og8kITVheokcgZdieokcgRdgeokcgedhuokcgadjOokcgUdkOokcgAdl2okUgH
+        di08oIaUO/KbUk1wgxr8dsUYtSzLPpFI8b4ElmSmAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnSaveCustomer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADESURBVEhL7ZZBCgJBDATnH+pP9K74KY8+SHyQ+g/tCAMh
+        JJNpzW23oA4LqZ7rtpVFcoYv+FaOsDf9+/L9InjCHndH2BvdUY/rsDvC3uhOvMIpbCiOsDe660497oUj
+        7I3utCk/RQqvF1O8aA9nOECvF1O8qMIUL6owxYsqTPGiClO8qMIUG9zgBs6yhXdod1JsIEMsO2h3Uugg
+        gN6hgwB6hw4C6B06CKB36CCA3qGDAHrH+/X51wdMOcHKx+XRI1xZFK19AKg9J4KD7yq2AAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="btnCancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADESURBVEhL7dE7CsJAFIXhWYiIWlroPnysSSsRawVBK1sr
+        xS0IYplNCDaC2vn8DzowDhOZxkKYAx9Jbm7mThKTkvJf6b+PP8sDndfpR+roYYsdLthjgwFqiIoGuENK
+        WOIOey/PChV8jfvADAfn+grteAR9yiHWUN32nNBEbmyjS7ufQm8TShFj3KB+DWwgGH9xmSMmLZyhZ44I
+        bshf3OoiJm3Y/7VQwY+/sCt2yATq16CqCm78RX0xQ8rIoN6CCikpKcY8AWGtVUYx3YSdAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

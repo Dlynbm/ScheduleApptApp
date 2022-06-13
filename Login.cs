@@ -46,7 +46,10 @@ namespace ScheduleApptApp
             {
                 MessageBox.Show(@"Please enter a correct username and password.",
                     @"Incorrect Username/Password Combination", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtBoxUser.Clear();
+                txtBoxUserPass.Clear();
                 return;
+                
             }
             else
             {

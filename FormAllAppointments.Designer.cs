@@ -48,17 +48,19 @@ namespace ScheduleApptApp
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
             this.txtBxSearch = new System.Windows.Forms.TextBox();
             this.apptGroupBox = new System.Windows.Forms.GroupBox();
+            this.lstBoxCustId = new System.Windows.Forms.ListBox();
+            this.startDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtBxCustAdd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBxCustName = new System.Windows.Forms.TextBox();
             this.txtBxCustId = new System.Windows.Forms.TextBox();
             this.btnHome = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -199,7 +201,7 @@ namespace ScheduleApptApp
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(569, 180);
+            this.button1.Location = new System.Drawing.Point(569, 198);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 22;
@@ -216,109 +218,99 @@ namespace ScheduleApptApp
             // 
             // txtBxSearch
             // 
-            this.txtBxSearch.Location = new System.Drawing.Point(665, 181);
+            this.txtBxSearch.Location = new System.Drawing.Point(665, 199);
             this.txtBxSearch.Name = "txtBxSearch";
             this.txtBxSearch.Size = new System.Drawing.Size(135, 20);
             this.txtBxSearch.TabIndex = 21;
             // 
             // apptGroupBox
             // 
-            this.apptGroupBox.Controls.Add(this.label5);
+            this.apptGroupBox.Controls.Add(this.label6);
             this.apptGroupBox.Controls.Add(this.dateTimePicker2);
-            this.apptGroupBox.Controls.Add(this.dateTimePicker1);
             this.apptGroupBox.Controls.Add(this.label4);
+            this.apptGroupBox.Controls.Add(this.dateTimePicker1);
+            this.apptGroupBox.Controls.Add(this.lstBoxCustId);
+            this.apptGroupBox.Controls.Add(this.startDatePicker);
+            this.apptGroupBox.Controls.Add(this.label5);
             this.apptGroupBox.Controls.Add(this.txtBxCustAdd);
             this.apptGroupBox.Controls.Add(this.label3);
             this.apptGroupBox.Controls.Add(this.label2);
             this.apptGroupBox.Controls.Add(this.label1);
-            this.apptGroupBox.Controls.Add(this.txtBxCustName);
             this.apptGroupBox.Controls.Add(this.txtBxCustId);
+            this.apptGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.apptGroupBox.Location = new System.Drawing.Point(3, 3);
             this.apptGroupBox.Name = "apptGroupBox";
-            this.apptGroupBox.Size = new System.Drawing.Size(821, 162);
+            this.apptGroupBox.Size = new System.Drawing.Size(821, 181);
             this.apptGroupBox.TabIndex = 3;
             this.apptGroupBox.TabStop = false;
             this.apptGroupBox.Text = "Appointment Info";
             // 
+            // lstBoxCustId
+            // 
+            this.lstBoxCustId.FormattingEnabled = true;
+            this.lstBoxCustId.ItemHeight = 15;
+            this.lstBoxCustId.Location = new System.Drawing.Point(133, 74);
+            this.lstBoxCustId.Name = "lstBoxCustId";
+            this.lstBoxCustId.Size = new System.Drawing.Size(135, 34);
+            this.lstBoxCustId.TabIndex = 17;
+            this.lstBoxCustId.SelectedIndexChanged += new System.EventHandler(this.lstBoxCustId_SelectedIndexChanged);
+            // 
+            // startDatePicker
+            // 
+            this.startDatePicker.Location = new System.Drawing.Point(528, 45);
+            this.startDatePicker.Name = "startDatePicker";
+            this.startDatePicker.Size = new System.Drawing.Size(193, 23);
+            this.startDatePicker.TabIndex = 16;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(336, 41);
+            this.label5.Location = new System.Drawing.Point(22, 120);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.Size = new System.Drawing.Size(108, 15);
             this.label5.TabIndex = 14;
             this.label5.Text = "Appointment Type:";
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(438, 103);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 13;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(130, 103);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 12;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(377, 103);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "End Date:";
-            // 
             // txtBxCustAdd
             // 
-            this.txtBxCustAdd.Location = new System.Drawing.Point(438, 38);
+            this.txtBxCustAdd.Location = new System.Drawing.Point(133, 117);
             this.txtBxCustAdd.Name = "txtBxCustAdd";
-            this.txtBxCustAdd.Size = new System.Drawing.Size(135, 20);
+            this.txtBxCustAdd.Size = new System.Drawing.Size(135, 23);
             this.txtBxCustAdd.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 103);
+            this.label3.Location = new System.Drawing.Point(482, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(34, 15);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Start Date:";
+            this.label3.Text = "Date:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 74);
+            this.label2.Location = new System.Drawing.Point(21, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.Size = new System.Drawing.Size(76, 15);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Customer Name:";
+            this.label2.Text = "Customer ID:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(102, 15);
             this.label1.TabIndex = 3;
-            this.label1.Text = "User ID:";
-            // 
-            // txtBxCustName
-            // 
-            this.txtBxCustName.Location = new System.Drawing.Point(133, 71);
-            this.txtBxCustName.Name = "txtBxCustName";
-            this.txtBxCustName.Size = new System.Drawing.Size(135, 20);
-            this.txtBxCustName.TabIndex = 1;
+            this.label1.Text = "Apppointment ID:";
             // 
             // txtBxCustId
             // 
             this.txtBxCustId.Location = new System.Drawing.Point(133, 42);
             this.txtBxCustId.Name = "txtBxCustId";
             this.txtBxCustId.ReadOnly = true;
-            this.txtBxCustId.Size = new System.Drawing.Size(135, 20);
+            this.txtBxCustId.Size = new System.Drawing.Size(135, 23);
             this.txtBxCustId.TabIndex = 0;
             // 
             // btnHome
@@ -331,6 +323,42 @@ namespace ScheduleApptApp
             this.btnHome.Text = "Go Back";
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker1.Location = new System.Drawing.Point(528, 88);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(113, 23);
+            this.dateTimePicker1.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(459, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 15);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Start Time:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(459, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 15);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "End Time:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(528, 125);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.ShowUpDown = true;
+            this.dateTimePicker2.Size = new System.Drawing.Size(113, 23);
+            this.dateTimePicker2.TabIndex = 20;
             // 
             // FormAllAppointments
             // 
@@ -376,15 +404,17 @@ namespace ScheduleApptApp
         private System.Windows.Forms.TextBox txtBxSearch;
         private System.Windows.Forms.GroupBox apptGroupBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBxCustAdd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBxCustName;
         private System.Windows.Forms.TextBox txtBxCustId;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.DateTimePicker startDatePicker;
+        private System.Windows.Forms.ListBox lstBoxCustId;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label4;
     }
 }

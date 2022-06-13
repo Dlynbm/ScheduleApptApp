@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAllCustomers));
             this.createDateLabel = new System.Windows.Forms.Label();
             this.customerIdLabel1 = new System.Windows.Forms.Label();
             this.customerNameLabel = new System.Windows.Forms.Label();
@@ -263,7 +264,6 @@
             this.txtBoxCustId.ReadOnly = true;
             this.txtBoxCustId.Size = new System.Drawing.Size(173, 23);
             this.txtBoxCustId.TabIndex = 86;
-            this.txtBoxCustId.TextChanged += new System.EventHandler(this.txtBoxCustId_TextChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -273,10 +273,11 @@
             // 
             // btnAddCustomer
             // 
+            this.btnAddCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnAddCustomer.Image")));
             this.btnAddCustomer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAddCustomer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(60, 57);
+            this.btnAddCustomer.Size = new System.Drawing.Size(84, 56);
             this.btnAddCustomer.Text = "Add New";
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
@@ -287,10 +288,11 @@
             // 
             // btnEditCust
             // 
+            this.btnEditCust.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCust.Image")));
             this.btnEditCust.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEditCust.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditCust.Name = "btnEditCust";
-            this.btnEditCust.Size = new System.Drawing.Size(31, 57);
+            this.btnEditCust.Size = new System.Drawing.Size(48, 56);
             this.btnEditCust.Text = "Edit";
             this.btnEditCust.Click += new System.EventHandler(this.btnEditCust_Click);
             // 
@@ -301,10 +303,11 @@
             // 
             // btnDeleteCust
             // 
+            this.btnDeleteCust.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCust.Image")));
             this.btnDeleteCust.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnDeleteCust.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDeleteCust.Name = "btnDeleteCust";
-            this.btnDeleteCust.Size = new System.Drawing.Size(44, 57);
+            this.btnDeleteCust.Size = new System.Drawing.Size(68, 57);
             this.btnDeleteCust.Text = "Delete";
             this.btnDeleteCust.Click += new System.EventHandler(this.btnDeleteCust_Click);
             // 
@@ -315,10 +318,11 @@
             // 
             // btnSaveCustomer
             // 
+            this.btnSaveCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveCustomer.Image")));
             this.btnSaveCustomer.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSaveCustomer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSaveCustomer.Name = "btnSaveCustomer";
-            this.btnSaveCustomer.Size = new System.Drawing.Size(35, 57);
+            this.btnSaveCustomer.Size = new System.Drawing.Size(65, 57);
             this.btnSaveCustomer.Text = "Save";
             this.btnSaveCustomer.Click += new System.EventHandler(this.btnSaveCustomer_Click_1);
             // 
@@ -329,10 +333,11 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(47, 57);
+            this.btnCancel.Size = new System.Drawing.Size(71, 57);
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -358,7 +363,7 @@
             this.UpdateButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 62);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(925, 60);
+            this.toolStrip1.Size = new System.Drawing.Size(925, 59);
             this.toolStrip1.TabIndex = 20;
             this.toolStrip1.Text = "toolStrip1";
             // 

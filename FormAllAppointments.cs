@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -93,6 +94,11 @@ namespace ScheduleApptApp
             //                da.Fill(dt);
             //                //adding datasource
             //                AppointmentGrid.DataSource = dt;
+
+        }
+
+        private void lstBoxCustId_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -31,9 +31,12 @@ namespace ScheduleApptApp
 
         private void FormAllCustomers_Load(object sender, EventArgs e)
         {
-            //this.btnSaveCustomer.Enabled = false;
-            this.btnCancel.Enabled = false;
-            this.custGroupBox.Enabled = false;
+            btnAddCustomer.Enabled = true;
+            btnEditCust.Enabled = true;
+            btnDeleteCust.Enabled = true;
+            btnSaveCustomer.Enabled = false;
+            btnCancel.Enabled = false;
+            UpdateButton1.Visible = false;
             CustomerGrid.ClearSelection();
             loadCustomers();
         }
@@ -94,17 +97,17 @@ namespace ScheduleApptApp
             con.Close();
 
             new_edit_del_butt_enable();
-            
+
             //clearTextBoxes(custGroupBox);
             this.btnEditCust.Enabled = false;
             this.btnDeleteCust.Enabled = false;
             this.UpdateButton1.Visible = false;
         }
-        
+
 
         private void btnEditCust_Click(object sender, EventArgs e)
         {
-            new_edit_del_butt_enable();
+            //new_edit_del_butt_enable();
             this.btnAddCustomer.Enabled = false;
             this.btnEditCust.Enabled = false;
             this.btnDeleteCust.Enabled = false;
@@ -137,6 +140,12 @@ namespace ScheduleApptApp
 
         private void btnDeleteCust_Click(object sender, EventArgs e)
         {
+            btnAddCustomer.Enabled = false;
+            btnEditCust.Enabled = false;
+            btnCancel.Enabled = true;
+            UpdateButton1.Visible = false;
+            btnDeleteCust.Enabled = true;
+            //btnSaveCustomer.Enabled = true;
             //get connection string
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             //make connection
@@ -169,6 +178,10 @@ namespace ScheduleApptApp
                         loadCustomers();
                         MessageBox.Show("Deleted Successfully");
                         clearTextBoxes(custGroupBox);
+                        btnAddCustomer.Enabled = true;
+                        btnEditCust.Enabled = true;
+                        btnDeleteCust.Enabled = true;
+
                     }
                 }
                 catch (MySqlException ex)
@@ -202,13 +215,13 @@ namespace ScheduleApptApp
             var reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
-                while(reader.Read())
+                while (reader.Read())
                 {
                     countryId = (int)reader[0];
                 }
             }
             con.Close();
-            if(countryId == 0)
+            if (countryId == 0)
             {
                 return false;
             }
@@ -273,16 +286,16 @@ namespace ScheduleApptApp
             cmd.ExecuteNonQuery();
             addressId = (int)cmd.LastInsertedId;
             con.Close();
-            return addressId; 
+            return addressId;
         }
 
-        
+
 
         private bool TryGetAddressId(string constr, string address, string address2, int cityId, string phone, out int addressId)
         {
             addressId = 0;
             var con = new MySqlConnection(constr);
-            MySqlCommand cmd = new MySqlCommand("SELECT addressId FROM address WHERE address = @address AND address2 = @address2 AND cityId = @cityId AND phone = @phone",  con);
+            MySqlCommand cmd = new MySqlCommand("SELECT addressId FROM address WHERE address = @address AND address2 = @address2 AND cityId = @cityId AND phone = @phone", con);
             cmd.Parameters.AddWithValue("@address", address);
             cmd.Parameters.AddWithValue("@address2", address2);
             cmd.Parameters.AddWithValue("@cityId", cityId);
@@ -306,7 +319,7 @@ namespace ScheduleApptApp
                 return true;
             }
         }
-       
+
 
         private void btnSaveCustomer_Click_1(object sender, EventArgs e)
         {
@@ -331,7 +344,7 @@ namespace ScheduleApptApp
                 {
                     if (!TryGetCountryId(constr, txtBoxCustCountry.Text, out countryId))
                     {
-                        countryId = InsertCountry(constr, txtBoxCustCountry.Text);                        
+                        countryId = InsertCountry(constr, txtBoxCustCountry.Text);
                     }
                     if (!TryGetCityId(constr, txtBoxCustCity.Text, countryId, out cityId))
                     {
@@ -340,7 +353,7 @@ namespace ScheduleApptApp
                     if (!TryGetAddressId(constr, txtBoxCustAdd.Text, string.Empty, cityId, txtBoxCustPhone.Text, out addressId))
                     {
                         addressId = InsertAddress(constr, txtBoxCustAdd.Text, string.Empty, cityId, txtBoxCustPhone.Text);
-                    }                    
+                    }
                     con = new MySqlConnection(constr);
                     MySqlCommand com = new MySqlCommand("INSERT INTO customer (customerName, addressId, active, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES(@customerName, @addressId, 1, NOW(), 'xx', NOW(), 'xx')", con);
                     com.Parameters.AddWithValue("@customerName", txtBoxCustName.Text);
@@ -400,7 +413,7 @@ namespace ScheduleApptApp
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             //make connection
             MySqlConnection con = null;
-            
+
             {
                 if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
                 {
@@ -440,6 +453,10 @@ namespace ScheduleApptApp
                         loadCustomers();
                         MessageBox.Show("Updated Successfully");
                         clearTextBoxes(custGroupBox);
+                        btnAddCustomer.Enabled = true;
+                        btnEditCust.Enabled = true;
+                        btnDeleteCust.Enabled = true;
+                        btnCancel.Enabled = false;
 
                     }
                 }
@@ -460,10 +477,27 @@ namespace ScheduleApptApp
 
         private void txtBoxCustId_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
     }
-    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

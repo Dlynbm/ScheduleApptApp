@@ -71,6 +71,15 @@ namespace ScheduleApptApp
             main.Show();
             this.Close();
         }
+
+        private void listBoxConsult_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2";
+            //string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            //MySqlConnection connection = new MySqlConnection(connString);
+
+            
+        }
     }
 }
 
