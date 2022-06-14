@@ -48,19 +48,17 @@ namespace ScheduleApptApp
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
             this.txtBxSearch = new System.Windows.Forms.TextBox();
             this.apptGroupBox = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lstBoxCustId = new System.Windows.Forms.ListBox();
-            this.startDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBxCustAdd = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBxCustId = new System.Windows.Forms.TextBox();
             this.btnHome = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -230,10 +228,8 @@ namespace ScheduleApptApp
             this.apptGroupBox.Controls.Add(this.label4);
             this.apptGroupBox.Controls.Add(this.dateTimePicker1);
             this.apptGroupBox.Controls.Add(this.lstBoxCustId);
-            this.apptGroupBox.Controls.Add(this.startDatePicker);
             this.apptGroupBox.Controls.Add(this.label5);
             this.apptGroupBox.Controls.Add(this.txtBxCustAdd);
-            this.apptGroupBox.Controls.Add(this.label3);
             this.apptGroupBox.Controls.Add(this.label2);
             this.apptGroupBox.Controls.Add(this.label1);
             this.apptGroupBox.Controls.Add(this.txtBxCustId);
@@ -245,6 +241,42 @@ namespace ScheduleApptApp
             this.apptGroupBox.TabStop = false;
             this.apptGroupBox.Text = "Appointment Info";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(460, 82);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 15);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "End Time:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "MM/dd/yyyy hh:mm tt";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(529, 82);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(193, 23);
+            this.dateTimePicker2.TabIndex = 20;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(460, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 15);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Start Time:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm tt";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(529, 45);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(193, 23);
+            this.dateTimePicker1.TabIndex = 18;
+            // 
             // lstBoxCustId
             // 
             this.lstBoxCustId.FormattingEnabled = true;
@@ -253,14 +285,6 @@ namespace ScheduleApptApp
             this.lstBoxCustId.Name = "lstBoxCustId";
             this.lstBoxCustId.Size = new System.Drawing.Size(135, 34);
             this.lstBoxCustId.TabIndex = 17;
-            this.lstBoxCustId.SelectedIndexChanged += new System.EventHandler(this.lstBoxCustId_SelectedIndexChanged);
-            // 
-            // startDatePicker
-            // 
-            this.startDatePicker.Location = new System.Drawing.Point(528, 45);
-            this.startDatePicker.Name = "startDatePicker";
-            this.startDatePicker.Size = new System.Drawing.Size(193, 23);
-            this.startDatePicker.TabIndex = 16;
             // 
             // label5
             // 
@@ -277,15 +301,6 @@ namespace ScheduleApptApp
             this.txtBxCustAdd.Name = "txtBxCustAdd";
             this.txtBxCustAdd.Size = new System.Drawing.Size(135, 23);
             this.txtBxCustAdd.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(482, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Date:";
             // 
             // label2
             // 
@@ -324,42 +339,6 @@ namespace ScheduleApptApp
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(528, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(113, 23);
-            this.dateTimePicker1.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(459, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 15);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Start Time:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(459, 125);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 15);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "End Time:";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(528, 125);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ShowUpDown = true;
-            this.dateTimePicker2.Size = new System.Drawing.Size(113, 23);
-            this.dateTimePicker2.TabIndex = 20;
-            // 
             // FormAllAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +349,7 @@ namespace ScheduleApptApp
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "FormAllAppointments";
+            this.Load += new System.EventHandler(this.FormAllAppointments_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -405,12 +385,10 @@ namespace ScheduleApptApp
         private System.Windows.Forms.GroupBox apptGroupBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtBxCustAdd;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBxCustId;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.DateTimePicker startDatePicker;
         private System.Windows.Forms.ListBox lstBoxCustId;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;

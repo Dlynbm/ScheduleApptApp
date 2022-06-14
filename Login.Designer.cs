@@ -46,7 +46,7 @@ namespace ScheduleApptApp
             // 
             // txtBoxUserPass
             // 
-            this.txtBoxUserPass.Location = new System.Drawing.Point(190, 136);
+            this.txtBoxUserPass.Location = new System.Drawing.Point(107, 59);
             this.txtBoxUserPass.Name = "txtBoxUserPass";
             this.txtBoxUserPass.Size = new System.Drawing.Size(140, 23);
             this.txtBoxUserPass.TabIndex = 2;
@@ -54,7 +54,7 @@ namespace ScheduleApptApp
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(96, 94);
+            this.lblName.Location = new System.Drawing.Point(13, 17);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(42, 15);
             this.lblName.TabIndex = 2;
@@ -63,7 +63,7 @@ namespace ScheduleApptApp
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(96, 144);
+            this.lblPass.Location = new System.Drawing.Point(13, 67);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(60, 15);
             this.lblPass.TabIndex = 3;
@@ -71,7 +71,7 @@ namespace ScheduleApptApp
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(138, 138);
+            this.btnLogin.Location = new System.Drawing.Point(43, 108);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(87, 27);
             this.btnLogin.TabIndex = 3;
@@ -81,7 +81,7 @@ namespace ScheduleApptApp
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(138, 171);
+            this.btnCancel.Location = new System.Drawing.Point(160, 108);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 4;
@@ -91,7 +91,7 @@ namespace ScheduleApptApp
             // 
             // txtBoxUser
             // 
-            this.txtBoxUser.Location = new System.Drawing.Point(190, 94);
+            this.txtBoxUser.Location = new System.Drawing.Point(107, 17);
             this.txtBoxUser.Name = "txtBoxUser";
             this.txtBoxUser.Size = new System.Drawing.Size(140, 23);
             this.txtBoxUser.TabIndex = 1;
@@ -129,9 +129,13 @@ namespace ScheduleApptApp
             // 
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Location = new System.Drawing.Point(78, 76);
+            this.panel1.Controls.Add(this.txtBoxUser);
+            this.panel1.Controls.Add(this.lblPass);
+            this.panel1.Controls.Add(this.txtBoxUserPass);
+            this.panel1.Controls.Add(this.lblName);
+            this.panel1.Location = new System.Drawing.Point(87, 136);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(318, 233);
+            this.panel1.Size = new System.Drawing.Size(318, 187);
             this.panel1.TabIndex = 22;
             // 
             // Login
@@ -140,10 +144,6 @@ namespace ScheduleApptApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 365);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.txtBoxUser);
-            this.Controls.Add(this.lblPass);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.txtBoxUserPass);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Login";
@@ -152,8 +152,8 @@ namespace ScheduleApptApp
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

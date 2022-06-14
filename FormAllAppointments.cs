@@ -14,17 +14,13 @@ namespace ScheduleApptApp
 {
     public partial class FormAllAppointments : Form
     {
+        DBConnection con = new DBConnection();
         public FormAllAppointments()
         {
             InitializeComponent();
-            MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            con.Open();
-            string sqlString = $"SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId"; MySqlCommand cmd = new MySqlCommand(sqlString, con);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            AppointmentGrid.DataSource = dt;
-            AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
+            //con.Open();
+
 
             AppointmentGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AppointmentGrid.RowHeadersVisible = false;
@@ -97,40 +93,40 @@ namespace ScheduleApptApp
 
         }
 
-        private void lstBoxCustId_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+
+        private void FormAllAppointments_Load(object sender, EventArgs e)
+        {
+            AppointmentGrid.ClearSelection();
+            loadAppointments();
+        }
+
+        private void loadAppointments()
+        {
+            string sqlString = "SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId";
+            MySqlDataAdapter da = new MySqlDataAdapter(sqlString, DBConnection.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            AppointmentGrid.DataSource = dt;
+            AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AppointmentGrid.ClearSelection();
+            fill_listbox();
+        }
+
+        private void fill_listbox()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection con = null;
+            con = new MySqlConnection(constr);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT customerId FROM customer", con);
+            
+           
+                con.Close();
         }
     }
-}
 
-//private void btnDeleteCust_Click(object sender, EventArgs e)
-//{
-//    {
-//        if (CustomerGrid.CurrentRow == null || !CustomerGrid.CurrentRow.Selected)
-//        {
-//            MessageBox.Show("Nothing is selected.  Please make a selection");
-//            new_edit_del_butt_enable();
-//            return;
-//        }
-//        try
-//        {
-//            DialogResult result = MessageBox.Show("Are you sure you want to delete this customer? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-//            if (result == DialogResult.Yes)
-//            {
-//                MySqlCommand com = new MySqlCommand("DELETE FROM appointment WHERE customerId = '" + txtBoxCustId.Text + "'", DBConnection.conn);
-//                com.ExecuteNonQuery();
+    }
 
-//            }
-//            {
-//                MySqlCommand com = new MySqlCommand("DELETE FROM customer WHERE customerId = '" + txtBoxCustId.Text + "'", DBConnection.conn);
-//                com.ExecuteNonQuery();
-//                loadCustomers();
-//                MessageBox.Show("Deleted Successfully");
-//            }
-//        }
-////        catch (MySqlException ex)
-//            {
-//                MessageBox.Show(ex.Message);
-//            }
-//    }
+
+   

@@ -87,7 +87,6 @@ namespace ScheduleApptApp
             int count;
             //get connection string
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            //make connection
             MySqlConnection con = null;
             con = new MySqlConnection(constr);
             con.Open();

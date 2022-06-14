@@ -29,7 +29,8 @@ namespace ScheduleApptApp
 
         private void btnDateSearch_Click_1(object sender, EventArgs e)
         {
-            string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2";
+            lblTitle.Text = "DATE RANGE SEARCH";
+            string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end  FROM appointment WHERE start BETWEEN @d1 AND @d2";
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);
             DataTable myDataTable = new DataTable();
@@ -44,25 +45,27 @@ namespace ScheduleApptApp
             da.Fill(myDataTable);
             //adding datasource
             reportsGrid.DataSource = myDataTable;
-            lblTotal.Text = $"There are a total of {reportsGrid.RowCount -1} appointments for the chosen date range:";
+            numLbl.Text = $"There are a total of {reportsGrid.RowCount -1} appointments for the chosen date range:";
         }       
 
         private void btnConsult_Click_1(object sender, EventArgs e)
         {
-            string mySqlString = "SELECT user.userName, appointment.start FROM user INNER JOIN appointment ON user.userId = appointment.userId ORDER BY user.userName, appointment.start";
+            lblTitle.Text = "Consultant Schedule";
+            string mySqlString = "SELECT appointmentId, customerId, type, start, end from appointment where userId = @d1";
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);
             DataTable myDataTable = new DataTable();
             MySqlCommand mySqlCommand = new MySqlCommand(mySqlString);
             mySqlCommand.Connection = connection;
 
-           
+            mySqlCommand.Parameters.AddWithValue("@d1", listBoxConsult.SelectedIndex + 1);
+
             //fill data to datatable
             MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
             da.Fill(myDataTable);
             //adding datasource
             reportsGrid.DataSource = myDataTable;
-            lblTotal.Text = $"There are a total of {reportsGrid.RowCount - 1} appointments for this consultant range:";
+            numLbl.Text = $"There are a total of {reportsGrid.RowCount - 1} appointments for this consultant";
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -74,9 +77,26 @@ namespace ScheduleApptApp
 
         private void listBoxConsult_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end, createDate, createdBy, lastUpdate, lastUpdateBy  FROM appointment WHERE start BETWEEN @d1 AND @d2";
-            //string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            //MySqlConnection connection = new MySqlConnection(connString);
+            
+
+
+        }
+
+        private void Reports_Load(object sender, EventArgs e)
+        {
+            
+            string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connString);
+            string sqlString = "SELECT userName FROM user";
+            MySqlCommand mySqlCommand = new MySqlCommand(sqlString);
+            mySqlCommand.Connection = connection;
+
+            MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, DBConnection.conn);
+            DataTable table = new DataTable();
+            cd.Fill(table);
+            listBoxConsult.DataSource = table;
+            listBoxConsult.DisplayMember = "userName";
+            //listBoxConsult.ValueMember = "userId";
 
             
         }
