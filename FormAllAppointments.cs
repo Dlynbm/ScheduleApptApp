@@ -14,19 +14,26 @@ namespace ScheduleApptApp
 {
     public partial class FormAllAppointments : Form
     {
+        //private int rowIndex = -1;
         DBConnection con = new DBConnection();
         public FormAllAppointments()
         {
             InitializeComponent();
-            //MySqlConnection con = new MySqlConnection("server = 127.0.0.1; username = sqlUser; password = Passw0rd!; database = client_schedule");
-            //con.Open();
-
-
             AppointmentGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AppointmentGrid.RowHeadersVisible = false;
             AppointmentGrid.ReadOnly = true;
             AppointmentGrid.AllowUserToAddRows = true;
             AppointmentGrid.ClearSelection();
+        }
+
+
+        private void FormAllAppointments_Load(object sender, EventArgs e)
+        {
+            AppointmentGrid.ClearSelection();
+            loadAppointments();
+            LoadListBoxCustId();
+            LoadListBoxType();
+            clearTextBoxes(apptGroupBox);
         }
 
         void new_edit_del_butt_enable()
@@ -52,13 +59,28 @@ namespace ScheduleApptApp
                     TextBox textBox = (TextBox)ctrl;
                     textBox.Text = null;
                 }
+                if(ctrl is ComboBox)
+                {
+                    ComboBox comboBox = (ComboBox)ctrl;
+                    comboBox.Text = null;
+                }
             }
         }
 
         private void btnAddAppt_Click(object sender, EventArgs e)
         {
-            new_edit_del_butt_enable();
-            clearTextBoxes(apptGroupBox);
+            int count;
+            //get connection string
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection con = null;
+            con = new MySqlConnection(constr);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT Max(appointmentId)+1 from appointment", con);
+            count = Convert.ToInt16(cmd.ExecuteScalar()) + 1;
+            txtBxApptId.Text = "0" + count;
+            con.Close();
+            //new_edit_del_butt_enable();
+            //clearTextBoxes(apptGroupBox);
 
         }
 
@@ -69,36 +91,75 @@ namespace ScheduleApptApp
             this.Close();
         }
 
-        private void btnSaveAppt_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    using (MySqlConnection con = Data.getConnection())
-            //    {
-            //        if (con.State == ConnectionState.Closed)
-            //            con.Open();
-            //        using (DataTable dt = new DataTable("Dates"))
-            //        {
-            //            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO appointment ( userId, customerName, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy)
-            //           VALUES ('@custId', '@userId', '@title', '@desc', '@location', '@contact', '@type', '@url', '@stDate', '@endDate', '@creatD', '@creatBy', '@lastUp', '@lastUpBy')", con);
-            //            {
-            //                //adding values
-            //                cmd.Parameters.AddWithValue("@custId", .Value);
-            //                cmd.Parameters.AddWithValue("@d2", p_EndDate.Value);
-            //                //fill data to datatable
-            //                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            //                da.Fill(dt);
-            //                //adding datasource
-            //                AppointmentGrid.DataSource = dt;
+        //private void btnSaveAppt_Click(object sender, EventArgs e)
+        //{
+        //    string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+        //    MySqlConnection con = null;
 
+        //    if (lstBoxCustId.Text == "" || lstBoxType.Text == "" || dateTimePicker1.Text == "" || dateTimePicker2.Text == "")
+        //    {
+        //        MessageBox.Show("Please complete all fields");
+        //        //save_cancel_btn_enable();
+        //        return;
+        //    }
+        //    try
+        //    {
+        //        DialogResult results = MessageBox.Show("Are you sure you want to add this appointment? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        //        appointmentId = 0;
+        //        customerId = 0;
+        //        userId = 0;
+        //        if (results == DialogResult.Yes)
+        //        {
+
+        //            con = new MySqlConnection(constr);
+        //            MySqlCommand com = new MySqlCommand("INSERT INTO appointment (customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES(@customerId, @userId, 'xx', 'xx', 'xx', 'xx', @type, 'xx', @start, @end,  NOW(), 'xx', NOW(), 'xx')", con);
+        //            com.Parameters.AddWithValue("@customerId", lstBoxCustId.Text);
+        //            com.Parameters.AddWithValue("@userId", userId);
+        //            con.Open();
+        //            com.ExecuteNonQuery();
+        //            appointmentId= (int)com.LastInsertedId;
+        //            con.Close();
+        //            loadAppointments();
+        //            MessageBox.Show("Added Successfully");
+        //        }
+        //    }
+        //    catch (MySqlException ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+
+        //}
+
+
+
+        private void LoadListBoxCustId()
+        {
+            string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connString);
+            string sqlString = "SELECT customerId FROM customer";
+            MySqlCommand mySqlCommand = new MySqlCommand(sqlString);
+            mySqlCommand.Connection = connection;
+
+            MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, DBConnection.conn);
+            DataTable table = new DataTable();
+            cd.Fill(table);
+            comboId.DataSource = table;
+            comboId.DisplayMember = "customerId";
         }
 
-
-
-        private void FormAllAppointments_Load(object sender, EventArgs e)
+        private void LoadListBoxType()
         {
-            AppointmentGrid.ClearSelection();
-            loadAppointments();
+            string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connString);
+            string sqlString = "SELECT DISTINCT type FROM appointment";
+            MySqlCommand mySqlCommand = new MySqlCommand(sqlString);
+            mySqlCommand.Connection = connection;
+
+            MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, DBConnection.conn);
+            DataTable table = new DataTable();
+            cd.Fill(table);
+            comboType.DataSource = table;
+            comboType.DisplayMember = "type";
         }
 
         private void loadAppointments()
@@ -111,6 +172,11 @@ namespace ScheduleApptApp
             AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             AppointmentGrid.ClearSelection();
             fill_listbox();
+
+            for (int idx = 0; idx < dt.Rows.Count; idx++)
+            {
+                dt.Rows[idx]["start"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dt.Rows[idx]["end"], TimeZoneInfo.Local).ToString();
+            }
         }
 
         private void fill_listbox()
@@ -120,13 +186,77 @@ namespace ScheduleApptApp
             con = new MySqlConnection(constr);
             con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT customerId FROM customer", con);
-            
-           
-                con.Close();
+            con.Close();
+        }
+
+        private void btnDeleteAppt_Click(object sender, EventArgs e)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection con = null;
+            {
+                if (AppointmentGrid.CurrentRow == null || !AppointmentGrid.CurrentRow.Selected)
+                {
+                    MessageBox.Show("Nothing is selected.  Please make a selection");
+                    //new_edit_del_butt_enable();
+                    return;
+                }
+                try
+                {
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete this appointment? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        con = new MySqlConnection(constr);
+                        var appointmentId = txtBxApptId.Text;
+                        MySqlCommand com = new MySqlCommand($"DELETE FROM appointment WHERE appointmentId = '{appointmentId}'", con);
+                        con.Open();
+                        com.ExecuteNonQuery();
+                        con.Close();
+                        loadAppointments();
+                        MessageBox.Show("Deleted Successfully");
+                        clearTextBoxes(apptGroupBox);
+                        //btnAddCustomer.Enabled = true;
+                        //btnEditCust.Enabled = true;
+                        //btnDeleteCust.Enabled = true;
+
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void AppointmentGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (AppointmentGrid.SelectedRows.Count > 0)
+            {
+                var row = AppointmentGrid.SelectedRows[0];
+
+                txtBxApptId.Text = ((int)row.Cells[0].Value).ToString();
+                comboId.Text = ((int)row.Cells[2].Value).ToString();
+                comboType.Text = (string)row.Cells[5].Value;
+                dateTimePicker1.Value = (DateTime)row.Cells[3].Value;
+                dateTimePicker2.Value = (DateTime)row.Cells[4].Value;
+            }
+        }
+
+        private void btnEditAppt_Click(object sender, EventArgs e)
+        {
+            if (AppointmentGrid.CurrentRow == null || !AppointmentGrid.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected.  Please make a selection");
+                //new_edit_del_butt_enable();
+
+                return;
+            }
+            Appointment a = AppointmentGrid.CurrentRow.DataBoundItem as Appointment;
+            var chosenAppointment = AppointmentGrid.CurrentCell.Value;
         }
     }
+}
 
-    }
+   
 
 
    

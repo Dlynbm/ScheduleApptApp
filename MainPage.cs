@@ -29,6 +29,7 @@ namespace ScheduleApptApp
         private void MainPage_Load(object sender, EventArgs e)
         {
             loadAppointments();
+            label2.Visible = false;
             //this.appointmentTableAdapter.Fill(this.client_scheduleDataSet.appointment);
 
         }
@@ -66,6 +67,8 @@ namespace ScheduleApptApp
 
         private void btnSearchMonth_Click(object sender, EventArgs e)
         {
+            label2.Visible = true;
+            label2.Text = "Appointments this month";
             string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end, createDate, createdBy, lastUpdate, lastUpdateBy FROM appointment WHERE MONTH (start) = MONTH(CURRENT_DATE()) AND YEAR (start) = YEAR(CURRENT_DATE())";
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);
@@ -83,6 +86,8 @@ namespace ScheduleApptApp
 
         private void btnWeekSrch_Click(object sender, EventArgs e)
         {
+            label2.Visible = true;
+            label2.Text = "Appointments this week";
             string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end, createDate, createdBy, lastUpdate, lastUpdateBy FROM appointment WHERE YEARWEEK (start) = YEARWEEK(curdate())";
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);
@@ -107,6 +112,11 @@ namespace ScheduleApptApp
         private void AppointmentGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnLogOff_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

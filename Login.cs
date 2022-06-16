@@ -60,6 +60,7 @@ namespace ScheduleApptApp
             this.Hide();
 
         }
+       
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -83,6 +84,15 @@ namespace ScheduleApptApp
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {         
+            string fileName;
+            fileName = "C:\\Users\\LabUser\\Desktop\\Log Entry";
+            string p;
+            p = fileName + this.txtBoxUser.Text ;
+            System.IO.File.AppendAllText(p, this.txtBoxUserPass.Text + " logged on at " + DateTime.Now.ToString("MM-dd-yyyy hh-mm-ss \n"), Encoding.UTF8);
         }
     }
     }

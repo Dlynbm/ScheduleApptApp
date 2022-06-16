@@ -52,13 +52,13 @@ namespace ScheduleApptApp
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.lstBoxCustId = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtBxCustAdd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBxCustId = new System.Windows.Forms.TextBox();
+            this.txtBxApptId = new System.Windows.Forms.TextBox();
             this.btnHome = new System.Windows.Forms.Button();
+            this.comboType = new System.Windows.Forms.ComboBox();
+            this.comboId = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -133,6 +133,7 @@ namespace ScheduleApptApp
             this.btnEditAppt.Name = "btnEditAppt";
             this.btnEditAppt.Size = new System.Drawing.Size(55, 57);
             this.btnEditAppt.Text = "Edit";
+            this.btnEditAppt.Click += new System.EventHandler(this.btnEditAppt_Click);
             // 
             // toolStripSeparator3
             // 
@@ -147,6 +148,7 @@ namespace ScheduleApptApp
             this.btnDeleteAppt.Name = "btnDeleteAppt";
             this.btnDeleteAppt.Size = new System.Drawing.Size(68, 57);
             this.btnDeleteAppt.Text = "Delete";
+            this.btnDeleteAppt.Click += new System.EventHandler(this.btnDeleteAppt_Click);
             // 
             // toolStripSeparator4
             // 
@@ -161,7 +163,6 @@ namespace ScheduleApptApp
             this.btnSaveAppt.Name = "btnSaveAppt";
             this.btnSaveAppt.Size = new System.Drawing.Size(59, 57);
             this.btnSaveAppt.Text = "Save";
-            this.btnSaveAppt.Click += new System.EventHandler(this.btnSaveAppt_Click);
             // 
             // toolStripSeparator1
             // 
@@ -199,7 +200,7 @@ namespace ScheduleApptApp
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(569, 198);
+            this.button1.Location = new System.Drawing.Point(569, 242);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 22;
@@ -209,34 +210,35 @@ namespace ScheduleApptApp
             // AppointmentGrid
             // 
             this.AppointmentGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AppointmentGrid.Location = new System.Drawing.Point(28, 225);
+            this.AppointmentGrid.Location = new System.Drawing.Point(28, 269);
             this.AppointmentGrid.Name = "AppointmentGrid";
             this.AppointmentGrid.Size = new System.Drawing.Size(772, 174);
             this.AppointmentGrid.TabIndex = 3;
+            this.AppointmentGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentGrid_CellClick);
             // 
             // txtBxSearch
             // 
-            this.txtBxSearch.Location = new System.Drawing.Point(665, 199);
+            this.txtBxSearch.Location = new System.Drawing.Point(665, 243);
             this.txtBxSearch.Name = "txtBxSearch";
             this.txtBxSearch.Size = new System.Drawing.Size(135, 20);
             this.txtBxSearch.TabIndex = 21;
             // 
             // apptGroupBox
             // 
+            this.apptGroupBox.Controls.Add(this.comboId);
+            this.apptGroupBox.Controls.Add(this.comboType);
             this.apptGroupBox.Controls.Add(this.label6);
             this.apptGroupBox.Controls.Add(this.dateTimePicker2);
             this.apptGroupBox.Controls.Add(this.label4);
             this.apptGroupBox.Controls.Add(this.dateTimePicker1);
-            this.apptGroupBox.Controls.Add(this.lstBoxCustId);
             this.apptGroupBox.Controls.Add(this.label5);
-            this.apptGroupBox.Controls.Add(this.txtBxCustAdd);
             this.apptGroupBox.Controls.Add(this.label2);
             this.apptGroupBox.Controls.Add(this.label1);
-            this.apptGroupBox.Controls.Add(this.txtBxCustId);
+            this.apptGroupBox.Controls.Add(this.txtBxApptId);
             this.apptGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.apptGroupBox.Location = new System.Drawing.Point(3, 3);
             this.apptGroupBox.Name = "apptGroupBox";
-            this.apptGroupBox.Size = new System.Drawing.Size(821, 181);
+            this.apptGroupBox.Size = new System.Drawing.Size(821, 233);
             this.apptGroupBox.TabIndex = 3;
             this.apptGroupBox.TabStop = false;
             this.apptGroupBox.Text = "Appointment Info";
@@ -277,35 +279,19 @@ namespace ScheduleApptApp
             this.dateTimePicker1.Size = new System.Drawing.Size(193, 23);
             this.dateTimePicker1.TabIndex = 18;
             // 
-            // lstBoxCustId
-            // 
-            this.lstBoxCustId.FormattingEnabled = true;
-            this.lstBoxCustId.ItemHeight = 15;
-            this.lstBoxCustId.Location = new System.Drawing.Point(133, 74);
-            this.lstBoxCustId.Name = "lstBoxCustId";
-            this.lstBoxCustId.Size = new System.Drawing.Size(135, 34);
-            this.lstBoxCustId.TabIndex = 17;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 120);
+            this.label5.Location = new System.Drawing.Point(21, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 15);
             this.label5.TabIndex = 14;
             this.label5.Text = "Appointment Type:";
             // 
-            // txtBxCustAdd
-            // 
-            this.txtBxCustAdd.Location = new System.Drawing.Point(133, 117);
-            this.txtBxCustAdd.Name = "txtBxCustAdd";
-            this.txtBxCustAdd.Size = new System.Drawing.Size(135, 23);
-            this.txtBxCustAdd.TabIndex = 6;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 78);
+            this.label2.Location = new System.Drawing.Point(22, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 15);
             this.label2.TabIndex = 4;
@@ -320,13 +306,13 @@ namespace ScheduleApptApp
             this.label1.TabIndex = 3;
             this.label1.Text = "Apppointment ID:";
             // 
-            // txtBxCustId
+            // txtBxApptId
             // 
-            this.txtBxCustId.Location = new System.Drawing.Point(133, 42);
-            this.txtBxCustId.Name = "txtBxCustId";
-            this.txtBxCustId.ReadOnly = true;
-            this.txtBxCustId.Size = new System.Drawing.Size(135, 23);
-            this.txtBxCustId.TabIndex = 0;
+            this.txtBxApptId.Location = new System.Drawing.Point(133, 42);
+            this.txtBxApptId.Name = "txtBxApptId";
+            this.txtBxApptId.ReadOnly = true;
+            this.txtBxApptId.Size = new System.Drawing.Size(135, 23);
+            this.txtBxApptId.TabIndex = 0;
             // 
             // btnHome
             // 
@@ -338,6 +324,22 @@ namespace ScheduleApptApp
             this.btnHome.Text = "Go Back";
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // comboType
+            // 
+            this.comboType.FormattingEnabled = true;
+            this.comboType.Location = new System.Drawing.Point(135, 149);
+            this.comboType.Name = "comboType";
+            this.comboType.Size = new System.Drawing.Size(121, 23);
+            this.comboType.TabIndex = 23;
+            // 
+            // comboId
+            // 
+            this.comboId.FormattingEnabled = true;
+            this.comboId.Location = new System.Drawing.Point(133, 91);
+            this.comboId.Name = "comboId";
+            this.comboId.Size = new System.Drawing.Size(60, 23);
+            this.comboId.TabIndex = 24;
             // 
             // FormAllAppointments
             // 
@@ -384,15 +386,15 @@ namespace ScheduleApptApp
         private System.Windows.Forms.TextBox txtBxSearch;
         private System.Windows.Forms.GroupBox apptGroupBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtBxCustAdd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBxCustId;
+        private System.Windows.Forms.TextBox txtBxApptId;
         private System.Windows.Forms.Button btnHome;
-        private System.Windows.Forms.ListBox lstBoxCustId;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboType;
+        private System.Windows.Forms.ComboBox comboId;
     }
 }

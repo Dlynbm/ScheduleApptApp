@@ -41,6 +41,8 @@ namespace ScheduleApptApp
             this.label1 = new System.Windows.Forms.Label();
             this.btnWeekSrch = new System.Windows.Forms.Button();
             this.btnSearchMonth = new System.Windows.Forms.Button();
+            this.btnLogOff = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentBindingSource)).BeginInit();
@@ -53,6 +55,8 @@ namespace ScheduleApptApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnLogOff);
             this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.AppointmentGrid);
             this.panel2.Controls.Add(this.ViewCustomersBtn);
@@ -93,12 +97,12 @@ namespace ScheduleApptApp
             this.ViewCustomersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ViewCustomersBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ViewCustomersBtn.ForeColor = System.Drawing.Color.White;
-            this.ViewCustomersBtn.Location = new System.Drawing.Point(314, 294);
+            this.ViewCustomersBtn.Location = new System.Drawing.Point(218, 294);
             this.ViewCustomersBtn.Margin = new System.Windows.Forms.Padding(1);
             this.ViewCustomersBtn.Name = "ViewCustomersBtn";
-            this.ViewCustomersBtn.Size = new System.Drawing.Size(131, 45);
+            this.ViewCustomersBtn.Size = new System.Drawing.Size(250, 45);
             this.ViewCustomersBtn.TabIndex = 2;
-            this.ViewCustomersBtn.Text = "View Customers";
+            this.ViewCustomersBtn.Text = "Add/Edit/Delete Customers";
             this.ViewCustomersBtn.UseVisualStyleBackColor = false;
             this.ViewCustomersBtn.Click += new System.EventHandler(this.ViewCustomersBtn_Click);
             // 
@@ -145,7 +149,7 @@ namespace ScheduleApptApp
             this.panel1.Location = new System.Drawing.Point(1, -1);
             this.panel1.Name = "panel1";
             this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel1.Size = new System.Drawing.Size(756, 83);
+            this.panel1.Size = new System.Drawing.Size(670, 83);
             this.panel1.TabIndex = 19;
             // 
             // label1
@@ -188,6 +192,30 @@ namespace ScheduleApptApp
             this.btnSearchMonth.UseVisualStyleBackColor = false;
             this.btnSearchMonth.Click += new System.EventHandler(this.btnSearchMonth_Click);
             // 
+            // btnLogOff
+            // 
+            this.btnLogOff.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnLogOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOff.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOff.ForeColor = System.Drawing.Color.White;
+            this.btnLogOff.Location = new System.Drawing.Point(15, 309);
+            this.btnLogOff.Name = "btnLogOff";
+            this.btnLogOff.Size = new System.Drawing.Size(75, 30);
+            this.btnLogOff.TabIndex = 10;
+            this.btnLogOff.Text = "Log Off";
+            this.btnLogOff.UseVisualStyleBackColor = false;
+            this.btnLogOff.Click += new System.EventHandler(this.btnLogOff_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(288, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 15);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "label2";
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +254,8 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnWeekSrch;
         private System.Windows.Forms.Button btnSearchMonth;
+        private System.Windows.Forms.Button btnLogOff;
+        private System.Windows.Forms.Label label2;
     }
 }
 

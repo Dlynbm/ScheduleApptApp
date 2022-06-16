@@ -75,16 +75,8 @@ namespace ScheduleApptApp
             this.Close();
         }
 
-        private void listBoxConsult_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-
-
-        }
-
-        private void Reports_Load(object sender, EventArgs e)
-        {
-            
+         private void Reports_Load(object sender, EventArgs e)
+        {            
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);
             string sqlString = "SELECT userName FROM user";
@@ -96,10 +88,33 @@ namespace ScheduleApptApp
             cd.Fill(table);
             listBoxConsult.DataSource = table;
             listBoxConsult.DisplayMember = "userName";
-            //listBoxConsult.ValueMember = "userId";
 
             
         }
+
+        private void btnAptType_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "APPOINTMENT TYPE BY MONTH SEARCH";
+            string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end  FROM appointment WHERE start = @d1 AND type =  @d2";
+            
+            string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connString);
+            DataTable myDataTable = new DataTable();
+            MySqlCommand mySqlCommand = new MySqlCommand(mySqlString);
+            mySqlCommand.Connection = connection;
+
+            mySqlCommand.Parameters.AddWithValue("@d1", listBoxMonth.SelectedIndex);
+            //mySqlCommand.Parameters.AddWithValue("@d2", typePanel.);
+
+            //fill data to datatable
+            MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
+            da.Fill(myDataTable);
+            //adding datasource
+            reportsGrid.DataSource = myDataTable;
+            numLbl.Text = $"There are a total of {reportsGrid.RowCount - 1} appointments for the chosen date range:";
+        }
+
+        
     }
 }
 
