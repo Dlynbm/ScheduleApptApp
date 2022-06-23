@@ -75,8 +75,8 @@ namespace ScheduleApptApp
             this.Close();
         }
 
-         private void Reports_Load(object sender, EventArgs e)
-        {            
+        private void Reports_Load(object sender, EventArgs e)
+        {
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);
             string sqlString = "SELECT userName FROM user";
@@ -88,33 +88,40 @@ namespace ScheduleApptApp
             cd.Fill(table);
             listBoxConsult.DataSource = table;
             listBoxConsult.DisplayMember = "userName";
-
-            
+           
         }
+
+
+       
+
+
+        
 
         private void btnAptType_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "APPOINTMENT TYPE BY MONTH SEARCH";
-            string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end  FROM appointment WHERE start = @d1 AND type =  @d2";
-            
+            string mySqlString = "SELECT type, COUNT(*) FROM appointment WHERE MONTHNAME(start) = @d1 GROUP BY type";
+            //select type, count(*) from appointment group by type;
+
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);
             DataTable myDataTable = new DataTable();
             MySqlCommand mySqlCommand = new MySqlCommand(mySqlString);
             mySqlCommand.Connection = connection;
 
-            mySqlCommand.Parameters.AddWithValue("@d1", listBoxMonth.SelectedIndex);
-            //mySqlCommand.Parameters.AddWithValue("@d2", typePanel.);
+            mySqlCommand.Parameters.AddWithValue("@d1", listBoxMonth.SelectedItem);
+            //mySqlCommand.Parameters.AddWithValue("@d2", listBoxType.SelectedItem);
 
             //fill data to datatable
             MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
             da.Fill(myDataTable);
             //adding datasource
             reportsGrid.DataSource = myDataTable;
-            numLbl.Text = $"There are a total of {reportsGrid.RowCount - 1} appointments for the chosen date range:";
+            numLbl.Text = $"There are a total of {reportsGrid.RowCount - 1} appointments for the chosen month:";
         }
 
         
     }
 }
+
 

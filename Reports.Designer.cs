@@ -48,13 +48,8 @@ namespace ScheduleApptApp
             this.btnAptType = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.numLbl = new System.Windows.Forms.Label();
-            this.chckBoxPres = new System.Windows.Forms.CheckBox();
-            this.chckBxGgle = new System.Windows.Forms.CheckBox();
-            this.chckBoxScrum = new System.Windows.Forms.CheckBox();
-            this.chckBoxMana = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.typePanel = new System.Windows.Forms.Panel();
             label2 = new System.Windows.Forms.Label();
             startLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).BeginInit();
@@ -206,7 +201,7 @@ namespace ScheduleApptApp
             "October",
             "November",
             "December"});
-            this.listBoxMonth.Location = new System.Drawing.Point(25, 101);
+            this.listBoxMonth.Location = new System.Drawing.Point(97, 102);
             this.listBoxMonth.Name = "listBoxMonth";
             this.listBoxMonth.Size = new System.Drawing.Size(95, 94);
             this.listBoxMonth.TabIndex = 27;
@@ -241,58 +236,16 @@ namespace ScheduleApptApp
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(438, 246);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(91, 25);
+            this.lblTitle.Size = new System.Drawing.Size(0, 25);
             this.lblTitle.TabIndex = 29;
-            this.lblTitle.Text = "Summary";
             // 
             // numLbl
             // 
             this.numLbl.AutoSize = true;
-            this.numLbl.Location = new System.Drawing.Point(409, 283);
+            this.numLbl.Location = new System.Drawing.Point(409, 284);
             this.numLbl.Name = "numLbl";
-            this.numLbl.Size = new System.Drawing.Size(144, 15);
+            this.numLbl.Size = new System.Drawing.Size(0, 15);
             this.numLbl.TabIndex = 30;
-            this.numLbl.Text = "Number of Appointments";
-            // 
-            // chckBoxPres
-            // 
-            this.chckBoxPres.AutoSize = true;
-            this.chckBoxPres.Location = new System.Drawing.Point(160, 102);
-            this.chckBoxPres.Name = "chckBoxPres";
-            this.chckBoxPres.Size = new System.Drawing.Size(92, 19);
-            this.chckBoxPres.TabIndex = 31;
-            this.chckBoxPres.Text = "Presentation";
-            this.chckBoxPres.UseVisualStyleBackColor = true;
-            // 
-            // chckBxGgle
-            // 
-            this.chckBxGgle.AutoSize = true;
-            this.chckBxGgle.Location = new System.Drawing.Point(160, 127);
-            this.chckBxGgle.Name = "chckBxGgle";
-            this.chckBxGgle.Size = new System.Drawing.Size(94, 19);
-            this.chckBxGgle.TabIndex = 32;
-            this.chckBxGgle.Text = "Google Meet";
-            this.chckBxGgle.UseVisualStyleBackColor = true;
-            // 
-            // chckBoxScrum
-            // 
-            this.chckBoxScrum.AutoSize = true;
-            this.chckBoxScrum.Location = new System.Drawing.Point(160, 152);
-            this.chckBoxScrum.Name = "chckBoxScrum";
-            this.chckBoxScrum.Size = new System.Drawing.Size(60, 19);
-            this.chckBoxScrum.TabIndex = 33;
-            this.chckBoxScrum.Text = "Scrum";
-            this.chckBoxScrum.UseVisualStyleBackColor = true;
-            // 
-            // chckBoxMana
-            // 
-            this.chckBoxMana.AutoSize = true;
-            this.chckBoxMana.Location = new System.Drawing.Point(160, 177);
-            this.chckBoxMana.Name = "chckBoxMana";
-            this.chckBoxMana.Size = new System.Drawing.Size(120, 19);
-            this.chckBoxMana.TabIndex = 34;
-            this.chckBoxMana.Text = "Manager Meeting";
-            this.chckBoxMana.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -310,23 +263,12 @@ namespace ScheduleApptApp
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // typePanel
-            // 
-            this.typePanel.Location = new System.Drawing.Point(137, 96);
-            this.typePanel.Name = "typePanel";
-            this.typePanel.Size = new System.Drawing.Size(157, 100);
-            this.typePanel.TabIndex = 36;
-            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 519);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.chckBoxMana);
-            this.Controls.Add(this.chckBoxScrum);
-            this.Controls.Add(this.chckBxGgle);
-            this.Controls.Add(this.chckBoxPres);
             this.Controls.Add(this.numLbl);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.rprtLbl);
@@ -342,7 +284,6 @@ namespace ScheduleApptApp
             this.Controls.Add(startLabel);
             this.Controls.Add(this.p_StartDate);
             this.Controls.Add(this.reportsGrid);
-            this.Controls.Add(this.typePanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Reports";
             this.Text = "Reports";
@@ -372,12 +313,7 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label numLbl;
-        private System.Windows.Forms.CheckBox chckBoxPres;
-        private System.Windows.Forms.CheckBox chckBxGgle;
-        private System.Windows.Forms.CheckBox chckBoxScrum;
-        private System.Windows.Forms.CheckBox chckBoxMana;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Panel typePanel;
     }
 }
