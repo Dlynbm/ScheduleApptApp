@@ -44,10 +44,12 @@ namespace ScheduleApptApp
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
             this.txtBxSearch = new System.Windows.Forms.TextBox();
             this.apptGroupBox = new System.Windows.Forms.GroupBox();
+            this.comboId = new System.Windows.Forms.ComboBox();
+            this.comboType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,8 +59,8 @@ namespace ScheduleApptApp
             this.label1 = new System.Windows.Forms.Label();
             this.txtBxApptId = new System.Windows.Forms.TextBox();
             this.btnHome = new System.Windows.Forms.Button();
-            this.comboType = new System.Windows.Forms.ComboBox();
-            this.comboId = new System.Windows.Forms.ComboBox();
+            this.userCombo = new System.Windows.Forms.ComboBox();
+            this.User = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -157,12 +159,14 @@ namespace ScheduleApptApp
             // 
             // btnSaveAppt
             // 
+            this.btnSaveAppt.Enabled = false;
             this.btnSaveAppt.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAppt.Image")));
             this.btnSaveAppt.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSaveAppt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSaveAppt.Name = "btnSaveAppt";
             this.btnSaveAppt.Size = new System.Drawing.Size(59, 57);
             this.btnSaveAppt.Text = "Save";
+            this.btnSaveAppt.Click += new System.EventHandler(this.btnSaveAppt_Click);
             // 
             // toolStripSeparator1
             // 
@@ -171,12 +175,14 @@ namespace ScheduleApptApp
             // 
             // btnCancel
             // 
+            this.btnCancel.Enabled = false;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(71, 57);
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // toolStripSeparator2
             // 
@@ -189,7 +195,7 @@ namespace ScheduleApptApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.AppointmentGrid);
             this.panel1.Controls.Add(this.txtBxSearch);
             this.panel1.Controls.Add(this.apptGroupBox);
@@ -198,14 +204,15 @@ namespace ScheduleApptApp
             this.panel1.Size = new System.Drawing.Size(827, 460);
             this.panel1.TabIndex = 22;
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.Location = new System.Drawing.Point(569, 242);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(569, 242);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 22;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // AppointmentGrid
             // 
@@ -225,6 +232,8 @@ namespace ScheduleApptApp
             // 
             // apptGroupBox
             // 
+            this.apptGroupBox.Controls.Add(this.userCombo);
+            this.apptGroupBox.Controls.Add(this.User);
             this.apptGroupBox.Controls.Add(this.comboId);
             this.apptGroupBox.Controls.Add(this.comboType);
             this.apptGroupBox.Controls.Add(this.label6);
@@ -242,6 +251,22 @@ namespace ScheduleApptApp
             this.apptGroupBox.TabIndex = 3;
             this.apptGroupBox.TabStop = false;
             this.apptGroupBox.Text = "Appointment Info";
+            // 
+            // comboId
+            // 
+            this.comboId.FormattingEnabled = true;
+            this.comboId.Location = new System.Drawing.Point(133, 91);
+            this.comboId.Name = "comboId";
+            this.comboId.Size = new System.Drawing.Size(60, 23);
+            this.comboId.TabIndex = 24;
+            // 
+            // comboType
+            // 
+            this.comboType.FormattingEnabled = true;
+            this.comboType.Location = new System.Drawing.Point(135, 149);
+            this.comboType.Name = "comboType";
+            this.comboType.Size = new System.Drawing.Size(121, 23);
+            this.comboType.TabIndex = 23;
             // 
             // label6
             // 
@@ -325,21 +350,23 @@ namespace ScheduleApptApp
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // comboType
+            // userCombo
             // 
-            this.comboType.FormattingEnabled = true;
-            this.comboType.Location = new System.Drawing.Point(135, 149);
-            this.comboType.Name = "comboType";
-            this.comboType.Size = new System.Drawing.Size(121, 23);
-            this.comboType.TabIndex = 23;
+            this.userCombo.FormattingEnabled = true;
+            this.userCombo.Location = new System.Drawing.Point(136, 201);
+            this.userCombo.Name = "userCombo";
+            this.userCombo.Size = new System.Drawing.Size(121, 23);
+            this.userCombo.TabIndex = 26;
+            this.userCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboId
+            // User
             // 
-            this.comboId.FormattingEnabled = true;
-            this.comboId.Location = new System.Drawing.Point(133, 91);
-            this.comboId.Name = "comboId";
-            this.comboId.Size = new System.Drawing.Size(60, 23);
-            this.comboId.TabIndex = 24;
+            this.User.AutoSize = true;
+            this.User.Location = new System.Drawing.Point(22, 201);
+            this.User.Name = "User";
+            this.User.Size = new System.Drawing.Size(33, 15);
+            this.User.TabIndex = 25;
+            this.User.Text = "User:";
             // 
             // FormAllAppointments
             // 
@@ -381,7 +408,7 @@ namespace ScheduleApptApp
         private System.Windows.Forms.ToolStripButton btnCancel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView AppointmentGrid;
         private System.Windows.Forms.TextBox txtBxSearch;
         private System.Windows.Forms.GroupBox apptGroupBox;
@@ -396,5 +423,7 @@ namespace ScheduleApptApp
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboType;
         private System.Windows.Forms.ComboBox comboId;
+        private System.Windows.Forms.ComboBox userCombo;
+        private System.Windows.Forms.Label User;
     }
 }

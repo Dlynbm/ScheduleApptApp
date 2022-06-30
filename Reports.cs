@@ -92,36 +92,37 @@ namespace ScheduleApptApp
         }
 
 
-       
 
 
-        
+
+
 
         private void btnAptType_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "APPOINTMENT TYPE BY MONTH SEARCH";
-            string mySqlString = "SELECT type, COUNT(*) FROM appointment WHERE MONTHNAME(start) = @d1 GROUP BY type";
+            string sqlString = "SELECT MONTHNAME(start) AS 'Month', type as 'Type', COUNT(*) AS 'Number of Appointments'FROM appointment GROUP BY type";
             //select type, count(*) from appointment group by type;
+            // string mySqlString = "SELECT type, COUNT(*) FROM appointment WHERE MONTHNAME(start) = @d1 GROUP BY type"
 
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);
             DataTable myDataTable = new DataTable();
-            MySqlCommand mySqlCommand = new MySqlCommand(mySqlString);
+            MySqlCommand mySqlCommand = new MySqlCommand(sqlString);
             mySqlCommand.Connection = connection;
-
-            mySqlCommand.Parameters.AddWithValue("@d1", listBoxMonth.SelectedItem);
-            //mySqlCommand.Parameters.AddWithValue("@d2", listBoxType.SelectedItem);
 
             //fill data to datatable
             MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
             da.Fill(myDataTable);
             //adding datasource
             reportsGrid.DataSource = myDataTable;
-            numLbl.Text = $"There are a total of {reportsGrid.RowCount - 1} appointments for the chosen month:";
         }
 
-        
     }
+
+
+
+
 }
+
 
 

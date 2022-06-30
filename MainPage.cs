@@ -30,14 +30,13 @@ namespace ScheduleApptApp
         {
             loadAppointments();
             label2.Visible = false;
-            //this.appointmentTableAdapter.Fill(this.client_scheduleDataSet.appointment);
 
         }
 
         private void loadAppointments()
         {
             string sqlString = $"SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId"; MySqlCommand cmd = new MySqlCommand(sqlString, con);
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            MySqlDataAdapter da = new MySqlDataAdapter(sqlString, DBConnection.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
             AppointmentGrid.DataSource = dt;
@@ -116,14 +115,8 @@ namespace ScheduleApptApp
 
         private void btnLogOff_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
     }
 }
-        
-
-
-
-
-
 

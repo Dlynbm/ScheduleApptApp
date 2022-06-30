@@ -84,13 +84,14 @@ namespace ScheduleApptApp
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            btnSaveCustomer.Enabled = true;
             int count;
             //get connection string
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection con = null;
             con = new MySqlConnection(constr);
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT Max(customerId)+1 from customer", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT Max(customerId) from customer", con);
             count = Convert.ToInt16(cmd.ExecuteScalar()) + 1;
             txtBoxCustId.Text = "0" + count;
             con.Close();
@@ -363,6 +364,7 @@ namespace ScheduleApptApp
                     con.Close();
                     loadCustomers();
                     MessageBox.Show("Added Successfully");
+                    clearTextBoxes(custGroupBox);
                 }
             }
             catch (MySqlException ex)
@@ -408,9 +410,7 @@ namespace ScheduleApptApp
 
         private void UpdateButton1_Click(object sender, EventArgs e)
         {
-            //get connection string
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            //make connection
             MySqlConnection con = null;
 
             {

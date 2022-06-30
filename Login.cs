@@ -48,18 +48,29 @@ namespace ScheduleApptApp
                     @"Incorrect Username/Password Combination", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtBoxUser.Clear();
                 txtBoxUserPass.Clear();
+
+                using (StreamWriter sw = File.AppendText("userLog.txt")) 
+                {
+                    sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Failed login attempt for username \"" + txtBoxUser.Text + "\"");
+                }
                 return;
                 
             }
             else
             {
+                using (StreamWriter sw = File.AppendText("userLog.txt")) 
+                {
+                    sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" logged in successfully");
+                }
                 MainPage mainPage = new MainPage();
                 mainPage.Show();
+                ApptAlert();
                 
             }
             this.Hide();
 
         }
+
        
 
         private void Login_Load(object sender, EventArgs e)
@@ -86,14 +97,34 @@ namespace ScheduleApptApp
             Application.Exit();
         }
         
-        private void button1_Click(object sender, EventArgs e)
-        {         
-            string fileName;
-            fileName = "C:\\Users\\LabUser\\Desktop\\Log Entry";
-            string p;
-            p = fileName + this.txtBoxUser.Text ;
-            System.IO.File.AppendAllText(p, this.txtBoxUserPass.Text + " logged on at " + DateTime.Now.ToString("MM-dd-yyyy hh-mm-ss \n"), Encoding.UTF8);
+        private bool ApptAlert()
+        {
+            string userName = txtBoxUser.Text;
+            bool hasAppt = false;
+
+            try
+            {
+                string mySqlString = "SELECT * FROM appointment WHERE start BETWEEN NOW() + INTERVAL 15 MINUTE AND userId=(SELECT userId FROM user WHERE userName='{userName}')";
+                var cmd = new MySqlCommand(mySqlString, DBConnection.conn);
+                int appt = Convert.ToInt32(cmd.ExecuteScalar());
+               
+                if(appt == 0)
+                {
+                    hasAppt = false;
+                }
+                else
+                {
+                    hasAppt = true;
+                    MessageBox.Show("You have an appointment coming up in 15 minutes");
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        
     }
     }
 
