@@ -96,35 +96,33 @@ namespace ScheduleApptApp
         {
             Application.Exit();
         }
-        
-        private bool ApptAlert()
-        {
-            string userName = txtBoxUser.Text;
-            bool hasAppt = false;
 
+
+        private void ApptAlert()
+        {
+            string user = txtBoxUser.Text;
             try
             {
-                string mySqlString = "SELECT * FROM appointment WHERE start BETWEEN NOW() + INTERVAL 15 MINUTE AND userId=(SELECT userId FROM user WHERE userName='{userName}')";
-                var cmd = new MySqlCommand(mySqlString, DBConnection.conn);
-                int appt = Convert.ToInt32(cmd.ExecuteScalar());
-               
-                if(appt == 0)
+                string mySqlString = $"SELECT * FROM appointment WHERE start BETWEEN NOW() AND NOW() + INTERVAL 15 MINUTE AND userId=(SELECT userId FROM user WHERE userName='{user}')";
+                var upcoming = new MySqlCommand(mySqlString, DBConnection.conn);
+                int upcomingIndex = Convert.ToInt32(upcoming.ExecuteScalar());
+
+                if (upcomingIndex == 0)
                 {
-                    hasAppt = false;
                 }
                 else
                 {
-                    hasAppt = true;
-                    MessageBox.Show("You have an appointment coming up in 15 minutes");
+                    MessageBox.Show("You have an appointment coming up within the next 15 minutes");
                 }
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            return;
         }
 
-        
+
     }
     }
 

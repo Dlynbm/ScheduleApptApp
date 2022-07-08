@@ -105,12 +105,13 @@ namespace ScheduleApptApp
             this.Close();
         }
 
+
         private bool checkBusHours(DateTime start, DateTime end)
         {
             string startTime = "9:00 am";
             string endTime = "5:00 pm";
-             
-            if(start.DayOfWeek == DayOfWeek.Saturday || start.DayOfWeek == DayOfWeek.Sunday)
+
+            if (start.DayOfWeek == DayOfWeek.Saturday || start.DayOfWeek == DayOfWeek.Sunday)
             {
                 MessageBox.Show("Sorry, the start date must be corrected, we're closed on Saturday and Sunday");
                 return false;
@@ -122,30 +123,21 @@ namespace ScheduleApptApp
                 return false;
             }
 
-            DateTime startDateInput = Convert.ToDateTime("07/01/2022 12:00 PM");
+            DateTime startDateInput = Convert.ToDateTime(dateTimePicker1.Value);
             DateTime s = Convert.ToDateTime(startDateInput.ToString("MM/dd/yyyy") + " " + startTime);
-
-            if (startDateInput > s)
-            {
-                MessageBox.Show("Sorry, our office isn't open this early.");
-                return false;
-            }
-
-            DateTime endDateInput = Convert.ToDateTime("07/01/2022 12:00 PM");
+            DateTime endDateInput = Convert.ToDateTime(dateTimePicker2.Value);
             DateTime e = Convert.ToDateTime(endDateInput.ToString("MM/dd/yyyy") + " " + endTime);
 
-            if (endDateInput > e)
+            if (startDateInput < s || endDateInput > e)
             {
-                MessageBox.Show("Sorry, our office is closed at this time.");
+                MessageBox.Show("Sorry, our office is closed during this time.");
                 return false;
             }
-
-          
             return true;
         }
 
         private void btnSaveAppt_Click(object sender, EventArgs e)
-        {          
+        {
             bool busHours = checkBusHours(dateTimePicker1.Value, dateTimePicker2.Value);
             if (busHours == false)
             {
