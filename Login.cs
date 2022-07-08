@@ -76,9 +76,9 @@ namespace ScheduleApptApp
         private void Login_Load(object sender, EventArgs e)
         {
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            string culture = CultureInfo.CurrentCulture.EnglishName;
+            string culture = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 
-            if(culture == "Russian (Russia)")
+            if(culture == "ru")
             {
                 ex = new Exception("Неверное имя пользователя или пароль!");
                 btnLogin.Text = "Авторизоваться";

@@ -107,10 +107,24 @@ namespace ScheduleApptApp
 
 
         private bool checkBusHours(DateTime start, DateTime end)
-        {
-            string startTime = "9:00 am";
-            string endTime = "5:00 pm";
+        {       
+            string openTime = "9:00 am";
+            string closeTime = "5:00 pm";
+            DateTime startDateInput = Convert.ToDateTime(dateTimePicker1.Value);
+            DateTime s = Convert.ToDateTime(startDateInput.ToString("MM/dd/yyyy") + " " + openTime);
+            DateTime endDateInput = Convert.ToDateTime(dateTimePicker2.Value);
+            DateTime e = Convert.ToDateTime(endDateInput.ToString("MM/dd/yyyy") + " " + closeTime);
 
+            if (startDateInput < s || endDateInput > e)
+            {
+                MessageBox.Show("Sorry, our office is closed during this time.");
+                return false;
+            }
+            return true;
+        }
+
+        private bool checkBusDays(DateTime start, DateTime end)
+        {
             if (start.DayOfWeek == DayOfWeek.Saturday || start.DayOfWeek == DayOfWeek.Sunday)
             {
                 MessageBox.Show("Sorry, the start date must be corrected, we're closed on Saturday and Sunday");
@@ -122,22 +136,72 @@ namespace ScheduleApptApp
                 MessageBox.Show("Sorry, the end date must be corrected, we're closed on Saturday and Sunday");
                 return false;
             }
-
-            DateTime startDateInput = Convert.ToDateTime(dateTimePicker1.Value);
-            DateTime s = Convert.ToDateTime(startDateInput.ToString("MM/dd/yyyy") + " " + startTime);
-            DateTime endDateInput = Convert.ToDateTime(dateTimePicker2.Value);
-            DateTime e = Convert.ToDateTime(endDateInput.ToString("MM/dd/yyyy") + " " + endTime);
-
-            if (startDateInput < s || endDateInput > e)
+            else
             {
-                MessageBox.Show("Sorry, our office is closed during this time.");
-                return false;
+                return true;
             }
-            return true;
+        }
+
+        public static bool checkOverlap(DateTime proposedStart, DateTime proposedEnd, int userId, int appointmentId)
+        {
+            try
+            {
+                string mySqlString = "SELECT  appointment.appointmentId, appointment.userId, customer.customerName, customer.customerId, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId";
+                MySqlDataAdapter da = new MySqlDataAdapter(mySqlString, DBConnection.conn);
+                DataTable dtable = new DataTable();
+                da.Fill(dtable);
+
+                for (int i = 0; i < dtable.Rows.Count; i++)
+                {
+                    int aApptId = (int)dtable.Rows[i]["appointmentId"];
+                    if(aApptId == appointmentId)
+                    {
+                        continue;
+                    }
+                    int aUserId = (int)dtable.Rows[i]["userId"];
+                    
+                    if(aUserId != userId)
+                    {
+                        continue;
+                    }
+
+                    DateTime aStart = (DateTime)dtable.Rows[i]["start"];
+                    DateTime aEnd = (DateTime)dtable.Rows[i]["end"];
+                    aStart = aStart.ToLocalTime();
+                    aEnd = aEnd.ToLocalTime();
+
+                    if(aStart >= proposedStart && aStart < proposedEnd)
+                    {
+                        return true;
+                    }
+
+                    if(aEnd > proposedStart && aEnd <= proposedEnd)
+                    {
+                        return true;
+                    }
+
+                    if(aStart<= proposedStart && aEnd >= proposedEnd)
+                    {
+                        return true;
+                    }
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return false;
         }
 
         private void btnSaveAppt_Click(object sender, EventArgs e)
         {
+            bool busDays = checkBusDays(dateTimePicker1.Value, dateTimePicker2.Value);
+            if(busDays == false)
+            {
+                return;
+            }
+
             bool busHours = checkBusHours(dateTimePicker1.Value, dateTimePicker2.Value);
             if (busHours == false)
             {
@@ -146,38 +210,47 @@ namespace ScheduleApptApp
 
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection con = null;
-           
+
 
             if (comboId.Text == "" || comboType.Text == "" || userCombo.Text == "" || dateTimePicker1.Text == "" || dateTimePicker2.Text == "")
             {
                 MessageBox.Show("Please complete all fields");
                 return;
             }
+
+            if (checkOverlap(dateTimePicker1.Value, dateTimePicker2.Value, Convert.ToInt32(userCombo.Text), 0))
+            {
+                MessageBox.Show("Appointments overlap");
+                return;
+            }
+
             try
             {
                 DialogResult results = MessageBox.Show("Are you sure you want to add this appointment? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 appointmentId = 0;
                
-                if (results == DialogResult.Yes == true)
+                if (results == DialogResult.Yes)
                 {
                     con = new MySqlConnection(constr);
-                    MySqlCommand com = new MySqlCommand("INSERT INTO appointment(customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES (@customerId, @userId, 'title', 'description', 'location', 'contact', @type,'url', @start, @end, NOW(), 'test', NOW(), 'test'", con);
+                    MySqlCommand com = new MySqlCommand("INSERT INTO appointment(customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES (@customerId, @userId, 'title', 'description', 'location', 'contact', @type,'url', @start, @end, NOW(), 'test', NOW(), 'test')", con);
 
-                    DateTime startTime = TimeZoneInfo.ConvertTimeToUtc(dateTimePicker1.Value);
-                    DateTime endTime = TimeZoneInfo.ConvertTimeToUtc(dateTimePicker2.Value);
+                    //DateTime startTime = TimeZoneInfo.ConvertTimeToUtc(dateTimePicker1.Value);
+                    //DateTime endTime = TimeZoneInfo.ConvertTimeToUtc(dateTimePicker2.Value);
 
                     
                     com.Parameters.AddWithValue("@customerId", comboId.Text);
                     com.Parameters.AddWithValue("@type", comboType.Text);
                     com.Parameters.AddWithValue("@userId", userCombo.Text);
-                    com.Parameters.AddWithValue("@start", startTime);
-                    com.Parameters.AddWithValue("@end", endTime);
+                    com.Parameters.AddWithValue("@start", dateTimePicker1.Value.ToUniversalTime());
+                    com.Parameters.AddWithValue("@end", dateTimePicker2.Value.ToUniversalTime());
                     con.Open();
                     com.ExecuteNonQuery();
                     appointmentId = (int)com.LastInsertedId;
                     con.Close();
                     MessageBox.Show("Added Successfully");
                     saveCancelBtn();
+                    clearTextBoxes(apptGroupBox);
+                    loadAllAppointments();
                 }
             }
             catch (MySqlException ex)
@@ -243,6 +316,17 @@ namespace ScheduleApptApp
                 MySqlDataAdapter da = new MySqlDataAdapter(mySqlString, DBConnection.conn);
                 DataTable dtable = new DataTable();
                 da.Fill(dtable);
+
+                for (int i = 0; i < dtable.Rows.Count; i++)
+                {
+                    DateTime aStart = (DateTime)dtable.Rows[i]["start"];
+                    DateTime aEnd = (DateTime)dtable.Rows[i]["end"];
+                    aStart = aStart.ToLocalTime();
+                    aEnd = aEnd.ToLocalTime();
+                    dtable.Rows[i]["start"] = aStart;
+                    dtable.Rows[i]["end"] = aEnd;
+                }
+
                 AppointmentGrid.DataSource = dtable;
                 AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 AppointmentGrid.ClearSelection();
