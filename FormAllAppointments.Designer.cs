@@ -48,6 +48,8 @@ namespace ScheduleApptApp
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
             this.txtBxSearch = new System.Windows.Forms.TextBox();
             this.apptGroupBox = new System.Windows.Forms.GroupBox();
+            this.userCombo = new System.Windows.Forms.ComboBox();
+            this.User = new System.Windows.Forms.Label();
             this.comboId = new System.Windows.Forms.ComboBox();
             this.comboType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@ namespace ScheduleApptApp
             this.label1 = new System.Windows.Forms.Label();
             this.txtBxApptId = new System.Windows.Forms.TextBox();
             this.btnHome = new System.Windows.Forms.Button();
-            this.userCombo = new System.Windows.Forms.ComboBox();
-            this.User = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -252,6 +252,24 @@ namespace ScheduleApptApp
             this.apptGroupBox.TabStop = false;
             this.apptGroupBox.Text = "Appointment Info";
             // 
+            // userCombo
+            // 
+            this.userCombo.FormattingEnabled = true;
+            this.userCombo.Location = new System.Drawing.Point(136, 142);
+            this.userCombo.Name = "userCombo";
+            this.userCombo.Size = new System.Drawing.Size(57, 23);
+            this.userCombo.TabIndex = 26;
+            this.userCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // User
+            // 
+            this.User.AutoSize = true;
+            this.User.Location = new System.Drawing.Point(22, 142);
+            this.User.Name = "User";
+            this.User.Size = new System.Drawing.Size(33, 15);
+            this.User.TabIndex = 25;
+            this.User.Text = "User:";
+            // 
             // comboId
             // 
             this.comboId.FormattingEnabled = true;
@@ -263,7 +281,7 @@ namespace ScheduleApptApp
             // comboType
             // 
             this.comboType.FormattingEnabled = true;
-            this.comboType.Location = new System.Drawing.Point(135, 149);
+            this.comboType.Location = new System.Drawing.Point(136, 188);
             this.comboType.Name = "comboType";
             this.comboType.Size = new System.Drawing.Size(121, 23);
             this.comboType.TabIndex = 23;
@@ -307,7 +325,7 @@ namespace ScheduleApptApp
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 149);
+            this.label5.Location = new System.Drawing.Point(22, 188);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 15);
             this.label5.TabIndex = 14;
@@ -349,24 +367,6 @@ namespace ScheduleApptApp
             this.btnHome.Text = "Go Back";
             this.btnHome.UseVisualStyleBackColor = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // userCombo
-            // 
-            this.userCombo.FormattingEnabled = true;
-            this.userCombo.Location = new System.Drawing.Point(136, 201);
-            this.userCombo.Name = "userCombo";
-            this.userCombo.Size = new System.Drawing.Size(121, 23);
-            this.userCombo.TabIndex = 26;
-            this.userCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // User
-            // 
-            this.User.AutoSize = true;
-            this.User.Location = new System.Drawing.Point(22, 201);
-            this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(33, 15);
-            this.User.TabIndex = 25;
-            this.User.Text = "User:";
             // 
             // FormAllAppointments
             // 

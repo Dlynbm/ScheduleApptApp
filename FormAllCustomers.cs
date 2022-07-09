@@ -84,6 +84,7 @@ namespace ScheduleApptApp
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
+            btnSaveCustomer.Visible = true;
             btnSaveCustomer.Enabled = true;
             int count;
             //get connection string
@@ -108,6 +109,7 @@ namespace ScheduleApptApp
         private void btnEditCust_Click(object sender, EventArgs e)
         {
             //new_edit_del_butt_enable();
+            btnSaveCustomer.Visible = false;
             this.btnAddCustomer.Enabled = false;
             this.btnEditCust.Enabled = false;
             this.btnDeleteCust.Enabled = false;
@@ -410,6 +412,7 @@ namespace ScheduleApptApp
 
         private void UpdateButton1_Click(object sender, EventArgs e)
         {
+            
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection con = null;
 

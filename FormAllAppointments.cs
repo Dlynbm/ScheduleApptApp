@@ -123,24 +123,6 @@ namespace ScheduleApptApp
             return true;
         }
 
-        private bool checkBusDays(DateTime start, DateTime end)
-        {
-            if (start.DayOfWeek == DayOfWeek.Saturday || start.DayOfWeek == DayOfWeek.Sunday)
-            {
-                MessageBox.Show("Sorry, the start date must be corrected, we're closed on Saturday and Sunday");
-                return false;
-            }
-
-            if (end.DayOfWeek == DayOfWeek.Saturday || end.DayOfWeek == DayOfWeek.Sunday)
-            {
-                MessageBox.Show("Sorry, the end date must be corrected, we're closed on Saturday and Sunday");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
 
         public static bool checkOverlap(DateTime proposedStart, DateTime proposedEnd, int userId, int appointmentId)
         {
@@ -196,12 +178,6 @@ namespace ScheduleApptApp
 
         private void btnSaveAppt_Click(object sender, EventArgs e)
         {
-            bool busDays = checkBusDays(dateTimePicker1.Value, dateTimePicker2.Value);
-            if(busDays == false)
-            {
-                return;
-            }
-
             bool busHours = checkBusHours(dateTimePicker1.Value, dateTimePicker2.Value);
             if (busHours == false)
             {
@@ -312,7 +288,7 @@ namespace ScheduleApptApp
         {
             try
             {
-                string mySqlString = "SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId";
+                string mySqlString = "SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.type, appointment.userId, appointment.start, appointment.end  FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId";
                 MySqlDataAdapter da = new MySqlDataAdapter(mySqlString, DBConnection.conn);
                 DataTable dtable = new DataTable();
                 da.Fill(dtable);
@@ -424,11 +400,11 @@ namespace ScheduleApptApp
 
                     txtBxApptId.Text = ((int)row.Cells[0].Value).ToString();
                     comboId.Text = ((int)row.Cells[2].Value).ToString();
-                    //userCombo.Text = ((int)row.Cells[1].Value).ToString();
-                    comboType.Text = (string)row.Cells[5].Value;
+                    userCombo.Text = ((int)row.Cells[4].Value).ToString();
+                    comboType.Text = (string)row.Cells[3].Value;
                     
-                    dateTimePicker1.Value = (DateTime)row.Cells[3].Value;
-                    dateTimePicker2.Value = (DateTime)row.Cells[4].Value;
+                    dateTimePicker1.Value = (DateTime)row.Cells[5].Value;
+                    dateTimePicker2.Value = (DateTime)row.Cells[6].Value;
                 }
             
             
@@ -437,14 +413,22 @@ namespace ScheduleApptApp
         private void btnEditAppt_Click(object sender, EventArgs e)
         {
             editDelBtn();
+           
+
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection con = null;
 
-            {
-                if (AppointmentGrid.CurrentRow == null || !AppointmentGrid.CurrentRow.Selected)
+
+            if (AppointmentGrid.CurrentRow == null || !AppointmentGrid.CurrentRow.Selected)
                 {
                     MessageBox.Show("Nothing is selected.  Please make a selection");
                     AppointmentGrid.Enabled = true;
+                    return;
+                }
+
+                if (checkOverlap(dateTimePicker1.Value, dateTimePicker2.Value, Convert.ToInt32(userCombo.Text), 0))
+                {
+                    MessageBox.Show("Appointments overlap");
                     return;
                 }
                 try
@@ -472,7 +456,7 @@ namespace ScheduleApptApp
                     MessageBox.Show(ex.Message);
                 }
             }
-        }      
+            
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
