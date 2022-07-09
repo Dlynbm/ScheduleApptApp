@@ -19,13 +19,12 @@ namespace ScheduleApptApp
         Exception ex;
         public Login()
         {
-            InitializeComponent();
-
+            InitializeComponent();           
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //CultureInfo myCultureInfo = CultureInfo.CurrentCulture;
+            CultureInfo myCultureInfo = CultureInfo.CurrentCulture;
             string userName = txtBoxUser.Text;
             string password = txtBoxUserPass.Text;
 
@@ -42,16 +41,24 @@ namespace ScheduleApptApp
             mySqlCommand.Parameters.AddWithValue("@Password", password);
 
             int adapter = new MySqlDataAdapter(mySqlCommand).Fill(myDataTable);
+
             if (myDataTable.Rows.Count <= 0)
             {
-                MessageBox.Show(@"Please enter a correct username and password.",
+                if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
+                {
+                    MessageBox.Show(@"Please enter a correct username and password.",
                     @"Incorrect Username/Password Combination", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                if(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ru")
+                {
+                    MessageBox.Show("инкоррект узернаме ор пассуорд");
+                }
                 txtBoxUser.Clear();
                 txtBoxUserPass.Clear();
 
                 using (StreamWriter sw = File.AppendText("userLog.txt")) 
                 {
-                    sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Failed login attempt for username \"" + txtBoxUser.Text + "\"");
+                    sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" login failed");
                 }
                 return;
                 
@@ -70,32 +77,31 @@ namespace ScheduleApptApp
             this.Hide();
 
         }
-
-       
-
+              
         private void Login_Load(object sender, EventArgs e)
         {
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             string culture = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 
-            if(culture == "ru")
+            if (culture == "ru")
             {
                 ex = new Exception("Неверное имя пользователя или пароль!");
                 btnLogin.Text = "Авторизоваться";
                 btnCancel.Text = "отмена";
                 lblName.Text = "имя пользователя";
                 lblPass.Text = "пароль";
+                Label.Text = "уэлком";
+
             }
-            else
-            {
-                ex = new Exception("The username or password is incorrect!");
-            }
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+      
 
 
         private void ApptAlert()
@@ -122,7 +128,10 @@ namespace ScheduleApptApp
             return;
         }
 
-
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
     }
 

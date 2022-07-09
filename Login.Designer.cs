@@ -87,6 +87,7 @@ namespace ScheduleApptApp
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
             // txtBoxUser
             // 
@@ -147,7 +148,6 @@ namespace ScheduleApptApp
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Login";
-            this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
