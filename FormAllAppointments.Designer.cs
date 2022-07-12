@@ -43,6 +43,7 @@ namespace ScheduleApptApp
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.UpdateBtn = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.AppointmentGrid = new System.Windows.Forms.DataGridView();
@@ -105,7 +106,8 @@ namespace ScheduleApptApp
             this.btnSaveAppt,
             this.toolStripSeparator1,
             this.btnCancel,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.UpdateBtn});
             this.toolStrip1.Location = new System.Drawing.Point(0, 62);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(933, 60);
@@ -189,6 +191,15 @@ namespace ScheduleApptApp
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 60);
             // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.UpdateBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(49, 57);
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -259,7 +270,6 @@ namespace ScheduleApptApp
             this.userCombo.Name = "userCombo";
             this.userCombo.Size = new System.Drawing.Size(57, 23);
             this.userCombo.TabIndex = 26;
-            this.userCombo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // User
             // 
@@ -425,5 +435,6 @@ namespace ScheduleApptApp
         private System.Windows.Forms.ComboBox comboId;
         private System.Windows.Forms.ComboBox userCombo;
         private System.Windows.Forms.Label User;
+        private System.Windows.Forms.ToolStripButton UpdateBtn;
     }
 }

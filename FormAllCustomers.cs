@@ -52,8 +52,6 @@ namespace ScheduleApptApp
             CustomerGrid.ClearSelection();
         }
 
-
-
         private void clearTextBoxes(GroupBox custGroupBox)
         {
             foreach (Control ctrl in custGroupBox.Controls)
@@ -140,6 +138,7 @@ namespace ScheduleApptApp
 
         }
 
+        //Requirment B:  Deletes chosen customer from database
         private void btnDeleteCust_Click(object sender, EventArgs e)
         {
             btnAddCustomer.Enabled = false;
@@ -322,13 +321,13 @@ namespace ScheduleApptApp
             }
         }
 
-
+        //Requirement B:  Add a new customer record to database
         private void btnSaveCustomer_Click_1(object sender, EventArgs e)
         {
 
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection con = null;
-
+            //Requirement F:  checks for invalid or nonexistent customer data
             if (txtBoxCustName.Text == "" || txtBoxCustAdd.Text == "" || txtBoxCustCity.Text == "" || txtBoxCustPhone.Text == "" || txtBoxCustCountry.Text == "")
             {
                 MessageBox.Show("Please complete all fields");
@@ -400,6 +399,7 @@ namespace ScheduleApptApp
         }
 
 
+        //allows customer search by customerName
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string sqlString = "SELECT * FROM customer where customerName like '" + txtBxSearch.Text + "%'";
@@ -410,9 +410,9 @@ namespace ScheduleApptApp
             CustomerGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        //Requirement B:  updates customer records in database
         private void UpdateButton1_Click(object sender, EventArgs e)
-        {
-            
+        {            
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection con = null;
 
@@ -477,10 +477,7 @@ namespace ScheduleApptApp
             this.Close();
         }
 
-        private void txtBoxCustId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
 

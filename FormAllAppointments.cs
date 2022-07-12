@@ -38,9 +38,8 @@ namespace ScheduleApptApp
             fill_userBox();
             this.apptGroupBox.Enabled = false;
             clearTextBoxes(apptGroupBox);
+            UpdateBtn.Visible = false;
         }
-
-        
 
         private void clearTextBoxes(GroupBox apptGroupBox)
         {
@@ -51,7 +50,7 @@ namespace ScheduleApptApp
                     TextBox textBox = (TextBox)ctrl;
                     textBox.Text = null;
                 }
-                if(ctrl is ComboBox)
+                if (ctrl is ComboBox)
                 {
                     ComboBox comboBox = (ComboBox)ctrl;
                     comboBox.Text = null;
@@ -59,9 +58,11 @@ namespace ScheduleApptApp
             }
         }
 
+      
         private void btnAddAppt_Click(object sender, EventArgs e)
         {
             editDelBtn();
+            btnSaveAppt.Visible = true;
             int count;
             string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection con = null;
@@ -105,9 +106,9 @@ namespace ScheduleApptApp
             this.Close();
         }
 
-
+        //Requirement F: checks scheduling an appointment outside business hours
         private bool checkBusHours(DateTime start, DateTime end)
-        {       
+        {
             string openTime = "9:00 am";
             string closeTime = "5:00 pm";
             DateTime startDateInput = Convert.ToDateTime(dateTimePicker1.Value);
@@ -115,15 +116,21 @@ namespace ScheduleApptApp
             DateTime endDateInput = Convert.ToDateTime(dateTimePicker2.Value);
             DateTime e = Convert.ToDateTime(endDateInput.ToString("MM/dd/yyyy") + " " + closeTime);
 
-            if (startDateInput < s || endDateInput > e)
+            if (startDateInput < s)
             {
-                MessageBox.Show("Sorry, our office is closed during this time.");
+                MessageBox.Show("Sorry, our office isn't open until 9:00 AM");
+                return false;
+            }
+
+            if (endDateInput > e)
+            {
+                MessageBox.Show("Sorry, our office closes at 5:00 PM");
                 return false;
             }
             return true;
         }
 
-
+        //Requirment F:  checks scheduling overlapping appointments
         public static bool checkOverlap(DateTime proposedStart, DateTime proposedEnd, int userId, int appointmentId)
         {
             try
@@ -136,13 +143,13 @@ namespace ScheduleApptApp
                 for (int i = 0; i < dtable.Rows.Count; i++)
                 {
                     int aApptId = (int)dtable.Rows[i]["appointmentId"];
-                    if(aApptId == appointmentId)
+                    if (aApptId == appointmentId)
                     {
                         continue;
                     }
                     int aUserId = (int)dtable.Rows[i]["userId"];
-                    
-                    if(aUserId != userId)
+
+                    if (aUserId != userId)
                     {
                         continue;
                     }
@@ -152,17 +159,17 @@ namespace ScheduleApptApp
                     aStart = aStart.ToLocalTime();
                     aEnd = aEnd.ToLocalTime();
 
-                    if(aStart >= proposedStart && aStart < proposedEnd)
+                    if (aStart >= proposedStart && aStart < proposedEnd)
                     {
                         return true;
                     }
 
-                    if(aEnd > proposedStart && aEnd <= proposedEnd)
+                    if (aEnd > proposedStart && aEnd <= proposedEnd)
                     {
                         return true;
                     }
 
-                    if(aStart<= proposedStart && aEnd >= proposedEnd)
+                    if (aStart <= proposedStart && aEnd >= proposedEnd)
                     {
                         return true;
                     }
@@ -176,6 +183,7 @@ namespace ScheduleApptApp
             return false;
         }
 
+        //Requirement C: Adds appointment into database after checking business hours and overlap
         private void btnSaveAppt_Click(object sender, EventArgs e)
         {
             bool busHours = checkBusHours(dateTimePicker1.Value, dateTimePicker2.Value);
@@ -204,16 +212,12 @@ namespace ScheduleApptApp
             {
                 DialogResult results = MessageBox.Show("Are you sure you want to add this appointment? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 appointmentId = 0;
-               
+
                 if (results == DialogResult.Yes)
                 {
                     con = new MySqlConnection(constr);
-                    MySqlCommand com = new MySqlCommand("INSERT INTO appointment(customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES (@customerId, @userId, 'title', 'description', 'location', 'contact', @type,'url', @start, @end, NOW(), 'test', NOW(), 'test')", con);
+                    MySqlCommand com = new MySqlCommand("INSERT INTO appointment(customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES (@customerId, @userId, 'title', 'description', 'location', 'contact', @type,'url', @start, @end, NOW(), 'test', NOW(), 'test')", con);       
 
-                    //DateTime startTime = TimeZoneInfo.ConvertTimeToUtc(dateTimePicker1.Value);
-                    //DateTime endTime = TimeZoneInfo.ConvertTimeToUtc(dateTimePicker2.Value);
-
-                    
                     com.Parameters.AddWithValue("@customerId", comboId.Text);
                     com.Parameters.AddWithValue("@type", comboType.Text);
                     com.Parameters.AddWithValue("@userId", userCombo.Text);
@@ -235,8 +239,6 @@ namespace ScheduleApptApp
             }
 
         }
-
-
 
         private void LoadListBoxCustId()
         {
@@ -276,13 +278,13 @@ namespace ScheduleApptApp
                 comboType.DataSource = table;
                 comboType.DisplayMember = "type";
             }
-            
-                catch (MySqlException ex)
+
+            catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
 
         private void loadAllAppointments()
         {
@@ -314,8 +316,8 @@ namespace ScheduleApptApp
             }
 
 
-        }      
-        
+        }
+
         private void fill_userBox()
         {
             try
@@ -338,7 +340,7 @@ namespace ScheduleApptApp
                 MessageBox.Show(ex.Message);
             }
         }
-           private void fill_listbox()
+        private void fill_listbox()
         {
             try
             {
@@ -355,6 +357,7 @@ namespace ScheduleApptApp
             }
         }
 
+        //Requirement C:  deletes chosen appointment from database
         private void btnDeleteAppt_Click(object sender, EventArgs e)
         {
             editDelBtn();
@@ -382,7 +385,7 @@ namespace ScheduleApptApp
                         loadAllAppointments();
                         MessageBox.Show("Deleted Successfully");
                         clearTextBoxes(apptGroupBox);
-                      
+
                     }
                 }
                 catch (MySqlException ex)
@@ -393,84 +396,50 @@ namespace ScheduleApptApp
         }
 
         private void AppointmentGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {           
-                if (AppointmentGrid.SelectedRows.Count > 0)
-                {
-                    var row = AppointmentGrid.SelectedRows[0];
+        {
+            if (AppointmentGrid.SelectedRows.Count > 0)
+            {
+                var row = AppointmentGrid.SelectedRows[0];
 
-                    txtBxApptId.Text = ((int)row.Cells[0].Value).ToString();
-                    comboId.Text = ((int)row.Cells[2].Value).ToString();
-                    userCombo.Text = ((int)row.Cells[4].Value).ToString();
-                    comboType.Text = (string)row.Cells[3].Value;
-                    
-                    dateTimePicker1.Value = (DateTime)row.Cells[5].Value;
-                    dateTimePicker2.Value = (DateTime)row.Cells[6].Value;
-                }
-            
-            
+                txtBxApptId.Text = ((int)row.Cells[0].Value).ToString();
+                comboId.Text = ((int)row.Cells[2].Value).ToString();
+                userCombo.Text = ((int)row.Cells[4].Value).ToString();
+                comboType.Text = (string)row.Cells[3].Value;
+
+                dateTimePicker1.Value = (DateTime)row.Cells[5].Value;
+                dateTimePicker2.Value = (DateTime)row.Cells[6].Value;
+            }
+
+
         }
 
         private void btnEditAppt_Click(object sender, EventArgs e)
         {
             editDelBtn();
-           
-
-            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            MySqlConnection con = null;
-
+            UpdateBtn.Visible = true;
+            btnSaveAppt.Visible = false;
 
             if (AppointmentGrid.CurrentRow == null || !AppointmentGrid.CurrentRow.Selected)
-                {
-                    MessageBox.Show("Nothing is selected.  Please make a selection");
-                    AppointmentGrid.Enabled = true;
-                    return;
-                }
-
-                if (checkOverlap(dateTimePicker1.Value, dateTimePicker2.Value, Convert.ToInt32(userCombo.Text), 0))
-                {
-                    MessageBox.Show("Appointments overlap");
-                    return;
-                }
-                try
-                {
-                    DialogResult result = MessageBox.Show("Are you sure you want to update this appointment? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                    if (result == DialogResult.Yes)
-                    {
-                        //var customerId = 0;
-                        con = new MySqlConnection(constr);
-                        MySqlCommand com = new MySqlCommand("UPDATE appointment SET customerId = @customerId, WHERE customerId = @customerId", con);
-                        com.Parameters.AddWithValue("@customerId", comboId.Text);
-                        com.Parameters.AddWithValue("@type", comboType.SelectedItem);
-                        com.Parameters.AddWithValue("@userId", userCombo.Text);
-                        com.Parameters.AddWithValue("@appointmentId", int.Parse(txtBxApptId.Text));
-                        con.Open();
-                        com.ExecuteNonQuery();
-                        con.Close();
-                        loadAllAppointments();
-                        MessageBox.Show("Updated Successfully");
-                        clearTextBoxes(apptGroupBox);                        
-                    }
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            {
+                MessageBox.Show("Nothing is selected.  Please make a selection");
+                AppointmentGrid.Enabled = true;
+                return;
             }
-            
+            Appointment a = AppointmentGrid.CurrentRow.DataBoundItem as Appointment;
+            var chosenAppt = AppointmentGrid.CurrentCell.Value;
+        }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             saveCancelBtn();
             clearTextBoxes(apptGroupBox);
             AppointmentGrid.ClearSelection();
-        
-        }
+            UpdateBtn.Visible = false;
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        }       
 
-        }
-
+        //allows search by customerId
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string sqlString = "SELECT * FROM appointment where customerId like '" + txtBxSearch.Text + "%'";
@@ -480,11 +449,68 @@ namespace ScheduleApptApp
             AppointmentGrid.DataSource = dt;
             AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
+
+
+        //Requirement C:  updates appointment after checking business hours and overlapping appointments
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection con = null;
+
+            if (comboId.Text == "" || comboType.Text == "" || userCombo.Text == "" || dateTimePicker1.Text == "" || dateTimePicker2.Text == "")
+            {
+                MessageBox.Show("Please complete all fields");
+                return;
+            }
+            {
+
+                bool busHours = checkBusHours(dateTimePicker1.Value, dateTimePicker2.Value);
+                if (busHours == false)
+                {
+                    return;
+                }
+
+                if (checkOverlap(dateTimePicker1.Value, dateTimePicker2.Value, Convert.ToInt32(userCombo.Text), 0))
+                {
+                    MessageBox.Show("Appointments overlap");
+                    return;
+                }
+
+                try
+                {
+                    DialogResult results = MessageBox.Show("Are you sure you want to update this appointment? ", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    appointmentId = 0;
+
+                    if (results == DialogResult.Yes)
+                    {
+
+                        con = new MySqlConnection(constr);
+                        MySqlCommand com = new MySqlCommand("UPDATE appointment SET customerId = @customerId, type = @type, userId = @userId WHERE appointmentId = @appointmentId", con);
+                        com.Parameters.AddWithValue("@customerId", comboId.Text);
+                        com.Parameters.AddWithValue("@type", comboType.Text);
+                        com.Parameters.AddWithValue("@userId", userCombo.Text);
+                        com.Parameters.AddWithValue("@appointmentId", int.Parse(txtBxApptId.Text));
+                        con.Open();
+                        com.ExecuteNonQuery();
+                        con.Close();
+                        loadAllAppointments();
+                        MessageBox.Show("Updated Successfully");
+                        clearTextBoxes(apptGroupBox);
+
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
-    }
+}
+    
 
 
-   
 
 
-   
+
+

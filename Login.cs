@@ -22,6 +22,7 @@ namespace ScheduleApptApp
             InitializeComponent();           
         }
 
+        // Requirment A:  checks user location, translates log in error control messages into english and russian
         private void btnLogin_Click(object sender, EventArgs e)
         {
             CultureInfo myCultureInfo = CultureInfo.CurrentCulture;
@@ -46,6 +47,7 @@ namespace ScheduleApptApp
             {
                 if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
                 {
+                    //Requirment F:  Checks for incorrect username and password
                     MessageBox.Show(@"Please enter a correct username and password.",
                     @"Incorrect Username/Password Combination", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -56,7 +58,8 @@ namespace ScheduleApptApp
                 txtBoxUser.Clear();
                 txtBoxUserPass.Clear();
 
-                using (StreamWriter sw = File.AppendText("userLog.txt")) 
+                //Requiremnt J:  track user activity by recording timestamps for user log ins in a txt file
+                using (StreamWriter sw = File.AppendText("userLog.txt")) //saves to C:\Users\LabUser\source\repos\Dlynbm\ScheduleApptApp\bin\Debug
                 {
                     sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" login failed");
                 }
@@ -65,7 +68,7 @@ namespace ScheduleApptApp
             }
             else
             {
-                using (StreamWriter sw = File.AppendText("userLog.txt")) 
+                using (StreamWriter sw = File.AppendText("userLog.txt")) //saves to C:\Users\LabUser\source\repos\Dlynbm\ScheduleApptApp\bin\Debug
                 {
                     sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" logged in successfully");
                 }
@@ -103,7 +106,7 @@ namespace ScheduleApptApp
 
       
 
-
+        //Requirement H:  provide reminder and alerts 15 minutes in advance of appointment, based on user log in
         private void ApptAlert()
         {
             string user = txtBoxUser.Text;

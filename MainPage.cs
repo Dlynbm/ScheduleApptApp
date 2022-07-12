@@ -64,6 +64,7 @@ namespace ScheduleApptApp
 
         }
 
+        //Requirement D:  ability to view calendar by month
         private void btnSearchMonth_Click(object sender, EventArgs e)
         {
             label2.Visible = true;
@@ -83,6 +84,7 @@ namespace ScheduleApptApp
             lblTotal.Text = $"There are a total of {AppointmentGrid.RowCount - 1} appointments for this month";
         }
 
+        //Requirement D:  ability to view calendar by week
         private void btnWeekSrch_Click(object sender, EventArgs e)
         {
             label2.Visible = true;
@@ -106,11 +108,6 @@ namespace ScheduleApptApp
         {
             Reports reports = new Reports();
             reports.Show();
-        }
-
-        private void AppointmentGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnLogOff_Click(object sender, EventArgs e)

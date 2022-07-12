@@ -26,7 +26,7 @@ namespace ScheduleApptApp
         }
             
         
-
+        //Requirement I:  additional report of my choice.  Takes two dates and provides all appointments within the date range chosen
         private void btnDateSearch_Click_1(object sender, EventArgs e)
         {
             lblTitle.Text = "DATE RANGE SEARCH";
@@ -48,6 +48,7 @@ namespace ScheduleApptApp
             numLbl.Text = $"There are a total of {reportsGrid.RowCount -1} appointments for the chosen date range:";
         }       
 
+        //Requirement I:  report that shows the schedule for each consultant
         private void btnConsult_Click_1(object sender, EventArgs e)
         {
             lblTitle.Text = "Consultant Schedule";
@@ -87,16 +88,10 @@ namespace ScheduleApptApp
             DataTable table = new DataTable();
             cd.Fill(table);
             listBoxConsult.DataSource = table;
-            listBoxConsult.DisplayMember = "userName";
-           
+            listBoxConsult.DisplayMember = "userName";           
         }
 
-
-
-
-
-
-
+        //Requirement I:  report that shows number of appointment types by month
         private void btnAptType_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "APPOINTMENT TYPE BY MONTH SEARCH";

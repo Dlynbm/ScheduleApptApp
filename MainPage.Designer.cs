@@ -88,7 +88,6 @@ namespace ScheduleApptApp
             this.AppointmentGrid.Name = "AppointmentGrid";
             this.AppointmentGrid.Size = new System.Drawing.Size(643, 123);
             this.AppointmentGrid.TabIndex = 0;
-            this.AppointmentGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentGrid_CellContentClick);
             // 
             // ViewCustomersBtn
             // 
