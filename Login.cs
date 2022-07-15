@@ -54,16 +54,18 @@ namespace ScheduleApptApp
                 if(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ru")
                 {
                     MessageBox.Show("инкоррект узернаме ор пассуорд");
-                }
-                txtBoxUser.Clear();
-                txtBoxUserPass.Clear();
+                }               
 
                 //Requiremnt J:  track user activity by recording timestamps for user log ins in a txt file
                 using (StreamWriter sw = File.AppendText("userLog.txt")) //saves to C:\Users\LabUser\source\repos\Dlynbm\ScheduleApptApp\bin\Debug
                 {
                     sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" login failed");
                 }
+                txtBoxUser.Clear();
+                txtBoxUserPass.Clear();
                 return;
+
+
                 
             }
             else
@@ -121,7 +123,8 @@ namespace ScheduleApptApp
                 }
                 else
                 {
-                    MessageBox.Show("You have an appointment coming up within the next 15 minutes");
+                    //uses greet Lambda
+                    greet("You have a meeting within the next 15 minutes.");
                 }
             }
             catch (MySqlException ex)
@@ -130,6 +133,12 @@ namespace ScheduleApptApp
             }
             return;
         }
+        //Requirement G: I used a Lambda here to make the code more simple and effecient to greet user of upcoming appointment
+        Action<string> greet = alert =>
+        {
+            string greeting = $"{alert}";
+            MessageBox.Show(greeting);
+        };
 
         private void btnCancel_Click_1(object sender, EventArgs e)
         {

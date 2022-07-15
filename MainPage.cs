@@ -81,7 +81,6 @@ namespace ScheduleApptApp
             da.Fill(myDataTable);
             //adding datasource
             AppointmentGrid.DataSource = myDataTable;
-            lblTotal.Text = $"There are a total of {AppointmentGrid.RowCount - 1} appointments for this month";
         }
 
         //Requirement D:  ability to view calendar by week
@@ -101,7 +100,6 @@ namespace ScheduleApptApp
             da.Fill(myDataTable);
             //adding datasource
             AppointmentGrid.DataSource = myDataTable;
-            lblTotal.Text = $"There are a total of {AppointmentGrid.RowCount - 1} appointments for this week";
         }
 
         private void btnReports_Click(object sender, EventArgs e)
@@ -113,6 +111,14 @@ namespace ScheduleApptApp
         private void btnLogOff_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadAppointments();
+            label2.Text = "All appointments";
+            lblTotal.Text = $"There are a total of {AppointmentGrid.RowCount - 1} appointments";
+
         }
     }
 }

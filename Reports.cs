@@ -96,8 +96,6 @@ namespace ScheduleApptApp
         {
             lblTitle.Text = "APPOINTMENT TYPE BY MONTH SEARCH";
             string sqlString = "SELECT MONTHNAME(start) AS 'Month', type as 'Type', COUNT(*) AS 'Number of Appointments'FROM appointment GROUP BY type";
-            //select type, count(*) from appointment group by type;
-            // string mySqlString = "SELECT type, COUNT(*) FROM appointment WHERE MONTHNAME(start) = @d1 GROUP BY type"
 
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
             MySqlConnection connection = new MySqlConnection(connString);

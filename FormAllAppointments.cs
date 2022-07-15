@@ -228,9 +228,10 @@ namespace ScheduleApptApp
                     appointmentId = (int)com.LastInsertedId;
                     con.Close();
                     MessageBox.Show("Added Successfully");
+                    loadAllAppointments();
                     saveCancelBtn();
                     clearTextBoxes(apptGroupBox);
-                    loadAllAppointments();
+                    
                 }
             }
             catch (MySqlException ex)
@@ -240,6 +241,7 @@ namespace ScheduleApptApp
 
         }
 
+       
         private void LoadListBoxCustId()
         {
             try
@@ -262,27 +264,19 @@ namespace ScheduleApptApp
             }
         }
 
+        //used Lambda here since it's simple and short
         private void LoadListBoxType()
         {
-            try
+            List<string> types = new List<string>
             {
-                string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-                MySqlConnection connection = new MySqlConnection(connString);
-                string sqlString = "SELECT DISTINCT type FROM appointment";
-                MySqlCommand mySqlCommand = new MySqlCommand(sqlString);
-                mySqlCommand.Connection = connection;
+                "Presentation",
+                "Google Meet", 
+                "Manager Meeting"
+            };
 
-                MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, DBConnection.conn);
-                DataTable table = new DataTable();
-                cd.Fill(table);
-                comboType.DataSource = table;
-                comboType.DisplayMember = "type";
-            }
+            types = types.OrderBy(type => type).ToList();
 
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            comboType.DataSource = types;                      
         }
 
 
