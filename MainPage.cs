@@ -30,7 +30,6 @@ namespace ScheduleApptApp
         {
             loadAppointments();
             label2.Visible = false;
-
         }
 
         private void loadAppointments()
@@ -61,7 +60,6 @@ namespace ScheduleApptApp
         {
             this.Validate();
             this.appointmentBindingSource.EndEdit();
-
         }
 
         //Requirement D:  ability to view calendar by month
@@ -118,7 +116,6 @@ namespace ScheduleApptApp
             loadAppointments();
             label2.Text = "All appointments";
             lblTotal.Text = $"There are a total of {AppointmentGrid.RowCount - 1} appointments";
-
         }
     }
 }

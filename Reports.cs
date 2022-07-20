@@ -109,12 +109,7 @@ namespace ScheduleApptApp
             //adding datasource
             reportsGrid.DataSource = myDataTable;
         }
-
     }
-
-
-
-
 }
 
 

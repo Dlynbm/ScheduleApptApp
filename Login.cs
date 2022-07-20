@@ -62,10 +62,7 @@ namespace ScheduleApptApp
                 }
                 txtBoxUser.Clear();
                 txtBoxUserPass.Clear();
-                return;
-
-
-                
+                return;                
             }
             else
             {
@@ -95,9 +92,7 @@ namespace ScheduleApptApp
                 lblName.Text = "имя пользователя";
                 lblPass.Text = "пароль";
                 Label.Text = "уэлком";
-
             }
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

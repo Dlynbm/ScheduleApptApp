@@ -26,7 +26,6 @@ namespace ScheduleApptApp
             CustomerGrid.ReadOnly = true;
             CustomerGrid.AllowUserToAddRows = true;
             CustomerGrid.ClearSelection();
-
         }
 
         private void FormAllCustomers_Load(object sender, EventArgs e)
@@ -121,9 +120,6 @@ namespace ScheduleApptApp
 
                 return;
             }
-            //Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
-            //var chosenCustomer = CustomerGrid.CurrentCell.Value;
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -289,8 +285,6 @@ namespace ScheduleApptApp
             con.Close();
             return addressId;
         }
-
-
 
         private bool TryGetAddressId(string constr, string address, string address2, int cityId, string phone, out int addressId)
         {
@@ -475,9 +469,7 @@ namespace ScheduleApptApp
             MainPage main = new MainPage();
             main.Show();
             this.Close();
-        }
-
-       
+        }       
     }
 }
 

@@ -308,8 +308,6 @@ namespace ScheduleApptApp
             {
                 MessageBox.Show(ex.Message);
             }
-
-
         }
 
         private void fill_userBox()
@@ -403,8 +401,6 @@ namespace ScheduleApptApp
                 dateTimePicker1.Value = (DateTime)row.Cells[5].Value;
                 dateTimePicker2.Value = (DateTime)row.Cells[6].Value;
             }
-
-
         }
 
         private void btnEditAppt_Click(object sender, EventArgs e)
@@ -430,7 +426,6 @@ namespace ScheduleApptApp
             clearTextBoxes(apptGroupBox);
             AppointmentGrid.ClearSelection();
             UpdateBtn.Visible = false;
-
         }       
 
         //allows search by customerId
