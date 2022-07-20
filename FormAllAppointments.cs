@@ -118,13 +118,13 @@ namespace ScheduleApptApp
 
             if (startDateInput < s)
             {
-                MessageBox.Show("Sorry, our office isn't open until 9:00 AM");
+                MessageBox.Show($"Sorry, our office isn't open until {openTime}");
                 return false;
             }
 
             if (endDateInput > e)
             {
-                MessageBox.Show("Sorry, our office closes at 5:00 PM");
+                MessageBox.Show($"Sorry, our office closes at {closeTime}");
                 return false;
             }
             return true;

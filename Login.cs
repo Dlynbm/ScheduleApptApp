@@ -48,8 +48,7 @@ namespace ScheduleApptApp
                 if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "en")
                 {
                     //Requirment F:  Checks for incorrect username and password
-                    MessageBox.Show(@"Please enter a correct username and password.",
-                    @"Incorrect Username/Password Combination", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Please enter a correct username and password.");
                 }
                 if(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ru")
                 {

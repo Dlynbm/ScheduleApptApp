@@ -121,8 +121,8 @@ namespace ScheduleApptApp
 
                 return;
             }
-            Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
-            var chosenCustomer = CustomerGrid.CurrentCell.Value;
+            //Customer c = CustomerGrid.CurrentRow.DataBoundItem as Customer;
+            //var chosenCustomer = CustomerGrid.CurrentCell.Value;
 
         }
 

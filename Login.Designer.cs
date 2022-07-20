@@ -46,7 +46,7 @@ namespace ScheduleApptApp
             // 
             // txtBoxUserPass
             // 
-            this.txtBoxUserPass.Location = new System.Drawing.Point(107, 59);
+            this.txtBoxUserPass.Location = new System.Drawing.Point(147, 59);
             this.txtBoxUserPass.Name = "txtBoxUserPass";
             this.txtBoxUserPass.Size = new System.Drawing.Size(140, 23);
             this.txtBoxUserPass.TabIndex = 2;
@@ -91,7 +91,7 @@ namespace ScheduleApptApp
             // 
             // txtBoxUser
             // 
-            this.txtBoxUser.Location = new System.Drawing.Point(107, 17);
+            this.txtBoxUser.Location = new System.Drawing.Point(147, 17);
             this.txtBoxUser.Name = "txtBoxUser";
             this.txtBoxUser.Size = new System.Drawing.Size(140, 23);
             this.txtBoxUser.TabIndex = 1;
