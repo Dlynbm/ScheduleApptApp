@@ -45,6 +45,15 @@ namespace ScheduleApptApp
             da.Fill(myDataTable);
             //adding datasource
             reportsGrid.DataSource = myDataTable;
+            for (int i = 0; i < myDataTable.Rows.Count; i++)
+            {
+                DateTime aStart = (DateTime)myDataTable.Rows[i]["start"];
+                DateTime aEnd = (DateTime)myDataTable.Rows[i]["end"];
+                aStart = aStart.ToLocalTime();
+                aEnd = aEnd.ToLocalTime();
+                myDataTable.Rows[i]["start"] = aStart;
+                myDataTable.Rows[i]["end"] = aEnd;
+            }
             numLbl.Text = $"There are a total of {reportsGrid.RowCount -1} appointments for the chosen date range:";
         }       
 
@@ -66,6 +75,16 @@ namespace ScheduleApptApp
             da.Fill(myDataTable);
             //adding datasource
             reportsGrid.DataSource = myDataTable;
+
+            for (int i = 0; i < myDataTable.Rows.Count; i++)
+            {
+                DateTime aStart = (DateTime)myDataTable.Rows[i]["start"];
+                DateTime aEnd = (DateTime)myDataTable.Rows[i]["end"];
+                aStart = aStart.ToLocalTime();
+                aEnd = aEnd.ToLocalTime();
+                myDataTable.Rows[i]["start"] = aStart;
+                myDataTable.Rows[i]["end"] = aEnd;
+            }
             numLbl.Text = $"There are a total of {reportsGrid.RowCount - 1} appointments for this consultant";
         }
 

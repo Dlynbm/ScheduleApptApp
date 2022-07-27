@@ -13,8 +13,7 @@ using MySql.Data.MySqlClient;
 namespace ScheduleApptApp
 {
     public partial class FormAllAppointments : Form
-    {
-        //private int rowIndex = -1;
+    {//private int rowIndex = -1;
         DBConnection con = new DBConnection();
         private int appointmentId;
 
@@ -58,7 +57,7 @@ namespace ScheduleApptApp
             }
         }
 
-      
+
         private void btnAddAppt_Click(object sender, EventArgs e)
         {
             editDelBtn();
@@ -72,6 +71,7 @@ namespace ScheduleApptApp
             count = Convert.ToInt16(cmd.ExecuteScalar()) + 1;
             txtBxApptId.Text = "0" + count;
             con.Close();
+            AppointmentGrid.Enabled = true;
         }
 
         void editDelBtn()
@@ -216,7 +216,7 @@ namespace ScheduleApptApp
                 if (results == DialogResult.Yes)
                 {
                     con = new MySqlConnection(constr);
-                    MySqlCommand com = new MySqlCommand("INSERT INTO appointment(customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES (@customerId, @userId, 'title', 'description', 'location', 'contact', @type,'url', @start, @end, NOW(), 'test', NOW(), 'test')", con);       
+                    MySqlCommand com = new MySqlCommand("INSERT INTO appointment(customerId, userId, title, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES (@customerId, @userId, 'title', 'description', 'location', 'contact', @type,'url', @start, @end, NOW(), 'test', NOW(), 'test')", con);
 
                     com.Parameters.AddWithValue("@customerId", comboId.Text);
                     com.Parameters.AddWithValue("@type", comboType.Text);
@@ -228,10 +228,11 @@ namespace ScheduleApptApp
                     appointmentId = (int)com.LastInsertedId;
                     con.Close();
                     MessageBox.Show("Added Successfully");
+                    AppointmentGrid.Enabled = true;
                     loadAllAppointments();
                     saveCancelBtn();
                     clearTextBoxes(apptGroupBox);
-                    
+
                 }
             }
             catch (MySqlException ex)
@@ -241,7 +242,7 @@ namespace ScheduleApptApp
 
         }
 
-       
+
         private void LoadListBoxCustId()
         {
             try
@@ -270,13 +271,13 @@ namespace ScheduleApptApp
             List<string> types = new List<string>
             {
                 "Presentation",
-                "Google Meet", 
+                "Google Meet",
                 "Manager Meeting"
             };
 
             types = types.OrderBy(type => type).ToList();
 
-            comboType.DataSource = types;                      
+            comboType.DataSource = types;
         }
 
 
@@ -297,6 +298,8 @@ namespace ScheduleApptApp
                     aEnd = aEnd.ToLocalTime();
                     dtable.Rows[i]["start"] = aStart;
                     dtable.Rows[i]["end"] = aEnd;
+
+                    //dtable.Rows[i]["start"] = TimeZoneInfo.ConvertTimeFromUtc((DateTime)dtable.Rows[i]["start"], TimeZoneInfo.Local).ToString();
                 }
 
                 AppointmentGrid.DataSource = dtable;
@@ -426,7 +429,7 @@ namespace ScheduleApptApp
             clearTextBoxes(apptGroupBox);
             AppointmentGrid.ClearSelection();
             UpdateBtn.Visible = false;
-        }       
+        }
 
         //allows search by customerId
         private void btnSearch_Click(object sender, EventArgs e)
@@ -482,6 +485,7 @@ namespace ScheduleApptApp
                         con.Open();
                         com.ExecuteNonQuery();
                         con.Close();
+                        AppointmentGrid.Enabled = true;
                         loadAllAppointments();
                         MessageBox.Show("Updated Successfully");
                         clearTextBoxes(apptGroupBox);
@@ -496,7 +500,8 @@ namespace ScheduleApptApp
         }
     }
 }
-    
+
+
 
 
 

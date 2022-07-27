@@ -32,12 +32,22 @@ namespace ScheduleApptApp
             label2.Visible = false;
         }
 
-        private void loadAppointments()
+        public void loadAppointments()
         {
-            string sqlString = $"SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId"; MySqlCommand cmd = new MySqlCommand(sqlString, con);
+            string sqlString = $"SELECT  appointment.appointmentId, customer.customerName, customer.customerId, appointment.userId, appointment.start, appointment.end, appointment.type FROM appointment INNER JOIN customer ON appointment.customerId = customer.customerId INNER JOIN `user` ON appointment.userId = `user`.userId"; MySqlCommand cmd = new MySqlCommand(sqlString, con);
             MySqlDataAdapter da = new MySqlDataAdapter(sqlString, DBConnection.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
+
+            for (int i=0; i < dt.Rows.Count; i++)
+            {
+                DateTime aStart = (DateTime)dt.Rows[i]["start"];
+                DateTime aEnd = (DateTime)dt.Rows[i]["end"];
+                aStart = aStart.ToLocalTime();
+                aEnd = aEnd.ToLocalTime();
+                dt.Rows[i]["start"] = aStart;
+                dt.Rows[i]["end"] = aEnd;
+            }
             AppointmentGrid.DataSource = dt;
             AppointmentGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
@@ -77,6 +87,17 @@ namespace ScheduleApptApp
             //fill data to datatable
             MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
             da.Fill(myDataTable);
+
+
+            for (int i = 0; i < myDataTable.Rows.Count; i++)
+            {
+                DateTime aStart = (DateTime)myDataTable.Rows[i]["start"];
+                DateTime aEnd = (DateTime)myDataTable.Rows[i]["end"];
+                aStart = aStart.ToLocalTime();
+                aEnd = aEnd.ToLocalTime();
+                myDataTable.Rows[i]["start"] = aStart;
+                myDataTable.Rows[i]["end"] = aEnd;
+            }
             //adding datasource
             AppointmentGrid.DataSource = myDataTable;
         }
@@ -96,6 +117,18 @@ namespace ScheduleApptApp
             //fill data to datatable
             MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
             da.Fill(myDataTable);
+
+            for (int i = 0; i < myDataTable.Rows.Count; i++)
+            {
+                DateTime aStart = (DateTime)myDataTable.Rows[i]["start"];
+                DateTime aEnd = (DateTime)myDataTable.Rows[i]["end"];
+                aStart = aStart.ToLocalTime();
+                aEnd = aEnd.ToLocalTime();
+                myDataTable.Rows[i]["start"] = aStart;
+                myDataTable.Rows[i]["end"] = aEnd;
+            }
+
+
             //adding datasource
             AppointmentGrid.DataSource = myDataTable;
         }

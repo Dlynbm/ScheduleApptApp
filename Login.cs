@@ -17,6 +17,8 @@ namespace ScheduleApptApp
     public partial class Login : Form
     {
         Exception ex;
+        
+            
         public Login()
         {
             InitializeComponent();           
@@ -25,6 +27,7 @@ namespace ScheduleApptApp
         // Requirment A:  checks user location, translates log in error control messages into english and russian
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string path = @"C:\Users\LabUser\Documents\userLog.txt";
             CultureInfo myCultureInfo = CultureInfo.CurrentCulture;
             string userName = txtBoxUser.Text;
             string password = txtBoxUserPass.Text;
@@ -56,9 +59,9 @@ namespace ScheduleApptApp
                 }               
 
                 //Requiremnt J:  track user activity by recording timestamps for user log ins in a txt file
-                using (StreamWriter sw = File.AppendText("userLog.txt")) //saves to C:\Users\LabUser\source\repos\Dlynbm\ScheduleApptApp\bin\Debug
+                using (StreamWriter sw = File.AppendText(path)) //saves to C:\Users\LabUser\Documents\userLog.txt
                 {
-                    sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" login failed");
+                    sw.WriteLine(System.DateTime.Now.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" login failed");
                 }
                 txtBoxUser.Clear();
                 txtBoxUserPass.Clear();
@@ -66,9 +69,9 @@ namespace ScheduleApptApp
             }
             else
             {
-                using (StreamWriter sw = File.AppendText("userLog.txt")) //saves to C:\Users\LabUser\source\repos\Dlynbm\ScheduleApptApp\bin\Debug
+                using (StreamWriter sw = File.AppendText(path)) //saves to C:\Users\LabUser\Documents\userLog.txt
                 {
-                    sw.WriteLine(System.DateTime.UtcNow.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" logged in successfully");
+                    sw.WriteLine(System.DateTime.Now.ToString() + "_UTC -- Username \"" + txtBoxUser.Text + "\" logged in successfully");
                 }
                 MainPage mainPage = new MainPage();
                 mainPage.Show();
