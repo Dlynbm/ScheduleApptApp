@@ -393,10 +393,10 @@ namespace ScheduleApptApp
         }
 
 
-        //allows customer search by customerName
+        //allows customer search by customerName or customerId
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string sqlString = "SELECT * FROM customer where customerName like '" + txtBxSearch.Text + "%'";
+            string sqlString = "SELECT * FROM customer WHERE CONCAT (`customerId`,`customerName`) like '%" + txtBxSearch.Text + "%'";
             MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, DBConnection.conn);
             DataTable dt = new DataTable();
             cd.Fill(dt);

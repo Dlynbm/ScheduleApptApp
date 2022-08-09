@@ -72,38 +72,10 @@ namespace ScheduleApptApp
             this.appointmentBindingSource.EndEdit();
         }
 
-        //Requirement D:  ability to view calendar by month
-        private void btnSearchMonth_Click(object sender, EventArgs e)
-        {
-            label2.Visible = true;
-            label2.Text = "Appointments this month";
-            string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end, createDate, createdBy, lastUpdate, lastUpdateBy FROM appointment WHERE MONTH (start) = MONTH(CURRENT_DATE()) AND YEAR (start) = YEAR(CURRENT_DATE())";
-            string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
-            MySqlConnection connection = new MySqlConnection(connString);
-            DataTable myDataTable = new DataTable();
-            MySqlCommand mySqlCommand = new MySqlCommand(mySqlString);
-            mySqlCommand.Connection = connection;
-
-            //fill data to datatable
-            MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
-            da.Fill(myDataTable);
-
-
-            for (int i = 0; i < myDataTable.Rows.Count; i++)
-            {
-                DateTime aStart = (DateTime)myDataTable.Rows[i]["start"];
-                DateTime aEnd = (DateTime)myDataTable.Rows[i]["end"];
-                aStart = aStart.ToLocalTime();
-                aEnd = aEnd.ToLocalTime();
-                myDataTable.Rows[i]["start"] = aStart;
-                myDataTable.Rows[i]["end"] = aEnd;
-            }
-            //adding datasource
-            AppointmentGrid.DataSource = myDataTable;
-        }
+        
 
         //Requirement D:  ability to view calendar by week
-        private void btnWeekSrch_Click(object sender, EventArgs e)
+        private void weekBtn_CheckedChanged(object sender, EventArgs e)
         {
             label2.Visible = true;
             label2.Text = "Appointments this week";
@@ -150,6 +122,43 @@ namespace ScheduleApptApp
             label2.Text = "All appointments";
             lblTotal.Text = $"There are a total of {AppointmentGrid.RowCount - 1} appointments";
         }
+
+        private void monthBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            label2.Visible = true;
+            label2.Text = "Appointments this month";
+            string mySqlString = "SELECT appointmentId, customerId, userId, type,  start, end, createDate, createdBy, lastUpdate, lastUpdateBy FROM appointment WHERE MONTH (start) = MONTH(CURRENT_DATE()) AND YEAR (start) = YEAR(CURRENT_DATE())";
+            string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+            MySqlConnection connection = new MySqlConnection(connString);
+            DataTable myDataTable = new DataTable();
+            MySqlCommand mySqlCommand = new MySqlCommand(mySqlString);
+            mySqlCommand.Connection = connection;
+
+            //fill data to datatable
+            MySqlDataAdapter da = new MySqlDataAdapter(mySqlCommand);
+            da.Fill(myDataTable);
+
+
+            for (int i = 0; i < myDataTable.Rows.Count; i++)
+            {
+                DateTime aStart = (DateTime)myDataTable.Rows[i]["start"];
+                DateTime aEnd = (DateTime)myDataTable.Rows[i]["end"];
+                aStart = aStart.ToLocalTime();
+                aEnd = aEnd.ToLocalTime();
+                myDataTable.Rows[i]["start"] = aStart;
+                myDataTable.Rows[i]["end"] = aEnd;
+            }
+            //adding datasource
+            AppointmentGrid.DataSource = myDataTable;
+        }
+
+        private void allBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            loadAppointments();
+
+        }
+
+      
     }
 }
 

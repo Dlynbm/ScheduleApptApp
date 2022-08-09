@@ -268,16 +268,26 @@ namespace ScheduleApptApp
         //used Lambda here since it's simple and short
         private void LoadListBoxType()
         {
-            List<string> types = new List<string>
+            try
             {
-                "Presentation",
-                "Google Meet",
-                "Manager Meeting"
-            };
+                string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
+                MySqlConnection connection = new MySqlConnection(connString);
+                string sqlString = "SELECT DISTINCT type FROM appointment";
+                MySqlCommand mySqlCommand = new MySqlCommand(sqlString);
+                mySqlCommand.Connection = connection;
 
-            types = types.OrderBy(type => type).ToList();
+                MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, DBConnection.conn);
+                DataTable table = new DataTable();
+                cd.Fill(table);
+                comboType.DataSource = table;
+                comboType.DisplayMember = "type";
+            }
 
-            comboType.DataSource = types;
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
 
@@ -434,7 +444,8 @@ namespace ScheduleApptApp
         //allows search by customerId
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string sqlString = "SELECT * FROM appointment where customerId like '" + txtBxSearch.Text + "%'";
+            string sqlString = "SELECT * FROM customer WHERE CONCAT (`customerId`,`customerName`) like '%" + txtBxSearch.Text + "%'";
+
             MySqlDataAdapter cd = new MySqlDataAdapter(sqlString, DBConnection.conn);
             DataTable dt = new DataTable();
             cd.Fill(dt);
@@ -498,6 +509,8 @@ namespace ScheduleApptApp
                 }
             }
         }
+
+       
     }
 }
 

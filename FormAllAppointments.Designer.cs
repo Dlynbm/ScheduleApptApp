@@ -276,9 +276,9 @@ namespace ScheduleApptApp
             this.User.AutoSize = true;
             this.User.Location = new System.Drawing.Point(22, 142);
             this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(33, 15);
+            this.User.Size = new System.Drawing.Size(62, 15);
             this.User.TabIndex = 25;
-            this.User.Text = "User:";
+            this.User.Text = "Employee:";
             // 
             // comboId
             // 

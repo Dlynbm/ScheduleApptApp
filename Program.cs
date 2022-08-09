@@ -18,7 +18,7 @@ namespace ScheduleApptApp
             Application.SetCompatibleTextRenderingDefault(false);
 
             DBConnection.startConnection();
-            Application.Run(new Login());
+            Application.Run(new MainPage());
             DBConnection.closeConnection();
         }
     }
