@@ -17,11 +17,11 @@ namespace ScheduleApptApp
     public partial class Login : Form
     {
         Exception ex;
-        
-            
+
+
         public Login()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
         // Requirment A:  checks user location, translates log in error control messages into english and russian
@@ -53,10 +53,10 @@ namespace ScheduleApptApp
                     //Requirment F:  Checks for incorrect username and password
                     MessageBox.Show("Please enter a correct username and password.");
                 }
-                if(CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ru")
+                if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "ru")
                 {
                     MessageBox.Show("инкоррект узернаме ор пассуорд");
-                }               
+                }
 
                 //Requiremnt J:  track user activity by recording timestamps for user log ins in a txt file
                 using (StreamWriter sw = File.AppendText(path)) //saves to C:\Users\LabUser\Documents\userLog.txt
@@ -65,7 +65,7 @@ namespace ScheduleApptApp
                 }
                 txtBoxUser.Clear();
                 txtBoxUserPass.Clear();
-                return;                
+                return;
             }
             else
             {
@@ -76,12 +76,12 @@ namespace ScheduleApptApp
                 MainPage mainPage = new MainPage();
                 mainPage.Show();
                 ApptAlert();
-                
+
             }
             this.Hide();
 
         }
-              
+
         private void Login_Load(object sender, EventArgs e)
         {
             string connString = ConfigurationManager.ConnectionStrings["localdb"].ConnectionString;
@@ -103,7 +103,7 @@ namespace ScheduleApptApp
             Application.Exit();
         }
 
-      
+
 
         //Requirement H:  provide reminder and alerts 15 minutes in advance of appointment, based on user log in
         private void ApptAlert()
@@ -142,7 +142,9 @@ namespace ScheduleApptApp
             Application.Exit();
         }
     }
-    }
+}
+
+
 
 
 
